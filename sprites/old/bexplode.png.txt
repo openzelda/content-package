@@ -1,0 +1,8 @@
+bexplode1	0	0		0	0	32	32
+bexplode2	0	0		32	0	48	48
+bexplode3	0	0		80	0	64	64
+bexplode4	0	0		144	0	64	64
+bexplode5	0	0		208	0	80	64
+bexplode6	0	0		288	0	80	72
+bexplode7	0	0		368	0	80	72
+bexplode8	0	0		448	0	80	72

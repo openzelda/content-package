@@ -1,0 +1,12 @@
+front_9	0	0	0	64	96	32	48
+front_8	0	0	0	32	96	32	48
+front_7	0	0	0	0	96	32	48
+back_6	0	0	0	64	48	32	48
+back_5	0	0	0	32	48	32	48
+back_4	0	0	0	0	48	32	48
+side_3	0	0	0	64	0	32	48
+side_2	0	0	0	32	0	32	48
+side_1	0	0	0	0	0	32	48
+side	0	0	0	ANIMATION	300	side_1	side_2	side_3
+back	0	0	0	ANIMATION	300	back_4	back_5	back_6
+front	0	0	0	ANIMATION	300	front_7	front_8	front_9

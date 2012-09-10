@@ -1,0 +1,151 @@
+<map xmlns="http://mokoi.info/projects/mokoi">
+<settings>
+	<dimensions width="1" height="1" />
+	<color red="128" blue="128" green="128" mode="0" />
+	<option name="on-event" value="Wake" type="" />
+	<option name="on-entity" value="d1_boss" type="" />
+	<option name="music" value="Dungeon.ogg" type="music" />
+	<option name="name" value="" type="" />
+</settings>
+<object value="dungeon01.png:f5" type="sprite" >
+	<position x="0" y="0" w="512" h="32" z="5" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:f5" type="sprite" >
+	<position x="480" y="32" w="32" h="448" z="5" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:f5" type="sprite" >
+	<position x="0" y="32" w="32" h="448" z="5" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:f5" type="sprite" >
+	<position x="0" y="480" w="512" h="32" z="5" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:f1" type="sprite" >
+	<position x="80" y="80" w="352" h="352" z="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:w1" type="sprite" >
+	<position x="32" y="32" w="48" h="48" z="1" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:w1" type="sprite" >
+	<position x="432" y="32" w="48" h="48" z="5" r="90" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w1" type="sprite" >
+	<position x="32" y="432" w="48" h="48" z="5" r="270" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w1" type="sprite" >
+	<position x="432" y="432" w="48" h="48" z="5" r="180" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="80" y="32" w="352" h="48" z="1" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="432" y="80" w="352" h="48" z="5" r="90" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="80" y="432" w="352" h="48" z="1" r="180" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="32" y="80" w="352" h="48" z="1" r="270" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:b2" type="sprite" >
+	<position x="96" y="80" w="320" h="16" z="1" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:b2" type="sprite" >
+	<position x="96" y="416" w="320" h="16" z="1" r="180" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:b2" type="sprite" >
+	<position x="416" y="96" w="320" h="16" z="2" r="90" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:b2" type="sprite" >
+	<position x="80" y="96" w="320" h="16" z="4" r="270" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:b1" type="sprite" >
+	<position x="80" y="80" w="16" h="16" z="5" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:b1" type="sprite" >
+	<position x="416" y="80" w="16" h="16" z="5" r="90" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:b1" type="sprite" >
+	<position x="416" y="416" w="16" h="16" z="1" r="180" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:b1" type="sprite" >
+	<position x="80" y="416" w="16" h="16" z="1" r="270" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="aquamentus.png:1" type="sprite" >
+	<position x="317" y="158" w="128" h="128" z="3" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="id" value="d1_boss" type="hidden"/>
+	<entity value="boss_aquamentus" />
+	<setting key="entity" value="boss_aquamentus.mps" type="hidden"/>
+	<setting key="global" value="false" type="hidden"/>
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:new" type="sprite" >
+	<position x="304" y="288" w="128" h="32" z="2" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:new" type="sprite" >
+	<position x="304" y="184" w="128" h="32" z="2" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:d1" type="sprite" >
+	<position x="32" y="192" w="64" h="48" z="1" r="270" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="target" value="" />
+	<setting key="locktype" value="0" />
+	<entity value="door" />
+	<setting key="entity" value="door.mps" type="hidden"/>
+	<setting key="id" value="*" type="hidden"/>
+	<setting key="global" value="false" type="hidden"/>
+	<setting key="grid" value="-1" />
+	<setting key="opened" value="1" />
+	<setting key="mirror" value="false" />
+</object>
+<object value="dungeon01.png:d1" type="sprite" >
+	<position x="207" y="32" w="64" h="48" z="2" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="target" value="" />
+	<setting key="locktype" value="0" />
+	<entity value="door" />
+	<setting key="entity" value="door.mps" type="hidden"/>
+	<setting key="id" value="d1_rb_a" type="hidden"/>
+	<setting key="global" value="false" type="hidden"/>
+	<setting key="grid" value="-1" />
+	<setting key="opened" value="0" />
+	<setting key="mirror" value="false" />
+</object>
+</map>

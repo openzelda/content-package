@@ -1,0 +1,17 @@
+obush1	0	0	o_bush1	0	0	32	32
+obush1u	0	0		32	0	32	32
+obush1c	0	0		64	0	16	16
+obush1d	0	0		64	16	16	16
+othrowobj1a	0	0	o_throwobj1a	0	32	32	32
+understone	0	0		64	32	32	32
+othrowobj1b	0	0	o_throwobj1b	32	32	32	32
+stone01	0	0		112	0	16	16
+stone02	0	0		128	0	16	16
+stone03	0	0		128	16	16	16
+stone04	0	0		112	16	16	16
+othrowobj1c	0	0	o_throwobj1c	0	64	64	64
+understone2	0	0		64	64	64	64
+opot1	0	0	o_pot1	64	128	32	32
+opot1a	0	0		0	128	32	32
+opot1b	0	0		32	128	32	32
+othrowobj1d	0	0	o_throwobj1d	96	32	32	32

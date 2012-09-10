@@ -1,0 +1,19 @@
+_bow1n	0	0	0	0	0	32	16
+_bow1s	0	0	0	0	16	32	16
+_bow1w	0	0	0	32	0	16	32
+_bow1e	0	0	0	48	0	16	32
+w_bow1	1	0	0	0	128	32	32
+w_bow2	0	0	0	32	128	32	32
+w_arrow	0	0	0	48	32	16	32
+w_bown	0	0	0	64	0	32	32
+w_bowf	0	0	0	64	32	32	32
+w_bowl	0	0	0	32	64	32	32
+w_bows	0	0	0	64	64	32	32
+w_bowb	0	0	0	64	96	32	32
+w_bowi	0	0	0	64	128	32	32
+i_quiver	0	0	0	32	96	32	32
+_itemarrow	0	0	0	48	32	16	32
+arrow_end_0	2	0	0	0	32	16	24
+arrow_end_1	2	0	0	16	32	16	24
+arrow_end_2	2	0	0	32	32	16	24
+arrow_end	0	0	0	ANIMATION	100	arrow_end_0	arrow_end_1	arrow_end_2

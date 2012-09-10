@@ -1,0 +1,180 @@
+level2dun1	0	24x24x0		0	0	48	48
+level2dun2	0	24x24x0		80	0	48	48
+level2dun3	0	24x24x0		80	80	48	48
+level2dun4	0	24x24x0		0	80	48	48
+level2dun5	0	16x24x0		48	0	32	48
+level2dun6	0	16x24x0		48	80	32	48
+level2dun7	0	24x16x0		80	48	48	32
+level2dun8	0	24x16x0		0	48	48	32
+level2dun9	0	0		48	48	32	32
+level2dun10	0	0		128	0	16	16
+level2dun11	0	0		144	0	16	16
+level2dun12	0	0		144	16	16	16
+level2dun13	0	0		128	16	16	16
+level2dun14	0	0		128	32	16	32
+level2dun15	0	0		144	32	16	32
+level2dun16	0	0		128	64	32	16
+level2dun17	0	0		128	80	32	16
+level2dun18	0	0		128	96	16	16
+level2dun19	0	0		144	96	16	16
+level2dun20	0	0		144	112	16	16
+level2dun21	0	0		128	112	16	16
+level2dun22	0	24x24x0		160	0	48	48
+level2dun23	0	24x24x0		240	0	48	48
+level2dun24	0	24x24x0		240	80	48	48
+level2dun25	0	24x24x0		160	80	48	48
+level2dun26	0	16x24x32		208	0	32	48
+level2dun27	0	16x24x16		208	80	32	48
+level2dun28	0	24x16x24		160	48	48	32
+level2dun29	0	24x16x40		240	48	48	32
+level2dun30	0	0		208	48	32	32
+level2dun31	0	0		288	0	16	16
+level2dun32	0	0		304	0	16	16
+level2dun33	0	0		304	16	16	16
+level2dun34	0	0		288	16	16	16
+level2dun35	0	0		288	32	16	32
+level2dun36	0	0		304	32	16	32
+level2dun37	0	0		288	64	32	16
+level2dun38	0	0		288	80	32	16
+level2dun39	0	0		288	96	16	16
+level2dun40	0	0		304	96	16	16
+level2dun41	0	0		304	112	16	16
+level2dun42	0	0		288	112	16	16
+level2dun43	0	0		320	0	32	32
+level2dun44	0	0		352	0	32	32
+level2dun45	0	0		384	0	32	32
+level2dun46	0	0		384	32	32	32
+level2dun47	0	0		384	64	32	32
+level2dun48	0	0		352	64	32	32
+level2dun49	0	0		320	64	32	32
+level2dun50	0	0		320	32	32	32
+level2dun51	0	24x24x0		416	0	48	48
+level2dun52	0	24x24x0		464	0	48	48
+level2dun53	0	24x24x0		464	48	48	48
+level2dun54	0	24x24x0		416	48	48	48
+level2dun55	0	24x24x0		416	96	48	48
+level2dun56	0	24x24x0		464	96	48	48
+level2dun57	0	24x24x0		464	144	48	48
+level2dun58	0	24x24x0		416	144	48	48
+level2dun59	0	0		352	96	32	32
+level2dun60	0	0		384	96	32	32
+level2dun61	0	0		384	128	32	32
+level2dun62	0	0		352	128	32	32
+level2dun63	0	8x8x8		320	96	16	16
+level2dun64	0	8x8x8		320	112	16	16
+level2dun65	0	8x8x8		336	96	16	16
+level2dun126	0	0		336	112	16	16
+level2dun66	0	16x16x8		352	160	32	32
+level2dun67	0	16x24x8		384	176	32	48
+level2dun68	0	16x8x8		384	160	32	16
+level2dun69	0	8x24x8		480	336	16	48
+level2dun70	0	32x24x0		368	480	64	48
+level2dun71	0	16x32x0		0	256	32	64
+level2dun72	0	16x32x0		32	256	32	64
+level2dun73	0	32x16x0		64	256	64	32
+level2dun74	0	32x16x0		64	288	64	32
+level2dun75	0	16x32x0		128	256	32	64
+level2dun76	0	16x32x0		160	256	32	64
+level2dun77	0	16x32x0		192	256	32	64
+level2dun78	0	16x32x0		224	256	32	64
+level2dun79	0	32x16x0		256	256	64	32
+level2dun80	0	32x16x0		256	288	64	32
+level2dun81	0	32x16x0		320	256	64	32
+level2dun82	0	32x16x0		320	288	64	32
+level2dun134	0	32x24x0		96	544	64	48
+level2dun135	0	32x24x0		160	544	64	48
+level2dun136	0	24x32x0		0	544	48	64
+level2dun137	0	24x32x0		48	544	48	64
+level2dun83	0	8x32x0		384	256	16	64
+level2dun84	0	8x32x0		400	256	16	64
+level2dun85	0	8x32x0		416	256	16	64
+level2dun86	0	8x32x0		432	256	16	64
+level2dun87	0	8x24x0		448	256	16	48
+level2dun88	0	8x24x0		464	256	16	48
+level2dun89	0	8x24x0		480	256	16	48
+level2dun90	0	8x24x0		496	256	16	48
+level2dun114	0	0		512	192	16	16
+level2dun115	0	0		528	192	16	16
+level2dun116	0	0		512	208	16	16
+level2dun117	0	0		528	208	16	16
+level2dun118	0	0		512	224	16	16
+level2dun119	0	0		528	224	16	16
+level2dun120	0	0		512	240	16	16
+level2dun121	0	0		528	240	16	16
+level2dun91	0	0		320	128	16	16
+level2dun92	0	0		336	128	16	16
+level2dun93	0	0		336	144	16	16
+level2dun94	0	0		320	144	16	16
+level2dun95	0	0		352	32	16	16
+level2dun96	0	0		368	32	16	16
+level2dun97	0	0		368	48	16	16
+level2dun98	0	0		352	48	16	16
+level2dun122	0	0		512	160	16	16
+level2dun123	0	0		528	160	16	16
+level2dun124	0	0		512	176	16	16
+level2dun125	0	0		528	176	16	16
+level2dun99	0	16x16x0		320	160	32	32
+level2dun100	0	0		416	192	64	64
+level2dun101	0	0		480	192	32	32
+level2dun102	0	0		480	224	32	32
+level2dun103	0	0		384	224	32	32
+level2dun104	0	_stairsmaskn		368	416	64	64
+level2dun105	0	_stairsmaskn		304	480	64	64
+level2tourchna	0	false		128	192	64	32
+level2tourchsa	0	false		128	224	64	32
+level2tourchwa	0	false		256	192	32	64
+level2tourchea	0	false		288	192	32	64
+level2dun106	0	24x32x0		0	128	48	64
+level2dun107	0	24x32x0		48	128	48	64
+level2dun108	0	0		96	128	160	64
+level2dun109	0	0		256	176	64	16
+ddungexit12	0	_doormaskn	d_dungexit12	256	128	64	48
+ddungexit12a	0	0		256	160	64	16
+ddungeon12O	0	_doormaskns		0	336	64	32
+ddungeon12A	0	0		0	320	64	16
+ddungeon72O	0	_doormaskns		0	368	64	32
+ddungeon72A	0	0		0	400	64	16
+ddungeon42O	0	_doormaske		16	416	32	64
+ddungeon42A	0	0		0	416	16	64
+ddungeonA2O	0	_doormaske		0	480	32	64
+ddungeonA2A	0	0		32	480	16	64
+ddungeon72	0	_doormaskns	d_dungeon72	64	368	64	32
+ddungeon42	0	_doormaske	d_dungeon42	64	416	32	64
+ddungeonA2	0	_doormaske	d_dungeonA2	48	480	32	64
+DungeonDoor48b	0	0		272	416	32	64
+ddungeon22	0	_doormaskns	d_dungeon22	128	336	64	32
+DungeonDoor48b	0	0		432	416	64	32
+ddungeon82	0	_doormaskns	d_dungeon82	128	368	64	32
+DungeonDoor48b	0	0		432	448	64	32
+ddungeon52	0	_doormaske	d_dungeon52	112	416	32	64
+DungeonDoor48b	0	0		304	416	32	64
+ddungeonB2	0	_doormaske	d_dungeonB2	96	480	32	64
+DungeonDoor48b	0	0		336	416	32	64
+ddungeon32	0	_doormaskns	d_dungeon32	192	336	64	32
+ddungeon92	0	_doormaskns	d_dungeon92	192	368	64	32
+ddungeon62	0	_doormaske	d_dungeon62	160	416	32	64
+ddungeonC2	0	_doormaske	d_dungeonC2	144	480	32	64
+level2crack1n	0	_doormaskn	_level2crack1n	256	320	64	48
+level2crack1na	0	0		256	320	64	16
+level2crack1nb	0	0		320	320	48	48
+level2crack1s	0	_doormaskn	_level2crack1s	256	368	64	48
+level2crack1sa	0	0		256	400	64	16
+level2crack1sb	0	0		320	368	48	48
+level2crack1w	0	_doormaske	_level2crack1w	192	416	48	64
+level2crack1wa	0	0		192	416	16	64
+level2crack1wb	0	0		368	368	48	48
+level2crack1e	0	_doormaske	_level2crack1e	192	480	48	64
+level2crack1ea	0	0		224	480	16	64
+level2crack1eb	0	0		368	320	48	48
+level2stairsd	0	_doormaskn	_level2stairsd	416	320	64	48
+level2stairsda	0	0		416	320	64	16
+level2stairsu	0	_doormaskn	_level2stairsu	416	368	64	48
+level2stairsua	0	0		416	368	64	16
+level2dun110	0	0		496	240	16	16
+level2dun130	0	0		512	128	32	32
+level2dun131	0	0		512	96	32	32
+level2dun138	0	0		432	480	64	32
+level2dun139	0	0		432	512	64	32
+level2dun140	0	0		496	416	32	64
+level2dun141	0	0		496	480	32	64
+ddungeon12	0	_doormaskns		64	336	64	32

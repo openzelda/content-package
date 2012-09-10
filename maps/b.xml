@@ -1,0 +1,44 @@
+<map xmlns="http://mokoi.info/projects/mokoi">
+<settings>
+	<dimensions width="1" height="1" />
+	<color red="128" blue="128" green="128" mode="0" />
+	<option name="music" value="" type="music" />
+	<option name="name" value="" type="" />
+</settings>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="56" y="120" w="32" h="48" z="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="88" y="168" w="32" h="48" z="0" r="90" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="8" y="168" w="32" h="48" z="0" r="270" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="56" y="200" w="32" h="48" z="0" r="180" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="256" y="96" w="96" h="96" z="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="352" y="192" w="96" h="96" z="0" r="90" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="256" y="288" w="96" h="96" z="0" r="180" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="160" y="192" w="96" h="96" z="0" r="270" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="dungeon01.png:w2" type="sprite" >
+	<position x="400" y="24" w="96" h="48" z="0" r="90" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+</map>

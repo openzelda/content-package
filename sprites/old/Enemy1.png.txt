@@ -1,0 +1,21 @@
+crabenemy	0	0	_crabenemy	0	0	48	32
+crabenemya	0	0		48	0	48	32
+guardg	0	0	_guardg	0	32	48	48
+guardr	0	0	_guardr	48	32	48	48
+guardb	0	0	_guardb	96	32	48	48
+spikeball	0	0	_spikeball	96	0	32	32
+tentacle1	0	0	_tentacle1	0	80	32	32
+tentacle1a	0	0		32	80	32	32
+tentacle1b	0	0		64	80	32	32
+tentacle1c	0	0		96	80	32	32
+armos1	0	0	_armos1	144	0	32	64
+orbenemyb	0	0	_orbenemyb	0	112	32	48
+orbenemyba	0	0		32	112	32	48
+orbenemyr	0	0	_orbenemyr	64	112	32	48
+orbenemyra	0	0		96	112	32	48
+ebubble1	0	0		128	16	16	16
+ebubble2	0	0		128	0	16	16
+ebubble3	0	0		128	80	16	16
+bubbleenemyr	0	0	_bubbleenemyr	144	64	32	32
+bubbleenemyb	0	0	_bubbleenemyb	144	96	32	32
+mine	0	0	_mine	144	128	32	16

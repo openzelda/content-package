@@ -1,0 +1,4 @@
+ochest1	0	0	o_chest1	0	0	32	32
+ochest1a	0	0		32	0	32	32
+ochest2	0	0	o_chest2	0	32	64	48
+ochest2a	0	0		64	32	64	48

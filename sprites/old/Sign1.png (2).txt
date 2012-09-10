@@ -1,0 +1,7 @@
+osign1	0	0	o_sign1	0	0	32	32
+osign1a	0	0		32	0	32	32
+osign1b	0	0		0	32	32	8
+osign1c	0	0		32	32	16	16
+osign1d	0	0		48	32	16	16
+osign1e	0	0		48	48	16	16
+osign1f	0	0		32	48	16	16

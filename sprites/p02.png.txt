@@ -1,0 +1,51 @@
+head_back	0	0	0	0	64	32	32
+head_front	0	0	0	0	32	32	32
+head_side	0	0	0	0	0	32	32
+run_side_0	2	0	0	32	0	32	32
+run_side_1	2	0	0	64	0	32	32
+run_side_2	2	0	0	96	0	32	32
+run_side_3	2	0	0	128	0	32	32
+run_side_4	2	0	0	160	0	32	32
+run_side_5	2	0	0	192	0	32	32
+run_side_6	2	0	0	224	0	32	32
+run_side_7	2	0	0	256	0	32	32
+run_front_0	2	0	0	32	32	32	32
+run_front_1	2	0	0	64	32	32	32
+run_front_2	2	0	0	96	32	32	32
+run_front_3	2	0	0	128	32	32	32
+run_front_4	2	0	0	160	32	32	32
+run_front_5	2	0	0	192	32	32	32
+run_front_6	2	0	0	224	32	32	32
+run_front_7	2	0	0	256	32	32	32
+run_back_0	2	0	0	32	64	32	32
+run_back_1	2	0	0	64	64	32	32
+run_back_2	2	0	0	96	64	32	32
+run_back_3	2	0	0	128	64	32	32
+run_back_4	2	0	0	160	64	32	32
+run_back_5	2	0	0	192	64	32	32
+run_back_6	2	0	0	224	64	32	32
+run_back_7	2	0	0	256	64	32	32
+run_back_8	2	0	0	288	64	32	32
+player	0	0	link.mps	328	32	32	48
+swing_side_0	2	0	0	0	96	32	48
+swing_side_1	2	0	0	32	96	32	48
+swing_side_2	2	0	0	64	96	32	48
+swing_side_3	2	0	0	96	96	32	48
+swing_side_4	2	0	0	128	96	32	48
+swing_south_0	2	0	0	0	144	32	48
+swing_south_1	2	0	0	32	144	32	48
+swing_south_2	2	0	0	64	144	32	48
+swing_south_3	2	0	0	96	144	32	48
+swing_south_4	2	0	0	128	144	32	48
+swing_back_0	2	0	0	168	96	33	56
+swing_back_1	2	0	0	201	96	33	56
+swing_back_2	2	0	0	234	96	33	56
+swing_back_3	2	0	0	267	96	33	56
+swing_back_4	2	0	0	300	96	33	56
+swing_back_5	2	0	0	333	96	33	56
+run_front	0	0	0	ANIMATION	100	run_front_0	run_front_1	run_front_2	run_front_3	run_front_4	run_front_5	run_front_6	run_front_7
+run_back	0	0	0	ANIMATION	100	run_back_0	run_back_1	run_back_2	run_back_3	run_back_4	run_back_5	run_back_6	run_back_7	run_back_8
+run_side	0	0	0	ANIMATION	100	run_side_7	run_side_6	run_side_5	run_side_4	run_side_3	run_side_2	run_side_1	run_side_0
+swing_side	0	0	0	ANIMATION	100	swing_side_0	swing_side_1	swing_side_2	swing_side_3	swing_side_4
+swing_front	0	0	0	ANIMATION	100	swing_south_0	swing_south_1	swing_south_2	swing_south_3	swing_south_4
+swing_back	0	0	0	ANIMATION	1000	swing_back_0	swing_back_1	swing_back_2	swing_back_3	swing_back_4	swing_back_5

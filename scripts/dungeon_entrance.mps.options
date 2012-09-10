@@ -1,0 +1,6 @@
+<entity>
+	<option name="dungeon-id" value="" />
+	<option name="grid" value="-1" />
+	<option name="target" value="" />
+	<option name="section" value="" />
+</entity>

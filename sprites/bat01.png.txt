@@ -1,0 +1,3 @@
+bat_1	2	0	0	32	0	32	32
+bat_0	2	0	0	0	0	32	32
+bat	0	0	enemy_bat.mps	ANIMATION	300	bat_0	bat_1

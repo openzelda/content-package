@@ -1,0 +1,14 @@
+rain1	0	0		48	0	16	32
+rain2	0	0		0	0	16	32
+rain3	0	0		16	0	16	32
+rain4	0	0		32	0	16	32
+fogsprite1	0	0		64	0	128	128
+fogsprite2	0	0		192	0	128	128
+fogsprite3	0	0		320	0	128	128
+fogsprite4	0	0		448	0	128	128
+fogsprite5	0	0		64	128	128	128
+fogsprite6	0	0		192	128	128	128
+fogsprite7	0	0		320	128	128	128
+fogsprite8	0	0		448	128	128	128
+snowflake1	0	0		0	32	16	16
+snowflake2	0	0		16	32	16	16

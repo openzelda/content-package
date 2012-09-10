@@ -1,0 +1,186 @@
+cavedun1	0	24x24x0		0	0	48	48
+cavedun2	0	24x24x0		80	0	48	48
+cavedun3	0	24x24x0		80	80	48	48
+cavedun4	0	24x24x0		0	80	48	48
+cavedun5	0	16x24x0		48	0	32	48
+cavedun6	0	16x24x0		48	80	32	48
+cavedun7	0	24x16x0		80	48	48	32
+cavedun8	0	24x16x0		0	48	48	32
+cavedun9	0	0		48	48	32	32
+cavedun10	0	0		128	0	16	16
+cavedun11	0	0		144	0	16	16
+cavedun12	0	0		144	16	16	16
+cavedun13	0	0		128	16	16	16
+cavedun14	0	0		128	32	16	32
+cavedun15	0	0		144	32	16	32
+cavedun16	0	0		128	64	32	16
+cavedun17	0	0		128	80	32	16
+cavedun18	0	0		128	96	16	16
+cavedun19	0	0		144	96	16	16
+cavedun20	0	0		144	112	16	16
+cavedun21	0	0		128	112	16	16
+cavedun22	0	24x24x0		160	0	48	48
+cavedun23	0	24x24x0		240	0	48	48
+cavedun24	0	24x24x0		240	80	48	48
+cavedun25	0	24x24x0		160	80	48	48
+cavedun26	0	16x24x32		208	0	32	48
+cavedun27	0	16x24x16		208	80	32	48
+cavedun28	0	24x16x24		160	48	48	32
+cavedun29	0	24x16x40		240	48	48	32
+cavedun30	0	0		208	48	32	32
+cavedun31	0	0		288	0	16	16
+cavedun32	0	0		304	0	16	16
+cavedun33	0	0		304	16	16	16
+cavedun34	0	0		288	16	16	16
+cavedun35	0	0		288	32	16	32
+cavedun36	0	0		304	32	16	32
+cavedun37	0	0		288	64	32	16
+cavedun38	0	0		288	80	32	16
+cavedun39	0	0		288	96	16	16
+cavedun40	0	0		304	96	16	16
+cavedun41	0	0		304	112	16	16
+cavedun42	0	0		288	112	16	16
+cavedun43	0	0		320	0	32	32
+cavedun44	0	0		352	0	32	32
+cavedun45	0	0		384	0	32	32
+cavedun46	0	0		384	32	32	32
+cavedun47	0	0		384	64	32	32
+cavedun48	0	0		352	64	32	32
+cavedun49	0	0		320	64	32	32
+cavedun50	0	0		320	32	32	32
+cavedun51	0	24x24x0		416	0	48	48
+cavedun52	0	24x24x0		464	0	48	48
+cavedun53	0	24x24x0		464	48	48	48
+cavedun54	0	24x24x0		416	48	48	48
+cavedun55	0	24x24x0		416	96	48	48
+cavedun56	0	24x24x0		464	96	48	48
+cavedun57	0	24x24x0		464	144	48	48
+cavedun58	0	24x24x0		416	144	48	48
+cavedun59	0	0		352	96	32	32
+cavedun60	0	0		384	96	32	32
+cavedun61	0	0		384	128	32	32
+cavedun62	0	0		352	128	32	32
+cavedun63	0	8x8x8		320	96	16	16
+cavedun64	0	8x8x8		320	112	16	16
+cavedun65	0	8x8x8		336	96	16	16
+cavedun117	0	8x8x0		384	160	16	16
+cavedun118	0	_town60mask		400	160	16	16
+cavedun119	0	8x8x0		384	176	16	16
+cavedun120	0	8x8x0		400	176	16	16
+cavedun121	0	8x8x0		384	192	16	16
+cavedun122	0	8x8x0		400	192	16	16
+cavedun123	0	8x8x0		384	208	16	16
+cavedun124	0	8x8x0		400	208	16	16
+cavedun126	0	0		336	112	16	16
+cavestepsn	0	_stairsmaskn		64	512	64	64
+cavestepss	0	_stairsmaskn		0	512	64	64
+cavedun130	0	16x16x0		0	256	32	32
+cavedun131	0	16x16x0		32	256	32	32
+cavedun132	0	16x16x0		0	288	32	32
+cavedun133	0	16x16x0		32	288	32	32
+cavedun134	0	16x16x0		64	256	32	32
+cavedun135	0	16x16x0		96	256	32	32
+cavedun136	0	16x16x0		64	288	32	32
+cavedun137	0	16x16x0		96	288	32	32
+cavedun75	0	16x32x0		128	256	32	64
+cavedun76	0	16x32x0		160	256	32	64
+cavedun77	0	16x32x0		192	256	32	64
+cavedun78	0	16x32x0		224	256	32	64
+cavedun79	0	32x16x0		256	256	64	32
+cavedun80	0	32x16x0		256	288	64	32
+cavedun81	0	32x16x0		320	256	64	32
+cavedun82	0	32x16x0		320	288	64	32
+cavedun83	0	8x32x0		384	256	16	64
+cavedun84	0	8x32x0		400	256	16	64
+cavedun85	0	8x32x0		416	256	16	64
+cavedun86	0	8x32x0		432	256	16	64
+cavedun104	0	8x24x0		512	64	16	48
+cavedun105	0	8x24x0		528	64	16	48
+cavedun111	0	8x24x0		512	112	16	48
+cavedun112	0	8x24x0		528	112	16	48
+cavedun91	0	0		320	128	16	16
+cavedun92	0	0		336	128	16	16
+cavedun93	0	0		336	144	16	16
+cavedun94	0	0		320	144	16	16
+cavedun113	0	0		352	160	16	16
+cavedun114	0	0		352	176	16	16
+cavedun115	0	0		368	160	16	16
+cavedun116	0	0		368	176	16	16
+cavedun95	0	0		352	32	16	16
+cavedun96	0	0		368	32	16	16
+cavedun97	0	0		368	48	16	16
+cavedun98	0	0		352	48	16	16
+cavedun99	0	16x16x0		320	160	32	32
+cavedun100	0	0		416	192	64	64
+cavedun101	0	0		480	192	32	32
+cavedun102	0	0		480	224	32	32
+cavedun103	0	0		384	224	32	32
+cavetourchna	0	false		128	192	64	32
+cavetourchsa	0	false		128	224	64	32
+cavetourchwa	0	false		256	192	32	64
+cavetourchea	0	false		288	192	32	64
+cavedun106	0	24x32x0		0	128	48	64
+cavedun107	0	24x32x0		48	128	48	64
+cavedun108	0	0		96	128	160	64
+cavedun109	0	0		256	176	64	16
+ddungent7	0	_doormaskn	d_dungent7	256	128	64	48
+ddungent7a	0	0		256	160	64	16
+cavedoor1n	0	_doormaskn	_cavedoor1n	0	320	64	48
+cavedoor1na	0	0		0	320	64	16
+cavedoor1s	0	_doormaskn	_cavedoor1s	0	368	64	48
+cavedoor1sa	0	0		0	400	64	16
+cavedoor2n	0	_doormaskn	_cavedoor2n	64	320	64	48
+cavedoor2s	0	_doormaskn	_cavedoor2s	64	368	64	48
+cavedoor3n	0	_doormaskn	_cavedoor3n	128	320	64	48
+cavedoor3s	0	_doormaskn	_cavedoor3s	128	368	64	48
+cavedoor4n	0	_doormaskn	_cavedoor4n	192	320	64	48
+cavedoor4s	0	_doormaskn	_cavedoor4s	192	368	64	48
+cavestairsd	0	_doormaskn	_cavestairsd	128	416	64	48
+cavestairsda	0	0		128	416	64	16
+cavestairsu	0	_doormaskn	_cavestairsu	128	464	64	48
+cavestairsua	0	0		128	464	64	16
+cavedun110	0	0		496	240	16	16
+	0	0		0	0	0	0
+cavefill1	0	0		512	32	32	32
+cavefill2	0	0		512	0	32	32
+	0	0		0	0	0	0
+cavedoor1e	0	_doormaske	_cavedoor1e	256	448	48	64
+cavedoor1w	0	_doormaske	_cavedoor1w	304	448	48	64
+cavedoor2e	0	_doormaske	_cavedoor2e	352	448	48	64
+cavedoor2w	0	_doormaske	_cavedoor2w	400	448	48	64
+cavedoor3e	0	_doormaske	_cavedoor3e	448	320	48	64
+cavedoor3w	0	_doormaske	_cavedoor3w	496	320	48	64
+cavedoor4e	0	_doormaske	_cavedoor4e	448	384	48	64
+cavedoor4w	0	_doormaske	_cavedoor4w	496	384	48	64
+cavedoor1ea	0	0		288	448	16	64
+cavedoor1wa	0	0		304	448	16	64
+cavedoor11	0	_doormaskn	_cavedoor11	0	416	64	48
+cavedoor11a	0	0		0	416	64	16
+cavedoor13	0	_doormaskn	_cavedoor13	0	464	64	48
+cavedoor13a	0	0		0	496	64	16
+cavedoor21	0	_doormaskn	_cavedoor21	64	416	64	48
+cavedoor23	0	_doormaskn	_cavedoor23	64	464	64	48
+cavestairs1	0	_doormaskn	_cavestairs1	192	416	64	48
+cavestairs1a	0	0		192	416	64	16
+cavestairs2	0	_doormaskn	_cavestairs2	192	464	64	48
+cavestairs2a	0	_doormaskn		192	464	64	16
+cavedoor12	0	_doormaske	_cavedoor12	256	512	48	64
+cavedoor14	0	_doormaske	_cavedoor14	304	512	48	64
+cavedoor14a	0	0		304	512	16	64
+cavedoor22	0	_doormaske	_cavedoor22	352	512	48	64
+cavedoor24	0	_doormaske	_cavedoor24	400	512	48	64
+cavedoor2nb	0	0		256	320	64	32
+cavedoor2sb	0	0		256	352	64	32
+cavedoor2wb	0	0		256	384	32	64
+cavedoor2eb	0	0		288	384	32	64
+cavedoor21b	0	0		320	320	64	32
+cavedoor23b	0	0		320	352	64	32
+cavedoor24b	0	0		320	384	32	64
+cavedoor22b	0	0		352	384	32	64
+cavedoor3nb	0	0		384	320	64	32
+cavedoor3sb	0	0		384	352	64	32
+cavedoor3wb	0	0		384	384	32	64
+cavedoor3eb	0	0		416	384	32	64
+caveexit	0	_caveexitmask	_caveexit	192	512	64	64
+caveexitmask	0	0		128	512	64	64
+caveexita	0	0		192	560	64	16

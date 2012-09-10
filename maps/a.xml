@@ -1,0 +1,34 @@
+<map xmlns="http://mokoi.info/projects/mokoi">
+<settings>
+	<dimensions width="1" height="1" />
+	<color red="107" blue="173" green="54" mode="0" />
+	<option name="asd" value="asd" type="" />
+	<option name="music" value="" type="music" />
+	<option name="name" value="" type="" />
+</settings>
+<object value="p01.png:player" type="sprite" >
+	<position x="233" y="199" w="32" h="48" z="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="id" value="*" type="hidden"/>
+	<entity value="link" />
+	<setting key="entity" value="link.mps" type="hidden"/>
+	<setting key="Weapon" value="weapon_test" />
+	<setting key="mirror" value="false" type="hidden"/>
+	<setting key="global" value="true" type="hidden"/>
+</object>
+<object value="Rectangle" type="rect" >
+	<position x="149" y="195" w="32" h="32" z="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="id" value="*" type="hidden"/>
+	<entity value="hit_test" />
+	<setting key="entity" value="hit_test.mps" type="hidden"/>
+	<setting key="global" value="false" type="hidden"/>
+</object>
+<object value="enemy_bones01.png:entity" type="sprite" >
+	<position x="132" y="81" w="32" h="56" z="0" r="0" f="1"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<entity value="enemy_bones" />
+	<setting key="entity" value="enemy_bones.mps" type="hidden"/>
+	<setting key="health" value="100" type="number"/>
+</object>
+</map>

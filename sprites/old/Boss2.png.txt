@@ -1,0 +1,12 @@
+lanmolab	0	0	lanmolab	34	84	34	34
+lanmolabody	0	0		68	84	34	34
+lanmolatail	0	0		0	84	34	34
+smallmud1	0	0		0	0	24	24
+smallmud2	0	0		24	0	26	30
+largemud1	0	0		50	0	32	34
+largemud2	0	0		82	0	32	34
+mudsling1b	0	0		32	34	32	32
+mudsling1a	0	0		0	34	32	32
+mudsling2a	0	0		70	34	32	32
+mudsling2b	0	0		102	34	32	32
+bossrock	0	0		0	66	14	12

@@ -1,0 +1,12 @@
+back_0	2	0	0	0	0	48	48
+back_1	2	0	0	48	0	48	48
+back_2	2	0	0	96	0	48	48
+back	0	0	0	ANIMATION	1000	back_0	back_1	back_2
+side_0	2	0	0	0	48	48	48
+side_1	2	0	0	48	48	48	48
+side_2	2	0	0	96	48	48	48
+side	0	0	0	ANIMATION	1000	side_0	side_1	side_2
+front_0	2	0	0	0	96	48	48
+front_1	2	0	0	48	96	48	48
+front_2	2	0	0	96	96	48	48
+front	0	0	0	ANIMATION	1000	front_0	front_1	front_2

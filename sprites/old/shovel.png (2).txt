@@ -1,0 +1,11 @@
+ishovelde1	0	0		0	0	40	56
+ishovelde2	0	0		40	0	48	56
+ishovelde3	0	0		88	0	40	56
+ishoveldw1	0	0		0	56	40	56
+ishoveldw2	0	0		40	56	48	56
+ishoveldw3	0	0		88	56	40	56
+ishoveldirt1	0	0		128	0	24	16
+ishoveldirt3	0	0		128	16	32	16
+ogroundb	0	0		128	48	32	32
+oground	0	0		128	80	32	32
+ishoveldirt2	0	0		152	0	24	16

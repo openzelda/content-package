@@ -1,0 +1,6 @@
+ilamplight	0	0		0	0	128	128
+ilantern	0	0		0	128	32	32
+wflame1	0	0		32	128	32	32
+wflame2	0	0		64	128	32	32
+wflame3	0	0		96	128	32	32
+ilampdark	0	0		0	160	128	128

@@ -1,0 +1,10 @@
+d1_room6	3	2
+d1_room7	2	2
+d1_room4	2	1
+d1_room5	2	0
+d1_room3	1	0
+d1_room2	1	1
+d1_room1	1	2
+d1_outside	0	0
+d1_itemroom	4	1
+d1_bossroom	4	2

@@ -1,0 +1,4 @@
+anim_2	2	0	0	96	0	48	48
+anim_1	2	0	0	48	0	48	48
+anim_0	2	0	0	0	0	48	48
+anim	0	0	0	ANIMATION	200	anim_2	anim_1	anim_0

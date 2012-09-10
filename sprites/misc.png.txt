@@ -1,0 +1,2 @@
+knockedout_0	2	0	0	0	0	40	12
+knockedout	0	0	0	ANIMATION	1000	knockedout_0	knockedout_0

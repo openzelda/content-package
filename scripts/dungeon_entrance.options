@@ -1,0 +1,6 @@
+<entity>
+	<option name="grid" value="-1" />
+	<option name="target" value="" />
+	<option name="locktype" value="0" />
+	<option name="opened" value="1" />
+</entity>
