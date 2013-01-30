@@ -9,16 +9,11 @@
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
  *     2010/01/11 [luke]: new file.
+ *     2013/01/31 [luke]: switch to Pawn 4
  ***********************************************/
 forward public dialogbox(line);
 
-enum DialogChar
-{
-	x,
-	y,
-	obj
-}
-
+#define DialogChar[.x, .y, .obj]
 #define DIALOGWIDTH 35
 #define DIALOGHEIGHT 6
 #define FONTWIDTH 8
@@ -49,7 +44,7 @@ HandleDialogBox()
 
 DialogCharacter(c, achar, qx, qy)
 {
-	new sprite[20];
+	new sprite{20};
 	new w;
 	strformat(sprite, _, 1, "alpha02.png:%d", achar);
 	w = MiscGetWidth(sprite);
@@ -58,16 +53,16 @@ DialogCharacter(c, achar, qx, qy)
 		strformat(sprite, _, 1, "alpha02.png:%d", '?');
 		w = MiscGetWidth(sprite);
 	}
-	dialog_text[c][x] = qx;
-	dialog_text[c][y] = qy;
-	dialog_text[c][obj] = ObjectCreate(sprite, SPRITE, qx, qy, 6, 0, 0);
+	dialog_text[c].x = qx;
+	dialog_text[c].y = qy;
+	dialog_text[c].obj = ObjectCreate(sprite, SPRITE, qx, qy, 6, 0, 0);
 	return w;
 }
 
 //¶ - paragraph
 public dialogbox(line)
 {
-	new dialog[256];
+	new dialog{256};
 	new tx = 104;
 	new ty = 104;
 	new nx = 104;

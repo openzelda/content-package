@@ -9,6 +9,7 @@
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
  *     2010/01/11 [luke]: new file.
+ *     2013/01/31 [luke]: switch to Pawn 4
  ***********************************************/
 
 #include <entities>
@@ -26,8 +27,7 @@
 #define WEST 6		//270 deg
 #define SOUTHWEST 7	//315 deg
 
-
-enum _STATE {
+const _STATE: {
 	ALIVE = 0,
 	STANDING,
 	MOVING,
@@ -52,8 +52,8 @@ enum _STATE {
 	GONE
 }
 
-enum _STATEEFFECTS {
-	NOEFFECT
+const _STATEEFFECTS: {
+	NOEFFECT = 0,
 	STUNNED,
 	FROZEN,
 	SHOCKED,
@@ -78,20 +78,10 @@ stock type_name[11][64] =  {"UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPO
 
 
 
-enum EntityGraphic {
-	object:egOBJ,
-	egOFFX,
-	egOFFY,
-	egOFFZ
-}
+#define EntityGraphic[.object:obj, .x, .y, .z]
 
 
-enum RECT {
-	rX,
-	rY,
-	rW,
-	rH
-}
+#define RECT[.x, .y, .w, .h]
 
 /* Item Types */
 #define ITEM_BOMBS 1

@@ -11,6 +11,7 @@
  *     2010/01/11 [luke]: new file.
  ***********************************************/
 
+
 new screen[2];
 new font[2];
 new controller = 1;
@@ -21,13 +22,13 @@ forward public load();
 
 
 forward public KeyboardInput( unicode );
-forward public CustomText(message[], x, y, z, width, height, alpha)
+forward public CustomText(message{}, x, y, z, width, height, alpha)
 forward public DrawCharacter(achar, x, y, z, colour, alpha);
 forward public SetDay(able);
 forward public SetPlayer(n);
 forward public GetPlayer();
 
-new DayNight[24] = {
+new DayNight[24] = [
 	0x4E5CAFFF,\
 	0x5964A9FF,\
 	0x606BAEFF,\
@@ -52,7 +53,7 @@ new DayNight[24] = {
 	0x7D7CC8FF,\
 	0x766FD8FF,\
 	0x645CBEFF\
-};
+];
 public hour = 12;
 public minute = 0;
 public Fixed:seconds = 0.0;
@@ -152,7 +153,7 @@ public DrawCharacter(achar, x, y, z, colour, alpha)
 	return MiscGetWidth(gfx);
 }
 
-public CustomText(message[], x, y, z, width, height, alpha)
+public CustomText(message{}, x, y, z, width, height, alpha)
 {
 	new chars = 0;
 	new lines = 0;
