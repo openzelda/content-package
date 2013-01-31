@@ -18,14 +18,8 @@
 #define NULLOBJECT object:-1
 #define STATEFUNCTION  
 
-#define SOUTH 0		//0 deg
-#define SOUTHEAST 1	//45 deg
-#define EAST 2		//90 deg
-#define NORTHEAST 3	//135 deg
-#define NORTH 4		//180 deg
-#define NORTHWEST 5	//225 deg
-#define WEST 6		//270 deg
-#define SOUTHWEST 7	//315 deg
+#define MENU_ENTITY_ID "menuent"  
+#define HUD_ENTITY_ID "hudent"  
 
 const _STATE: {
 	ALIVE = 0,
@@ -49,7 +43,8 @@ const _STATE: {
 	PULLING,
 	DYING,
 	DEAD,
-	GONE
+	GONE,
+	STATE_COUNT
 }
 
 const _STATEEFFECTS: {
@@ -75,13 +70,10 @@ const _STATEEFFECTS: {
 
 stock type_name[11][64] =  {"UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPORT","PUSHABLE","SWITCH","ITEM","PLAYER","OUTOFRANGE" };
 
-
-
-
-#define EntityGraphic[.object:obj, .x, .y, .z]
-
-
 #define RECT[.x, .y, .w, .h]
+#define EntityGraphic[.obj, .x, .y, .z]
+#define SwitchEvent[.active, .entity, .function{24}]
+#define EntityInfo[.hash, .id{32}]
 
 /* Item Types */
 #define ITEM_BOMBS 1

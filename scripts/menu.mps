@@ -22,20 +22,14 @@
 
 
 #define SLIDEVAR 384
-forward public Show( selfid[], weapons1[], weapons2[], weapons3[] );
+forward public Show( new_owner, weapons1[], weapons2[], weapons3[] );
 forward public Refresh();
 forward public Hide();
 forward public AddWeapon( w[64]);
 
 
-enum ListItem {
-	ID[64],
-	ICON[64],
-	ACTIVE,
-}
-
-enum local {
-	disabled,
+const local: {
+	disabled = 0,
 	entering,
 	exiting
 }
@@ -43,34 +37,34 @@ enum local {
 new slide = 0;
 new local:mode = disabled;
 new object:menu = object:-1;
-new owner[64]="";
+new owner=0;
 new controller = 0;
-new weapon[30][ListItem];
+new weapon[30][.id{64}, .icon{64}, .active];
 
-new action[4] = {0, -1,-1,-1};
+new action[4] = [0, -1, -1, -1];
 
-public Show( selfid[], weapons1[], weapons2[], weapons3[] )
+public Show( new_owner, weapons1[], weapons2[], weapons3[] )
 {
 	slide = SLIDEVAR;
 	mode = entering;
-	EntityPublicFunction("hudent", "Hide", "");
+	EntityPublicFunction( EntityHash("hudent"), "Hide", "");
 	menu = ObjectCreate("menu", CANVAS, 0, -slide,6, 512, 512, 0xFF0000AA, GLOBAL_MAP); 
 
 	GameState(3);
 
-	strcopy(owner, selfid);
+	owner = new_owner;
 
 	for (new n = 0; n < 30; n++)
 	{
-		if ( StringEqual(weapon[n][ID], weapons1) )
+		if ( StringEqual(weapon[n].id, weapons1) )
 		{
 			action[1] = n;
 		}
-		else if ( StringEqual(weapon[n][ID], weapons2) )
+		else if ( StringEqual(weapon[n].id, weapons2) )
 		{
 			action[2] = n;
 		}
-		else if ( StringEqual(weapon[n][ID], weapons3) )
+		else if ( StringEqual(weapon[n].id, weapons3) )
 		{
 			action[3] = n;
 		}
@@ -97,9 +91,9 @@ public Refresh()
 		x = ((n%ICON_MENU_LINECOUNT)*ICON_SPACING_X);
 		y = ((n/ICON_MENU_LINECOUNT)*ICON_SPACING_Y);
 
-		if ( weapon[n][ACTIVE] )
+		if ( weapon[n].active )
 		{
-			GraphicsDraw(weapon[n][ICON], SPRITE, ICON_MENU_X + ICON_OFFSET_X + x, ICON_MENU_Y + ICON_OFFSET_Y + (y - slide), 6, 0, 0);
+			GraphicsDraw(weapon[n].icon, SPRITE, ICON_MENU_X + ICON_OFFSET_X + x, ICON_MENU_Y + ICON_OFFSET_Y + (y - slide), 6, 0, 0);
 		}
 		else
 		{
@@ -149,17 +143,17 @@ main()
 				{
 					if ( InputButton(0,controller)  == 1 )
 					{
-						EntityPublicFunction(owner, "SetWeapon", "sn", weapon[action[0]][ID], 0);
+						EntityPublicFunction(owner, "SetWeapon", "sn", weapon[action[0]].id, 0);
 						action[1] = action[0];
 					}
 					if ( InputButton(1,controller)  == 1 )
 					{
-						EntityPublicFunction(owner, "SetWeapon", "sn", weapon[action[0]][ID], 1);
+						EntityPublicFunction(owner, "SetWeapon", "sn", weapon[action[0]].id, 1);
 						action[2] = action[0];
 					}
 					if ( InputButton(2,controller)  == 1 )
 					{
-						EntityPublicFunction(owner, "SetWeapon", "sn", weapon[action[0]][ID], 2);
+						EntityPublicFunction(owner, "SetWeapon", "sn", weapon[action[0]].id, 2);
 						action[3] = action[0];
 					}
 				}
@@ -175,7 +169,7 @@ main()
 			}
 			else
 			{
-				EntityPublicFunction("hudent", "Show", "");
+				EntityPublicFunction(EntityHash("hudent"), "Show", "");
 				ObjectDelete(menu);
 				menu = object:-1;
 				GameState(1);
@@ -196,13 +190,13 @@ public AddWeapon( w[64] )
 	new n = 0;
 	while (n < 32)
 	{
-		if ( !weapon[n][ACTIVE]  )
+		if ( !weapon[n].active  )
 			break;
 		n++;
 	}		
 
-	strcopy(weapon[n][ID], w);
-	strformat(weapon[n][ICON], _, true, "menuicon.png:%s", w);
-	weapon[n][ACTIVE] = true;
+	strcopy(weapon[n].id, w);
+	strformat(weapon[n].icon, _, true, "menuicon.png:%s", w);
+	weapon[n].active = true;
 }
 

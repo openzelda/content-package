@@ -11,9 +11,9 @@
  *     2010/01/11 [luke]: new file.
  *     2013/01/31 [luke]: switch to Pawn 4
  ***********************************************/
-
+#include <open_zelda>
 #include <core>
-#define SwitchEvent[.active, .entity, .function{24}]
+
 
 forward public AddSwitch();
 forward public SwitchPressed();
@@ -44,9 +44,9 @@ DungeonMapInit()
 
 
 
-	if ( off_events.function[0] && off_events.entity )
+	if ( StringLength(off_events.function) && off_events.entity )
 		off_events[active] = true;
-	if ( on_events.function[0] && on_events.entity )
+	if ( StringLength(on_events.function) && on_events.entity )
 		on_events[active] = true;
 	MapInit();
 }

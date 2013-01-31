@@ -17,7 +17,7 @@
 
 #define PUBLICFUNCTIONHIT public Hit( attacker[], angle, dist, attack, damage, x, y, rect )
 #define PUBLICFUNCTIONAWAKING public Awaking( attacker[], rect )
-
+#define PUBLICFUNCTIONPRESSED public Pressed( attacker[] )
 
 /***
 <function name="TransitionPlayer">
@@ -27,11 +27,11 @@
 	<param name="gridy" default="-1" type="n"></param>
 </function>
 ***/
-stock TransitionPlayer( nplayer[], ntargetentity[], nmapid = 0, nsection[] = SELF, ngridx = -1, ngridy = -1 )
+stock TransitionPlayer( nplayer, ntargetentity, nmapid = 0, nsection{} = "", ngridx = -1, ngridy = -1 )
 {
 	if ( ngridx < 0 && ngridy < 0 )
-		SectionGet(SELF, ngridx, ngridy);
-	return EntityPublicFunction("transition", "SetTarget", "ssnsnn", nplayer, ntargetentity, nmapid, nsection, ngridx, ngridy );
+		SectionGet("", ngridx, ngridy);
+	return EntityPublicFunction(EntityHash("transition"), "SetTarget", "nnnsnn", nplayer, ntargetentity, nmapid, nsection, ngridx, ngridy );
 }
 
 stock CallEntityHit( entityid[], attacker[], angle, dist, attack, damage, x, y, rect )
@@ -41,9 +41,14 @@ stock CallEntityHit( entityid[], attacker[], angle, dist, attack, damage, x, y, 
 
 stock CallEntityAwaking(entityid[], attacker[], rect)
 {
-	return EntityPublicFunction(entity, "entityid", "sn", attacker, rect);
+	return EntityPublicFunction(entity, "Awaking", "sn", attacker, rect);
 }
 
+
+stock CallEntityPressed(entityid, attacker, rect)
+{
+	return EntityPublicFunction(entity, "Pressed", "sn", attacker, rect);
+}
 
 /*
 	else if ( type == TYPE_TRANSPORT )

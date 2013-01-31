@@ -1,0 +1,34 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="front_0" mask="0">
+		<position x="0" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="front_1" mask="0">
+		<position x="32" y="0" w="32" h="48" />
+		<collision id="0" x="5" y="9" w="21" h="13" />
+		<collision id="1" x="13" y="28" w="6" h="14" />
+	</sprite>
+	<sprite name="back_0" mask="0">
+		<position x="0" y="48" w="32" h="48" />
+	</sprite>
+	<sprite name="back_1" mask="0">
+		<position x="32" y="48" w="32" h="48" />
+	</sprite>
+	<sprite name="side_0" mask="0">
+		<position x="0" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="side_1" mask="0">
+		<position x="32" y="96" w="32" h="48" />
+	</sprite>
+	<animation name="front" mask="0">
+		<frame sprite="front_0" x="0" y="0" ms="60"/>
+		<frame sprite="front_1" x="0" y="0" ms="60"/>
+	</animation>
+	<animation name="back" mask="0">
+		<frame sprite="back_0" x="0" y="0" ms="60"/>
+		<frame sprite="back_1" x="0" y="0" ms="60"/>
+	</animation>
+	<animation name="side" mask="0">
+		<frame sprite="side_0" x="0" y="0" ms="60"/>
+		<frame sprite="side_1" x="0" y="0" ms="60"/>
+	</animation>
+</sheet>

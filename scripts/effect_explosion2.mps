@@ -3,7 +3,7 @@
  * 
  ***********************************************/
 
-#include <mokoi_quest>
+#include <open_zelda>
 
 
 new obj = -1;

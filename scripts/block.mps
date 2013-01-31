@@ -1,4 +1,4 @@
-#include <mokoi_quest>
+#include <open_zelda>
 #include <string>
 
 native EntityNetworkSync();

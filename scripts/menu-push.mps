@@ -37,7 +37,7 @@ main()
 			ObjectEffect(obj, 0xFF0000FF);
 			if ( InputButton(11,1) == 1)
 			{
-				EntityPublicFunction("__map__", "MenuPush", "n", dir );
+				EntityPublicFunction(__MAP__, "MenuPush", "n", dir );
 			}
 		}
 	}

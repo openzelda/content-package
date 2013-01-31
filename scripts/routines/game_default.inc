@@ -91,3 +91,8 @@ stock GetEntityPosition( &Fixed:fx, &Fixed:fy, &Fixed:fz, &ix, &iy, &iz, &il)
 	il = fround(fz, round_floor);
 	iz = (il ? il*1000 : 20 ) + ( iy > -10 ? (iy/8) : -9);
 }
+
+stock SetEntityVar()
+{
+
+}

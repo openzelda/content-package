@@ -15,14 +15,14 @@
 #define FADEOUT	2
 #define FADEEND	3
 
-forward public SetTarget( nplayer[], ntargetentity[], nmapid, nsection[], ngridx, ngridy );
+forward public SetTarget( nplayer_id, ntargetentity_id, nmapid, nsection[], ngridx, ngridy );
 
 
 /* Target Varibles */
 new section_name[64];
-new target_entity[32];
+new target_entity;
 new map_id = 0;
-new player_entity[64];
+new player_entity;
 new section_x, section_y;
 
 new tstate, tmode;
@@ -36,7 +36,7 @@ public Close() {}
 main()
 {
 	DebugText("Section: '%s' '%d'x'%d'", section_name, section_x, section_y);
-	DebugText("Map id: '%d' Target '%s'", map_id, target_entity);
+	DebugText("Map id: '%d' Target '%d'", map_id, target_entity);
 
 	if ( tstate )
 	{
@@ -53,11 +53,11 @@ main()
 		}
 		else if ( tstate == FADEOUT )
 		{
-			if ( target_entity[0] )
+			if ( target_entity )
 			{
 				EntityPublicFunction(target_entity, "UpdatePlayer", "s", player_entity);
-				target_entity[0] = 0;
-				player_entity = "";
+				target_entity = 0;
+				player_entity = 0;
 			}
 			Fade();
 		}
@@ -68,10 +68,10 @@ main()
 	}
 }
 
-public SetTarget(nplayer[], ntargetentity[], nmapid, nsection[], ngridx, ngridy)
+public SetTarget(nplayer_id, ntargetentity_id, nmapid, nsection[], ngridx, ngridy)
 {
-	StringCopy(target_entity,ntargetentity);
-	StringCopy(player_entity,nplayer);
+	target_entity = ntargetentity_id;
+	player_entity = nplayer_id;
 	StringCopy(section_name,nsection);
 	section_x = ngridx;
 	section_y = ngridy;

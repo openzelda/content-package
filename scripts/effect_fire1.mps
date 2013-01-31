@@ -1,7 +1,7 @@
 /***********************************************
  *
  ***********************************************/
-#include <mokoi_quest>
+#include <open_zelda>
 
 new timeout = 1;
 new object:obj = NULLOBJECT;

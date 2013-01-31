@@ -10,7 +10,7 @@
  * Changes: 
  *     2010/01/11 [luke]: new file. 
  ***********************************************/ 
-#include <mokoi_quest> 
+#include <open_zelda> 
 #include <core> 
 
  

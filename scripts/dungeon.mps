@@ -24,7 +24,7 @@ public Init(...)
 {
 	if ( !start ) 
 	{
-		EntityGetSetting( "name", name, "__map__" );
+		EntityGetSetting( "name", name, __MAP__ );
 		start = TimestampCurrent();
 	}
 	justent = 1;

@@ -1,0 +1,77 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="swing-side_4" mask="0">
+		<position x="152" y="104" w="40" h="48" />
+	</sprite>
+	<sprite name="swing-side_3" mask="0">
+		<position x="108" y="104" w="40" h="48" />
+	</sprite>
+	<sprite name="swing-side_2" mask="0">
+		<position x="72" y="104" w="36" h="48" />
+	</sprite>
+	<sprite name="swing-side_1" mask="0">
+		<position x="32" y="104" w="40" h="48" />
+	</sprite>
+	<sprite name="swing-side_0" mask="0">
+		<position x="0" y="104" w="32" h="48" />
+	</sprite>
+	<sprite name="swing-front_4" mask="0">
+		<position x="144" y="0" w="36" h="48" />
+	</sprite>
+	<sprite name="swing-front_3" mask="0">
+		<position x="108" y="0" w="36" h="48" />
+	</sprite>
+	<sprite name="swing-front_2" mask="0">
+		<position x="72" y="0" w="36" h="48" />
+	</sprite>
+	<sprite name="swing-front_1" mask="0">
+		<position x="36" y="0" w="36" h="48" />
+	</sprite>
+	<sprite name="swing-front_0" mask="0">
+		<position x="0" y="0" w="36" h="48" />
+	</sprite>
+	<sprite name="swing-back_0" mask="0">
+		<position x="0" y="48" w="32" h="56" />
+	</sprite>
+	<sprite name="swing-back_1" mask="0">
+		<position x="32" y="48" w="32" h="56" />
+	</sprite>
+	<sprite name="swing-back_2" mask="0">
+		<position x="64" y="48" w="32" h="56" />
+	</sprite>
+	<sprite name="swing-back_3" mask="0">
+		<position x="96" y="48" w="32" h="56" />
+	</sprite>
+	<sprite name="swing-back_4" mask="0">
+		<position x="128" y="48" w="32" h="56" />
+	</sprite>
+	<animation name="swing-front" mask="0">
+		<frame sprite="swing-front_0" x="0" y="0" ms="25"/>
+		<frame sprite="swing-front_1" x="0" y="0" ms="25"/>
+		<frame sprite="swing-front_2" x="0" y="0" ms="25"/>
+		<frame sprite="swing-front_3" x="0" y="0" ms="25"/>
+		<frame sprite="swing-front_4" x="0" y="0" ms="25"/>
+		<frame sprite="swing-front_4" x="0" y="0" ms="25"/>
+	</animation>
+	<animation name="swing-back" mask="0">
+		<frame sprite="swing-back_0" x="0" y="0" ms="13"/>
+		<frame sprite="swing-back_0" x="0" y="0" ms="13"/>
+		<frame sprite="swing-back_1" x="0" y="0" ms="13"/>
+		<frame sprite="swing-back_1" x="0" y="0" ms="13"/>
+		<frame sprite="swing-back_2" x="0" y="0" ms="13"/>
+		<frame sprite="swing-back_3" x="0" y="0" ms="13"/>
+		<frame sprite="swing-back_2" x="0" y="0" ms="13"/>
+		<frame sprite="swing-back_4" x="0" y="0" ms="13"/>
+		<frame sprite="swing-back_4" x="0" y="0" ms="13"/>
+	</animation>
+	<animation name="swing-side" mask="0">
+		<frame sprite="swing-side_1" x="0" y="0" ms="13"/>
+		<frame sprite="swing-side_1" x="0" y="0" ms="13"/>
+		<frame sprite="swing-side_0" x="0" y="0" ms="13"/>
+		<frame sprite="swing-side_1" x="0" y="0" ms="13"/>
+		<frame sprite="swing-side_2" x="0" y="0" ms="13"/>
+		<frame sprite="swing-side_3" x="0" y="0" ms="13"/>
+		<frame sprite="swing-side_2" x="0" y="0" ms="13"/>
+		<frame sprite="swing-side_4" x="0" y="0" ms="13"/>
+		<frame sprite="swing-side_4" x="0" y="0" ms="13"/>
+	</animation>
+</sheet>

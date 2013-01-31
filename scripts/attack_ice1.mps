@@ -1,4 +1,4 @@
-#include <mokoi_quest>
+#include <open_zelda>
 
 new IceAnim[8][20];
 new Fixed:timeActive = 0.0;

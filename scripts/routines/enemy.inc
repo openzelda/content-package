@@ -16,7 +16,7 @@
 #endif
 
 #include <quest_types>
-#include <mokoi_quest>
+#include <open_zelda>
 #include <public_events>
 
 public _maxhealth_;
@@ -36,7 +36,7 @@ new object:death_obj = NULLOBJECT;
 new _STATEEFFECTS:current_effect = NOEFFECT;
 new effect_count = 0;
 
-new hit_colours[5] = { 0x138813FF, 0xFDD341FF, 0xE15805FF, 0x20D3EEFF, 0xEE2020FF };
+new hit_colours[5] = [ 0x138813FF, 0xFDD341FF, 0xE15805FF, 0x20D3EEFF, 0xEE2020FF ];
 
 
 static error_message[43];
@@ -44,7 +44,7 @@ static error_message[43];
 /* States */
 #define STATE_FLIP ((_dir_/2) == 3 ? true : false)
 #define STATE_GRAPHIC StateGraphics[_state_][((_dir_ % 8)/2)]
-stock StateGraphics[_STATE][4][32 char] = {
+stock StateGraphics[_STATE][4]{32} = {
 	//SOUTH, WEST, NORTH, EAST, 
 	/* ALIVE */		{"", "", "", ""},
 	/* STANDING */		{"", "", "", ""},
@@ -169,7 +169,7 @@ stock DeathEvent()
 	}
 	else
 	{
-		EntityPublicFunction("__map__", "EnemyKilled");
+		EntityPublicFunction(__MAP__, "EnemyKilled");
 		//EntityPublicFunction("itemlib", "CreateItem", "nns", dx + (dw / 2), dy + (dy / 2), _item_);
 	}
 }

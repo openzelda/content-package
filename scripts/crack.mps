@@ -2,7 +2,7 @@
  * 
  ***********************************************/
 
-#include <mokoi_quest>
+#include <open_zelda>
 
 
 new doorOpen[64];	// String to hold the sprite of the Door's Arch

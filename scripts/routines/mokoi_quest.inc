@@ -31,29 +31,52 @@ stock bool:_flipx_ = false;
 stock bool:_allow_offscreen = false 
 
 /* South, west, north, east */
-stock round_method:move_round[4][2] = { {round_floor, round_ceil}, {round_ceil, round_ceil}, {round_ceil, round_floor}, {round_floor, round_floor} };
-
+stock round_method:move_round[4][2] = [ [round_floor, round_ceil], [round_ceil, round_ceil], [round_ceil, round_floor], [round_floor, round_floor] ];
 
 stock ReplaceEntityGraphics( display_object[EntityGraphic], image[], bool:flip, bool:force = false )
 {
 	//if ( update || force )
 	//{
-		ObjectReplace( display_object[egOBJ], image, SPRITE );
-		ObjectEffect( display_object[egOBJ], .mirror = (flip ? 16 : 0) );
+		ObjectReplace( display_object.obj, image, SPRITE );
+		ObjectEffect( display_object.obj, .mirror = (flip ? 16 : 0) );
 	//}
 }
 
 stock UpdateEntityGraphics( display_object[EntityGraphic] )
 {
-	ObjectPosition( display_object[egOBJ], dx+display_object[egOFFX], dy+display_object[egOFFY], dz+display_object[egOFFZ], 0, 0);
+	ObjectPosition( display_object.obj, dx+display_object.x, dy+display_object.y, dz+display_object.z, 0, 0);
 }
 stock ColourEntityGraphics( display_object[EntityGraphic], colour )
 {
-	ObjectEffect( display_object[egOBJ], colour);
+	ObjectEffect( display_object.obj, colour);
+}
+
+stock SetupEntity( _STATE:init_state, type, &display_object, width, height, offset_x = 0, offset_y = 0 )
+{
+	_state_ = init_state;
+	_type_ = type;
+	dh = height;
+	dw = width;
+	ox = offset_x
+	oy = offset_y;
+	display_object = EntityGetNumber("object-id");
+
+	GetEntityPosition(_x_, _y_, _z_, dx, dy, dz, dl);
+
+}
+stock SetEntityDimension( width, height, offset_x = 0, offset_y = 0 )
+{
+	dh = height;
+	dw = width;
+	ox = offset_x
+	oy = offset_y;
+
+	GetEntityPosition(_x_, _y_, _z_, dx, dy, dz, dl);
+
 }
 
 
-stock fixed:MovementAngle(Fixed:x_movement, Fixed:y_movement)
+stock Fixed:MovementAngle(Fixed:x_movement, Fixed:y_movement)
 {
 	return fatan2( x_movement, -y_movement, degrees)+ 90.0 ;
 }

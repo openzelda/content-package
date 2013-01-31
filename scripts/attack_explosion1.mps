@@ -2,7 +2,7 @@
  *
  ***********************************************/
 #define DAMAGE 150
-#include <mokoi_quest>
+#include <open_zelda>
 
 new BlastRadius = 0;
 new obj = -1;
@@ -141,7 +141,7 @@ GetCollisionRect()
 CheckForCollisions()
 {
 	// Go through every entity and see if this blast affects them
-	new current[64];
+	new current;
 	new angle;
 	new dist;
 	new rect;

@@ -1,4 +1,4 @@
-#include <mokoi_quest>
+#include <open_zelda>
 forward public Hit( attacker[], angle, dist, attack, damage, x, y, rect );
 enum temphit
 {

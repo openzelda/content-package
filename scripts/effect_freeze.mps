@@ -1,7 +1,7 @@
 /***********************************************
  *
  ***********************************************/
-#include <mokoi_quest>
+#include <open_zelda>
 #include <core>
 
 new mainAnim[20];

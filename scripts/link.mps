@@ -12,216 +12,41 @@
  *     2011/07/01 [luke]: added knockback
  * Todo:
  ***********************************************/
-#include <mokoi_quest>
+#include <open_zelda>
 #include <network>
+
 #include <player>
 
-/* Public Functions */
-forward public UpdatePosition();
-forward public Hurt(type, damage, angle);
-forward public GiveWeapon( weapon[] );
-forward public SetWeapon( weapon[], n );
-forward public SetPlayerSprites();
-forward public SetRestartPosition( point, ndescription[], nx, ny, nmapid );
+#include <player_function>
 
-/* Variable */
-public _maxhealth_ = 300;
-public _health_ = 300;
 
-new selfid[64];
-new hudid[32] = "hudent";
-new menuid[32] = "menuent";
-new controller = 0;
 
-new Fixed:push_delay = 0.00;
 
-/* Animation Code */ 
-#define STATE_FLIP (_animdir_ == 3 ? 16 : 0)
-#define STATE_GRAPHIC animation[_state_][_animdir_]
-new object:obj = NULLOBJECT;
-stock animation[_STATE][4][32 char] = {
-	//SOUTH, WEST, NORTH, EAST, 
-	/* ALIVE */		{"", "", "", ""},
-	/* STANDING */		{"", "", "", ""},
-	/* MOVING */		{"", "", "", ""},
-	/* HIT */		{"", "", "", ""},
-	/* KNOCKED */		{"", "", "", ""},
-	/* JUMPING */		{"", "", "", ""},
-	/* SWIMMING */		{"", "", "", ""},
-	/* FLOATING */		{"", "", "", ""},
-	/* CHASING */		{"", "", "", ""},
-	/* USING */		{"", "", "", ""},
-	/* LIFTING */		{"", "", "", ""},
-	/* STANDLIFT */		{"", "", "", ""},
-	/* WALKLIFT */		{"", "", "", ""},
-	/* SPECIALSTATE */	{"", "", "", ""},
-	/* FALLING */		{"", "", "", ""},
-	/* WAITING */		{"", "", "", ""},
-	/* LEAPING */		{"", "", "", ""},
-	/* PUSHING */		{"", "", "", ""},
-	/* PULLING */		{"", "", "", ""},
-	/* DYING */		{"", "", "", ""},
-	/* DEAD */		{"", "", "", ""},
-	/* GONE */		{"", "", "", ""}
-};
 
-SetStateGraphic( _STATE:s, parent[], south_graphic[], west_graphic[], north_graphic[], east_graphic[] )
-{
-	s =  _STATE:NumberClamp( _:s, _:ALIVE, _:DEAD );
-	strformat( animation[s][0], _, true, "%s:%s", parent, south_graphic);
-	strformat( animation[s][1], _, true, "%s:%s", parent, west_graphic);
-	strformat( animation[s][2], _, true, "%s:%s", parent, north_graphic);
-	strformat( animation[s][3], _, true, "%s:%s", parent, east_graphic);
-}
-
-public SetPlayerSprites()
-{
-	SheetReference("p01push.png");
-	SheetReference("p01pull.png");
-	SheetReference("p01n.png");
-
-	SetStateGraphic( STANDING, "p01n.png", "front_0", "side_0", "back_0", "side_0" );
-	SetStateGraphic( MOVING, "p01n.png", "front", "side", "back", "side" );
-	SetStateGraphic( KNOCKED, "p01n.png", "front_knock", "side_knock", "back_knock", "side_knock" );
-	SetStateGraphic( PUSHING, "p01push.png", "front", "side", "back", "side" );
-	SetStateGraphic( PULLING, "p01pull.png", "front", "side", "back", "side" );
-	SetStateGraphic( DYING, "p01n.png", "death", "death", "death", "death" );
-	SetStateGraphic( DEAD, "p01n.png", "death_1", "death_1", "death_1", "death_1" );
-
-}
-
-/* Restart Point Code */
-enum RestartPoint {
-	description[32],
-	section[64],
-	x,
-	y,
-	dir,
-	mapid,
-	active
-}
-new _restart[3][RestartPoint];
-
-public SetRestartPosition( point, ndescription[], nx, ny, nmapid )
-{
-	point %= 3;
-	strcopy(_restart[point][description], ndescription);
-
-	if ( nx == -1 )
-		_restart[point][x] = _:_x_;
-	else
-		_restart[point][x] = nx;
-
-	if ( ny == -1 )
-		_restart[point][y] = _:_y_;
-	else
-		_restart[point][y] = ny;
-
-	
-	if ( nmapid == -1 )
-	{
-	
-		_restart[point][mapid] = MapCurrent();
-	}
-	else
-		_restart[point][mapid] = nmapid;
-	_restart[point][active] = 1;
-}
-
-/* Hurting and Death */
-new hit = 0;
-new hidden = 1;
-new DeathCount = 0;
-HandleDeath()
-{
-	ObjectPosition(obj, dx, dy, dz, 0, 0);
-	if ( _state_ == DEAD ) 
-	{
-		DeathCount = 0;
-		ObjectReplace(obj, animation[DEAD][0], SPRITE);
-		EntityPublicFunction("main", "CustomText", "snnnnnn", !"Press Enter to continue", -1, -1, 6, 11, 2, 255 );
-		if ( InputButton( 6 ) )
-		{
-			_health_ = _maxhealth_;
-			_state_ = STANDING;
-			LayerColour(0, 0xFFFFFFFF);
-			LayerColour(1, 0xFFFFFFFF);
-			LayerColour(2, 0xFFFFFFFF);
-			LayerColour(3, 0xFFFFFFFF);
-			LayerColour(4, 0xFFFFFFFF);
-			LayerColour(5, 0xFFFFFFFF);
-		
-			TransitionPlayer( selfid, "", _restart[0][mapid], SELF);
-			EntitySetPosition( _restart[0][x], _restart[0][y], _ );
-		}
-	}
-	else if ( _state_ == DYING ) 
-	{
-		LayerColour(0, 0xFF0000FF);
-		LayerColour(1, 0xFF0000FF);
-		LayerColour(2, 0xFF0000FF);
-		LayerColour(3, 0xFF0000FF);
-		LayerColour(4, 0xFF0000FF);
-		LayerColour(5, 0xFF0000FF);
-		
-		if ( DeathCount == 0 )
-		{
-			DeathCount = AnimationGetLength( "p01n.png", "death" );
-			ObjectReplace(obj, animation[DYING][0], SPRITE);
-		}
-		if ( Countdown(DeathCount) )
-			_state_ = DEAD;
-	}
-}
-
-/* Weapon */
-new action[3] = {0,0,0};
-new weapons[4][64 char];
-new weapon_active = -1;
-public GiveWeapon( weapon[] )
-{
-	new weaponid[64];
-	strcopy(weaponid, weapon);
-	EntityCreate( weapon, weaponid, 0, 0, 1, GLOBAL_MAP );
-	EntityPublicFunction( weaponid, "SetOwner", "s", selfid );
-	EntityPublicFunction( menuid, "AddWeapon", "s", weaponid );
-	SetWeapon(weaponid, 0);
-}
-
-public SetWeapon( weapon[], n )
-{
-	if ( n >= 0 && n < 4 ) 
-		strcopy(weapons[n], weapon);
-}
 
 
 /* Main Code */
-
 public Init(...)
 {
-	GetEntityPosition(_x_, _y_, _z_, dx, dy, dz, dl);
-
-	//SetRestartPosition(0, dx, dy, MapCurrent(), "Start");
-
-	_dir_ = 0;
-	dw = 30;
-	dh = 24;
-	ox = 2;
-	oy = 24;
 	_allow_offscreen = true;
 
-	SetPlayerSprites();
-	SetState(STANDING);
-	_type_ = TYPE_PLAYER;
+
 	
+	SetEntityDimension(30, 24, 2, 24);
+	SetPlayerSprites("p01n.png", "p01push.png", "p01pull.png", "p01swim.png");
+	SetState(STANDING);
+	SetType(TYPE_PLAYER);
+	SetDir(SOUTH);
 
 	obj = ObjectCreate(animation[_state_][0], SPRITE, dx, dy, dz, 0, 0, WHITE);
 
-	EntityGetSetting( "id", selfid, SELF );
+	self_hash_id = EntityGetSettingHash( "id" );
 
-	//EntityCreate( "hud", hudid, 0, 0, 6, GLOBAL_MAP, _, "s", selfid );
-	EntityCreate( "menu", menuid, 0, 0, 6, GLOBAL_MAP, _, "s", selfid );
+	//EntityCreate( "hud", HUD_ENTITY_ID, 0, 0, 6, GLOBAL_MAP, _, "s", self_hash_id );
+	menu_hash_id = EntityCreate( "menu", MENU_ENTITY_ID, 0, 0, 6, GLOBAL_MAP, _, "n", self_hash_id );
 	GiveWeapon("weapon_sword");
+
+	//SetRestartPosition(0, dx, dy, MapCurrent(), "Start");
 
 }
 
@@ -280,7 +105,7 @@ CheckCollisions()
 {
 	if ( CollisionCalculate() )
 	{
-		new current[64];
+		new current;
 		new angle;
 		new dist;
 		new rect;
@@ -337,7 +162,7 @@ public Hurt(type, damage, angle)
 		SetState(KNOCKED);
 		_health_ -= damage;
 		_angle_ = angle%360;
-		EntityPublicFunction(hudid, "Refresh", "");
+		EntityPublicFunction(hud_hash_id, "Refresh", "");
 		hit = 1000;
 	}
 }
@@ -359,7 +184,7 @@ MovePlayer()
 	else
 		_speed_ = 80.00;
 	if ( EntityMove(MASK_PLAYERSOLID2) )
-		EntityPublicFunction("__map__", "SetPlayerPosition", "nnn", _:_x_, _:_y_, _:_z_);
+		EntityPublicFunction(__MAP__, "SetPlayerPosition", "nnn", _:_x_, _:_y_, _:_z_);
 	MapSetOffset(_x_,_y_);
 	CollisionSet(SELF,0,TYPE_PLAYER,dx+ox,dy+oy,dw,dh);
 }
@@ -406,14 +231,14 @@ CheckForKeys()
 
 	if ( GameState() == 1 )
 	{
-		action[0] = InputButton(0, controller);
-		action[1] = InputButton(1, controller);
-		action[2] = InputButton(2, controller);
+		weapon_action[0] = InputButton(BUTTON_ACTION1, controller);
+		weapon_action[1] = InputButton(BUTTON_ACTION2, controller);
+		weapon_action[2] = InputButton(BUTTON_ACTION3, controller);
 	}
 
-	if ( InputButton(6, controller) == 1 )
+	if ( InputButton(BUTTON_MENU, controller) == 1 )
 	{
-		EntityPublicFunction(menuid, "Show", "ssss", selfid, weapons[0], weapons[1], weapons[2] );
+		EntityPublicFunction(menu_hash_id, "Show", "ssss", selfid, weapons[0], weapons[1], weapons[2] );
 		return;
 	}
 
@@ -422,7 +247,7 @@ CheckForKeys()
 		if ( weapon_active != -1 )
 		{
 			EntitySetPosition(_x_, _y_, _z_, weapons[weapon_active]);
-			if ( EntityPublicFunction(weapons[weapon_active], "Use", "nn", obj, _dir_) > 0 )
+			if ( EntityPublicFunction( weapons[weapon_active], "Use", "nn", obj, _dir_) > 0 )
 				return;
 			else
 				SetState(STANDING);
@@ -461,7 +286,7 @@ CheckForKeys()
 	
 	UpdateState();
 
-	if ( action[0] == 1 && weapons[0][0])
+	if ( weapon_action[0] == 1 && weapons[0])
 	{
 		EntitySetPosition(_x_, _y_, _z_, weapons[0]);
 		if ( EntityPublicFunction(weapons[0], "Use", "nn", obj, _dir_) == 1 )
@@ -470,7 +295,7 @@ CheckForKeys()
 			weapon_active = 0;
 		}
 	}
-	else if ( action[1] == 1  && weapons[1][0])
+	else if ( weapon_action[1] == 1  && weapons[1])
 	{
 		EntitySetPosition(_x_, _y_, _z_, weapons[1]);
 		if ( EntityPublicFunction(weapons[1], "Use", "nn", obj, _dir_) == 1 )
@@ -479,7 +304,7 @@ CheckForKeys()
 			weapon_active = 1;
 		}
 	}
-	else if ( action[2] == 1  && weapons[2][0])
+	else if ( weapon_action[2] == 1  && weapons[2])
 	{
 		EntitySetPosition(_x_, _y_, _z_, weapons[2]);
 		if ( EntityPublicFunction(weapons[2], "Use", "nn", obj, _dir_) == 1 )
