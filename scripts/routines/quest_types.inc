@@ -15,7 +15,6 @@
 #include <entities>
 #include <public_events>
 
-#define NULLOBJECT object:-1
 #define STATEFUNCTION  
 
 #define MENU_ENTITY_ID "menuent"  
@@ -71,6 +70,7 @@ const _STATEEFFECTS: {
 stock type_name[11][64] =  {"UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPORT","PUSHABLE","SWITCH","ITEM","PLAYER","OUTOFRANGE" };
 
 #define RECT[.x, .y, .w, .h]
+#define POSITION[.x, .y, .z]
 #define EntityGraphic[.obj, .x, .y, .z]
 #define SwitchEvent[.active, .entity, .function{24}]
 #define EntityInfo[.hash, .id{32}]

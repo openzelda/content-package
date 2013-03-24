@@ -53,7 +53,7 @@ main()
 
 	// Title
 	new str[64];
-	StringFormat(str,_,_,"%d: %s", evEntity, entities[evEntity]);
+	StringFormat(str,_,_,"%d: #%d", evEntity, entities[evEntity]);
 	GraphicsDraw(str, TEXT, evTitle.x, evTitle.y, 6, evTitle.w, evTitle.h, 0x000000AA);
 	GraphicsDraw(evError, TEXT, evHit.x, evHit.y+10, 6, evTitle.w, evTitle.h, 0xFF0000AA);
 

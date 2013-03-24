@@ -103,6 +103,7 @@ public Close()
 
 CheckCollisions()
 {
+	return;
 	if ( CollisionCalculate() )
 	{
 		new current;

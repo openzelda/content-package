@@ -188,7 +188,7 @@ main()
 public AddWeapon( w[64] )
 {
 	new n = 0;
-	while (n < 32)
+	while (n < 30)
 	{
 		if ( !weapon[n].active  )
 			break;
