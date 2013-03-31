@@ -9,8 +9,8 @@
 		<position x="96" y="0" w="48" h="48" />
 	</sprite>
 	<animation name="anim" mask="0">
-		<frame sprite="anim_2" x="0" y="0" ms="66"/>
-		<frame sprite="anim_1" x="0" y="0" ms="66"/>
-		<frame sprite="anim_0" x="0" y="0" ms="66"/>
+		<frame sprite="anim_2" x="0" y="0" ms="200"/>
+		<frame sprite="anim_1" x="0" y="0" ms="200"/>
+		<frame sprite="anim_0" x="0" y="0" ms="200"/>
 	</animation>
 </sheet>

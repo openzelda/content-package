@@ -37,6 +37,7 @@ public Init( ... )
 }
 main()
 {
+	TextSprites( 0, "" );
 	GenerateEntityList();
 	new x = InputPointer(0,0);
 	new y = InputPointer(1,0);

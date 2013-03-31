@@ -27,18 +27,18 @@
 		<position x="0" y="0" w="32" h="48" />
 	</sprite>
 	<animation name="side" mask="0">
-		<frame sprite="side_1" x="0" y="0" ms="100"/>
-		<frame sprite="side_2" x="0" y="0" ms="100"/>
-		<frame sprite="side_3" x="0" y="0" ms="100"/>
+		<frame sprite="side_1" x="0" y="0" ms="300"/>
+		<frame sprite="side_2" x="0" y="0" ms="300"/>
+		<frame sprite="side_3" x="0" y="0" ms="300"/>
 	</animation>
 	<animation name="back" mask="0">
-		<frame sprite="back_4" x="0" y="0" ms="100"/>
-		<frame sprite="back_5" x="0" y="0" ms="100"/>
-		<frame sprite="back_6" x="0" y="0" ms="100"/>
+		<frame sprite="back_4" x="0" y="0" ms="300"/>
+		<frame sprite="back_5" x="0" y="0" ms="300"/>
+		<frame sprite="back_6" x="0" y="0" ms="300"/>
 	</animation>
 	<animation name="front" mask="0">
-		<frame sprite="front_7" x="0" y="0" ms="100"/>
-		<frame sprite="front_8" x="0" y="0" ms="100"/>
-		<frame sprite="front_9" x="0" y="0" ms="100"/>
+		<frame sprite="front_7" x="0" y="0" ms="300"/>
+		<frame sprite="front_8" x="0" y="0" ms="300"/>
+		<frame sprite="front_9" x="0" y="0" ms="300"/>
 	</animation>
 </sheet>

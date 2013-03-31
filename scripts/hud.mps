@@ -23,9 +23,9 @@ forward public Hide();
 new active = 0;
 new count = 0;
 new used = 0;
-new object:obj[20] = { object:-1, ...};
+new object:obj[20] = [ object:-1, ...];
 new object:hud = object:-1;
-new owner[64]="";
+new owner;
 
 DrawCharacter(number, px, py, pz, colour, alpha)
 {
@@ -73,21 +73,21 @@ public Refresh()
 	new px;
 	for ( new c = 0; c < 3; c++ )
 	{
-		v = EntityPublicVariable(counters[c][name], "v");
-		px = counters[c][x];
+		v = EntityPublicVariable(counters[c].entityID, "v");
+		px = counters[c].screenX;
 		if(v > 100)
 		{
-			px += DrawCharacter(v/100, px, counters[c][y], 6000, 0xFFFFFF00, 0xFF)
+			px += DrawCharacter(v/100, px, counters[c].screenY, 6000, 0xFFFFFF00, 0xFF)
 			v %= 100;
 		}	
 		if(v > 10)
 		{
-			px += DrawCharacter(v/10, px, counters[c][y], 6000, 0xFFFFFF00, 0xFF)
+			px += DrawCharacter(v/10, px, counters[c].screenY, 6000, 0xFFFFFF00, 0xFF)
 			v %= 10;
 		}
 		if(v >= 0)
 		{
-			px += DrawCharacter(v, px, counters[c][y], 6000, 0xFFFFFF00, 0xFF)
+			px += DrawCharacter(v, px, counters[c].screenY, 6000, 0xFFFFFF00, 0xFF)
 		}	
 		
 	}
@@ -116,7 +116,7 @@ public Init(...)
 		new i = 0;
 		do 
 		{
-			owner[i] = c = getarg(0, i++);
+			c = getarg(0, i++);
 		} while(c && i<64);
 	}
 

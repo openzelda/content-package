@@ -75,7 +75,7 @@ public Init( ... )
 
 	if (debug_game)
 	{
-		EntityCreate("tester", "tester", 0, 0, 0, GLOBAL_MAP);
+		//EntityCreate("tester", "tester", 0, 0, 0, GLOBAL_MAP);
 	}
 }
 

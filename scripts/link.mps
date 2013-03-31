@@ -185,7 +185,7 @@ MovePlayer()
 	else
 		_speed_ = 80.00;
 	if ( EntityMove(MASK_PLAYERSOLID2) )
-		EntityPublicFunction(__MAP__, "SetPlayerPosition", "nnn", _:_x_, _:_y_, _:_z_);
+		EntityPublicFunction( EntityHash("__map__"), "SetPlayerPosition", "nnn", _:_x_, _:_y_, _:_z_);
 	MapSetOffset(_x_,_y_);
 	CollisionSet(SELF,0,TYPE_PLAYER,dx+ox,dy+oy,dw,dh);
 }

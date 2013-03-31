@@ -45,33 +45,33 @@
 		<position x="128" y="48" w="32" h="56" />
 	</sprite>
 	<animation name="swing-front" mask="0">
-		<frame sprite="swing-front_0" x="0" y="0" ms="25"/>
-		<frame sprite="swing-front_1" x="0" y="0" ms="25"/>
-		<frame sprite="swing-front_2" x="0" y="0" ms="25"/>
-		<frame sprite="swing-front_3" x="0" y="0" ms="25"/>
-		<frame sprite="swing-front_4" x="0" y="0" ms="25"/>
-		<frame sprite="swing-front_4" x="0" y="0" ms="25"/>
+		<frame sprite="swing-front_0" x="0" y="0" ms="150"/>
+		<frame sprite="swing-front_1" x="0" y="0" ms="150"/>
+		<frame sprite="swing-front_2" x="0" y="0" ms="150"/>
+		<frame sprite="swing-front_3" x="0" y="0" ms="150"/>
+		<frame sprite="swing-front_4" x="0" y="0" ms="150"/>
+		<frame sprite="swing-front_4" x="0" y="0" ms="150"/>
 	</animation>
 	<animation name="swing-back" mask="0">
-		<frame sprite="swing-back_0" x="0" y="0" ms="13"/>
-		<frame sprite="swing-back_0" x="0" y="0" ms="13"/>
-		<frame sprite="swing-back_1" x="0" y="0" ms="13"/>
-		<frame sprite="swing-back_1" x="0" y="0" ms="13"/>
-		<frame sprite="swing-back_2" x="0" y="0" ms="13"/>
-		<frame sprite="swing-back_3" x="0" y="0" ms="13"/>
-		<frame sprite="swing-back_2" x="0" y="0" ms="13"/>
-		<frame sprite="swing-back_4" x="0" y="0" ms="13"/>
-		<frame sprite="swing-back_4" x="0" y="0" ms="13"/>
+		<frame sprite="swing-back_0" x="0" y="0" ms="120"/>
+		<frame sprite="swing-back_0" x="0" y="0" ms="120"/>
+		<frame sprite="swing-back_1" x="0" y="0" ms="120"/>
+		<frame sprite="swing-back_1" x="0" y="0" ms="120"/>
+		<frame sprite="swing-back_2" x="0" y="0" ms="120"/>
+		<frame sprite="swing-back_3" x="0" y="0" ms="120"/>
+		<frame sprite="swing-back_2" x="0" y="0" ms="120"/>
+		<frame sprite="swing-back_4" x="0" y="0" ms="120"/>
+		<frame sprite="swing-back_4" x="0" y="0" ms="120"/>
 	</animation>
 	<animation name="swing-side" mask="0">
-		<frame sprite="swing-side_1" x="0" y="0" ms="13"/>
-		<frame sprite="swing-side_1" x="0" y="0" ms="13"/>
-		<frame sprite="swing-side_0" x="0" y="0" ms="13"/>
-		<frame sprite="swing-side_1" x="0" y="0" ms="13"/>
-		<frame sprite="swing-side_2" x="0" y="0" ms="13"/>
-		<frame sprite="swing-side_3" x="0" y="0" ms="13"/>
-		<frame sprite="swing-side_2" x="0" y="0" ms="13"/>
-		<frame sprite="swing-side_4" x="0" y="0" ms="13"/>
-		<frame sprite="swing-side_4" x="0" y="0" ms="13"/>
+		<frame sprite="swing-side_1" x="0" y="0" ms="120"/>
+		<frame sprite="swing-side_1" x="0" y="0" ms="120"/>
+		<frame sprite="swing-side_0" x="0" y="0" ms="120"/>
+		<frame sprite="swing-side_1" x="0" y="0" ms="120"/>
+		<frame sprite="swing-side_2" x="0" y="0" ms="120"/>
+		<frame sprite="swing-side_3" x="0" y="0" ms="120"/>
+		<frame sprite="swing-side_2" x="0" y="0" ms="120"/>
+		<frame sprite="swing-side_4" x="0" y="0" ms="120"/>
+		<frame sprite="swing-side_4" x="0" y="0" ms="120"/>
 	</animation>
 </sheet>

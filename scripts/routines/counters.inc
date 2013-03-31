@@ -12,19 +12,19 @@
  *     2013/01/31 [luke]: switch to Pawn 4
  ***********************************************/
 /* Counters */
-#define CounterLocation[.name{20}, .screen_x, .screen_y]
+#define CounterLocation[.name{20}, .entityID, .screenX, .screenY]
 
-new counters[3][CounterLocation] = { 
-	{"p_rupees", 72, 36}, 
-	{"p_arrows", 136, 36}, 
-	{"p_bombs", 200, 36}
-}
+new counters[3][CounterLocation] = [ 
+	["p_rupees", 0, 72, 36], 
+	["p_arrows", 0, 136, 36], 
+	["p_bombs", 0, 200, 36]
+]
 
 
 CreateCounters()
 {
 	for ( new q = 0; q < 3; q++ )
 	{
-		EntityCreate("counter", counters[q].name, 1,1,1, GLOBAL_MAP);
+		counters[q].entityID = EntityCreate("counter", counters[q].name, 1,1,1, GLOBAL_MAP);
 	}
 }

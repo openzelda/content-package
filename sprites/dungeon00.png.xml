@@ -1,7 +1,6 @@
 <sheet xmlns="http://mokoi.info/format/sheet">
 	<sprite name="gem1" mask="0">
 		<position x="192" y="64" w="32" h="32" />
-		<collision id="0" x="9" y="11" w="14" h="16" />
 	</sprite>
 	<sprite name="p4" mask="255">
 		<position x="32" y="112" w="16" h="32" />

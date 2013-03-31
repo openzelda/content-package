@@ -33,15 +33,15 @@
 		<position x="0" y="64" w="32" h="32" />
 	</sprite>
 	<animation name="side" mask="0">
-		<frame sprite="side_0" x="0" y="0" ms="60"/>
-		<frame sprite="side_1" x="0" y="0" ms="60"/>
+		<frame sprite="side_0" x="0" y="0" ms="120"/>
+		<frame sprite="side_1" x="0" y="0" ms="120"/>
 	</animation>
 	<animation name="back" mask="0">
-		<frame sprite="back_0" x="0" y="0" ms="60"/>
-		<frame sprite="back_1" x="0" y="0" ms="60"/>
+		<frame sprite="back_0" x="0" y="0" ms="120"/>
+		<frame sprite="back_1" x="0" y="0" ms="120"/>
 	</animation>
 	<animation name="front" mask="0">
-		<frame sprite="front_0" x="0" y="0" ms="60"/>
-		<frame sprite="front_1" x="0" y="0" ms="60"/>
+		<frame sprite="front_0" x="0" y="0" ms="120"/>
+		<frame sprite="front_1" x="0" y="0" ms="120"/>
 	</animation>
 </sheet>

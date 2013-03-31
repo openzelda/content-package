@@ -123,8 +123,8 @@
 		<position x="128" y="48" w="16" h="16" />
 	</sprite>
 	<animation name="t1" mask="0">
-		<frame sprite="t1_0" x="0" y="0" ms="200"/>
-		<frame sprite="t1_1" x="0" y="0" ms="200"/>
-		<frame sprite="t1_2" x="0" y="0" ms="200"/>
+		<frame sprite="t1_0" x="0" y="0" ms="600"/>
+		<frame sprite="t1_1" x="0" y="0" ms="600"/>
+		<frame sprite="t1_2" x="0" y="0" ms="600"/>
 	</animation>
 </sheet>

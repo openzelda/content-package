@@ -63,30 +63,30 @@
 		<position x="0" y="0" w="32" h="48" />
 	</sprite>
 	<animation name="front" mask="0">
-		<frame sprite="front_0" x="0" y="0" ms="17"/>
-		<frame sprite="front_1" x="0" y="0" ms="17"/>
-		<frame sprite="front_2" x="0" y="0" ms="17"/>
-		<frame sprite="front_3" x="0" y="0" ms="17"/>
-		<frame sprite="front_4" x="0" y="0" ms="17"/>
-		<frame sprite="front_5" x="0" y="0" ms="17"/>
-		<frame sprite="front_6" x="0" y="0" ms="17"/>
+		<frame sprite="front_0" x="0" y="0" ms="120"/>
+		<frame sprite="front_1" x="0" y="0" ms="120"/>
+		<frame sprite="front_2" x="0" y="0" ms="120"/>
+		<frame sprite="front_3" x="0" y="0" ms="120"/>
+		<frame sprite="front_4" x="0" y="0" ms="120"/>
+		<frame sprite="front_5" x="0" y="0" ms="120"/>
+		<frame sprite="front_6" x="0" y="0" ms="120"/>
 	</animation>
 	<animation name="back" mask="0">
-		<frame sprite="back_0" x="0" y="0" ms="17"/>
-		<frame sprite="back_1" x="0" y="0" ms="17"/>
-		<frame sprite="back_2" x="0" y="0" ms="17"/>
-		<frame sprite="back_3" x="0" y="0" ms="17"/>
-		<frame sprite="back_4" x="0" y="0" ms="17"/>
-		<frame sprite="back_5" x="0" y="0" ms="17"/>
-		<frame sprite="back_6" x="0" y="0" ms="17"/>
+		<frame sprite="back_0" x="0" y="0" ms="120"/>
+		<frame sprite="back_1" x="0" y="0" ms="120"/>
+		<frame sprite="back_2" x="0" y="0" ms="120"/>
+		<frame sprite="back_3" x="0" y="0" ms="120"/>
+		<frame sprite="back_4" x="0" y="0" ms="120"/>
+		<frame sprite="back_5" x="0" y="0" ms="120"/>
+		<frame sprite="back_6" x="0" y="0" ms="120"/>
 	</animation>
 	<animation name="side" mask="0">
-		<frame sprite="side_0" x="0" y="0" ms="17"/>
-		<frame sprite="side_1" x="0" y="0" ms="17"/>
-		<frame sprite="side_2" x="0" y="0" ms="17"/>
-		<frame sprite="side_3" x="0" y="0" ms="17"/>
-		<frame sprite="side_4" x="0" y="0" ms="17"/>
-		<frame sprite="side_5" x="0" y="0" ms="17"/>
-		<frame sprite="side_6" x="0" y="0" ms="17"/>
+		<frame sprite="side_0" x="0" y="0" ms="120"/>
+		<frame sprite="side_1" x="0" y="0" ms="120"/>
+		<frame sprite="side_2" x="0" y="0" ms="120"/>
+		<frame sprite="side_3" x="0" y="0" ms="120"/>
+		<frame sprite="side_4" x="0" y="0" ms="120"/>
+		<frame sprite="side_5" x="0" y="0" ms="120"/>
+		<frame sprite="side_6" x="0" y="0" ms="120"/>
 	</animation>
 </sheet>

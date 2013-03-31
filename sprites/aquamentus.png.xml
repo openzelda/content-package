@@ -1,33 +1,25 @@
 <sheet xmlns="http://mokoi.info/format/sheet">
 	<sprite name="flame_1" mask="0">
 		<position x="16" y="128" w="16" h="16" />
-		<collision id="0" x="2" y="3" w="12" h="12" />
 	</sprite>
 	<sprite name="flame_0" mask="0">
 		<position x="0" y="128" w="16" h="16" />
-		<collision id="0" x="2" y="3" w="12" h="12" />
 	</sprite>
 	<sprite name="1" mask="0">
 		<position x="0" y="0" w="128" h="128" />
-		<collision id="0" x="62" y="67" w="32" h="49" />
-		<collision id="1" x="24" y="64" w="60" h="64" />
-		<collision id="2" x="84" y="63" w="44" h="65" />
 	</sprite>
 	<sprite name="2" mask="0">
 		<position x="128" y="0" w="128" h="128" />
-		<collision id="0" x="68" y="73" w="23" h="37" />
-		<collision id="1" x="24" y="64" w="60" h="64" />
-		<collision id="2" x="84" y="63" w="44" h="65" />
 	</sprite>
 	<sprite name="3" mask="0">
 		<position x="256" y="0" w="128" h="128" />
 	</sprite>
 	<animation name="0" mask="0">
-		<frame sprite="1" x="0" y="0" ms="200"/>
-		<frame sprite="2" x="0" y="0" ms="200"/>
+		<frame sprite="1" x="0" y="0" ms="400"/>
+		<frame sprite="2" x="0" y="0" ms="400"/>
 	</animation>
 	<animation name="flame" mask="0">
-		<frame sprite="flame_0" x="0" y="0" ms="40"/>
-		<frame sprite="flame_1" x="0" y="0" ms="40"/>
+		<frame sprite="flame_0" x="0" y="0" ms="80"/>
+		<frame sprite="flame_1" x="0" y="0" ms="80"/>
 	</animation>
 </sheet>
