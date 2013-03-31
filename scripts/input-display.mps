@@ -13,7 +13,7 @@
 
 new object:axis_obj[2];
 new object:button_obj[6];
-new color[3] = { 0x000000FF, 0xFFFF00FF, 0xFFFFFFFF };
+new color[3] = [ 0x000000FF, 0xFFFF00FF, 0xFFFFFFFF ];
 
 main()
 {

@@ -25,8 +25,8 @@ new adj = 3;
 new listen_rad = 50;
 
 /* Display Object */
-new body[EntityGraphic] = { NULLOBJECT, 0, 0, 0 };	// Display Object, Offset x, Offset y, Offset z
-new object:shadow = NULLOBJECT;
+new body[EntityGraphic] = [ OBJECT_NONE, 0, 0, 0 ];	// Display Object, Offset x, Offset y, Offset z
+new object:shadow = OBJECT_NONE;
 
 /* Collisions Settings */
 
@@ -47,9 +47,9 @@ public Init(...)
 	SetStateGraphic( MOVING, "bat01.png", "bat", "bat", "bat", "bat" );
 
 	/* */
-	body[egOBJ] = object:EntityGetNumber("object-id");
+	body.obj= object:EntityGetNumber("object-id");
 	shadow = ObjectCreate( "", CIRCLE, dx+8, dy+32, 2, 16, 8, 0x000000DD );
-	ShowObjects( body[egOBJ], shadow );
+	ShowObjects( body.obj, shadow );
 }
 
 
@@ -60,7 +60,7 @@ main()
 
 	if ( HasStateChanged() )
 	{
-		ResetObjects( body[egOBJ] );
+		ResetObjects( body.obj );
 	}
 
 	if ( _state_ <= MOVING )
@@ -82,7 +82,7 @@ main()
 			Special();
 		case DEAD:
 		{
-			HideObjects( body[egOBJ], shadow );
+			HideObjects( body.obj, shadow );
 			CollisionSet(SELF, -1, 0);
 			SetState(GONE);
 			return;
@@ -192,8 +192,8 @@ PUBLICFUNCTIONHIT
 	if ( _state_ == HIT || _state_ == DYING || _state_ == GONE )
 		return;
 
-	strcopy( _attacker_, attacker );
-	new child[64] = "*";
+	_attacker_ = attacker;
+	new child;
 
 	_angle_ = fixed(360 - angle);
 
@@ -208,7 +208,7 @@ PUBLICFUNCTIONHIT
 	{
 		// Create a frozen effect around the enemy
 		//EntityCreate( "effect_freeze", child, dx, dy, 5, CURRENT_MAP );
-		EntityPublicFunction( child, "SetArea", "nnnn", dx, dy, dw, dh);
+		EntityPublicFunction( child, "SetArea", ''nnnn'', dx, dy, dw, dh);
 		//ObjectEffect( obj, 0x0000FFFF );
 		//StunCount = 3200;
 		_state_ = SPECIALSTATE;
@@ -220,7 +220,8 @@ PUBLICFUNCTIONHIT
 	}
 	else if ( attack&APLAYER == APLAYER )
 	{
-		EntityPublicFunction( attacker, "Hurt", "nnn", ASWORD, _damage_, angle );
+		CallEntityHit( attacker, 0, angle, 5, ASWORD,  _damage_, x, y, rect );
+		//EntityPublicFunction( attacker, "Hurt", ''nnn'' ASWORD, _damage_, angle );
 		return;
 	}
 	else

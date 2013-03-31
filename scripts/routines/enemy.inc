@@ -27,11 +27,11 @@ new Fixed:_initialx_ = -99.0;
 new Fixed:_initialy_;
 new bool:_boss_ = false;
 stock bool:_resetable_ = false;
-new _attacker_[128];
+new _attacker_;
 new _item_[64];
 new _sprite_[64];
 new death_count = 4200;
-new object:death_obj = NULLOBJECT;
+new object:death_obj = OBJECT_NONE;
 
 new _STATEEFFECTS:current_effect = NOEFFECT;
 new effect_count = 0;
@@ -44,31 +44,7 @@ static error_message[43];
 /* States */
 #define STATE_FLIP ((_dir_/2) == 3 ? true : false)
 #define STATE_GRAPHIC StateGraphics[_state_][((_dir_ % 8)/2)]
-stock StateGraphics[_STATE][4]{32} = {
-	//SOUTH, WEST, NORTH, EAST, 
-	/* ALIVE */		{"", "", "", ""},
-	/* STANDING */		{"", "", "", ""},
-	/* MOVING */		{"", "", "", ""},
-	/* HIT */		{"", "", "", ""},
-	/* KNOCKED */		{"", "", "", ""},
-	/* JUMPING */		{"", "", "", ""},
-	/* SWIMMING */		{"", "", "", ""},
-	/* FLOATING */		{"", "", "", ""},
-	/* CHASING */		{"", "", "", ""},
-	/* USING */		{"", "", "", ""},
-	/* LIFTING */		{"", "", "", ""},
-	/* STANDLIFT */		{"", "", "", ""},
-	/* WALKLIFT */		{"", "", "", ""},
-	/* SPECIALSTATE */	{"", "", "", ""},
-	/* FALLING */		{"", "", "", ""},
-	/* WAITING */		{"", "", "", ""},
-	/* LEAPING */		{"", "", "", ""},
-	/* PUSHING */		{"", "", "", ""},
-	/* PULLING */		{"", "", "", ""},
-	/* DYING */		{"", "", "", ""},
-	/* DEAD */		{"", "", "", ""},
-	/* GONE */		{"", "", "", ""}
-};
+stock StateGraphics[STATE_COUNT][4]{32};
 
 stock SetStateGraphic( _STATE:s, parent[], south_graphic[], west_graphic[], north_graphic[], east_graphic[] )
 {
@@ -118,7 +94,7 @@ stock HandleDying()
 	{
 		_state_ = DEAD;
 		ObjectDelete(death_obj);
-		death_obj = NULLOBJECT;
+		death_obj = OBJECT_NONE;
 		DeathEvent();
 	}
 }
@@ -147,7 +123,7 @@ stock Kill( )
 	_state_ = DYING;
 	AudioPlaySound( ( _boss_ ? "boss_killed.wav" : "enemy_killed.wav"), dx, dy);
 	
-	if (death_obj == NULLOBJECT )
+	if (death_obj == OBJECT_NONE )
 		death_obj = ObjectCreate("deathanim01.png:anim", SPRITE, dx, dy, dz+100, 0, 0,WHITE);
 	death_count = AnimationGetLength("deathanim01.png","anim") ;
 	ObjectFlag(death_obj, FLAG_ANIMLOOP, false);
@@ -156,16 +132,16 @@ stock Kill( )
 stock DeathEvent()
 {
 	FunctionCall(FunctionID("EnemyClose"));
-	if ( _attacker_[0] )
-		EntityPublicFunction(_attacker_, "AddKill", "n", _maxhealth_ );
+	if ( _attacker_ )
+		EntityPublicFunction(_attacker_, "AddKill", ['n', '0'], _maxhealth_ );
 
 	if ( _boss_ )
 	{
-		new entity[32], function[24];
-		EntityGetSetting("death-entity", entity );
+		new entityId, function[24];
+		entityId = EntityGetNumber("death-entity" );
 		EntityGetSetting("death-function", function );
-		if ( entity[0] && function[0] )
-			EntityPublicFunction(entity, function);
+		if ( entityId && function[0] )
+			EntityPublicFunction( entityId, function );
 	}
 	else
 	{
@@ -226,7 +202,7 @@ stock StunnedEffect( count )
 {
 	static ShakeCount = 0;
 
-	new ShakeOffset[5] = { -2, -2, 0, 2, 2 }; 
+	new ShakeOffset[5] = [ -2, -2, 0, 2, 2 ]; 
 
 	if ( count <= 100)
 	{

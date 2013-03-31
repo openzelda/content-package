@@ -74,6 +74,7 @@ stock type_name[11][64] =  {"UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPO
 #define EntityGraphic[.obj, .x, .y, .z]
 #define SwitchEvent[.active, .entity, .function{24}]
 #define EntityInfo[.hash, .id{32}]
+#define __MAP__ EntityHash("__map__")
 
 /* Item Types */
 #define ITEM_BOMBS 1

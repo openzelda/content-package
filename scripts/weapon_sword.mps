@@ -13,17 +13,19 @@
 #include <open_zelda>
 #include <weapon>
 
-new object:obj = NULLOBJECT;
+new object:obj = OBJECT_NONE;
 new timer = 0;
-new sheet[] = "sword01.png";
-new player_sheet[] = "p01swing.png";
-new anim[4][11 char] = { !"swing-front", !"swing-side", !"swing-back", !"swing-side" };
-new _px_, _py_;
+new sheet{} = "sword01.png";
+new player_sheet{} = "p01swing.png";
+new anim[4]{11} = [ "swing-front", "swing-side", "swing-back", "swing-side" ];
+
+new entityID:selfId;
 
 public Init(...)
 {
 	oy += 32;
 	ox += 12;
+	selfId = entityID:EntityGetSettingHash("object-id");
 }
 
 public Close()
@@ -35,7 +37,7 @@ main() { } //So Engine doesn't complain
 
 weapon_begin( xobj, dir )
 {
-	if ( timer || obj != NULLOBJECT )
+	if ( timer || obj !=  OBJECT_NONE )
 		return;
 
 	new image[64], ximage[64];
@@ -65,7 +67,7 @@ weapon_ended( xobj )
 	{
 		ObjectDelete(obj);
 		CollisionSet(SELF, -1, 0);
-		obj = NULLOBJECT;
+		obj =  OBJECT_NONE;
 		return 0;
 	}
 	return 1;
@@ -95,13 +97,13 @@ public Use( xobj, dir )
 	CollisionGet(SELF, 0,hx,hy,hw,hh);
 	if ( CollisionCalculate() )
 	{
-		new current[64];
+		new current;
 		new angle;
 		new dist;
 		new rect;
 		new type;
 
-		while ( CollisionGetCurrent(SELF, current, angle, dist, rect, type) )
+		while ( CollisionGetCurrent(selfId, current, angle, dist, rect, type) )
 		{
 			if ( type == _:TYPE_ENEMY || type == _:TYPE_AWAKING )
 			{

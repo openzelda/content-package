@@ -15,10 +15,10 @@
 		<position x="160" y="0" w="40" h="40" />
 	</sprite>
 	<animation name="1" mask="0" entity="enemy_bubble.mps">
-		<frame sprite="1_0" x="0" y="0" ms="20"/>
-		<frame sprite="1_1" x="0" y="0" ms="20"/>
-		<frame sprite="1_2" x="0" y="0" ms="20"/>
-		<frame sprite="1_3" x="0" y="0" ms="20"/>
-		<frame sprite="1_4" x="0" y="0" ms="20"/>
+		<frame sprite="1_0" x="0" y="0" ms="100"/>
+		<frame sprite="1_1" x="0" y="0" ms="100"/>
+		<frame sprite="1_2" x="0" y="0" ms="100"/>
+		<frame sprite="1_3" x="0" y="0" ms="100"/>
+		<frame sprite="1_4" x="0" y="0" ms="100"/>
 	</animation>
 </sheet>

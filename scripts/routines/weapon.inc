@@ -12,7 +12,7 @@
  ***********************************************/
 #include <string> 
  
-new ownerid[64] = ""; 
+new ownerid[64]; 
  
 /* Public Function - Do not change */ 
 forward public Use( xobj, dir ) 

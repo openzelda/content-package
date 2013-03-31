@@ -87,22 +87,22 @@
 		<position x="152" y="280" w="8" h="8" />
 	</sprite>
 	<animation name="f1" mask="0">
-		<frame sprite="f1_0" x="0" y="0" ms="53"/>
-		<frame sprite="f1_1" x="0" y="0" ms="53"/>
-		<frame sprite="f1_2" x="0" y="0" ms="53"/>
+		<frame sprite="f1_0" x="0" y="0" ms="160"/>
+		<frame sprite="f1_1" x="0" y="0" ms="160"/>
+		<frame sprite="f1_2" x="0" y="0" ms="160"/>
 	</animation>
 	<animation name="f2" mask="0">
-		<frame sprite="f2_0" x="0" y="0" ms="53"/>
-		<frame sprite="f2_1" x="0" y="0" ms="53"/>
-		<frame sprite="f2_2" x="0" y="0" ms="53"/>
+		<frame sprite="f2_0" x="0" y="0" ms="160"/>
+		<frame sprite="f2_1" x="0" y="0" ms="160"/>
+		<frame sprite="f2_2" x="0" y="0" ms="160"/>
 	</animation>
 	<animation name="f3" mask="0">
-		<frame sprite="f3_0" x="0" y="0" ms="53"/>
-		<frame sprite="f3_1" x="0" y="0" ms="53"/>
-		<frame sprite="f3_2" x="0" y="0" ms="53"/>
+		<frame sprite="f3_0" x="0" y="0" ms="160"/>
+		<frame sprite="f3_1" x="0" y="0" ms="160"/>
+		<frame sprite="f3_2" x="0" y="0" ms="160"/>
 	</animation>
 	<animation name="new" mask="0">
-		<frame sprite="new_0" x="0" y="0" ms="500"/>
-		<frame sprite="new_1" x="0" y="0" ms="500"/>
+		<frame sprite="new_0" x="0" y="0" ms="1000"/>
+		<frame sprite="new_1" x="0" y="0" ms="1000"/>
 	</animation>
 </sheet>

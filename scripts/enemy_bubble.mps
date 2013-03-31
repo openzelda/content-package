@@ -55,7 +55,7 @@ main()
 	ObjectPosition( obj, dx, dy, 3, 0, 0 );
 }
 
-public Hit( attacker[], angle, dist, attack, damage, x, y, rect )
+public Hit( attacker, angle, dist, attack, damage, x, y, rect )
 {
 	if ( _state_ == HIT || _state_ == DYING || _state_ == GONE )
 		return;

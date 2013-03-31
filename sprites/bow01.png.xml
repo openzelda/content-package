@@ -13,7 +13,6 @@
 	</sprite>
 	<sprite name="i_quiver" mask="0">
 		<position x="32" y="96" w="32" h="32" />
-		<collision id="0" x="8" y="7" w="16" h="18" />
 	</sprite>
 	<sprite name="w_bowi" mask="0">
 		<position x="64" y="128" w="32" h="32" />
@@ -55,8 +54,8 @@
 		<position x="0" y="0" w="32" h="16" />
 	</sprite>
 	<animation name="arrow_end" mask="0">
-		<frame sprite="arrow_end_0" x="0" y="0" ms="33"/>
-		<frame sprite="arrow_end_1" x="0" y="0" ms="33"/>
-		<frame sprite="arrow_end_2" x="0" y="0" ms="33"/>
+		<frame sprite="arrow_end_0" x="0" y="0" ms="100"/>
+		<frame sprite="arrow_end_1" x="0" y="0" ms="100"/>
+		<frame sprite="arrow_end_2" x="0" y="0" ms="100"/>
 	</animation>
 </sheet>

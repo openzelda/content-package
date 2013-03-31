@@ -1,3 +1,16 @@
+/***********************************************
+ * Copyright © Luke Salisbury
+ *
+ * You are free to share, to copy, distribute and transmit this work
+ * You are free to adapt this work
+ * Under the following conditions:
+ *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You may not use this work for commercial purposes.
+ * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
+ * Changes:
+ *     2012/01/11 [luke]: new file.
+ ***********************************************/
+
 #include <core> 
 #include <graphics> 
 #include <entities> 
@@ -15,7 +28,7 @@ forward @IncreaseTarget(m)
 forward @IncreaseValue(m) 
 forward @GetValue() 
 forward @SetSpeed(m) 
-forward @SetWatch(m, e[], c[]) 
+forward @SetWatch(m, e, c[]) 
 
 
 
@@ -26,7 +39,7 @@ new t = 0;
 new s = 30; 
 new w = -1; 
 new call[20]; 
-new entity[64]; 
+new entityId; 
  
 
 
@@ -60,7 +73,7 @@ main()
 	} 
 	if ( v == w ) 
 	{ 
-		EntityPublicFunction(entity, call); 
+		EntityPublicFunction(entityId, call); 
 		w = -1; 
 	} 
 } 
@@ -124,10 +137,10 @@ main()
 	s = m; 
 } 
  
-@SetWatch(m, e[], c[]) 
+@SetWatch(m, e, c[]) 
 { 
 	w = m; 
-	strcopy(entity, e); 
+	entityId = e;
 	strcopy(call, c); 
 } 
  

@@ -15,7 +15,7 @@
 public _maxhealth_ = 300;
 public _health_ = 300;
 
-new object:obj = NULLOBJECT;
+new object:obj = OBJECT_NONE;
 new selfid[64];
 new self_hash_id = 0;
 new hud_hash_id = 0;
