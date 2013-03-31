@@ -36,8 +36,6 @@ DungeonMapInit()
 	EntityGetSetting("on-entity", entity_name );
 	on_events.entity = EntityHash(entity_name);
 
-	entity_name = "";
-
 	EntityGetSetting("off-event", off_events.function );
 	EntityGetSetting("off-entity", entity_name );
 	off_events.entity = EntityHash(entity_name); 
@@ -45,9 +43,9 @@ DungeonMapInit()
 
 
 	if ( StringLength(off_events.function) && off_events.entity )
-		off_events[active] = true;
+		off_events.active = true;
 	if ( StringLength(on_events.function) && on_events.entity )
-		on_events[active] = true;
+		on_events.active = true;
 	MapInit();
 }
 
@@ -71,8 +69,8 @@ public SwitchRelease()
 {
 	if ( switch_pressed == switches )
 	{
-		if ( off_events[active] )
-			EntityPublicFunction(off_events.entity., off_events.function);
+		if ( off_events.active )
+			EntityPublicFunction(off_events.entity, off_events.function);
 	}
 	switch_pressed--;
 
