@@ -4,16 +4,16 @@
 #include <open_zelda>
 
 new timeout = 1;
-new object:obj = NULLOBJECT;
+new object:obj = OBJECT_NONE;
 
 public Init( ... )
 {
 	new length = 1;
-	EntityGetPosition(_x_,_y_, _z_);
+	EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y, mqDisplayZIndex);
 	UpdateDisplayPosition();
-	obj = ObjectCreate("fire1.png:1", SPRITE, dx, dy, 4, 0, 0);
+	obj = ObjectCreate("fire1.png:1", SPRITE, mqDisplayArea.x, mqDisplayArea.y, 4, 0, 0);
 	timeout = AnimationGetLength("fire1.png:1") * length;
-	AudioPlaySound("fire1.wav", dx, dy);
+	AudioPlaySound("fire1.wav", mqDisplayArea.x, mqDisplayArea.y);
 }
 
 public Close()
@@ -24,7 +24,7 @@ public Close()
 
 main()
 {
-	if ( _state_ == DYING )
+	if ( mqState == DYING )
 	{
 		if ( Countdown(timeout) )
 			EntityDelete();

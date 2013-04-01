@@ -1,63 +1,67 @@
 /***********************************************
+ * Copyright © Luke Salisbury
  *
+ * You are free to share, to copy, distribute and transmit this work
+ * You are free to adapt this work
+ * Under the following conditions:
+ *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You may not use this work for commercial purposes.
+ * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
+ * Changes:
+ *     2010/01/11 [luke]: new file.
  ***********************************************/
-#include <quest_types>
-forward public Hit( attacker[], angle, dist, attack, damage, x, y,rect );
+#include <movement>
+#include <public_events>
 
-stock Fixed:_x_, Fixed:_y_, Fixed:_z_;
-stock dx, dy, dz;
-new Fixed:_angle_ = 270.0;
-new active = 0;
-new _speed_ = 80;
-new obj = -1;
+
+forward PUBLIC_EVENT_HIT;
+
+new Fixed:active_timer = 0.0;
 
 public Init( ... )
 {
-	EntityGetPosition(_x_, _y_, _z_);
-	dx = fround(_x_, round_unbiased)+16;
-	dy = fround(_y_, round_unbiased)+16;
-	dz = fround(_z_, round_unbiased);
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 
-	obj = ObjectCreate("aquamentus.png:flame", SPRITE, dx, dy, 5, 32, 32);
-	ObjectEffect(obj,_,_,2000,2000);
-	AudioPlaySound( "effect_fire1.wav", dx, dy );
+	mqDisplayObject = ObjectCreate("aquamentus.png:flame", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 32, 32);
+	ObjectEffect(mqDisplayObject, _, _, 2000,2000);
+	AudioPlaySound( "effect_fire1.wav", mqDisplayArea.x, mqDisplayArea.y );
 
 	if ( numargs() )
-		_angle_ = Fixed:getarg(0);
+		mqMovementAngle = Fixed:getarg(0);
 }
 
 public Close()
 {
-	ObjectDelete( obj );
+	ObjectDelete( mqDisplayObject );
 }
 
 main()
 {
-	active += GameFrame();
-	if ( active > 7000 )
+	active_timer += GameFrame2();
+	if ( active_timer > 7.000 )
 	{
 		EntityDelete();
 		return;
 	}
 
-	new Fixed:speed =  _speed_ * GameFrame2();
-	new Fixed:movex = fsin(_angle_, degrees) * speed;
-	new Fixed:movey = fcos(_angle_, degrees) * speed;
+	new Fixed:speed = mqMovementSpeed * GameFrame2(); // Movement fot the frame
+	new Fixed:movex = fsin(mqMovementAngle, degrees) * speed;
+	new Fixed:movey = fcos(mqMovementAngle, degrees) * speed;
 
-	_x_ += movex;
-	_y_ += movey;
+	mqEntityPosition.x += movex;
+	mqEntityPosition.y += movey;
 
-	dx = fround(_x_, round_unbiased)+16 ;
-	dy = fround(_y_, round_unbiased)+16;
+	mqDisplayArea.x = fround(mqEntityPosition.x, round_unbiased)+16;
+	mqDisplayArea.y = fround(mqEntityPosition.y, round_unbiased)+16;
 
-	if ( MaskGetValue(dx, dy) > 200 )
+	if ( MaskGetValue(mqDisplayArea.x, mqDisplayArea.y) > 200 )
 		EntityDelete();
 
-	ObjectPosition(obj, dx-16, dy-16, 5, 0, 0);
-	CollisionFromObject(obj, TYPE_ENEMY);
+	ObjectPosition(mqDisplayObject, mqDisplayArea.x-16, mqDisplayArea.y-16, mqDisplayZIndex, 0, 0);
+	CollisionFromObject(mqDisplayObject, TYPE_ENEMY);
 }
 
-public Hit( attacker[], angle, dist, attack, damage, x, y,rect )
+PUBLIC_EVENT_HIT
 {
 	if ( attack&APLAYER == APLAYER )
 	{

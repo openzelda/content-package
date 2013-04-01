@@ -24,7 +24,7 @@ forward public UpdatePlayer(player[]);
 
 public Init(...)
 {
-	_type_ = TYPE_DOOR;
+	mqType = TYPE_DOOR;
 	EntityGetSetting("object-image", doorOpen);
 	EntityGetSetting("target", target);
 	EntityGetSetting("section", section);
@@ -35,20 +35,20 @@ public Init(...)
 	strformat(dungeon, _, _, "dungeon-%d", dungeonid);
 
 
-	EntityGetPosition(_x_,_y_,_z_);
+	EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y,mqDisplayZIndex);
 	UpdateDisplayPosition();
 
 	strformat(doorArch, _, _, "%s-arch", doorOpen);
 	if ( MiscGetHeight(doorArch) )
 	{
-		arch = ObjectCreate(doorArch, SPRITE, dx, dy + height-16, 5, 0, 0,0xffffffff);
+		arch = ObjectCreate(doorArch, SPRITE, mqDisplayArea.x, mqDisplayArea.y + height-16, 5, 0, 0,0xffffffff);
 	}
 
 	EntityCreate("dungeon", dungeon, 1, 1, 6, GLOBAL_MAP);
 
-	//MaskFill(dx, dy, width, height, MASK_SOLID);
-	MaskFill(dx + xoffset, dy, width - (xoffset*2), height - 4, MASK_PLAYERSOLID);
-	CollisionSet(SELF, 1, TYPE_TRANSPORT, dx+xoffset, dy+yoffset, width-(xoffset*2), height-(yoffset*2)-8);
+	//MaskFill(mqDisplayArea.x, mqDisplayArea.y, width, height, MASK_SOLID);
+	MaskFill(mqDisplayArea.x + xoffset, mqDisplayArea.y, width - (xoffset*2), height - 4, MASK_PLAYERSOLID);
+	CollisionSet(SELF, 1, TYPE_TRANSPORT, mqDisplayArea.x+xoffset, mqDisplayArea.y+yoffset, width-(xoffset*2), height-(yoffset*2)-8);
 
 }
 
@@ -68,7 +68,7 @@ public UpdatePlayer(player[])
 {
 	new nplayer[64];
 	strcopy(nplayer, player);
-	EntitySetPosition(_x_ + fixed(xoffset), _y_+8.00, _, nplayer);
+	EntitySetPosition(mqEntityPosition.x + fixed(xoffset), mqEntityPosition.y+8.00, _, nplayer);
 	EntityPublicFunction(nplayer, "SetDir", "n", NORTH);
 	EntityPublicFunction(nplayer, "UpdatePosition");
 
@@ -84,7 +84,7 @@ public MovePlayer(player[], d)
 {
 	if ( target_grid < 0 )
 		return false;
-	if ( _dir_ != d )
+	if ( mqDirection != d )
 		return false;
 
 	if ( target_grid >= 0)

@@ -15,7 +15,7 @@
 #define RELEASED 0
 #define PRESSED 1
 
-forward PUBLICFUNCTIONPRESSED
+forward PUBLIC_EVENT_PRESSED
 
 new obj = -1;
 new audio = false;
@@ -37,7 +37,7 @@ public Init(...)
 	events[0].active = ( StringLength(events[0].function) && events[0].entity );
 	
 
-	CollisionSet(SELF, 0, TYPE_SWITCH, dx+8, dy+8, dw-16, dh-16);
+	CollisionSet(SELF, 0, TYPE_SWITCH, mqDisplayArea.x+8, mqDisplayArea.y+8, mqDisplayArea.w-16, mqDisplayArea.h-16);
 	EntityPublicFunction(__MAP__, "AddSwitch"); // Add to map switch count.
 }
 
@@ -46,7 +46,7 @@ public Close()
 	CollisionSet(SELF, 0, 0);
 }
 
-PUBLICFUNCTIONPRESSED
+PUBLIC_EVENT_PRESSED
 {
 	state_changed = true;
 	pressed = 1;
@@ -55,26 +55,26 @@ PUBLICFUNCTIONPRESSED
 main()
 {
 	/* Check if block is on switch or a player is standing on it */
-	if ( MaskGetValue(dx+12, dy+12) == MASK_BLOCK || pressed )
+	if ( MaskGetValue(mqDisplayArea.x+12, mqDisplayArea.y+12) == MASK_BLOCK || pressed )
 	{
-		state_changed = ( _state_ == _STATE:RELEASED ? true : false );
-		_state_ = _STATE:PRESSED;
+		state_changed = ( mqState == _STATE:RELEASED ? true : false );
+		mqState = _STATE:PRESSED;
 		pressed = 0;
 	}
 	else
 	{
-		state_changed = ( _state_ == _STATE:PRESSED ? true : false );
-		_state_ = _STATE:RELEASED;
+		state_changed = ( mqState == _STATE:PRESSED ? true : false );
+		mqState = _STATE:RELEASED;
 	}
 
 
 	if ( state_changed )
 	{
 		audio = false;
-		if ( events[_state_].active )
-			EntityPublicFunction(events[_state_].entity, events[_state_].function);
-		ObjectReplace( obj, ( _state_ == _STATE:PRESSED ? "switch01.png:2" : "switch01.png:1"), SPRITE );
-		SoundPlayOnce( audio, ( _state_ == _STATE:PRESSED ? "switch_pressed.wav" : "switch_release.wav") );
+		if ( events[mqState].active )
+			EntityPublicFunction(events[mqState].entity, events[mqState].function);
+		ObjectReplace( obj, ( mqState == _STATE:PRESSED ? "switch01.png:2" : "switch01.png:1"), SPRITE );
+		SoundPlayOnce( audio, ( mqState == _STATE:PRESSED ? "switch_pressed.wav" : "switch_release.wav") );
 	}
 	state_changed = false;
 

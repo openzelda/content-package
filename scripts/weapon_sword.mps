@@ -10,8 +10,8 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
-#include <open_zelda>
 #include <weapon>
+#include <public_events>
 
 new object:obj = OBJECT_NONE;
 new timer = 0;
@@ -23,8 +23,8 @@ new entityID:selfId;
 
 public Init(...)
 {
-	oy += 32;
-	ox += 12;
+	mqDisplayOffset.y += 32;
+	mqDisplayOffset.x += 12;
 	selfId = entityID:EntityGetSettingHash("object-id");
 }
 
@@ -47,13 +47,13 @@ weapon_begin( xobj, dir )
 	strformat( ximage, _, true, "%s:%s", player_sheet, anim[dir] );
 
 	if (dir == 2)
-		obj = object:ObjectCreate( image, SPRITE, dx, dy, 3, 0, 0);
+		obj = object:ObjectCreate( image, SPRITE, mqDisplayArea.x, mqDisplayArea.y, 3, 0, 0);
 	else if (dir == 0)
-		obj = object:ObjectCreate( image, SPRITE, dx + ox, dy + oy, 3, 0, 0);
+		obj = object:ObjectCreate( image, SPRITE, mqDisplayArea.x + mqDisplayOffset.x, mqDisplayArea.y + mqDisplayOffset.y, 3, 0, 0);
 	else  if (dir == 3)
-		obj = object:ObjectCreate( image, SPRITE, dx + 4, dy, 3, 0, 0);
+		obj = object:ObjectCreate( image, SPRITE, mqDisplayArea.x + 4, mqDisplayArea.y, 3, 0, 0);
 	else
-		obj = object:ObjectCreate( image, SPRITE, dx, dy, 3, 0, 0);
+		obj = object:ObjectCreate( image, SPRITE, mqDisplayArea.x, mqDisplayArea.y, 3, 0, 0);
 
 	ObjectFlag(obj, FLAG_SPEED, 1);
 	ObjectFlag(obj, FLAG_ANIMLOOP, 0);
@@ -84,8 +84,7 @@ public Use( xobj, dir )
 	new swordangle = D2A(dir);
 	dir = NumberClamp((dir/2), 0, 3);
 
-	EntityGetPosition(_x_, _y_, _z_);
-	UpdateDisplayPosition();
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);;
 	//ObjectInfo(obj, _px_, _py_);
 
 	

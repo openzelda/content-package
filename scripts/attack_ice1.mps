@@ -1,4 +1,15 @@
-#include <open_zelda>
+/***********************************************
+ * Copyright © Luke Salisbury
+ *
+ * You are free to share, to copy, distribute and transmit this work
+ * You are free to adapt this work
+ * Under the following conditions:
+ *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You may not use this work for commercial purposes.
+ * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
+ * Changes:
+ *     2010/01/11 [luke]: new file.
+ ***********************************************/
 
 new IceAnim[8][20];
 new Fixed:timeActive = 0.0;
@@ -12,9 +23,8 @@ public Init(...)
 	AddAnimframe(IceAnim[n], 0,0, "_icerod10");
 	AddAnimframe(IceAnim[n], 0,0, "_icerod11");
 */
-	EntityGetPosition(_x_, _y_, _z_);
-	UpdateDisplayPosition()
-	obj = ObjectCreate("_icerod10", dx, dy, 4, 0, 0);
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
+	obj = ObjectCreate("_icerod10", mqDisplayArea.x, mqDisplayArea.y, 4, 0, 0);
 }
 
 
@@ -79,32 +89,32 @@ MoveIceBlast()
 	new dir = 0; //GetDirection("this");
 	if ( dir == north )
 	{
-		_angle_ = 90.0;
+		mqMovementAngle = 90.0;
 		yp[0] = -14;
 		yp[1] = -26;
 	}
 	else if ( dir == east )
 	{
-		_angle_ = 180.0;
+		mqMovementAngle = 180.0;
 		xp[0] = 14;
 		xp[1] = 26;
 	}
 	else if ( dir == south )
 	{
-		_angle_ = 270.0;
+		mqMovementAngle = 270.0;
 		yp[0] = 14;
 		yp[1] = 26;
 	}
 	else if ( dir == west )
 	{
-		_angle_ = 0.0;
+		mqMovementAngle = 0.0;
 		xp[0] = -14;
 		xp[1] = -26;
 	}
 	//EntityMove();
 	
 	if ( timeActive > 200 )
-		_speed_ = 220;
+		mqMovementSpeed = 220;
 		
 	if ( timeActive > 250 )
 	{

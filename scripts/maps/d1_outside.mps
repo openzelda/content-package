@@ -1,15 +1,18 @@
-#define INITFUNCTION 1
+// To ease development, <map_default> may include a Init Function.
+// If You wish to use your own uncomment the next line
+#define HASINITFUNCTION 1
+#tryinclude <map_default>
+#tryinclude <map_features/enemy_check>
 
-#include <map_features/enemy_check>
 
 public Init( ... )
 {
-	MapInit();
-	_enemycount = -1;
-	EntityPublicFunction("main", "SetDay", "n", 0);
+	InitMap();
+	RestetEnemyCount()
+	EntityPublicFunction( EntityHash("main"), "SetDay", [ ARG_NUMBER, ARG_END ], 0);
 }
 
 main()
 {
-	EnemyCheck( "a", "OpenDoor" );
+	CheckEnemy( "a", "OpenDoor" );
 }

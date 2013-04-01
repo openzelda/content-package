@@ -32,7 +32,7 @@ forward public Hit( attacker[], angle, dist, attack, damage, x, y, rect );
 public Init(...)
 {
 	new flip;
-	_type_ = TYPE_DOOR;
+	mqType = TYPE_DOOR;
 
 	/* Get Settings */
 	EntityGetSetting("object-image", doorOpen);
@@ -44,14 +44,14 @@ public Init(...)
 	obj = EntityGetNumber("object-id");
 	flip = EntityGetNumber("object-flipmode");
 	
-	_dir_ = (flip > 15 ? flip - 16 : flip) * 2;
+	mqDirection = (flip > 15 ? flip - 16 : flip) * 2;
 
-	if ( _dir_ == NORTH )
-		_dir_ = SOUTH;
-	else if ( _dir_ == SOUTH )
-		_dir_ = NORTH;
+	if ( mqDirection == NORTH )
+		mqDirection = SOUTH;
+	else if ( mqDirection == SOUTH )
+		mqDirection = NORTH;
 
-	if ( _dir_ == EAST || _dir_ == WEST )
+	if ( mqDirection == EAST || mqDirection == WEST )
 	{
 		xoffset = 8;
 		yoffset = 12;
@@ -60,35 +60,35 @@ public Init(...)
 	strformat(doorClose, _, _, "%s-%s", doorOpen, (locked ? "locked" : "closed"));
 	strformat(doorArch, _, _, "%s-arch", doorOpen);
 
-	EntityGetPosition(_x_,_y_,_z_);
+	EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y,mqDisplayZIndex);
 	UpdateDisplayPosition();
 	
-	MaskFill(dx , dy, width, height, MASK_WALK );
-	if ( _dir_ == EAST || _dir_ == WEST )
+	MaskFill(mqDisplayArea.x , mqDisplayArea.y, width, height, MASK_WALK );
+	if ( mqDirection == EAST || mqDirection == WEST )
 	{
 		width = MiscGetHeight(doorOpen);
 		height = MiscGetWidth(doorOpen);
 		if ( target_grid == -1 )
-			MaskFill(dx + (_dir_ == EAST ? width : -8) , dy, 8, height, MASK_AUTOWALK);
+			MaskFill(mqDisplayArea.x + (mqDirection == EAST ? width : -8) , mqDisplayArea.y, 8, height, MASK_AUTOWALK);
 		else
-			MaskFill(dx + (_dir_ == EAST ? width : -8) , dy, 8, height, MASK_PLAYERSOLID);
+			MaskFill(mqDisplayArea.x + (mqDirection == EAST ? width : -8) , mqDisplayArea.y, 8, height, MASK_PLAYERSOLID);
 	}
 	else
 	{
 		width = MiscGetWidth(doorOpen);
 		height = MiscGetHeight(doorOpen);
 		if ( target_grid == -1 )
-			MaskFill(dx , dy + (_dir_ == SOUTH ? height : -8), width, 8, MASK_AUTOWALK);
+			MaskFill(mqDisplayArea.x , mqDisplayArea.y + (mqDirection == SOUTH ? height : -8), width, 8, MASK_AUTOWALK);
 		else
-			MaskFill(dx , dy + (_dir_ == SOUTH ? height : -8), width, 8, MASK_PLAYERSOLID);
+			MaskFill(mqDisplayArea.x , mqDisplayArea.y + (mqDirection == SOUTH ? height : -8), width, 8, MASK_PLAYERSOLID);
 	}
-	if ( _dir_ == EAST || _dir_ == WEST )
-		MaskFill(dx, dy + yoffset, width, height - (yoffset*2), MASK_WALK);
+	if ( mqDirection == EAST || mqDirection == WEST )
+		MaskFill(mqDisplayArea.x, mqDisplayArea.y + yoffset, width, height - (yoffset*2), MASK_WALK);
 	else
-		MaskFill(dx + xoffset, dy, width - (xoffset*2), height, MASK_WALK);
+		MaskFill(mqDisplayArea.x + xoffset, mqDisplayArea.y, width - (xoffset*2), height, MASK_WALK);
 	if ( MiscGetHeight(doorArch) )
 	{
-		arch = ObjectCreate(doorArch, SPRITE, dx + (_dir_ == EAST ? height-32 : 0) , dy+ (_dir_ == SOUTH ? width-32 : 0), 5000, 0, 0);
+		arch = ObjectCreate(doorArch, SPRITE, mqDisplayArea.x + (mqDirection == EAST ? height-32 : 0) , mqDisplayArea.y+ (mqDirection == SOUTH ? width-32 : 0), 5000, 0, 0);
 		ObjectEffect(object:arch, 0xffffffff, _, _, _, flip, _, _);
 	}
 
@@ -102,13 +102,13 @@ public OpenDoor()
 {
 	open = true;
 	opened = false;
-	if ( _dir_ == EAST || _dir_ == WEST )
-		MaskFill(dx, dy + yoffset, width, height - (yoffset*2), MASK_WALK);
+	if ( mqDirection == EAST || mqDirection == WEST )
+		MaskFill(mqDisplayArea.x, mqDisplayArea.y + yoffset, width, height - (yoffset*2), MASK_WALK);
 	else
-		MaskFill(dx + xoffset, dy, width - (xoffset*2), height, MASK_WALK);
+		MaskFill(mqDisplayArea.x + xoffset, mqDisplayArea.y, width - (xoffset*2), height, MASK_WALK);
 
 	CollisionSet(SELF, 0, 0);
-	CollisionSet(SELF, 1, TYPE_TRANSPORT, dx+xoffset, dy+yoffset, width-(xoffset*2), height-(yoffset*2));
+	CollisionSet(SELF, 1, TYPE_TRANSPORT, mqDisplayArea.x+xoffset, mqDisplayArea.y+yoffset, width-(xoffset*2), height-(yoffset*2));
 	
 	ObjectReplace(object:obj, doorOpen, SPRITE); 
 	ObjectFlag(object:obj, FLAG_ANIMLOOP, false);
@@ -123,14 +123,14 @@ main()
 
 	if ( open )
 	{
-		if ( _dir_ == EAST || _dir_ == WEST )
-			MaskFill(dx, dy + yoffset, width, height - (yoffset*2), MASK_WALK);
+		if ( mqDirection == EAST || mqDirection == WEST )
+			MaskFill(mqDisplayArea.x, mqDisplayArea.y + yoffset, width, height - (yoffset*2), MASK_WALK);
 		else
-			MaskFill(dx + xoffset, dy, width - (xoffset*2), height, MASK_WALK);
+			MaskFill(mqDisplayArea.x + xoffset, mqDisplayArea.y, width - (xoffset*2), height, MASK_WALK);
 	}
 	else
 	{
-		MaskFill(dx, dy, width, height, MASK_SOLID);
+		MaskFill(mqDisplayArea.x, mqDisplayArea.y, width, height, MASK_SOLID);
 	}
 
 
@@ -139,8 +139,8 @@ main()
 public CloseDoor()
 {
 	open = false;
-	MaskFill(dx, dy, width, height, MASK_SOLID);
-	CollisionSet(SELF, 0, _type_, dx, dy, width, height);
+	MaskFill(mqDisplayArea.x, mqDisplayArea.y, width, height, MASK_SOLID);
+	CollisionSet(SELF, 0, mqType, mqDisplayArea.x, mqDisplayArea.y, width, height);
 	CollisionSet(SELF, 1, 0);
 
 	ObjectReplace(object:obj, doorClose, SPRITE); 
@@ -164,8 +164,8 @@ public UpdatePlayer(player[])
 {
 	new nplayer[64];
 	StringCopy(nplayer, player);
-	EntitySetPosition(_x_ + fixed(xoffset), _y_+fixed(yoffset), _, nplayer);
-	EntityPublicFunction(nplayer, "SetDir", "n", _dir_ + 4);
+	EntitySetPosition(mqEntityPosition.x + fixed(xoffset), mqEntityPosition.y+fixed(yoffset), _, nplayer);
+	EntityPublicFunction(nplayer, "SetDir", "n", mqDirection + 4);
 	EntityPublicFunction(nplayer, "UpdatePosition");
 }
 
@@ -173,7 +173,7 @@ public MovePlayer(player[], d)
 {
 	if ( target_grid < 0 )
 		return false;
-	if ( _dir_ != d )
+	if ( mqDirection != d )
 		return false;
 
 	new x, y;

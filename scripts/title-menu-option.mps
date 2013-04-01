@@ -12,18 +12,14 @@
  ***********************************************/
 
 new bool:online = false;
-new Fixed:x,Fixed:y,Fixed:z;
-new dx,dy;
 
 public Init(...)
 {
 	new id[7] = "false";
 	EntityGetSetting("online", id, SELF);
-	online = ( strcmp(id,"true") ? false : true);
+	online = ( StringCompare(id,"true") ? false : true);
 
-	EntityGetPosition(x,y,z);
-	dx = fround(x);
-	dy = fround(y);
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);;
 }
 
 main()

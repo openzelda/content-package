@@ -10,7 +10,7 @@ new dungeonid = 0;
 
 public Init( ... )
 {
-	EntityGetPosition(_x_,_y_, _z_);
+	EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y, mqDisplayZIndex);
 	UpdateDisplayPosition();
 
 	obj = EntityGetNumber("object-id");
@@ -28,27 +28,27 @@ main()
 
 public Pickup( player[] )
 {
-	if ( _state_ != LIFTING )
+	if ( mqState != LIFTING )
 	{
 		strcopy(p, player);
 		EntityPublicFunction(dungeon, "Finished");
-		EntityGetPosition(_x_,_y_,  _z_, p);
-		_z_++;
+		EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y,  mqDisplayZIndex, p);
+		mqDisplayZIndex++;
 	}
-	_state_ = LIFTING;
+	mqState = LIFTING;
 	return true;
 }
 
 HandleLift()
 {
-	if ( _state_ == LIFTING )
+	if ( mqState == LIFTING )
 	{
 		count += GameFrame2(); 
 		if ( count < 4.00 )
 		{
-			_y_ -= GameFrame2()*8.0;
+			mqEntityPosition.y -= GameFrame2()*8.0;
 			UpdateDisplayPosition();
-			ObjectPosition(object:obj, dx, dy, 4, 0, 0);
+			ObjectPosition(object:obj, mqDisplayArea.x, mqDisplayArea.y, 4, 0, 0);
 		}
 		else
 		{

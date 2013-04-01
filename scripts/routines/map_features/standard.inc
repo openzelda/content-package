@@ -8,5 +8,21 @@
  *  You may not use this work for commercial purposes.
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
- *     2010/01/11 [luke]: new file.
+ *     2013/04/01 [luke]: new file.
  ***********************************************/
+
+
+
+new background_music{64} = ""; 
+new screen_transition_mode{20} = "";
+new map_id = 0;
+
+InitMap()
+{
+	map_id = MapCurrent();
+	EntityGetSetting("music", background_music, SELF); 
+	EntityGetSetting("transition", screen_transition_mode, SELF); 
+	AudioVolume(MUSIC, 64);
+	if ( background_music{0} )
+		AudioPlayMusic(background_music);
+}

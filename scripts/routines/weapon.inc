@@ -9,17 +9,17 @@
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
  *     2010/01/11 [luke]: new file.
+ *     2013/04/01 [luke]: 
  ***********************************************/
-#include <string> 
  
-new ownerid[64]; 
+new entityId:ownerid; 
  
 /* Public Function - Do not change */ 
-forward public Use( xobj, dir ) 
-forward public End( xobj, dir ) 
+forward public Use( object:player, dir ) 
+forward public End( object:player, dir ) 
 forward public SetOwner( owner[] ); 
  
-public SetOwner( owner[] ) 
+public SetOwner( owner ) 
 { 
-	strcopy(ownerid, owner); 
+	ownerid = entityId:owner;
 }

@@ -10,27 +10,11 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
-#define MAP_DEFAULT
-#include <entities>
 
-new music[64] = ""; 
-new transition[20] = "";
-stock mapid = 0;
-
-MapInit()
-{
-	mapid = MapCurrent();
-	EntityGetSetting("music", music, SELF); 
-	EntityGetSetting("transition", transition, SELF); 
-	AudioVolume(MUSIC, 64);
-	if ( music[0] )
-		AudioPlayMusic(music);
-}
-
-#if !defined INITFUNCTION
-#define INITFUNCTION 1
+#if !defined HASINITFUNCTION
+#define HASINITFUNCTION 1
 public Init( ... )
 {
-	MapInit()
+	InitMap()
 }
 #endif

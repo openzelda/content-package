@@ -54,6 +54,7 @@ const _STATEEFFECTS: {
 	BURNING,
 }
 
+stock type_name[11]{} = [ "UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPORT","PUSHABLE","SWITCH","ITEM","PLAYER","OUTOFRANGE" ];
 
 #define TYPE_UNKNOWN 0
 #define TYPE_ENEMY 1
@@ -67,13 +68,17 @@ const _STATEEFFECTS: {
 #define TYPE_PLAYER 9
 
 
-stock type_name[11][64] =  {"UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPORT","PUSHABLE","SWITCH","ITEM","PLAYER","OUTOFRANGE" };
+
 
 #define RECT[.x, .y, .w, .h]
 #define POSITION[.x, .y, .z]
-#define EntityGraphic[.obj, .x, .y, .z]
+#define POSITIONF[Fixed:.x, Fixed:.y, Fixed:.z]
+
 #define SwitchEvent[.active, .entity, .function{24}]
+
 #define EntityInfo[.hash, .id{32}]
+#define EntityGraphic[.obj, .x, .y, .z]
+
 #define __MAP__ EntityHash("__map__")
 
 /* Item Types */
@@ -85,7 +90,6 @@ stock type_name[11][64] =  {"UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPO
 
 
 /* Mask Values */
-/* */
 #define MASK_CLEAR 0
 #define MASK_DIRT 4
 #define MASK_GRASS 8
@@ -125,7 +129,5 @@ stock type_name[11][64] =  {"UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPO
 #define ASTUN 32
 #define ASHIELD 64
 #define AMAGIC 128
-
-
 
 

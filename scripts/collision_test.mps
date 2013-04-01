@@ -12,15 +12,15 @@ new strings[20][temphit];
 new m = 0;
 main()
 {
-	EntityGetPosition(_x_,_y_, _z_);
+	EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y, mqDisplayZIndex);
 	UpdateDisplayPosition();
 
-	CollisionSet(SELF,1,TYPE_ENEMY,dx,dy,16,16);
+	CollisionSet(SELF,1,TYPE_ENEMY,mqDisplayArea.x,mqDisplayArea.y,16,16);
 
 
 	for ( new q = 0; q < 20; q++)
 	{
-		GraphicsDraw(strings[q][text], TEXT, dx,dy+20+(q*8),5,0,0,WHITE);
+		GraphicsDraw(strings[q][text], TEXT, mqDisplayArea.x,mqDisplayArea.y+20+(q*8),5,0,0,WHITE);
 		DrawAngledLine( strings[q/4][linex], strings[q/4][liney], strings[q/4][lineangle], 20+(q*4));
 	}
 }

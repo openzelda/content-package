@@ -15,8 +15,8 @@
 #include <enemy>
 
 /* Public Function */
-forward PUBLICFUNCTIONAWAKING
-forward PUBLICFUNCTIONHIT
+forward PUBLIC_EVENT_AWAKING
+forward PUBLIC_EVENT_HIT
 
 /* Local variable */
 new HitCount;
@@ -34,11 +34,11 @@ new object:shadow = OBJECT_NONE;
 
 public Init(...)
 {
-	_speed_ = 50;
-	_damage_ = 50;
-	_health_ = _maxhealth_ = 50;
+	mqMovementSpeed = 50;
+	mqDamageDealt = 50;
+	mqHealth = mqMaxHealth = 50;
 
-	dw = dh = 32;
+	mqDisplayArea.w = mqDisplayArea.h = 32;
 
 	EnemyInit();
 
@@ -48,14 +48,14 @@ public Init(...)
 
 	/* */
 	body.obj= object:EntityGetNumber("object-id");
-	shadow = ObjectCreate( "", CIRCLE, dx+8, dy+32, 2, 16, 8, 0x000000DD );
+	shadow = ObjectCreate( "", CIRCLE, mqDisplayArea.x+8, mqDisplayArea.y+32, 2, 16, 8, 0x000000DD );
 	ShowObjects( body.obj, shadow );
 }
 
 
 main()
 {
-	if ( _state_ == GONE || GameState() != 1 )
+	if ( mqState == GONE || GameState() != 1 )
 		return;
 
 	if ( HasStateChanged() )
@@ -63,12 +63,12 @@ main()
 		ResetObjects( body.obj );
 	}
 
-	if ( _state_ <= MOVING )
-		CollisionSet(SELF, 0, TYPE_ENEMY, dx + adj, dy + adj, dw - (adj*2), dh - (adj*2) );
+	if ( mqState <= MOVING )
+		CollisionSet(SELF, 0, TYPE_ENEMY, mqDisplayArea.x + adj, mqDisplayArea.y + adj, mqDisplayArea.w - (adj*2), mqDisplayArea.h - (adj*2) );
 	else
 		CollisionSet(SELF, 0 );
 
-	switch( _state_ )
+	switch( mqState )
 	{
 		case STANDING:
 			Stand();
@@ -89,7 +89,7 @@ main()
 		}
 	}
 	UpdateEntityGraphics( body );
-	ObjectPosition( shadow, dx+8, dy+32, 2, 16, 8);
+	ObjectPosition( shadow, mqDisplayArea.x+8, mqDisplayArea.y+32, 2, 16, 8);
 }
 
 
@@ -109,20 +109,20 @@ STATEFUNCTION Move()
 
 	// randomly change direction
 	if ( !random(30) )
-		_angle_ = fixed(random(8) * 45);
+		mqMovementAngle = fixed(random(8) * 45);
 
 	// Move the enemy
 	EntityMove( MASK_ENEMYSOLID1 );
 
 	timer += GameFrame();
 	if ( timer >= 2000 )
-		_state_ = STANDING;
+		mqState = STANDING;
 }
 
 STATEFUNCTION Stand()
 {
 	ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
-	CollisionSet(SELF, 1, TYPE_AWAKING, dx - listen_rad, dy - listen_rad, dw + (listen_rad*2), dh + (listen_rad*2) );
+	CollisionSet(SELF, 1, TYPE_AWAKING, mqDisplayArea.x - listen_rad, mqDisplayArea.y - listen_rad, mqDisplayArea.w + (listen_rad*2), mqDisplayArea.h + (listen_rad*2) );
 }
 
 
@@ -131,7 +131,7 @@ STATEFUNCTION Hurt()
 	EntityMove(MASK_ENEMYSOLID1);
 
 	new q = (HitCount % 100) / 20;
-	ColourEntityGraphics(body, hit_colours[q]);
+	ColourEntityGraphics(body, mqHitColours[q]);
 
 	if ( Countdown(HitCount) )
 	{
@@ -144,11 +144,11 @@ STATEFUNCTION Hurt()
 STATEFUNCTION Special()
 {
 
-	switch ( current_effect )
+	switch ( mqCurrentEffect )
 	{
 		case STUNNED:
 		{
-			StunnedEffect( effect_count );
+			StunnedEffect( mqEffectTimer );
 			ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
 		}
 		case FROZEN:
@@ -169,7 +169,7 @@ STATEFUNCTION Special()
 		}
 	}
 
-	if ( Countdown(effect_count) ) //Reset State
+	if ( Countdown(mqEffectTimer) ) //Reset State
 	{
 		SetState(STANDING);
 	}
@@ -177,58 +177,58 @@ STATEFUNCTION Special()
 }
 /* Public Functions */
 
-PUBLICFUNCTIONAWAKING
+PUBLIC_EVENT_AWAKING
 {
 	SetState(MOVING);
 	timer = 0;
-	AudioPlaySound("enemy_bat2.wav", dx, dy);
+	AudioPlaySound("enemy_bat2.wav", mqDisplayArea.x, mqDisplayArea.y);
 	CollisionSet(SELF, 1, 0);
 }
 
-PUBLICFUNCTIONHIT
+PUBLIC_EVENT_HIT
 {
 	if ( !damage && attack&APLAYER != APLAYER )
 		return;
-	if ( _state_ == HIT || _state_ == DYING || _state_ == GONE )
+	if ( mqState == HIT || mqState == DYING || mqState == GONE )
 		return;
 
-	_attacker_ = attacker;
+	mqAttacker = attacker;
 	new child;
 
-	_angle_ = fixed(360 - angle);
+	mqMovementAngle = fixed(360 - angle);
 
 	if ( attack&AFIRE == AFIRE )
 	{
-		_state_ = SPECIALSTATE;
+		mqState = SPECIALSTATE;
 		// Create a Burning fire entity on this enemy
-		//EntityCreate( "effect_fire", "*", dx, dy, 5, CURRENT_MAP );
+		//EntityCreate( "effect_fire", "*", mqDisplayArea.x, mqDisplayArea.y, 5, CURRENT_MAP );
 		//StunCount = 3200;
 	}
 	else if ( attack&AICE == AICE )
 	{
 		// Create a frozen effect around the enemy
-		//EntityCreate( "effect_freeze", child, dx, dy, 5, CURRENT_MAP );
-		EntityPublicFunction( child, "SetArea", ''nnnn'', dx, dy, dw, dh);
+		//EntityCreate( "effect_freeze", child, mqDisplayArea.x, mqDisplayArea.y, 5, CURRENT_MAP );
+		EntityPublicFunction( child, "SetArea", ''nnnn'', mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h);
 		//ObjectEffect( obj, 0x0000FFFF );
 		//StunCount = 3200;
-		_state_ = SPECIALSTATE;
+		mqState = SPECIALSTATE;
 	}
 	else if ( attack&ASTUN == ASTUN )
 	{
-		_state_ = SPECIALSTATE;
+		mqState = SPECIALSTATE;
 		//StunCount = damage * 10;
 	}
 	else if ( attack&APLAYER == APLAYER )
 	{
-		CallEntityHit( attacker, 0, angle, 5, ASWORD,  _damage_, x, y, rect );
-		//EntityPublicFunction( attacker, "Hurt", ''nnn'' ASWORD, _damage_, angle );
+		CallEntityHit( attacker, 0, angle, 5, ASWORD,  mqDamageDealt, x, y, rect );
+		//EntityPublicFunction( attacker, "Hurt", ''nnn'' ASWORD, mqDamageDealt, angle );
 		return;
 	}
 	else
 	{
-		AudioPlaySound( "enemy_hurt.wav", dx, dy );
-		_state_ = HIT;
-		_health_ -= damage;
+		AudioPlaySound( "enemy_hurt.wav", mqDisplayArea.x, mqDisplayArea.y );
+		mqState = HIT;
+		mqHealth -= damage;
 		HitCount = 1000;
 		Hurt();
 	}

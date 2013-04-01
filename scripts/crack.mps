@@ -25,21 +25,21 @@ new arch = -1;
 public Init(...)
 
 {
-	_type_ = TYPE_DOOR;
+	mqType = TYPE_DOOR;
 	EntityGetSetting("object-sprite", doorOpen);
 	
 	strformat(doorClose, _, _, "%s-closed", doorOpen);
 	strformat(doorArch, _, _, "%s-arch", doorOpen);
 		
-	EntityGetPosition(_x_,_y_, _z_);
+	EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y, mqDisplayZIndex);
 	UpdateDisplayPosition();
-	obj = ObjectCreate(doorOpen, 's', dx, dy, 2, 0, 0);
+	obj = ObjectCreate(doorOpen, 's', mqDisplayArea.x, mqDisplayArea.y, 2, 0, 0);
 	width = MiscGetWidth(doorOpen);
 
 	height = MiscGetHeight(doorOpen);
 	if ( MiscGetHeight(doorArch) )
 	{
-		arch = ObjectCreate(doorArch, 's', dx, dy, 4, 0, 0);
+		arch = ObjectCreate(doorArch, 's', mqDisplayArea.x, mqDisplayArea.y, 4, 0, 0);
 	}
 	CloseDoor();
 }
@@ -48,7 +48,7 @@ public Init(...)
 public OpenDoor()
 {
 	open = true;
-	MaskFill(_x_ + xoffset, _y_ + yoffset, width - (xoffset*2), height - (yoffset*2), 255);
+	MaskFill(mqEntityPosition.x + xoffset, mqEntityPosition.y + yoffset, width - (xoffset*2), height - (yoffset*2), 255);
 	CollisionSet(SELF, 0);
 	ObjectReplace(obj, doorAnim, 'a'); 
 	ObjectFlag(obj, FLAG_ANIMLOOP, false);
@@ -57,8 +57,8 @@ public OpenDoor()
 public CloseDoor()
 {
 	open = false;
-	MaskFill(_x_, _y_, width, height, 255);
-	CollisionSet(SELF, 0, _type_, dx, dy, width, height);
+	MaskFill(mqEntityPosition.x, mqEntityPosition.y, width, height, 255);
+	CollisionSet(SELF, 0, mqType, mqDisplayArea.x, mqDisplayArea.y, width, height);
 	ObjectReplace(obj, doorClose, 's');
 }
 

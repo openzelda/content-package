@@ -1,6 +1,6 @@
 Hyrulean Adventure\n\nbnv'\n\n
-Offline Game
-Online Game
+Enemies Killed
+New String
 Thank you for playing Hyrulean Adventures R4
 New content is in development and will delivery automatically
 Visit openzelda.net to leave comments

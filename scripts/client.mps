@@ -1,98 +1,105 @@
-#include <open_zelda>
-#include <string>
-#include <core>
+/***********************************************
+ * Copyright © Luke Salisbury
+ *
+ * You are free to share, to copy, distribute and transmit this work
+ * You are free to adapt this work
+ * Under the following conditions:
+ *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You may not use this work for commercial purposes.
+ * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
+ * Changes:
+ *     2010/01/11 [luke]: new file.
+ ***********************************************/
+#include <movement>
 #include <network>
 
 forward public NetMessage(player, array[], array_size);
 
-new _STATE:player_state = STANDING;
 
-new animation[2][4][32] = {
-	{!"p02n.png:front_0", !"p02n.png:side_0", !"p02n.png:back_0", !"p02n.png:side_0"},//STANDING,
-	{!"p02n.png:front", !"p02n.png:side", !"p02n.png:back", !"p02n.png:side"},//MOVING,
-};
+new animation[2][4]{32} = [
+	["p02n.png:front_0", "p02n.png:side_0", "p02n.png:back_0", "p02n.png:side_0"], //STANDING,
+	["p02n.png:front", "p02n.png:side", "p02n.png:back", "p02n.png:side"] //MOVING,
+];
 
-new obj = -1;
-new name_obj = -1;
+new object:nameObject = OBJECT_NONE;
 new active = true;
 new modechanged;
 new str[128];
 new name[12];
-new selfid[64];
+
 
 public NetMessage(player, array[], array_size)
 {
-	if (array_size == 1)
+	if ( array_size == 1 )
 	{
 		new d = array[0] >> 24;
 		new s = (array[0] >> 16) & 0x000000FF;
 
 		if ( s != STANDING)
-			player_state = MOVING;
+			mqState = MOVING;
 		else
-			player_state = STANDING;
+			mqState = STANDING;
 
 		d = clamp(d, 0, 3);
-		if ( player_state != last_state )
+		if ( mqState != mqStatePrev )
 		{
 			modechanged = true;
-			last_state = player_state;
+			mqStatePrev = mqState;
 		}
-		if ( d != _dir_ )
+		if ( d != mqDirection )
 		{
 			modechanged = true;
-			_dir_ = d;
+			mqDirection = d;
 		}
 	}
 }
 
+
 public Init(...)
 {
-	_dir_ = 0;
+
+	SetupEntity( STANDING, 0, mqDisplayObject, 32, 24, 0, 24 );
 	EntityGetSetting("client-name", name);
-	EntityGetSetting("id", selfid, SELF);
-	EntityGetPosition( _x_, _y_, _z_);
-	UpdateDisplayPosition();
-	
-	dw = 32;
-	dh = 24;
-	dz = 3
-	ox = 0;
-	oy = 24;
-	
+
+
 	new test[16];
 	new base[32];
-	strformat( test, _, true, "p%sn.png:front_0", name );
+	StringFormat( test, _, true, "p%sn.png:front_0", name );
 	if ( MiscGetWidth(test) > 0)
-		strcopy(base, name);
+		StringCopy(base, name);
 	else
-		strcopy(base, "02");
+		StringCopy(base, "02");
 	
 	
-	strformat( animation[0][0], _, true, "p%sn.png:%s", base, "front_0" );
-	strformat( animation[0][1], _, true, "p%sn.png:%s", base, "side_0" );
-	strformat( animation[0][2], _, true, "p%sn.png:%s", base, "back_0" );
-	strformat( animation[0][3], _, true, "p%sn.png:%s", base, "side_0" );
+	StringFormat( animation[0][0], _, true, "p%sn.png:%s", base, "front_0" );
+	StringFormat( animation[0][1], _, true, "p%sn.png:%s", base, "side_0" );
+	StringFormat( animation[0][2], _, true, "p%sn.png:%s", base, "back_0" );
+	StringFormat( animation[0][3], _, true, "p%sn.png:%s", base, "side_0" );
 
-	strformat( animation[1][0], _, true, "p%sn.png:%s", base, "front" );
-	strformat( animation[1][1], _, true, "p%sn.png:%s", base, "side" );
-	strformat( animation[1][2], _, true, "p%sn.png:%s", base, "back" );
-	strformat( animation[1][3], _, true, "p%sn.png:%s", base, "side" );
+	StringFormat( animation[1][0], _, true, "p%sn.png:%s", base, "front" );
+	StringFormat( animation[1][1], _, true, "p%sn.png:%s", base, "side" );
+	StringFormat( animation[1][2], _, true, "p%sn.png:%s", base, "back" );
+	StringFormat( animation[1][3], _, true, "p%sn.png:%s", base, "side" );
 
-	obj = ObjectCreate(animation[0][0], 's', dx, dy, 3, 0, 0);
-	name_obj = ObjectCreate(name, 't', dx, dy+44, 4, 0, 0);
-	Toggle();
+	mqDisplayObject = ObjectCreate( animation[0][0], SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
+	nameObject = ObjectCreate( name, TEXT, mqDisplayArea.x, mqDisplayArea.y+44, mqDisplayZIndex+1.000, 0, 0);
+	CheckActive();
 
 }
 
-Toggle()
+public Close()
 {
-	if ( EntityActive() == 1 )
-		active = 1;
-	else
-		active = 0;
-	ObjectToggle(obj, active);
-	ObjectToggle(name_obj, active);
+	ObjectDelete( mqDisplayObject );
+	ObjectDelete( nameObject );
+}
+
+CheckActive()
+{
+
+	active = !!EntityActive();
+	ObjectToggle( mqDisplayObject, active );
+	ObjectToggle( nameObject, active );
+
 }
 
 public UpdatePosition()
@@ -102,15 +109,16 @@ public UpdatePosition()
 
 main()
 {
-	Toggle();
-	if ( EntityActive(SELF) == 1 )
+
+	CheckActive();
+	if ( active )
 	{
-		EntityGetPosition( _x_, _y_, _z_);
-		UpdateDisplayPosition();
-		CollisionSet(SELF,0,0,dx+ox,dy+oy,dw,dh);
+		GetEntityPosition( mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer );
+
+		CollisionSet(SELF, 0, 0, mqDisplayArea.x+mqDisplayOffset.x, mqDisplayArea.y+mqDisplayOffset.y, mqDisplayArea.w, mqDisplayArea.h);
 		if ( CollisionCalculate() )
 		{
-			new current[64];
+			new current;
 			new angle;
 			new dist;
 			new rect;
@@ -119,22 +127,23 @@ main()
 			{
 				if ( type == TYPE_SWITCH )
 				{
-					// public Pressed(attacker[], rect, angle)
-					EntityPublicFunction(current, "Pressed", "snn", selfid, rect, angle);
+					CallEntityPressed(current, mqEntityId, rect, angle);
 				}
 			}
 		}
-		ObjectPosition(obj, dx, dy, 3, 0, 0);
-		ObjectPosition(name_obj, dx, dy+44, 4, 0, 0);
+		ObjectPosition(mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, 3, 0, 0);
+		ObjectPosition(nameObject, mqDisplayArea.x, mqDisplayArea.y+44, 4, 0, 0);
 		if ( modechanged )
 		{
-			if ( player_state == STANDING )
-				ObjectReplace(obj, animation[0][_dir_], 's' );
+			if ( mqState == STANDING )
+				ObjectReplace(mqDisplayObject, animation[0][mqDirection], 's' );
 			else
-				ObjectReplace(obj, animation[1][_dir_], 'a' );
+				ObjectReplace(mqDisplayObject, animation[1][mqDirection], 'a' );
 		}
 	}
 	modechanged = false;
+
+
 }
 
 

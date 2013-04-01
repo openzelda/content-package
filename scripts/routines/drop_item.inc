@@ -11,7 +11,7 @@
  *     2010/01/11 [luke]: new file. 
  ***********************************************/ 
 #include <open_zelda> 
-#include <core> 
+
 
  
 forward PUBLICFUNCTIONHIT 
@@ -31,11 +31,10 @@ new worth = 0;
 new playSound = true; 
 new pickable = true; 
  
-new object:obj = NULLOBJECT; 
-new object:shadow = NULLOBJECT; 
+new object:obj = OBJECT_NONE; 
+new object:shadow = OBJECT_NONE; 
  
 new type = 1; 
-new GraphicTypes:sprite_type = SPRITE; 
 new sprite[64]; 
 new numstring = 0; 
  
@@ -53,7 +52,7 @@ public Init(...)
 	GetEntityPosition(_x_, _y_, _z_, dx, dy, dz);
 	InitDropItem( worth );  
 
-	obj = ObjectCreate(sprite, sprite_type, dx, dy, dz,0,0,WHITE); 
+	obj = ObjectCreate(sprite, SPRITE, dx, dy, dz,0,0,WHITE); 
 	shadow = ObjectCreate( "", CIRCLE, dx, dy+24, 2, 16, 8, 0x000000DD );
 	
 	//LanguageString(line, returnstring[], maxlength=sizeof returnstring); 

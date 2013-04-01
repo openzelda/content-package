@@ -35,8 +35,8 @@ forward public SetRestartPosition( point, ndescription[], nx, ny, nmapid );
 
 
  /* Animation Code */ 
-#define STATE_FLIP (_animdir_ == 3 ? 16 : 0)
-#define STATE_GRAPHIC animation[_state_][_animdir_]
+#define STATE_FLIP (mqDisplayDirection == 3 ? 16 : 0)
+#define STATE_GRAPHIC animation[_state_][mqDisplayDirection]
 
 
 stock animation[STATE_COUNT][4]{32} = [

@@ -48,8 +48,8 @@ public Show()
 
 public Refresh()
 {
-	count = EntityPublicVariable(owner, "_maxhealth_");
-	used = EntityPublicVariable(owner, "_health_");
+	count = EntityPublicVariable(owner, "mqMaxHealth");
+	used = EntityPublicVariable(owner, "mqHealth");
 
 	if (count > 0)
 	{
@@ -121,8 +121,8 @@ public Init(...)
 	}
 
 	CreateCounters();
-	count = EntityPublicVariable(owner, "_maxhealth_");
-	used = EntityPublicVariable(owner, "_health_");
+	count = EntityPublicVariable(owner, "mqMaxHealth");
+	used = EntityPublicVariable(owner, "mqHealth");
 	if (count > 0)
 	{
 		Refresh();

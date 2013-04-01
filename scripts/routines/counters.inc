@@ -11,6 +11,7 @@
  *     2010/01/11 [luke]: new file.
  *     2013/01/31 [luke]: switch to Pawn 4
  ***********************************************/
+
 /* Counters */
 #define CounterLocation[.name{20}, .entityID, .screenX, .screenY]
 
@@ -25,6 +26,6 @@ CreateCounters()
 {
 	for ( new q = 0; q < 3; q++ )
 	{
-		counters[q].entityID = EntityCreate("counter", counters[q].name, 1,1,1, GLOBAL_MAP);
+		counters[q].entityID = EntityCreate("counter", counters[q].name, counters[q].screenX, counters[q].screenY, 1, GLOBAL_MAP);
 	}
 }

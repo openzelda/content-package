@@ -18,7 +18,7 @@
 #include <enemy>
 
 /* Public Function */
-forward PUBLICFUNCTIONHIT;
+forward PUBLIC_EVENT_HIT;
 
 /* Local variable */
 new HitCount;
@@ -27,9 +27,9 @@ new StandCount = 600;
 new HeadDirection = 0;
 
 /* Display Object */
-new body[EntityGraphic] = { NULLOBJECT, 0, 24, 0 };	// Display Object, Offset x, Offset y, Offset z
-new head[EntityGraphic] = { NULLOBJECT, 0, 0, 1 };	// Display Object, Offset x, Offset y, Offset z
-new object:shadow = NULLOBJECT;
+new body[EntityGraphic] = { OBJECT_NONE, 0, 24, 0 };	// Display Object, Offset x, Offset y, Offset z
+new head[EntityGraphic] = { OBJECT_NONE, 0, 0, 1 };	// Display Object, Offset x, Offset y, Offset z
+new object:shadow = OBJECT_NONE;
 
 /* Collisions Settings */
 new hitzone[3][RECT] = { 
@@ -42,13 +42,13 @@ new hitzone[3][RECT] = {
 /* Function */
 public Init(...)
 {
-	_speed_ = 50;
-	_damage_ = 50;
-	_health_ = _maxhealth_ = 100;
+	mqMovementSpeed = 50;
+	mqDamageDealt = 50;
+	mqHealth = mqMaxHealth = 100;
 
-	dw = dh =  24;
-	ox = 2;
-	oy = 28;
+	mqDisplayArea.w = mqDisplayArea.h =  24;
+	mqDisplayOffset.x = 2;
+	mqDisplayOffset.y = 28;
 
 	SetStateGraphic( STANDING, "enemy_bones01.png", "front_0", "side_0", "back_0", "side_0" );
 	SetStateGraphic( MOVING, "enemy_bones01.png", "front", "side", "back", "side" );
@@ -59,8 +59,8 @@ public Init(...)
 
 	/* Retrive Display Objects */
 	body[egOBJ] = object:EntityGetNumber("object-id");
-	head[egOBJ] = ObjectCreate( "enemy_bones01.png:head_front", SPRITE, dx, dy, dz+1, 0, 0, WHITE );
-	shadow = ObjectCreate( "", CIRCLE, dx, dy+32, dz-1, 16, 8,  0x000000AA);
+	head[egOBJ] = ObjectCreate( "enemy_bones01.png:head_front", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex+1, 0, 0, WHITE );
+	shadow = ObjectCreate( "", CIRCLE, mqDisplayArea.x, mqDisplayArea.y+32, mqDisplayZIndex-1, 16, 8,  0x000000AA);
 	ShowObjects( head[egOBJ], body[egOBJ], shadow );
 }
 
@@ -73,13 +73,13 @@ public Close()
 
 main()
 {
-	if ( _state_ == GONE || GameState() != 1 )
+	if ( mqState == GONE || GameState() != 1 )
 	{
 		return;
 	}
 
-	//StringFormat(error_message,_,_,"x: %d y: %d z: %d l: %d", dx, dy,dz, dl)
-	//GraphicsDraw(error_message, TEXT, dx, dy, 5, 0 ,0, 0xFF0000FF );
+	//StringFormat(error_message,_,_,"x: %d y: %d z: %d l: %d", mqDisplayArea.x, mqDisplayArea.y,mqDisplayZIndex, mqDisplayLayer)
+	//GraphicsDraw(error_message, TEXT, mqDisplayArea.x, mqDisplayArea.y, 5, 0 ,0, 0xFF0000FF );
 
 	if ( HasStateChanged() )
 	{
@@ -88,16 +88,16 @@ main()
 
 	if ( InputButton(1) )
 	{
-		//Hit( "temp", 90, 5, ASWORD, 0, dx, dy, 1 );
+		//Hit( "temp", 90, 5, ASWORD, 0, mqDisplayArea.x, mqDisplayArea.y, 1 );
 		Kill();
 	}
 
 
-	new q = (_state_ == LEAPING ? 2 : 0); // Use which hit zone to use
-	CollisionSet(SELF, 0, TYPE_ENEMY, dx + hitzone[q][rX], dy + hitzone[q][rY], hitzone[q][rW], hitzone[q][rH] );
-	CollisionSet(SELF, 1, TYPE_AWAKING, dx + hitzone[1][rX], dy + hitzone[1][rY], hitzone[1][rW], hitzone[1][rH] );
+	new q = (mqState == LEAPING ? 2 : 0); // Use which hit zone to use
+	CollisionSet(SELF, 0, TYPE_ENEMY, mqDisplayArea.x + hitzone[q][rX], mqDisplayArea.y + hitzone[q][rY], hitzone[q][rW], hitzone[q][rH] );
+	CollisionSet(SELF, 1, TYPE_AWAKING, mqDisplayArea.x + hitzone[1][rX], mqDisplayArea.y + hitzone[1][rY], hitzone[1][rW], hitzone[1][rH] );
 
-	switch( _state_ )
+	switch( mqState )
 	{
 		case STANDING:
 			Stand();
@@ -128,11 +128,11 @@ main()
 	}
 	UpdateEntityGraphics( head );
 	UpdateEntityGraphics( body );
-	if ( _state_ == LEAPING )
+	if ( mqState == LEAPING )
 	{
-		ObjectPosition( body[egOBJ], dx+body[egOFFX], dy+body[egOFFY]-4, dz+body[egOFFZ], 0, 0);
+		ObjectPosition( body[egOBJ], mqDisplayArea.x+body[egOFFX], mqDisplayArea.y+body[egOFFY]-4, mqDisplayZIndex+body[egOFFZ], 0, 0);
 	}
-	ObjectPosition( shadow, dx+4, dy+48, dz-1, 24, 8);
+	ObjectPosition( shadow, mqDisplayArea.x+4, mqDisplayArea.y+48, mqDisplayZIndex-1, 24, 8);
 }
 
 /* Local Function */
@@ -154,7 +154,7 @@ SetHeadDir(head_direction)
 
 ChangeHeadDir()
 {
-		HeadDirection = _dir_;
+		HeadDirection = mqDirection;
 		if ( random(2) )
 			HeadDirection+=2;
 		else
@@ -168,7 +168,7 @@ ChangeHeadDir()
 STATEFUNCTION Move()
 {
 	ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
-	SetHeadDir(_dir_);
+	SetHeadDir(mqDirection);
 	
 	if ( !random(500) ) // Change Direction
 	{
@@ -206,7 +206,7 @@ STATEFUNCTION Stand()
 
 	if ( Countdown(StandCount) ) // Start Moving Again
 	{
-		_angle_ = Dir2Angle(HeadDirection);
+		mqMovementAngle = Dir2Angle(HeadDirection);
 		SetDir(HeadDirection);
 		SetState(MOVING);
 	}
@@ -220,8 +220,8 @@ STATEFUNCTION Hurt()
 	EntityMove(MASK_ENEMYSOLID2);
 
 	new q = (HitCount % 100) / 20;
-	ColourEntityGraphics(body, hit_colours[q]);
-	ColourEntityGraphics(head, hit_colours[q]);
+	ColourEntityGraphics(body, mqHitColours[q]);
+	ColourEntityGraphics(head, mqHitColours[q]);
 
 	EntityMove( MASK_ENEMYSOLID2 );
 
@@ -236,11 +236,11 @@ STATEFUNCTION Hurt()
 STATEFUNCTION Special()
 {
 
-	switch ( current_effect )
+	switch ( mqCurrentEffect )
 	{
 		case STUNNED:
 		{
-			StunnedEffect( effect_count );
+			StunnedEffect( mqEffectTimer );
 			ReplaceEntityGraphics( body, "enemy_bones01.png:front_0", false );
 		}
 		case FROZEN:
@@ -261,7 +261,7 @@ STATEFUNCTION Special()
 		}
 	}
 
-	if ( Countdown(effect_count) ) //Reset State
+	if ( Countdown(mqEffectTimer) ) //Reset State
 	{
 		SetState(STANDING);
 	}
@@ -271,20 +271,20 @@ STATEFUNCTION Special()
 
 
 /* Public Functions */
-PUBLICFUNCTIONHIT
+PUBLIC_EVENT_HIT
 {
-	if ( _state_ == HIT || _state_ == DYING || _state_ == GONE )
+	if ( mqState == HIT || mqState == DYING || mqState == GONE )
 		return;
 
-	strcopy( _attacker_, attacker );
+	strcopy( mqAttacker, attacker );
 
 	if ( attack&APLAYER == APLAYER )
 	{
-		EntityPublicFunction( _attacker_, "Hurt", "nnn", ASWORD, _damage_, angle );
+		EntityPublicFunction( mqAttacker, "Hurt", "nnn", ASWORD, mqDamageDealt, angle );
 	}
-	else if ( _state_ != HIT)
+	else if ( mqState != HIT)
 	{
-		_angle_ = fixed(angle);
+		mqMovementAngle = fixed(angle);
 		if ( rect == 1 )
 		{
 			SetState(LEAPING);
@@ -292,9 +292,9 @@ PUBLICFUNCTIONHIT
 		}
 		else
 		{
-			AudioPlaySound( "enemy_hurt.wav", dx, dy );
-			_state_ = HIT;
-			_health_ -= damage;
+			AudioPlaySound( "enemy_hurt.wav", mqDisplayArea.x, mqDisplayArea.y );
+			mqState = HIT;
+			mqHealth -= damage;
 			HitCount = 800;
 			Hurt();
 		}

@@ -87,7 +87,7 @@ public Close()
 main()
 {
 	HandleDayNight();
-	HandleDialogBox();
+	//HandleDialogBox();
 }
 
 
@@ -230,5 +230,3 @@ public CustomText(message{}, x, y, z, width, height, alpha)
 	}
 }
 
-
-#include <dialog_box>

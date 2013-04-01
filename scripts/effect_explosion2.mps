@@ -11,9 +11,9 @@ new timeout = 0;
 
 public Init(...)
 {
-	EntityGetPosition(_x_,_y_, _z_);
+	EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y, mqDisplayZIndex);
 	UpdateDisplayPosition();
-	obj = ObjectCreate("explosion.png:2", dx, dy, 4, 0, 0);
+	obj = ObjectCreate("explosion.png:2", mqDisplayArea.x, mqDisplayArea.y, 4, 0, 0);
 	ObjectFlag(obj, FLAG_ANIMLOOP, 0);
 	timeout = AnimationGetLength("explosion.png:2");
 }

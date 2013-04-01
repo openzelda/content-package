@@ -23,9 +23,9 @@ public Init(...)
 main()
 {
 	ObjectEffect(obj, WHITE);
-	if ( dx < InputPointer(0) < (dx+dw) )
+	if ( mqDisplayArea.x < InputPointer(0) < (mqDisplayArea.x+mqDisplayArea.w) )
 	{
-		if ( dy < InputPointer(1) < (dy+dh) )
+		if ( mqDisplayArea.y < InputPointer(1) < (mqDisplayArea.y+mqDisplayArea.h) )
 		{
 			ObjectEffect(obj, 0xFF0000FF);
 			if ( InputButton(11) == 1 )

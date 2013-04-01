@@ -78,7 +78,7 @@ main()
 	{
 		new Fixed:qx, Fixed:qy , Fixed:qz
 		EntityGetPosition(qx, qy, qz, entities[evEntity]);
-		new qtype = EntityPublicVariable(entities[evEntity], "_type_")
+		new qtype = EntityPublicVariable(entities[evEntity], "mqType")
 		StringFormat(evError,_,_,"%qx%q type:%d", qx, qy, qtype);
 		//CallEntityHit( entities[evEntity], "tester", angle, dist, attack, damage, x, y, rect );
 	}
@@ -161,7 +161,7 @@ DisplayEntityList( position[RECT], display_list )
 			
 		for( new c = 0; c < entities_count; c++ )
 		{
-			StringFormat(str,_,_,"%d: %s", EntityPublicVariable(entities[c], "_type_"), entities[c]  );
+			StringFormat(str,_,_,"%d: %s", EntityPublicVariable(entities[c], "mqType"), entities[c]  );
 			GraphicsDraw(str, TEXT, x, y, 6, 0,0, BLACK);
 			y+=10;
 		}

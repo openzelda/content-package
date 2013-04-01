@@ -5,14 +5,12 @@
 #include <open_zelda>
 
 new BlastRadius = 0;
-new obj = -1;
 
 
 public Init(...)
 {
-	EntityGetPosition(_x_,_y_, _z_);
-	UpdateDisplayPosition();
-	obj = ObjectCreate("explosion.png:1", dx, dy, 4, 0, 0);
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
+	mqDisplayObject = ObjectCreate("explosion.png:1", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
 	AudioPlaySound("bigexplosion.wav");	
 
 }
