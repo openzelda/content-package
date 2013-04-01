@@ -13,7 +13,7 @@ forward public Finished();
 new start = 0;
 new Fixed:timer = 0.00;
 new active = 0;
-new name[32] = !"Unknown Dungeon";
+new name{32} = "Unknown Dungeon";
 new text[12];
 new obj = -1;
 new fade = 0;
@@ -40,7 +40,7 @@ main()
 	{
 		new mes[32];
 		strformat(mes, _, true, "Finished dungeon in %.2q seconds", finished - start);
-		EntityPublicFunction("main", "CustomText", "snnnnnn", mes, -1, -1, 6, 19, 2, 255 );
+		EntityPublicFunction(EntityHash("main"), "CustomText", ''"snnnnnn'', mes, -1, -1, 6, 19, 2, 255 );
 	}
 
 	if ( !GameState() )
@@ -55,7 +55,7 @@ main()
 			if ( timer > 2.50 )
 				fade = fdiv(timer, 0.02);
 			//DebugText("%d %d %q %d", timer, fade, fade, fround(Fixed:fade));
-			EntityPublicFunction("main", "CustomText", "snnnnnn", name, -1, -1, 6, 40, 1, 255 - fround(Fixed:fade) );
+			EntityPublicFunction(EntityHash("main"), "CustomText", ''"snnnnnn'', name, -1, -1, 6, 40, 1, 255 - fround(Fixed:fade) );
 		}
 		else
 		{

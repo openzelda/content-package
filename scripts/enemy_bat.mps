@@ -13,6 +13,7 @@
  ***********************************************/
 #define DEATHLENGTH 480
 #include <enemy>
+#include <entity_graphics>
 
 /* Public Function */
 forward PUBLIC_EVENT_AWAKING
@@ -47,7 +48,7 @@ public Init(...)
 	SetStateGraphic( MOVING, "bat01.png", "bat", "bat", "bat", "bat" );
 
 	/* */
-	body.obj= object:EntityGetNumber("object-id");
+	body.obj = object:EntityGetNumber("object-id");
 	shadow = ObjectCreate( "", CIRCLE, mqDisplayArea.x+8, mqDisplayArea.y+32, 2, 16, 8, 0x000000DD );
 	ShowObjects( body.obj, shadow );
 }

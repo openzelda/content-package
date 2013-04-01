@@ -16,19 +16,19 @@ new dir = -1;
 new arch = -1;
 
 new section[64];
-new target[64];
+new target;
 new target_grid = -1;
 
-forward public MovePlayer(player[], d);
-forward public UpdatePlayer(player[]);
+forward public MovePlayer(player, d);
+forward public UpdatePlayer(player );
 
 public Init(...)
 {
 	mqType = TYPE_DOOR;
 	EntityGetSetting("object-image", doorOpen);
-	EntityGetSetting("target", target);
+	target = EntityGetSettingHash("target");
 	EntityGetSetting("section", section);
-	if ( target[0] )
+	if ( target )
 		target_grid = EntityGetNumber("grid");
 
 	dungeonid = EntityGetNumber("dungeon-id");
@@ -64,23 +64,21 @@ main()
 
 }
 
-public UpdatePlayer(player[])
+public UpdatePlayer(player)
 {
-	new nplayer[64];
-	strcopy(nplayer, player);
-	EntitySetPosition(mqEntityPosition.x + fixed(xoffset), mqEntityPosition.y+8.00, _, nplayer);
-	EntityPublicFunction(nplayer, "SetDir", "n", NORTH);
-	EntityPublicFunction(nplayer, "UpdatePosition");
+	EntitySetPosition(mqEntityPosition.x + fixed(xoffset), mqEntityPosition.y+8.00, _, player);
+	EntityPublicFunction(player, "SetDir", ''n'', NORTH);
+	EntityPublicFunction(player, "UpdatePosition");
 
-	EntityPublicFunction(dungeon, "Entered");
-	EntityPublicFunction("main", "SetDay", "n", 0);
+	EntityPublicFunction(dungeonid, "Entered", '''');
+	EntityPublicFunction(EntityHash("main"), "SetDay", ''n'', 0);
 
 	//SetRestartPosition(point, nx, ny, ngrid, nname[])
 	//EntityPublicFunction(player, "SetRestartPosition", "nnnns", 0, -1, -1, -1, "Dungeon");
 	
 }
 
-public MovePlayer(player[], d)
+public MovePlayer(player, d)
 {
 	if ( target_grid < 0 )
 		return false;
@@ -94,12 +92,9 @@ public MovePlayer(player[], d)
 	
 		if ( SectionValid(section,x, y) )
 		{
-			new nplayer[64];
-			strcopy(nplayer, player);
-			//SetTarget(ntarget[], nx, ny)
-			TransitionPlayer( nplayer, target, 0, _, x, y );
-			EntityPublicFunction(dungeon, "Exited");
-			EntityPublicFunction("main", "SetDay", "n", 1);
+			TransitionPlayer( player, target, 0, _, x, y );
+			EntityPublicFunction( dungeonid, "Exited");
+			EntityPublicFunction( EntityHash("main"), "SetDay", "n", 1);
 			return true;
 		}
 	}

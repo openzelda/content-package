@@ -85,7 +85,7 @@ public dialogbox(line)
 			space = n;
 			nx += FONTWIDTH;
 		}
-		else if ( dialog[n] == '¶' ) // 0xC2 0xB6
+		else if ( dialog[n] == '\n' )
 		{
 			dialog[n] = '\n';
 			space = 0;

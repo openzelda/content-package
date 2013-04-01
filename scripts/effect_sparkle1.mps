@@ -16,8 +16,8 @@ new animationLength = 0;
 public Init(...)
 {
 	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
-	mqDisplayObject = ObjectCreate("icerod.png:sparkle", SPRITE, mqDisplayArea.x, mqDisplayArea.x, mqDisplayZIndex, 0, 0, );
-	animationLength = AnimationGetLength("icerod.png:sparkle");
+	mqDisplayObject = ObjectCreate("icerod.png:sparkle", SPRITE, mqDisplayArea.x, mqDisplayArea.x, mqDisplayZIndex, 0, 0, WHITE );
+	animationLength = AnimationGetLength("icerod.png", "sparkle");
 }
 
 main()

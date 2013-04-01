@@ -1,5 +1,14 @@
 /***********************************************
+ * Copyright © Luke Salisbury
  *
+ * You are free to share, to copy, distribute and transmit this work
+ * You are free to adapt this work
+ * Under the following conditions:
+ *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You may not use this work for commercial purposes.
+ * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
+ * Changes:
+ *     2010/01/11 [luke]: new file.
  ***********************************************/
 #define DAMAGE 150
 #include <open_zelda>
@@ -148,6 +157,6 @@ CheckForCollisions()
 	while ( CollisionGetCurrent(_, current, angle, dist, rect )
 	{
 		//Hit( attacker[], angle, dist, attack, damage, x, y, rect )
-		EntityCallFunction( current, "Hit", "sddddd", owner, angle, AEXPLOSION, DAMAGE, _x_, _y_, rect);
+		EntityCallFunction( current, "Hit", "sddddd", owner, angle, AEXPLOSION, DAMAGE, mqEntityPosition.y, mqEntityPosition.y, rect);
 	}
 }

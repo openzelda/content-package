@@ -64,13 +64,7 @@ stock StorePosition()
 	mqLocations[0][3] = mqDirection;
 }
 
-stock UpdateDisplayPosition()
-{
-	mqDisplayArea.x = fround(mqEntityPosition.x, round_unbiased);
-	mqDisplayArea.y = fround(mqEntityPosition.y, round_unbiased);
-	mqDisplayLayer = fround(mqEntityPosition.z, round_floor);
-	mqDisplayZIndex = (mqDisplayLayer*1000) + NumberAbs(mqDisplayArea.y/8);
-}
+
 
 
 stock EntityMove( maxmask, push_off = true )

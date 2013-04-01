@@ -1,5 +1,15 @@
-#include <open_zelda>
-#include <string>
+/***********************************************
+ * Copyright © Luke Salisbury
+ *
+ * You are free to share, to copy, distribute and transmit this work
+ * You are free to adapt this work
+ * Under the following conditions:
+ *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You may not use this work for commercial purposes.
+ * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
+ * Changes:
+ *     2010/01/11 [luke]: new file.
+ ***********************************************/
 
 new doorOpen[64];
 new doorClose[64];
@@ -20,14 +30,14 @@ new obj =-1, arch = -1;
 
 /* Door Target */
 new section[64];
-new target_entity[64];
+new target_entity;
 new target_grid = -1;
 
 forward public OpenDoor();
 forward public CloseDoor();
-forward public MovePlayer(player[], d);
-forward public UpdatePlayer(player[]);
-forward public Hit( attacker[], angle, dist, attack, damage, x, y, rect );
+forward public MovePlayer(player, d);
+forward public UpdatePlayer(player);
+forward public Hit( attacker, angle, dist, attack, damage, x, y, rect );
 
 public Init(...)
 {
@@ -37,7 +47,7 @@ public Init(...)
 	/* Get Settings */
 	EntityGetSetting("object-image", doorOpen);
 	EntityGetSetting("section", section);
-	EntityGetSetting("target", target_entity);
+	target_entity = EntityGetSettingHash("target");
 	target_grid = EntityGetNumber("target_map");
 	open = opened = bool:EntityGetNumber("opened");
 	locked = EntityGetNumber("locktype");
@@ -150,7 +160,7 @@ public CloseDoor()
 }
 
 // Hit( attacker[], angle, dist, attack, damage, x, y )
-public Hit( attacker[], angle, dist, attack, damage, x, y, rect )
+public Hit( attacker, angle, dist, attack, damage, x, y, rect )
 {
 	if ( attack&APLAYER == APLAYER )
 	{
@@ -160,16 +170,14 @@ public Hit( attacker[], angle, dist, attack, damage, x, y, rect )
 	}
 }
 
-public UpdatePlayer(player[])
+public UpdatePlayer(player)
 {
-	new nplayer[64];
-	StringCopy(nplayer, player);
-	EntitySetPosition(mqEntityPosition.x + fixed(xoffset), mqEntityPosition.y+fixed(yoffset), _, nplayer);
-	EntityPublicFunction(nplayer, "SetDir", "n", mqDirection + 4);
-	EntityPublicFunction(nplayer, "UpdatePosition");
+	EntitySetPosition(mqEntityPosition.x + fixed(xoffset), mqEntityPosition.y+fixed(yoffset), _, player);
+	EntityPublicFunction(player, "SetDir", ''n'', mqDirection + 4);
+	EntityPublicFunction(player, "UpdatePosition");
 }
 
-public MovePlayer(player[], d)
+public MovePlayer(player, d)
 {
 	if ( target_grid < 0 )
 		return false;
@@ -177,13 +185,12 @@ public MovePlayer(player[], d)
 		return false;
 
 	new x, y;
-	new nplayer[64];
 	
 	x = (target_grid % 64);
 	y = (target_grid / 64);
 
-	strcopy(nplayer, player);
 
-	return TransitionPlayer( nplayer, target_entity, _, section, x, y );
+
+	return TransitionPlayer( player, target_entity, _, section, x, y );
 }
 

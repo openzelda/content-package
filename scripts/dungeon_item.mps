@@ -5,7 +5,7 @@
 new Fixed:count = 0.0;
 new obj = -1;
 new p[64];
-new dungeon[32] = "dungeon-d";
+new dungeon{32} = "dungeon-d";
 new dungeonid = 0;
 
 public Init( ... )
@@ -26,13 +26,12 @@ main()
 	HandleLift();
 }
 
-public Pickup( player[] )
+public Pickup( player )
 {
 	if ( mqState != LIFTING )
 	{
-		strcopy(p, player);
-		EntityPublicFunction(dungeon, "Finished");
-		EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y,  mqDisplayZIndex, p);
+		EntityPublicFunction(dungeonid, "Finished");
+		EntityGetPosition(mqEntityPosition.x, mqEntityPosition.y,  mqDisplayZIndex, player );
 		mqDisplayZIndex++;
 	}
 	mqState = LIFTING;
@@ -53,8 +52,8 @@ HandleLift()
 		else
 		{
 			EntityDelete(p);
-			EntityPublicFunction(dungeon, "Exited");
-			MapChange(MapCurrent("Exit"));
+			//EntityPublicFunction(dungeonid, "Exited");
+			//MapChange(MapCurrent("Exit"));
 		}
 
 	}

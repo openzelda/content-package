@@ -100,12 +100,12 @@ public SetRestartPosition( point, ndescription[], nx, ny, nmapid )
 	strcopy(_restart[point].description, ndescription);
 
 	if ( nx == -1 )
-		_restart[point].x = _:_x_;
+		_restart[point].x = _:mqEntityPosition.x;
 	else
 		_restart[point].x = nx;
 
 	if ( ny == -1 )
-		_restart[point].y = _:_y_;
+		_restart[point].y = _:mqEntityPosition.y;
 	else
 		_restart[point].y = ny;
 
@@ -126,7 +126,7 @@ new hidden = 1;
 new DeathCount = 0;
 HandleDeath()
 {
-	ObjectPosition(obj, dx, dy, dz, 0, 0);
+	ObjectPosition(obj, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
 	if ( _state_ == DEAD ) 
 	{
 		DeathCount = 0;

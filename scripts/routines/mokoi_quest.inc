@@ -84,6 +84,14 @@ stock GetEntityPosition( &Fixed:fx, &Fixed:fy, &Fixed:fz, &ix, &iy, &iz, &il)
 	iz = (il*1000) + NumberAbs( iy/8 );
 }
 
+stock UpdateDisplayPosition()
+{
+	mqDisplayArea.x = fround(mqEntityPosition.x, round_unbiased);
+	mqDisplayArea.y = fround(mqEntityPosition.y, round_unbiased);
+	mqDisplayLayer = fround(mqEntityPosition.z, round_floor);
+	mqDisplayZIndex = (mqDisplayLayer*1000) + NumberAbs(mqDisplayArea.y/8);
+}
+
 stock HasStateChanged()
 {
 	new changed = false;

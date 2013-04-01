@@ -114,7 +114,7 @@ stock RandomizeMovement()
 	}while ( mqDirection != new_dir )
 
 	mqDirection = new_dir;
-	mqAngle = Dir2Angle(mqDirection);
+	mqMovementAngle = Dir2Angle(mqDirection);
 }
 
 
@@ -147,7 +147,7 @@ stock DeathEvent()
 	else
 	{
 		EntityPublicFunction(__MAP__, "KilledEnemy");
-		//EntityPublicFunction("itemlib", "CreateItem", "nns", mqDisplayArea.x + (dw / 2), mqDisplayArea.y + (mqDisplayArea.y / 2), mqItemDrop);
+		//EntityPublicFunction("itemlib", "CreateItem", "nns", mqDisplayArea.x + (mqDisplayArea.w / 2), mqDisplayArea.y + (mqDisplayArea.y / 2), mqItemDrop);
 	}
 }
 
@@ -243,7 +243,7 @@ stock StockHit( attacker[], angle, dist, attack, damage, x, y, rect )
 	else if ( attack&AICE == AICE )
 	{
 		// Create a frozen effect around the enemy
-		EntityCreate( "effect_freeze", child, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, CURRENT_MAP, _, "nnnn", mqDisplayArea.x, mqDisplayArea.y, dw, dh );
+		EntityCreate( "effect_freeze", child, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, CURRENT_MAP, _, "nnnn", mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h );
 		ObjectEffect( obj, 0xFF0000FF );
 		StunCount = 3200;
 		mqState = STUNNED;
