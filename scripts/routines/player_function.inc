@@ -12,14 +12,11 @@
  ***********************************************/
 
 /* Variable */
-public _maxhealth_ = 300;
-public _health_ = 300;
+public mqMaxHealth = 300;
+public mqHealth = 300;
 
-new object:obj = OBJECT_NONE;
-new selfid[64];
-new self_hash_id = 0;
-new hud_hash_id = 0;
-new menu_hash_id = 0;
+new mqHudEntity = 0;
+new mqMenuEntity = 0;
 new controller = 0;
 
 new Fixed:push_delay = 0.00;
@@ -36,7 +33,7 @@ forward public SetRestartPosition( point, ndescription[], nx, ny, nmapid );
 
  /* Animation Code */ 
 #define STATE_FLIP (mqDisplayDirection == 3 ? 16 : 0)
-#define STATE_GRAPHIC animation[_state_][mqDisplayDirection]
+#define STATE_GRAPHIC animation[mqState][mqDisplayDirection]
 
 
 stock animation[STATE_COUNT][4]{32} = [
@@ -126,16 +123,16 @@ new hidden = 1;
 new DeathCount = 0;
 HandleDeath()
 {
-	ObjectPosition(obj, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
-	if ( _state_ == DEAD ) 
+	ObjectPosition(mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
+	if ( mqState == DEAD ) 
 	{
 		DeathCount = 0;
-		ObjectReplace(obj, animation[DEAD][0], SPRITE);
+		ObjectReplace(mqDisplayObject, animation[DEAD][0], SPRITE);
 		EntityPublicFunction( EntityHash("main"), "CustomText", "snnnnnn", "Press Enter to continue", -1, -1, 6, 11, 2, 255 );
 		if ( InputButton( 6 ) )
 		{
-			_health_ = _maxhealth_;
-			_state_ = STANDING;
+			mqHealth = mqMaxHealth;
+			mqState = STANDING;
 			LayerColour(0, 0xFFFFFFFF);
 			LayerColour(1, 0xFFFFFFFF);
 			LayerColour(2, 0xFFFFFFFF);
@@ -143,11 +140,11 @@ HandleDeath()
 			LayerColour(4, 0xFFFFFFFF);
 			LayerColour(5, 0xFFFFFFFF);
 		
-			TransitionPlayer( self_hash_id, 0, _restart[0].mapid, "");
+			TransitionPlayer( mqEntityId, 0, _restart[0].mapid, "");
 			EntitySetPosition( _restart[0].x, _restart[0].y, _ );
 		}
 	}
-	else if ( _state_ == DYING ) 
+	else if ( mqState == DYING ) 
 	{
 		LayerColour(0, 0xFF0000FF);
 		LayerColour(1, 0xFF0000FF);
@@ -159,10 +156,10 @@ HandleDeath()
 		if ( DeathCount == 0 )
 		{
 			DeathCount = AnimationGetLength( "p01n.png", "death" );
-			ObjectReplace(obj, animation[DYING][0], SPRITE);
+			ObjectReplace(mqDisplayObject, animation[DYING][0], SPRITE);
 		}
 		if ( Countdown(DeathCount) )
-			_state_ = DEAD;
+			mqState = DEAD;
 	}
 }
 
@@ -178,8 +175,8 @@ public GiveWeapon( weapon[] )
 	new entity{64};
 	StringCopy(entity, weapon);
 	hash = EntityCreate( entity, "", 0, 0, 1, GLOBAL_MAP );
-	EntityPublicFunction( hash, "SetOwner", "n", self_hash_id );
-	EntityPublicFunction( menu_hash_id, "AddWeapon", "sn", entity, hash, self_hash_id );
+	EntityPublicFunction( hash, "SetOwner", "n", mqEntityId );
+	EntityPublicFunction( mqMenuEntity, "AddWeapon", "sn", entity, hash, mqEntityId );
 	SetWeapon( hash, BUTTON_ACTION1 );
 }
 
