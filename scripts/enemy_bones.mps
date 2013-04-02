@@ -16,6 +16,7 @@
  ***********************************************/
 #define DEATHLENGTH 480
 #include <enemy>
+#include <entity_graphics>
 
 /* Public Function */
 forward PUBLIC_EVENT_HIT;
@@ -27,16 +28,16 @@ new StandCount = 600;
 new HeadDirection = 0;
 
 /* Display Object */
-new body[EntityGraphic] = { OBJECT_NONE, 0, 24, 0 };	// Display Object, Offset x, Offset y, Offset z
-new head[EntityGraphic] = { OBJECT_NONE, 0, 0, 1 };	// Display Object, Offset x, Offset y, Offset z
+new body[EntityGraphic] = [ OBJECT_NONE, 0, 24, 0 ];	// Display Object, Offset x, Offset y, Offset z
+new head[EntityGraphic] = [ OBJECT_NONE, 0, 0, 1 ];	// Display Object, Offset x, Offset y, Offset z
 new object:shadow = OBJECT_NONE;
 
 /* Collisions Settings */
-new hitzone[3][RECT] = { 
-	{ 4, 28, 24, 24 }, // Body 
-	{ -16, 16, 64, 56 }, // Attack Alert
-	{ 4, 28, 24, 16 }, // jumping body
-};
+new hitzone[3][RECT] = [ 
+	[ 4, 28, 24, 24 ], // Body 
+	[ -16, 16, 64, 56 ], // Attack Alert
+	[ 4, 28, 24, 16 ], // jumping body
+];
 
 
 /* Function */
@@ -58,17 +59,17 @@ public Init(...)
 	EnemyInit();
 
 	/* Retrive Display Objects */
-	body[egOBJ] = object:EntityGetNumber("object-id");
-	head[egOBJ] = ObjectCreate( "enemy_bones01.png:head_front", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex+1, 0, 0, WHITE );
+	body.obj = object:EntityGetNumber("object-id");
+	head.obj = ObjectCreate( "enemy_bones01.png:head_front", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex+1, 0, 0, WHITE );
 	shadow = ObjectCreate( "", CIRCLE, mqDisplayArea.x, mqDisplayArea.y+32, mqDisplayZIndex-1, 16, 8,  0x000000AA);
-	ShowObjects( head[egOBJ], body[egOBJ], shadow );
+	ShowObjects( head.obj, body.obj, shadow );
 }
 
 public Close()
 {
 	CollisionSet(SELF, -1, 0);
 	ObjectDelete(shadow);
-	ObjectDelete(head[egOBJ]);
+	ObjectDelete(head.obj);
 }
 
 main()
@@ -83,7 +84,7 @@ main()
 
 	if ( HasStateChanged() )
 	{
-		ResetObjects( head[egOBJ], body[egOBJ] );
+		ResetObjects( head.obj, body.obj );
 	}
 
 	if ( InputButton(1) )
@@ -94,8 +95,8 @@ main()
 
 
 	new q = (mqState == LEAPING ? 2 : 0); // Use which hit zone to use
-	CollisionSet(SELF, 0, TYPE_ENEMY, mqDisplayArea.x + hitzone[q][rX], mqDisplayArea.y + hitzone[q][rY], hitzone[q][rW], hitzone[q][rH] );
-	CollisionSet(SELF, 1, TYPE_AWAKING, mqDisplayArea.x + hitzone[1][rX], mqDisplayArea.y + hitzone[1][rY], hitzone[1][rW], hitzone[1][rH] );
+	CollisionSet(SELF, 0, TYPE_ENEMY, mqDisplayArea.x + hitzone[q].x, mqDisplayArea.y + hitzone[q].y, hitzone[q].w, hitzone[q].h );
+	CollisionSet(SELF, 1, TYPE_AWAKING, mqDisplayArea.x + hitzone[1].x, mqDisplayArea.y + hitzone[1].y, hitzone[1].w, hitzone[1].h );
 
 	switch( mqState )
 	{
@@ -118,8 +119,8 @@ main()
 			Special();
 		case DEAD:
 		{
-			ObjectToggle( body[egOBJ], false  );
-			ObjectDelete(head[egOBJ]);
+			ObjectToggle( body.obj, false  );
+			ObjectDelete( head.obj );
 			ObjectDelete(shadow);
 			CollisionSet(SELF, -1, 0);
 			SetState(GONE);
@@ -130,7 +131,7 @@ main()
 	UpdateEntityGraphics( body );
 	if ( mqState == LEAPING )
 	{
-		ObjectPosition( body[egOBJ], mqDisplayArea.x+body[egOFFX], mqDisplayArea.y+body[egOFFY]-4, mqDisplayZIndex+body[egOFFZ], 0, 0);
+		ObjectPosition( body.obj, mqDisplayArea.x+body.x, mqDisplayArea.y+body.y-4, mqDisplayZIndex+body.z, 0, 0);
 	}
 	ObjectPosition( shadow, mqDisplayArea.x+4, mqDisplayArea.y+48, mqDisplayZIndex-1, 24, 8);
 }
@@ -276,7 +277,7 @@ PUBLIC_EVENT_HIT
 	if ( mqState == HIT || mqState == DYING || mqState == GONE )
 		return;
 
-	strcopy( mqAttacker, attacker );
+	mqAttacker = attacker;
 
 	if ( attack&APLAYER == APLAYER )
 	{

@@ -17,9 +17,9 @@ public Init(...)
 {
 	new id[7] = "false";
 	EntityGetSetting("online", id, SELF);
-	online = ( StringCompare(id,"true") ? false : true);
+	online = ( StringEqual(id,"true") ?  true : false );
 
-	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);;
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 }
 
 main()

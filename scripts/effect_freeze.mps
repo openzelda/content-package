@@ -10,8 +10,6 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
-#include <open_zelda>
-#include <core>
 
 new timeout = 0, animationLength;
 

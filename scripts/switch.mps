@@ -10,7 +10,7 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
-#include <open_zelda>
+
 
 #define RELEASED 0
 #define PRESSED 1

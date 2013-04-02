@@ -17,7 +17,7 @@ new entityId:ownerid;
 /* Public Function - Do not change */ 
 forward public Use( object:player, dir ) 
 forward public End( object:player, dir ) 
-forward public SetOwner( owner[] ); 
+forward public SetOwner( owner ); 
  
 public SetOwner( owner ) 
 { 

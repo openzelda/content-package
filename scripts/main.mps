@@ -70,8 +70,10 @@ public Init( ... )
 	font[0] = 8;
 	font[1] = 16;
 	SetDay(0);
-	debug_game = debug;
 
+	SheetReference("alpha01.png", 1);
+	SheetReference("alpha02.png", 1);
+	SheetReference("alpha03.png", 1);
 
 	if (debug_game)
 	{

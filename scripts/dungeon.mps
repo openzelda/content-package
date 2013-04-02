@@ -1,8 +1,17 @@
-#include <core>
+/***********************************************
+ * Copyright © Luke Salisbury
+ *
+ * You are free to share, to copy, distribute and transmit this work
+ * You are free to adapt this work
+ * Under the following conditions:
+ *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You may not use this work for commercial purposes.
+ * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
+ * Changes:
+ *     2010/01/11 [luke]: new file.
+ ***********************************************/
 #include <time>
-#include <entities>
 #include <network>
-#include <string>
 #include <player>
 
 
@@ -40,7 +49,7 @@ main()
 	{
 		new mes[32];
 		strformat(mes, _, true, "Finished dungeon in %.2q seconds", finished - start);
-		EntityPublicFunction(EntityHash("main"), "CustomText", ''"snnnnnn'', mes, -1, -1, 6, 19, 2, 255 );
+		EntityPublicFunction(EntityHash("main"), "CustomText", ''snnnnnn'', mes, -1, -1, 6, 19, 2, 255 );
 	}
 
 	if ( !GameState() )
@@ -55,7 +64,7 @@ main()
 			if ( timer > 2.50 )
 				fade = fdiv(timer, 0.02);
 			//DebugText("%d %d %q %d", timer, fade, fade, fround(Fixed:fade));
-			EntityPublicFunction(EntityHash("main"), "CustomText", ''"snnnnnn'', name, -1, -1, 6, 40, 1, 255 - fround(Fixed:fade) );
+			EntityPublicFunction( EntityHash("main"), "CustomText", ''"snnnnnn'', name, -1, -1, 6, 40, 1, 255 - fround(Fixed:fade) );
 		}
 		else
 		{

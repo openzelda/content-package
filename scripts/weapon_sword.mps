@@ -12,85 +12,85 @@
  ***********************************************/
 #include <weapon>
 #include <public_events>
+#include <movement>
 
-new object:obj = OBJECT_NONE;
+
 new timer = 0;
 new sheet{} = "sword01.png";
 new player_sheet{} = "p01swing.png";
 new anim[4]{11} = [ "swing-front", "swing-side", "swing-back", "swing-side" ];
-
-new entityID:selfId;
+new swordSprite{64}, playerSprite{64};
 
 public Init(...)
 {
 	mqDisplayOffset.y += 32;
 	mqDisplayOffset.x += 12;
-	selfId = entityID:EntityGetSettingHash("object-id");
+	mqEntityId = entityId:EntityGetSettingHash("object-id");
 }
 
 public Close()
 {
-	ObjectDelete(obj);
+	ObjectDelete(mqDisplayObject);
 }
 
 main() { } //So Engine doesn't complain
 
-weapon_begin( xobj, dir )
+weapon_begin(  object:player, dir )
 {
-	if ( timer || obj !=  OBJECT_NONE )
+	if ( timer || player !=  OBJECT_NONE )
 		return;
 
-	new image[64], ximage[64];
+
 	
 	timer = AnimationGetLength(sheet, anim[dir]);
-	strformat( image, _, true, "%s:%s", sheet, anim[dir] );
-	strformat( ximage, _, true, "%s:%s", player_sheet, anim[dir] );
+	strformat( swordSprite, _, true, "%s:%s", sheet, anim[dir] );
+	strformat( playerSprite, _, true, "%s:%s", player_sheet, anim[dir] );
 
 	if (dir == 2)
-		obj = object:ObjectCreate( image, SPRITE, mqDisplayArea.x, mqDisplayArea.y, 3, 0, 0);
+		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x, mqDisplayArea.y, 3, 0, 0);
 	else if (dir == 0)
-		obj = object:ObjectCreate( image, SPRITE, mqDisplayArea.x + mqDisplayOffset.x, mqDisplayArea.y + mqDisplayOffset.y, 3, 0, 0);
+		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x + mqDisplayOffset.x, mqDisplayArea.y + mqDisplayOffset.y, 3, 0, 0);
 	else  if (dir == 3)
-		obj = object:ObjectCreate( image, SPRITE, mqDisplayArea.x + 4, mqDisplayArea.y, 3, 0, 0);
+		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x + 4, mqDisplayArea.y, 3, 0, 0);
 	else
-		obj = object:ObjectCreate( image, SPRITE, mqDisplayArea.x, mqDisplayArea.y, 3, 0, 0);
+		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x, mqDisplayArea.y, 3, 0, 0);
 
-	ObjectFlag(obj, FLAG_SPEED, 1);
-	ObjectFlag(obj, FLAG_ANIMLOOP, 0);
-	ObjectEffect( obj, WHITE, _, _, _, (dir == 3 ? 16 : 0), _, _ );
-	ObjectReplace( object:xobj, ximage, SPRITE ); // Replace player sprite with swinging sprite
+	ObjectFlag( mqDisplayObject, FLAG_SPEED, 1);
+	ObjectFlag( mqDisplayObject, FLAG_ANIMLOOP, 0);
+	ObjectEffect( mqDisplayObject, WHITE, _, _, _, (dir == 3 ? 16 : 0), _, _ );
+	ObjectReplace( player, playerSprite, SPRITE ); // Replace player sprite with swinging sprite
 }
 
-weapon_ended( xobj )
+weapon_ended( object:player )
 {
 	if ( CountTimer(timer, 0) )
 	{
-		ObjectDelete(obj);
+		ObjectDelete(mqDisplayObject);
 		CollisionSet(SELF, -1, 0);
-		obj =  OBJECT_NONE;
+		mqDisplayObject =  OBJECT_NONE;
 		return 0;
 	}
 	return 1;
 }
 
-public End( xobj, dir )
+public End( object:player, dir )
 {
 	timer = 0;
-	weapon_ended( xobj );
+	weapon_ended( player );
 }
 
-public Use( xobj, dir )
+public Use( object:player, dir )
 {
 	new swordangle = D2A(dir);
 	dir = NumberClamp((dir/2), 0, 3);
 
-	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);;
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 	//ObjectInfo(obj, _px_, _py_);
 
 	
 
-	weapon_begin( xobj, dir );
-	CollisionFromObject(obj, TYPE_WEAPON);
+	weapon_begin( player, dir );
+	CollisionFromObject( mqDisplayObject, TYPE_WEAPON);
 
 	new hx, hy, hw, hh;
 	CollisionGet(SELF, 0,hx,hy,hw,hh);
@@ -102,7 +102,7 @@ public Use( xobj, dir )
 		new rect;
 		new type;
 
-		while ( CollisionGetCurrent(selfId, current, angle, dist, rect, type) )
+		while ( CollisionGetCurrent(mqEntityId, current, angle, dist, rect, type) )
 		{
 			if ( type == _:TYPE_ENEMY || type == _:TYPE_AWAKING )
 			{
@@ -112,5 +112,5 @@ public Use( xobj, dir )
 		}
 	}
 	
-	return weapon_ended( xobj );
+	return weapon_ended( player );
 }

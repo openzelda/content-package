@@ -25,7 +25,7 @@ public Init(...)
 	mqAllowOffscreenMovement = true;
 	mqEntityId = entityId:EntityGetSettingHash("id");
 
-	
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 	SetEntityDimension(30, 24, 2, 24);
 	SetPlayerSprites("p01n.png", "p01push.png", "p01pull.png", "p01swim.png");
 	SetState(STANDING);
@@ -48,7 +48,7 @@ public Init(...)
 /* UpdatePosition is called when a global entity has changed maps */
 public UpdatePosition()
 {
-	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 	MapSetOffset(mqEntityPosition.x,mqEntityPosition.y);
 	DisplayPlayer();
 }
@@ -56,8 +56,9 @@ public UpdatePosition()
 /* Called each frame */
 main()
 {
+	DebugText("mqDisplayZIndex: %d, mqDisplayLayer: %d", mqDisplayZIndex, mqDisplayLayer)
 	new sx, sy;
-	ObjectInfo(mqEntityId, sx, sy);
+	ObjectInfo(mqDisplayObject, sx, sy);
 	if ( mqState == GONE || GameState() != 1 )
 		return;
 
@@ -73,7 +74,7 @@ main()
 		return;
 	}
 
-	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 
 	CheckForKeys();
 	MovePlayer();
@@ -91,14 +92,14 @@ main()
 public Close()
 {
 	CollisionSet(SELF, -1);
-	ObjectDelete(mqEntityId);
+	ObjectDelete(mqDisplayObject);
 }
 
 /* */
 
 CheckCollisions()
 {
-	return;
+
 	if ( CollisionCalculate() )
 	{
 		new current;
@@ -234,7 +235,7 @@ CheckForKeys()
 
 	if ( InputButton(BUTTON_MENU, controller) == 1 )
 	{
-		EntityPublicFunction(mqMenuEntity, "Show", "ssss", mqEntityId, weapons[0], weapons[1], weapons[2] );
+		EntityPublicFunction(mqMenuEntity, "Show", ''ssss'', mqEntityId, weapons[0], weapons[1], weapons[2] );
 		return;
 	}
 
@@ -243,7 +244,7 @@ CheckForKeys()
 		if ( weapon_active != -1 )
 		{
 			EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, weapons[weapon_active]);
-			if ( EntityPublicFunction( weapons[weapon_active], "Use", "nn", mqEntityId, mqDirection) > 0 )
+			if ( EntityPublicFunction( weapons[weapon_active], "Use", ''nn'', mqDisplayObject, mqDirection) > 0 )
 				return;
 			else
 				SetState(STANDING);
@@ -257,8 +258,8 @@ CheckForKeys()
 	}
 	else if ( mqState != LIFTING && GameState() == 1 )
 	{
-		x_movement = InputAxis(0,controller);
-		y_movement = InputAxis(1,controller);
+		x_movement = InputAxis(0);
+		y_movement = InputAxis(1);
 	}
 	
 	mqMovementAngle = 0.0;
@@ -320,15 +321,15 @@ DisplayPlayer()
 {
 	if ( HasStateChanged() )
 	{
-		ObjectReplace(mqEntityId, STATE_GRAPHIC, SPRITE );
-		ObjectEffect(mqEntityId, WHITE, _, _, _, STATE_FLIP, _, _);
+		ObjectReplace(mqDisplayObject, STATE_GRAPHIC, SPRITE );
+		ObjectEffect(mqDisplayObject, WHITE, _, _, _, STATE_FLIP, _, _);
 	}
-	ObjectPosition(mqEntityId, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
+	ObjectPosition(mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, mqEntityPosition.z, 0, 0);
 	if ( hit > 0 )
 		hidden = !hidden;
 	else
 		hidden = 1;
-	ObjectToggle(mqEntityId, hidden);
+	ObjectToggle(mqDisplayObject, hidden);
 }
 
 

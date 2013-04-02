@@ -25,7 +25,7 @@
 forward public Show( new_owner, weapons1[], weapons2[], weapons3[] );
 forward public Refresh();
 forward public Hide();
-forward public AddWeapon( w[64]);
+forward public AddWeapon( weaponName[64], weaponId );
 
 
 const local: {
@@ -39,7 +39,7 @@ new local:mode = disabled;
 new object:menu = object:-1;
 new owner=0;
 new controller = 0;
-new weapon[30][.id{64}, .icon{64}, .active];
+new weapon[30][.id, .icon{64}, .active];
 
 new action[4] = [0, -1, -1, -1];
 
@@ -185,7 +185,7 @@ main()
 
 }
 
-public AddWeapon( w[64] )
+public AddWeapon( weaponName[64], weaponId )
 {
 	new n = 0;
 	while (n < 30)
@@ -195,8 +195,9 @@ public AddWeapon( w[64] )
 		n++;
 	}		
 
-	strcopy(weapon[n].id, w);
-	strformat(weapon[n].icon, _, true, "menuicon.png:%s", w);
+	weapon[n].id = weaponId;
 	weapon[n].active = true;
+	strformat(weapon[n].icon, _, true, "menuicon.png:%s", weaponName);
+	
 }
 

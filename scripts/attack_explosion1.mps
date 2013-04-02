@@ -11,7 +11,6 @@
  *     2010/01/11 [luke]: new file.
  ***********************************************/
 #define DAMAGE 150
-#include <open_zelda>
 
 new BlastRadius = 0;
 
