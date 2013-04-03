@@ -10,6 +10,7 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
+#include <player>
 
 /* Variable */
 public mqMaxHealth = 300;
@@ -26,7 +27,7 @@ new Fixed:push_delay = 0.00;
 forward public UpdatePosition();
 forward public Hurt(type, damage, angle);
 forward public GiveWeapon( weapon[] );
-forward public SetWeapon( weapon_id, n );
+forward public SetWeapon( weapon_id, slot );
 forward public SetPlayerSprites( normal{32}, push{32}, pull{32}, swim{32} );
 forward public SetRestartPosition( point, ndescription[], nx, ny, nmapid );
 
@@ -128,7 +129,7 @@ HandleDeath()
 	{
 		DeathCount = 0;
 		ObjectReplace(mqDisplayObject, animation[DEAD][0], SPRITE);
-		EntityPublicFunction( EntityHash("main"), "CustomText", "snnnnnn", "Press Enter to continue", -1, -1, 6, 11, 2, 255 );
+		EntityPublicFunction( ENTITY_MAIN, "CustomText", "snnnnnn", "Press Enter to continue", -1, -1, 6, 11, 2, 255 );
 		if ( InputButton( 6 ) )
 		{
 			mqHealth = mqMaxHealth;
@@ -166,24 +167,27 @@ HandleDeath()
 /* Weapon */
 
 new weapon_action[3] = [0,0,0];
-new weapons[4];
-new weapon_active = -1;
+new mqSelectedWeapons[4];
+new mqUsingWeapon = -1;
 
 public GiveWeapon( weapon[] )
 {
 	new hash;
-	new entity{64};
-	StringCopy(entity, weapon);
-	hash = EntityCreate( entity, "", 0, 0, 1, GLOBAL_MAP );
-	EntityPublicFunction( hash, "SetOwner", "n", mqEntityId );
-	EntityPublicFunction( mqMenuEntity, "AddWeapon", "sn", entity, hash, mqEntityId );
+	new entityName{64};
+	StringCopy(entityName, weapon);
+
+	hash = EntityCreate( entityName, "", 0, 0, 1, GLOBAL_MAP );
+
+	EntityPublicFunction( hash, "SetOwner", ''n'', mqEntityId );
+	EntityPublicFunction( mqMenuEntity, "AddWeapon", ''snn'', entityName, hash, mqEntityId );
+
 	SetWeapon( hash, BUTTON_ACTION1 );
 }
 
-public SetWeapon( weapon_id, n )
+public SetWeapon( weapon_id, slot )
 {
-	if ( n >= 0 && n < 4 ) 
+	if ( slot >= 0 && slot < 4 ) 
 	{
-		weapons[n] = weapon_id;
+		mqSelectedWeapons[slot] = weapon_id;
 	}
 }

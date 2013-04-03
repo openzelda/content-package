@@ -11,19 +11,16 @@
  *     2010/01/11 [luke]: new file.
  ***********************************************/
 
-new id = -1;
-new x, y;
-
 public Init( ... )
 {
-	id = EntityGetNumber("object-id");
+	mqDisplayObject = EntityGetObject();
 }
 
 main()
 {
 	if ( GameState() == 1 )
 	{
-		CollisionFromObject(object:id, 42);
-		ObjectFollowPath(object:id, 60.0, x, y, true);
+		CollisionFromObject(mqDisplayObject, 42);
+		ObjectFollowPath(mqDisplayObject, 600.0, mqDisplayArea.x, mqDisplayArea.y, true);
 	}
 }

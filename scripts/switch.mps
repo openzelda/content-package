@@ -38,7 +38,7 @@ public Init(...)
 	
 
 	CollisionSet(SELF, 0, TYPE_SWITCH, mqDisplayArea.x+8, mqDisplayArea.y+8, mqDisplayArea.w-16, mqDisplayArea.h-16);
-	EntityPublicFunction(__MAP__, "AddSwitch"); // Add to map switch count.
+	EntityPublicFunction(ENTITY_MAP, "AddSwitch"); // Add to map switch count.
 }
 
 public Close()

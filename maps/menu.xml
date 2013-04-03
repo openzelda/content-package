@@ -2,117 +2,19 @@
 <settings>
 	<dimensions width="1" height="1" />
 	<color red="128" blue="128" green="128" mode="0" />
-	<option name="name" value="" type="" />
 	<option name="music" value="" type="music" />
+	<option name="name" value="" type="" />
 </settings>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="8" y="8" w="16" h="16" z="0" r="0" f="0"/>
+<object value="hud.png:greenbox" type="sprite">
+	<position x="24" y="24" w="336" h="256" z="0" l="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="59" />
+</object>
+<object value="hud.png:redbox" type="sprite">
+	<position x="408" y="24" w="80" h="256" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 </object>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="360" y="8" w="16" h="16" z="0" r="90" f="0"/>
+<object value="hud.png:greenbox" type="sprite">
+	<position x="24" y="320" w="464" h="32" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="360" y="280" w="16" h="16" z="0" r="180" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="8" y="280" w="16" h="16" z="0" r="270" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="24" y="8" w="336" h="16" z="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="mirror" value="false" type="hidden"/>
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="360" y="24" w="256" h="16" z="0" r="90" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="24" y="280" w="336" h="16" z="0" r="180" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="8" y="24" w="256" h="16" z="0" r="270" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="Rectangle" type="rect" >
-	<position x="24" y="24" w="336" h="256" z="0" r="0" f="0"/>
-	<color red="0" blue="0" green="0" alpha="255" />
-	<setting key="mirror" value="false" />
-</object>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="392" y="8" w="16" h="16" z="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="488" y="8" w="16" h="16" z="0" r="90" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="392" y="280" w="16" h="16" z="0" r="270" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="488" y="280" w="16" h="16" z="0" r="180" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="408" y="8" w="80" h="16" z="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="392" y="24" w="256" h="16" z="0" r="270" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="408" y="280" w="80" h="16" z="0" r="180" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="488" y="24" w="256" h="16" z="0" r="90" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="8" y="304" w="16" h="16" z="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="488" y="304" w="16" h="16" z="0" r="90" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="8" y="352" w="16" h="16" z="0" r="270" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxcorner1" type="sprite" >
-	<position x="488" y="352" w="16" h="16" z="0" r="180" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="24" y="304" w="464" h="16" z="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="24" y="352" w="464" h="16" z="0" r="180" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="488" y="320" w="32" h="16" z="0" r="90" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="hud.png:boxside1" type="sprite" >
-	<position x="8" y="320" w="32" h="16" z="0" r="270" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="Rectangle" type="rect" >
-	<position x="408" y="24" w="80" h="256" z="0" r="0" f="0"/>
-	<color red="0" blue="0" green="0" alpha="255" />
-</object>
-<object value="Rectangle" type="rect" >
-	<position x="24" y="320" w="464" h="32" z="0" r="0" f="0"/>
-	<color red="0" blue="0" green="0" alpha="255" />
 </object>
 </map>

@@ -52,7 +52,7 @@ public Init(...)
 
 	InitDropItem( worth );  
 
-	mqDisplayObject = ObjectCreate(sprite, SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex,0,0,WHITE); 
+	mqDisplayObject = ObjectCreate(sprite, SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0,0,WHITE); 
 	shadowObject = ObjectCreate( "", CIRCLE, mqDisplayArea.x, mqDisplayArea.y+24, mqDisplayZIndex-1000, 16, 8, 0x000000DD );
 
 } 

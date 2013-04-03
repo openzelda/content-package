@@ -9,7 +9,7 @@ public Init( ... )
 {
 	InitMap();
 	RestetEnemyCount()
-	EntityPublicFunction( EntityHash("main"), "SetDay", [ ARG_NUMBER, ARG_END ], 0);
+	EntityPublicFunction( ENTITY_MAIN, "SetDay", [ ARG_NUMBER, ARG_END ], 0);
 }
 
 main()

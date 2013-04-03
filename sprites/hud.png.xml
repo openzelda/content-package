@@ -1,8 +1,72 @@
 <sheet xmlns="http://mokoi.info/format/sheet">
-	<sprite name="boxside1" mask="0">
+	<sprite name="greenbox" mask="0">
+		<position x="0" y="48" w="16" h="16" />
+		<child name="boxcorner1" position="0" repeat="0"/>
+		<child name="boxside1" position="1" repeat="2"/>
+		<child name="boxcorner1tr" position="2" repeat="0"/>
+		<child name="boxside1r" position="3" repeat="2"/>
+		<child name="boxcorner1br" position="4" repeat="0"/>
+		<child name="boxside1b" position="5" repeat="2"/>
+		<child name="boxcorner1bl" position="6" repeat="0"/>
+		<child name="boxside1l" position="7" repeat="2"/>
+	</sprite>
+	<sprite name="redbox" mask="0">
+		<position x="0" y="48" w="16" h="16" />
+		<child name="boxcorner2" position="0" repeat="0"/>
+		<child name="boxside2" position="1" repeat="2"/>
+		<child name="boxcorner2tr" position="2" repeat="0"/>
+		<child name="boxside2r" position="3" repeat="2"/>
+		<child name="boxcorner2br" position="4" repeat="0"/>
+		<child name="boxside2b" position="5" repeat="2"/>
+		<child name="boxcorner2bl" position="6" repeat="0"/>
+		<child name="boxside2l" position="7" repeat="2"/>
+	</sprite>
+	<sprite name="boxside2r" mask="0" hidden="hidden">
+		<position x="128" y="44" w="16" h="8" />
+	</sprite>
+	<sprite name="boxside2l" mask="0" hidden="hidden">
+		<position x="96" y="44" w="16" h="8" />
+	</sprite>
+	<sprite name="boxside2b" mask="0" hidden="hidden">
+		<position x="112" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="boxcorner2bl" mask="0" hidden="hidden">
+		<position x="96" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="boxcorner2br" mask="0" hidden="hidden">
+		<position x="128" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="boxcorner2tr" mask="0" hidden="hidden">
+		<position x="128" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="boxside2" mask="0" hidden="hidden">
+		<position x="112" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="boxcorner2" mask="0" hidden="hidden">
+		<position x="96" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="boxside1r" mask="0" hidden="hidden">
+		<position x="80" y="44" w="16" h="8" />
+	</sprite>
+	<sprite name="boxside1l" mask="0" hidden="hidden">
+		<position x="48" y="44" w="16" h="8" />
+	</sprite>
+	<sprite name="boxside1b" mask="0" hidden="hidden">
+		<position x="64" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="boxcorner1bl" mask="0" hidden="hidden">
+		<position x="48" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="boxcorner1br" mask="0" hidden="hidden">
+		<position x="80" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="boxcorner1tr" mask="0" hidden="hidden">
+		<position x="80" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="boxside1" mask="0" hidden="hidden">
 		<position x="64" y="32" w="16" h="16" />
 	</sprite>
-	<sprite name="boxcorner1" mask="0">
+	<sprite name="boxcorner1" mask="0" hidden="hidden">
 		<position x="48" y="32" w="16" h="16" />
 	</sprite>
 	<sprite name="slot" mask="0">

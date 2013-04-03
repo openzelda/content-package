@@ -11,9 +11,7 @@
  *     2010/01/11 [luke]: new file.
  *     2013/01/31 [luke]: switch to Pawn 4
  ***********************************************/
-#include <open_zelda>
-#include <core>
-
+#include <map_features/standard>
 
 forward public AddSwitch();
 forward public SwitchPressed();
@@ -28,25 +26,21 @@ new off_events[SwitchEvent];
 
 DungeonMapInit()
 {
-	new entity_name{32} = "";
-	
+
 	switches = 0;
 
 	EntityGetSetting("on-event", on_events.function );
-	EntityGetSetting("on-entity", entity_name );
-	on_events.entity = EntityHash(entity_name);
+	on_events.entity = EntityGetSettingHash("on-entity");
 
 	EntityGetSetting("off-event", off_events.function );
-	EntityGetSetting("off-entity", entity_name );
-	off_events.entity = EntityHash(entity_name); 
-
+	off_events.entity = EntityGetSettingHash("off-entity" );
 
 
 	if ( StringLength(off_events.function) && off_events.entity )
 		off_events.active = true;
 	if ( StringLength(on_events.function) && on_events.entity )
 		on_events.active = true;
-	MapInit();
+	InitMap();
 }
 
 /* Switches */
@@ -76,11 +70,10 @@ public SwitchRelease()
 
 }
 
-#if !defined INITFUNCTION
-#define INITFUNCTION 1
+#if !defined HASINITFUNCTION
+#define HASINITFUNCTION 1
 public Init( ... )
 {
 	DungeonMapInit()
 }
 #endif
-#include <map_default>

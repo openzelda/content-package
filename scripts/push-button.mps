@@ -30,7 +30,7 @@ main()
 			ObjectEffect(obj, 0xFF0000FF);
 			if ( InputButton(11) == 1 )
 			{
-				EntityPublicFunction(__MAP__, "submitted");
+				EntityPublicFunction(ENTITY_MAP, "submitted");
 			}
 		}
 	}

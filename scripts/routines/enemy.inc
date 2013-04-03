@@ -25,7 +25,7 @@ public mqMaxHealth;
 public mqHealth;
 
 new mqDamageDealt = 50;
-new mqInitialPosition[POSITION];
+new mqInitialPosition[POSITIONF];
 new bool:mqIsABoss = false;
 stock bool:mqEntityResetable = false;
 new mqAttacker;
@@ -39,8 +39,8 @@ new mqEffectTimer = 0;
 
 new mqHitColours[5] = [ 0x138813FF, 0xFDD341FF, 0xE15805FF, 0x20D3EEFF, 0xEE2020FF ];
 
+stock error_message{128};
 
-static error_message[43];
 
 /* States */
 #define STATE_FLIP ((mqDirection/2) == 3 ? true : false)
@@ -66,11 +66,14 @@ EnemyInit()
 	{
 		GetEntityPosition( mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 
-
+		mqState = STANDING
 		mqType = TYPE_ENEMY;
+
 		mqInitialPosition.x = mqEntityPosition.x;
 		mqInitialPosition.y = mqEntityPosition.y;
-		mqState = STANDING
+		mqInitialPosition.z = mqEntityPosition.z;
+
+		
 		EntityGetSetting("object-sprite", mqSprite);
 		EntityGetSetting("item", mqItemDrop);
 	}
@@ -146,7 +149,7 @@ stock DeathEvent()
 	}
 	else
 	{
-		EntityPublicFunction(__MAP__, "KilledEnemy");
+		EntityPublicFunction(ENTITY_MAP, "KilledEnemy");
 		//EntityPublicFunction("itemlib", "CreateItem", "nns", mqDisplayArea.x + (mqDisplayArea.w / 2), mqDisplayArea.y + (mqDisplayArea.y / 2), mqItemDrop);
 	}
 }

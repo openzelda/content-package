@@ -16,16 +16,16 @@
 
 stock ReplaceEntityGraphics( display_object[EntityGraphic], image{}, bool:flip, bool:force = false )
 {
-	//if ( update || force )
+	//if ( mqUpdate || force )
 	//{
 		ObjectReplace( display_object.obj, image, SPRITE );
 		ObjectEffect( display_object.obj, .mirror = (flip ? 16 : 0) );
 	//}
 }
 
-stock UpdateEntityGraphics( display_object[EntityGraphic], mqEntityPosition[POSITION] )
+stock UpdateEntityGraphics( display_object[EntityGraphic] )
 {
-	ObjectPosition( display_object.obj, mqDisplayArea.x+display_object.x, mqDisplayArea.y+display_object.y, mqDisplayZIndex+display_object.z, 0, 0);
+	ObjectPosition( display_object.obj, mqDisplayArea.x + display_object.x, mqDisplayArea.y + display_object.y, mqDisplayZIndex + display_object.z, 0, 0);
 }
 
 

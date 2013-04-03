@@ -81,7 +81,7 @@ public UpdatePlayer(player)
 	EntityPublicFunction(player, "UpdatePosition");
 
 	EntityPublicFunction(dungeonid, "Entered", '''');
-	EntityPublicFunction(EntityHash("main"), "SetDay", ''n'', 0);
+	EntityPublicFunction(ENTITY_MAIN, "SetDay", ''n'', 0);
 
 	//SetRestartPosition(point, nx, ny, ngrid, nname[])
 	//EntityPublicFunction(player, "SetRestartPosition", "nnnns", 0, -1, -1, -1, "Dungeon");
@@ -104,7 +104,7 @@ public MovePlayer(player, d)
 		{
 			TransitionPlayer( player, target, 0, _, x, y );
 			EntityPublicFunction( dungeonid, "Exited");
-			EntityPublicFunction( EntityHash("main"), "SetDay", "n", 1);
+			EntityPublicFunction( ENTITY_MAIN, "SetDay", "n", 1);
 			return true;
 		}
 	}

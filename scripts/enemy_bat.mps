@@ -16,8 +16,8 @@
 #include <entity_graphics>
 
 /* Public Function */
-forward PUBLIC_EVENT_AWAKING
-forward PUBLIC_EVENT_HIT
+forward PUBLIC_EVENT_AWAKING;
+forward PUBLIC_EVENT_HIT;
 
 /* Local variable */
 new HitCount;

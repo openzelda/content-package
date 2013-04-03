@@ -15,7 +15,6 @@
 
 //#include <network>
 #include <movement>
-#include <player>
 #include <player_function>
 
 
@@ -56,7 +55,10 @@ public UpdatePosition()
 /* Called each frame */
 main()
 {
-	DebugText("mqDisplayZIndex: %d, mqDisplayLayer: %d", mqDisplayZIndex, mqDisplayLayer)
+	DebugText("mqDisplayZIndex: %d, mqDisplayLayer: %d", mqDisplayZIndex, mqDisplayLayer );
+	DebugText("mqSelectedWeapons: %d", mqSelectedWeapons[0] );
+	DebugText("mqDisplayObject: %d", mqDisplayObject );
+
 	new sx, sy;
 	ObjectInfo(mqDisplayObject, sx, sy);
 	if ( mqState == GONE || GameState() != 1 )
@@ -102,7 +104,7 @@ CheckCollisions()
 
 	if ( CollisionCalculate() )
 	{
-		new current;
+		new entityId:current;
 		new angle;
 		new dist;
 		new rect;
@@ -111,17 +113,16 @@ CheckCollisions()
 		{
 			if ( type == TYPE_AWAKING )
 			{
-				EntityPublicFunction(current, "Awaking", "sn", mqEntityId, rect);
+				CallEntityAwaking( current, mqEntityId, rect);
 			}
 			else if ( type == TYPE_ENEMY || type == TYPE_DOOR )
 			{
-				// public Hit( attacker[], angle, dist, attack, damage, x, y, rect )
-				EntityPublicFunction(current, "Hit", "snnnnnn", mqEntityId, D2A(mqDirection), dist, APLAYER, 0, mqDisplayArea.x,mqDisplayArea.y, rect);
+				CallEntityHit( current, mqEntityId, D2A(mqDirection), dist, APLAYER, 0, mqDisplayArea.x,mqDisplayArea.y, rect );
 			}
 			else if ( type == TYPE_TRANSPORT )
 			{
 				//MovePlayer(player, dir)
-				if ( EntityPublicFunction(current, "MovePlayer", "sn", mqEntityId, mqDirection) == 1 )
+				if ( EntityPublicFunction(current, "MovePlayer", "nn", mqEntityId, mqDirection) == 1 )
 				{
 					 mqState = STANDING;
 				}
@@ -129,17 +130,17 @@ CheckCollisions()
 			else if ( type == TYPE_PUSHABLE && mqState == PUSHING )
 			{
 				// public Push(attacker[], rect, angle)
-				EntityPublicFunction(current, "Push", "snn", mqEntityId, rect, angle);
+				CallEntityPush(current, mqEntityId, rect, angle);
 			}
 			else if ( type == TYPE_SWITCH )
 			{
 				// public Pressed(attacker[])
-				EntityPublicFunction(current, "Pressed", "s", mqEntityId);
+				CallEntityPressed(current,mqEntityId, rect, angle);
 			}
 			else if ( type == TYPE_ITEM )
 			{
 				// public Pickup(attacker[])
-				if ( EntityPublicFunction(current, "Pickup", "s", mqEntityId) )
+				if ( CallEntityPickup(current,  mqEntityId) )
 				{
 					mqState = LIFTING;
 				}
@@ -155,7 +156,7 @@ public Hurt(type, damage, angle)
 	if ( Countdown(hit) )
 	{
 		if ( mqState == USING )
-			EntityPublicFunction(weapons[0], "End", "nn", mqEntityId, mqDirection);
+			EntityPublicFunction(mqSelectedWeapons[mqUsingWeapon], "End", ''nn'', mqDisplayObject, mqDirection);
 		SetState(KNOCKED);
 		mqHealth -= damage;
 		mqMovementAngle = angle%360;
@@ -235,16 +236,16 @@ CheckForKeys()
 
 	if ( InputButton(BUTTON_MENU, controller) == 1 )
 	{
-		EntityPublicFunction(mqMenuEntity, "Show", ''ssss'', mqEntityId, weapons[0], weapons[1], weapons[2] );
+		EntityPublicFunction(mqMenuEntity, "Show", ''nnnn'', mqEntityId, mqSelectedWeapons[0], mqSelectedWeapons[1], mqSelectedWeapons[2] );
 		return;
 	}
 
 	if ( mqState == USING )
 	{
-		if ( weapon_active != -1 )
+		if ( mqUsingWeapon != -1 )
 		{
-			EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, weapons[weapon_active]);
-			if ( EntityPublicFunction( weapons[weapon_active], "Use", ''nn'', mqDisplayObject, mqDirection) > 0 )
+			EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqSelectedWeapons[mqUsingWeapon]);
+			if ( EntityPublicFunction( mqSelectedWeapons[mqUsingWeapon], "Use", ''nn'', mqDisplayObject, mqDirection) > 0 )
 				return;
 			else
 				SetState(STANDING);
@@ -283,36 +284,36 @@ CheckForKeys()
 	
 	UpdateState();
 
-	if ( weapon_action[0] == 1 && weapons[0])
+	if ( weapon_action[0] == 1 && mqSelectedWeapons[0])
 	{
-		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, weapons[0]);
-		if ( EntityPublicFunction(weapons[0], "Use", "nn", mqEntityId, mqDirection) == 1 )
+		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, mqSelectedWeapons[0]);
+		if ( EntityPublicFunction(mqSelectedWeapons[0], "Use", "nn", mqDisplayObject, mqDirection) == 1 )
 		{
 			mqState = USING;
-			weapon_active = 0;
+			mqUsingWeapon = 0;
 		}
 	}
-	else if ( weapon_action[1] == 1  && weapons[1])
+	else if ( weapon_action[1] == 1  && mqSelectedWeapons[1])
 	{
-		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, weapons[1]);
-		if ( EntityPublicFunction(weapons[1], "Use", "nn", mqEntityId, mqDirection) == 1 )
+		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, mqSelectedWeapons[1]);
+		if ( EntityPublicFunction(mqSelectedWeapons[1], "Use", "nn", mqDisplayObject, mqDirection) == 1 )
 		{
 			mqState = USING;
-			weapon_active = 1;
+			mqUsingWeapon = 1;
 		}
 	}
-	else if ( weapon_action[2] == 1  && weapons[2])
+	else if ( weapon_action[2] == 1  && mqSelectedWeapons[2])
 	{
-		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, weapons[2]);
-		if ( EntityPublicFunction(weapons[2], "Use", "nn", mqEntityId, mqDirection) == 1 )
+		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, mqSelectedWeapons[2]);
+		if ( EntityPublicFunction(mqSelectedWeapons[2], "Use", "nn", mqDisplayObject, mqDirection) == 1 )
 		{
 			mqState = USING;
-			weapon_active = 2;
+			mqUsingWeapon = 2;
 		}
 	}
 	else
 	{
-		weapon_active = -1;
+		mqUsingWeapon = -1;
 	}
 }
 

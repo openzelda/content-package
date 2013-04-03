@@ -77,9 +77,34 @@ stock type_name[11]{} = [ "UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPORT
 #define SwitchEvent[.active, .entity, .function{24}]
 
 #define EntityInfo[.hash, .id{32}]
-#define EntityGraphic[.obj, .x, .y, .z]
+#define EntityGraphic[object:.obj, .x, .y, .z]
 
-#define __MAP__ EntityHash("__map__")
+
+stock entityId:private_map_id = 0;
+stock entityId:private_main_id = 0;
+
+stock entityId:get_private_map_id()
+{
+	if ( !private_map_id )
+	{
+		private_map_id = entityId:EntityHash("__map__");
+	}
+	return private_map_id;
+}
+
+stock entityId:get_private_main_id()
+{
+	if ( !private_main_id )
+	{
+		private_main_id = entityId:EntityHash("main");
+	}
+	return private_main_id;
+}
+
+
+#define ENTITY_MAP get_private_map_id() 
+#define ENTITY_MAIN get_private_main_id()
+
 
 /* Item Types */
 #define ITEM_BOMBS 1

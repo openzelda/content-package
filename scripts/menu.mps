@@ -21,11 +21,12 @@
 #define ICON_MENU_LINECOUNT 6
 
 
-#define SLIDEVAR 384
-forward public Show( new_owner, weapons1[], weapons2[], weapons3[] );
+#define SLIDEVAR 512
+
+forward public Show( new_owner, weapons1, weapons2, weapons3 );
 forward public Refresh();
 forward public Hide();
-forward public AddWeapon( weaponName[64], weaponId );
+forward public AddWeapon( weaponName{64}, weaponId, ownerId );
 
 
 const local: {
@@ -36,19 +37,19 @@ const local: {
 
 new slide = 0;
 new local:mode = disabled;
-new object:menu = object:-1;
 new owner=0;
-new controller = 0;
+
 new weapon[30][.id, .icon{64}, .active];
 
-new action[4] = [0, -1, -1, -1];
+new selectedItems[3] = [ -1, -1, -1 ];
+new inputAction[3] = [ 0, -1, 0 ];
 
-public Show( new_owner, weapons1[], weapons2[], weapons3[] )
+public Show( new_owner, weapons1, weapons2, weapons3 )
 {
 	slide = SLIDEVAR;
 	mode = entering;
-	EntityPublicFunction( EntityHash("hudent"), "Hide", "");
-	menu = ObjectCreate("menu", CANVAS, 0, -slide,6, 512, 512, 0xFF0000AA, GLOBAL_MAP); 
+	EntityPublicFunction( EntityHash(HUD_ENTITY_ID), "Hide", "");
+	mqDisplayObject = ObjectCreate("menu", CANVAS, 0, 0-slide, 6, 512, 512, 0xFFFFFFFF); 
 
 	GameState(3);
 
@@ -56,34 +57,36 @@ public Show( new_owner, weapons1[], weapons2[], weapons3[] )
 
 	for (new n = 0; n < 30; n++)
 	{
-		if ( StringEqual(weapon[n].id, weapons1) )
+		if ( weapon[n].id == weapons1 )
 		{
-			action[1] = n;
+			selectedItems[0] = n;
 		}
-		else if ( StringEqual(weapon[n].id, weapons2) )
+		else if ( weapon[n].id == weapons2 )
 		{
-			action[2] = n;
+			selectedItems[1] = n;
 		}
-		else if ( StringEqual(weapon[n].id, weapons3) )
+		else if ( weapon[n].id == weapons3 )
 		{
-			action[3] = n;
+			selectedItems[2] = n;
 		}
 	}
+
+	SheetReference("menuicon.png", 1);
 }
 
 public Refresh()
 {
-	ObjectPosition( menu, 0, -slide, 6, 512, 512, GLOBAL_MAP);
+	ObjectPosition( mqDisplayObject, 0, 0-slide, 6, 512, 512, GLOBAL_MAP);
 
-	if ( action[1] >= 0 )
-		GraphicsDraw("", CIRCLE, ICON_MENU_X +((action[1]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((action[1]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFF000077);
-	if ( action[2] >= 0 )
-		GraphicsDraw("", CIRCLE, ICON_MENU_X +((action[2]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((action[2]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFFFF0077);
-	if ( action[3] >= 0 )
-		GraphicsDraw("", CIRCLE, ICON_MENU_X +((action[3]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((action[3]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFF00FF77);
+	if ( selectedItems[0] >= 0 )
+		GraphicsDraw("", CIRCLE, ICON_MENU_X +((selectedItems[0]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[0]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFF000077);
+	if ( selectedItems[1] >= 0 )
+		GraphicsDraw("", CIRCLE, ICON_MENU_X +((selectedItems[1]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[1]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFFFF0077);
+	if ( selectedItems[2] >= 0 )
+		GraphicsDraw("", CIRCLE, ICON_MENU_X +((selectedItems[2]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[2]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFF00FF77);
 
-	GraphicsDraw("", CIRCLE, ICON_MENU_X +((action[0]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), 32 + ((action[0]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFFFFFF77);
-
+	GraphicsDraw("", CIRCLE, ICON_MENU_X +((inputAction[0]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((inputAction[0]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFFFFFF77);
+	
 
 	new n = 0, x, y;
 	while (n < 30)
@@ -99,6 +102,7 @@ public Refresh()
 		{
 			GraphicsDraw("menuicon.png:1", SPRITE, ICON_MENU_X + ICON_OFFSET_X + x, ICON_MENU_Y + ICON_OFFSET_Y + (y - slide), 6, 0, 0, 0x111111FF);
 		}
+		
 		
 		n++;
 	}
@@ -132,29 +136,42 @@ main()
 			}
 			else
 			{
-				if ( InputButton(6,controller)  == 1 )
+				slide = -1;
+				if ( InputButton(6)  == 1 )
 					Hide();
 
-				action[0] += (InputAxis(0,controller)/255);
-				action[0] += (InputAxis(1,controller)/255)* 6;
-				action[0] = NumberClamp(action[0], 0, 29);
-				
-				if ( action[0] >= 0 && action[0] < 29 )
+				inputAction[1] = (InputAxis(0)/255) + ((InputAxis(1)/255)* 6);
+
+
+				if ( inputAction[2] != inputAction[1] )
 				{
-					if ( InputButton(0,controller)  == 1 )
+					inputAction[2] = inputAction[1];
+				}
+				else
+				{
+					inputAction[2] = 0;
+				}
+
+				inputAction[0] += inputAction[2];
+				inputAction[0] = NumberClamp(inputAction[0], 0, 29);
+
+
+				if ( inputAction[0] >= 0 && inputAction[0] < 29 )
+				{
+					if ( InputButton(0)  == 1 )
 					{
-						EntityPublicFunction(owner, "SetWeapon", "sn", weapon[action[0]].id, 0);
-						action[1] = action[0];
+						EntityPublicFunction(owner, "SetWeapon", ''nn'', weapon[inputAction[0]].id, 0);
+						selectedItems[0] = inputAction[0];
 					}
-					if ( InputButton(1,controller)  == 1 )
+					if ( InputButton(1)  == 1 )
 					{
-						EntityPublicFunction(owner, "SetWeapon", "sn", weapon[action[0]].id, 1);
-						action[2] = action[0];
+						EntityPublicFunction(owner, "SetWeapon", ''nn'', weapon[inputAction[0]].id, 1);
+						selectedItems[1] = inputAction[0];
 					}
-					if ( InputButton(2,controller)  == 1 )
+					if ( InputButton(2)  == 1 )
 					{
-						EntityPublicFunction(owner, "SetWeapon", "sn", weapon[action[0]].id, 2);
-						action[3] = action[0];
+						EntityPublicFunction(owner, "SetWeapon", ''nn'', weapon[inputAction[0]].id, 2);
+						selectedItems[2] = inputAction[0];
 					}
 				}
 			}
@@ -169,10 +186,11 @@ main()
 			}
 			else
 			{
-				EntityPublicFunction(EntityHash("hudent"), "Show", "");
-				ObjectDelete(menu);
-				menu = object:-1;
+				EntityPublicFunction( EntityHash(HUD_ENTITY_ID), "Show", '''' );
+				ObjectDelete(mqDisplayObject);
+				mqDisplayObject = OBJECT_NONE;
 				GameState(1);
+				SheetReference("menuicon.png", -1);
 			}
 			Refresh();
 		}
@@ -185,7 +203,7 @@ main()
 
 }
 
-public AddWeapon( weaponName[64], weaponId )
+public AddWeapon( weaponName{64}, weaponId, ownerId )
 {
 	new n = 0;
 	while (n < 30)

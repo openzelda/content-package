@@ -31,14 +31,14 @@ main()
 
 public Init(...) 
 {
-	axis_obj[0] = ObjectCreate("", RECTANGLE, 200, 300, 5, 16, 64, 0xFF0000FF);
-	axis_obj[1] = ObjectCreate("", RECTANGLE, 300, 300, 5, 64, 16, 0xFF0000FF);
-	button_obj[0] = ObjectCreate("", CIRCLE, 16, 300, 5, 14, 14, 0xFF0000FF);
-	button_obj[1] = ObjectCreate("", CIRCLE, 32, 300, 5, 14, 14, 0xFF0000FF);
-	button_obj[2] = ObjectCreate("", CIRCLE, 48, 300, 5, 14, 14, 0xFF0000FF);
-	button_obj[3] = ObjectCreate("", CIRCLE, 64, 300, 5, 14, 14, 0xFF0000FF);
-	button_obj[4] = ObjectCreate("", CIRCLE, 80, 300, 5, 14, 14, 0xFF0000FF);
-	button_obj[5] = ObjectCreate("", CIRCLE, 96, 300, 5, 14, 14, 0xFF0000FF);
+	axis_obj[0] = ObjectCreate("", RECTANGLE, 200, 300, 5000, 16, 64, 0xFF0000FF);
+	axis_obj[1] = ObjectCreate("", RECTANGLE, 300, 300, 5000, 64, 16, 0xFF0000FF);
+	button_obj[0] = ObjectCreate("", CIRCLE, 16, 300, 5000, 14, 14, 0xFF0000FF);
+	button_obj[1] = ObjectCreate("", CIRCLE, 32, 300, 5000, 14, 14, 0xFF0000FF);
+	button_obj[2] = ObjectCreate("", CIRCLE, 48, 300, 5000, 14, 14, 0xFF0000FF);
+	button_obj[3] = ObjectCreate("", CIRCLE, 64, 300, 5000, 14, 14, 0xFF0000FF);
+	button_obj[4] = ObjectCreate("", CIRCLE, 80, 300, 5000, 14, 14, 0xFF0000FF);
+	button_obj[5] = ObjectCreate("", CIRCLE, 96, 300, 5000, 14, 14, 0xFF0000FF);
 }
 
 public Close()
@@ -59,11 +59,11 @@ axis(n, obj, x, y)
 {
 	new a = InputAxis(n)/8;
 	if ( a > 0 )
-		ObjectPosition(obj, x, y-5, 3, a, 10); 
+		ObjectPosition(obj, x, y-5, 3000, a, 10); 
 	else if ( a < 0 )
-		ObjectPosition(obj, x+a, y-5, 3, 0-a, 10); 
+		ObjectPosition(obj, x+a, y-5, 3000, 0-a, 10); 
 	else
-		ObjectPosition(obj, x-1, y-5, 3, 1, 10); 
+		ObjectPosition(obj, x-1, y-5, 3000, 1, 10); 
 }
 
 

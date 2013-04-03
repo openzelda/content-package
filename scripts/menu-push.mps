@@ -30,7 +30,7 @@ main()
 			ObjectEffect(mqDisplayObject, 0xFF0000FF);
 			if ( InputButton(11,1) == 1)
 			{
-				EntityPublicFunction(__MAP__, "MenuPush", "n", mqDirection );
+				EntityPublicFunction(ENTITY_MAP, "MenuPush", "n", mqDirection );
 			}
 		}
 	}

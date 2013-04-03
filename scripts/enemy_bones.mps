@@ -36,7 +36,7 @@ new object:shadow = OBJECT_NONE;
 new hitzone[3][RECT] = [ 
 	[ 4, 28, 24, 24 ], // Body 
 	[ -16, 16, 64, 56 ], // Attack Alert
-	[ 4, 28, 24, 16 ], // jumping body
+	[ 4, 28, 24, 16 ] // jumping body
 ];
 
 
@@ -60,8 +60,8 @@ public Init(...)
 
 	/* Retrive Display Objects */
 	body.obj = object:EntityGetNumber("object-id");
-	head.obj = ObjectCreate( "enemy_bones01.png:head_front", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex+1, 0, 0, WHITE );
-	shadow = ObjectCreate( "", CIRCLE, mqDisplayArea.x, mqDisplayArea.y+32, mqDisplayZIndex-1, 16, 8,  0x000000AA);
+	head.obj = ObjectCreate( "enemy_bones01.png:head_front", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex + 1000, 0, 0, WHITE );
+	shadow = ObjectCreate( "", CIRCLE, mqDisplayArea.x, mqDisplayArea.y+32, mqDisplayZIndex-1, 16, 8, 0x000000AA);
 	ShowObjects( head.obj, body.obj, shadow );
 }
 
@@ -74,25 +74,19 @@ public Close()
 
 main()
 {
+
 	if ( mqState == GONE || GameState() != 1 )
 	{
 		return;
 	}
 
-	//StringFormat(error_message,_,_,"x: %d y: %d z: %d l: %d", mqDisplayArea.x, mqDisplayArea.y,mqDisplayZIndex, mqDisplayLayer)
-	//GraphicsDraw(error_message, TEXT, mqDisplayArea.x, mqDisplayArea.y, 5, 0 ,0, 0xFF0000FF );
+	StringFormat(error_message,_, true,"x: %d y: %d z: %d l: %d", mqDisplayArea.x, mqDisplayArea.y,mqDisplayZIndex, mqDisplayLayer)
+	GraphicsDraw(error_message, TEXT, mqDisplayArea.x, mqDisplayArea.y, 5000, 0 ,0, 0xFF0000FF );
 
 	if ( HasStateChanged() )
 	{
 		ResetObjects( head.obj, body.obj );
 	}
-
-	if ( InputButton(1) )
-	{
-		//Hit( "temp", 90, 5, ASWORD, 0, mqDisplayArea.x, mqDisplayArea.y, 1 );
-		Kill();
-	}
-
 
 	new q = (mqState == LEAPING ? 2 : 0); // Use which hit zone to use
 	CollisionSet(SELF, 0, TYPE_ENEMY, mqDisplayArea.x + hitzone[q].x, mqDisplayArea.y + hitzone[q].y, hitzone[q].w, hitzone[q].h );
@@ -101,13 +95,13 @@ main()
 	switch( mqState )
 	{
 		case STANDING:
-			Stand();
+			State_Stand();
 		case MOVING:
-			Move();
+			State_Move();
 		case LEAPING:
-			Leap();
+			State_Leap();
 		case HIT:
-			Hurt();
+			State_Hurt();
 		case DYING:
 		{
 			ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
@@ -116,7 +110,9 @@ main()
 			HandleDying();
 		}
 		case SPECIALSTATE:
-			Special();
+		{
+			State_Special();
+		}
 		case DEAD:
 		{
 			ObjectToggle( body.obj, false  );
@@ -134,9 +130,11 @@ main()
 		ObjectPosition( body.obj, mqDisplayArea.x+body.x, mqDisplayArea.y+body.y-4, mqDisplayZIndex+body.z, 0, 0);
 	}
 	ObjectPosition( shadow, mqDisplayArea.x+4, mqDisplayArea.y+48, mqDisplayZIndex-1, 24, 8);
+
 }
 
 /* Local Function */
+
 SetHeadDir(head_direction)
 {
 	head_direction %= 8;
@@ -166,7 +164,7 @@ ChangeHeadDir()
 
 
 /* States */
-STATEFUNCTION Move()
+State_Move()
 {
 	ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
 	SetHeadDir(mqDirection);
@@ -185,7 +183,7 @@ STATEFUNCTION Move()
 }
 
 
-STATEFUNCTION Leap()
+State_Leap()
 {
 	ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
 	ReplaceEntityGraphics( head, "enemy_bones01.png:head_front", false );
@@ -200,7 +198,7 @@ STATEFUNCTION Leap()
 	
 }
 
-STATEFUNCTION Stand()
+State_Stand()
 {
 	ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
 	SetHeadDir(HeadDirection);
@@ -215,7 +213,7 @@ STATEFUNCTION Stand()
 
 
 
-STATEFUNCTION Hurt()
+State_Hurt()
 {
 	CollisionSet(SELF, -1, 0);
 	EntityMove(MASK_ENEMYSOLID2);
@@ -234,7 +232,7 @@ STATEFUNCTION Hurt()
 	}
 }
 
-STATEFUNCTION Special()
+State_Special()
 {
 
 	switch ( mqCurrentEffect )
@@ -297,7 +295,7 @@ PUBLIC_EVENT_HIT
 			mqState = HIT;
 			mqHealth -= damage;
 			HitCount = 800;
-			Hurt();
+			State_Hurt();
 		}
 	}
 	CheckHealth();
