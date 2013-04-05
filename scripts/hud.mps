@@ -109,7 +109,7 @@ public Hide()
 public Init(...)
 {
 	active = true;
-	hud = ObjectCreate("hud", CANVAS, 0,0, 6, 0, 0, .pos = GLOBAL_MAP); 
+	hud = ObjectCreate("hud", CANVAS, 0, 0, 6000, 0, 0, .pos = GLOBAL_MAP); 
 	new c = 0;
 	if ( numargs() >=1 )
 	{

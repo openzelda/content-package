@@ -135,7 +135,7 @@ CheckCollisions()
 			else if ( type == TYPE_SWITCH )
 			{
 				// public Pressed(attacker[])
-				CallEntityPressed(current,mqEntityId, rect, angle);
+				CallEntityPressed(current, mqEntityId, rect, angle);
 			}
 			else if ( type == TYPE_ITEM )
 			{
@@ -286,7 +286,7 @@ CheckForKeys()
 
 	if ( weapon_action[0] == 1 && mqSelectedWeapons[0])
 	{
-		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, mqSelectedWeapons[0]);
+		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqSelectedWeapons[0]);
 		if ( EntityPublicFunction(mqSelectedWeapons[0], "Use", "nn", mqDisplayObject, mqDirection) == 1 )
 		{
 			mqState = USING;
@@ -295,7 +295,7 @@ CheckForKeys()
 	}
 	else if ( weapon_action[1] == 1  && mqSelectedWeapons[1])
 	{
-		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, mqSelectedWeapons[1]);
+		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqSelectedWeapons[1]);
 		if ( EntityPublicFunction(mqSelectedWeapons[1], "Use", "nn", mqDisplayObject, mqDirection) == 1 )
 		{
 			mqState = USING;
@@ -304,7 +304,7 @@ CheckForKeys()
 	}
 	else if ( weapon_action[2] == 1  && mqSelectedWeapons[2])
 	{
-		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqDisplayZIndex, mqSelectedWeapons[2]);
+		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqSelectedWeapons[2]);
 		if ( EntityPublicFunction(mqSelectedWeapons[2], "Use", "nn", mqDisplayObject, mqDirection) == 1 )
 		{
 			mqState = USING;
@@ -322,10 +322,10 @@ DisplayPlayer()
 {
 	if ( HasStateChanged() )
 	{
-		ObjectReplace(mqDisplayObject, STATE_GRAPHIC, SPRITE );
+		//ObjectReplace(mqDisplayObject, STATE_GRAPHIC, SPRITE );
 		ObjectEffect(mqDisplayObject, WHITE, _, _, _, STATE_FLIP, _, _);
 	}
-	ObjectPosition(mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, mqEntityPosition.z, 0, 0);
+	ObjectPosition(mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
 	if ( hit > 0 )
 		hidden = !hidden;
 	else

@@ -22,6 +22,8 @@ new anim[4]{11} = [ "swing-front", "swing-side", "swing-back", "swing-side" ];
 new swordSprite{64}, playerSprite{64};
 new swordangle = 0;
 
+new result = 0;
+
 public Init(...)
 {
 	mqDisplayOffset.y += 32;
@@ -36,9 +38,7 @@ public Close()
 
 main() { 
 	DebugText("Sword running %d  %d ", timer, mqDisplayDirection );
-	DebugText("swordSprite '%s'", swordSprite );
-	DebugText("playerSprite '%s'", playerSprite );
-	DebugText("mqDisplayZIndex: %d, mqDisplayLayer: %d", mqDisplayZIndex, mqDisplayLayer );
+	DebugText("mqDisplayZIndex: %d, result: %d", mqDisplayZIndex - 4, result );
 
 } //So Engine doesn't complain
 
@@ -51,7 +51,7 @@ weapon_begin(  object:player, dir )
 	
 	timer = AnimationGetLength(sheet, anim[dir]);
 	strformat( swordSprite, _, true, "%s:%s", sheet, anim[dir] );
-	strformat( playerSprite, _, true, "%s:%s", player_sheet, anim[dir] );
+	strformat( playerSprite, _, false, "%s:%s", player_sheet, anim[dir] );
 
 	if (dir == 2)
 		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex - 4, 0, 0);
@@ -62,13 +62,15 @@ weapon_begin(  object:player, dir )
 	else
 		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex + 1, 0, 0);
 
+
+	ObjectCreate( "p01swing.png:swing-front", SPRITE, 10, 10, mqDisplayZIndex, 0, 0);
 	ObjectFlag( mqDisplayObject, FLAG_SPEED, 1);
 	ObjectFlag( mqDisplayObject, FLAG_ANIMLOOP, 0);
 	ObjectEffect( mqDisplayObject, WHITE, _, _, _, (dir == 3 ? 16 : 0), _, _ );
 
 	ObjectInfo( mqDisplayObject, mqDisplayArea.w, mqDisplayArea.h);
 
-	ObjectReplace( player, playerSprite, SPRITE ); // Replace player sprite with swinging sprite
+	result = ObjectReplace( player, "p01swing.png:swing-front", SPRITE ); // Replace player sprite with swinging sprite
 }
 
 weapon_collision( )
