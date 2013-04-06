@@ -42,8 +42,9 @@ main() {
 
 } //So Engine doesn't complain
 
-weapon_begin(  object:player, dir )
+weapon_begin(  object:playerObject, dir )
 {
+	DebugText("Player object %d", playerObject );
 	if ( timer || mqDisplayObject != OBJECT_NONE )
 		return;
 
@@ -51,26 +52,25 @@ weapon_begin(  object:player, dir )
 	
 	timer = AnimationGetLength(sheet, anim[dir]);
 	strformat( swordSprite, _, true, "%s:%s", sheet, anim[dir] );
-	strformat( playerSprite, _, false, "%s:%s", player_sheet, anim[dir] );
+	strformat( playerSprite, _, true, "%s:%s", player_sheet, anim[dir] );
 
 	if (dir == 2)
 		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex - 4, 0, 0);
 	else if (dir == 0)
-		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x + mqDisplayOffset.x, mqDisplayArea.y + mqDisplayOffset.y, mqDisplayZIndex +1 , 0, 0);
+		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x + mqDisplayOffset.x, mqDisplayArea.y + mqDisplayOffset.y, mqDisplayZIndex + 1, 0, 0 );
 	else  if (dir == 3)
-		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x + 4, mqDisplayArea.y, mqDisplayZIndex + 1, 0, 0);
+		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x + 4, mqDisplayArea.y, mqDisplayZIndex + 1, 0, 0 );
 	else
-		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex + 1, 0, 0);
+		mqDisplayObject = ObjectCreate( swordSprite, SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex + 1, 0, 0 );
 
 
-	ObjectCreate( "p01swing.png:swing-front", SPRITE, 10, 10, mqDisplayZIndex, 0, 0);
-	ObjectFlag( mqDisplayObject, FLAG_SPEED, 1);
-	ObjectFlag( mqDisplayObject, FLAG_ANIMLOOP, 0);
+	ObjectFlag( mqDisplayObject, FLAG_SPEED, 1 );
+	ObjectFlag( mqDisplayObject, FLAG_ANIMLOOP, 0 );
 	ObjectEffect( mqDisplayObject, WHITE, _, _, _, (dir == 3 ? 16 : 0), _, _ );
 
 	ObjectInfo( mqDisplayObject, mqDisplayArea.w, mqDisplayArea.h);
 
-	result = ObjectReplace( player, "p01swing.png:swing-front", SPRITE ); // Replace player sprite with swinging sprite
+	result = ObjectReplace( playerObject, playerSprite, 10 ); // Replace player sprite with swinging sprite
 }
 
 weapon_collision( )
@@ -109,7 +109,7 @@ weapon_ended( object:player )
 	{
 		ObjectDelete(mqDisplayObject);
 		CollisionSet(SELF, -1, 0);
-		mqDisplayObject =  OBJECT_NONE;
+		mqDisplayObject = OBJECT_NONE;
 		return 0;
 	}
 	return 1;
@@ -123,16 +123,17 @@ public End( object:player, dir )
 
 public Use( object:player, dir )
 {
+	new playerObject = player;
 	mqDisplayDirection = NumberClamp((dir/2), 0, 3);
 	
-	
+	DebugText("Player object %d", playerObject );
 	
 	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 
-	weapon_begin( player, mqDisplayDirection );
+	weapon_begin( playerObject, mqDisplayDirection );
 
 	weapon_collision( );
 
 	
-	return weapon_ended( player );
+	return weapon_ended( playerObject );
 }

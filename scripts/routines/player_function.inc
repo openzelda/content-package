@@ -176,8 +176,8 @@ public GiveWeapon( weapon[] )
 	new entityName{64};
 	StringCopy(entityName, weapon);
 
-	hash = EntityCreate( entityName, "", 0, 0, 1, GLOBAL_MAP );
-
+	hash = EntityCreate( entityName, "", 0, 0, mqEntityPosition.z, GLOBAL_MAP );
+//native EntityCreate(parententity{}, id_string{}, Fixed:x, Fixed:y, Fixed:z, map_id, args[]='''', {Fixed,_}:...);
 	EntityPublicFunction( hash, "SetOwner", ''n'', mqEntityId );
 	EntityPublicFunction( mqMenuEntity, "AddWeapon", ''snn'', entityName, hash, mqEntityId );
 

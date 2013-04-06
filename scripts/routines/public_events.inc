@@ -24,8 +24,6 @@
 
 
 
-#define PUBLIC_EVENT_ARGS_HIT [ 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 0 ]
-
 /***
 <function name="TransitionPlayer">
 	<summary>Changes the Section, while keeping the same grid location.</summary>
@@ -41,7 +39,7 @@ stock TransitionPlayer( entityId:player, entityId:target, nmapid = 0, nsection{}
 {
 	if ( !transitionEntity )
 	{
-		transitionEntity = EntityHash("transition");
+		transitionEntity = entityId:EntityHash("transition");
 	}
 
 	if ( ngridx < 0 && ngridy < 0 )
@@ -81,6 +79,12 @@ stock CallEntityPickup( entityId:entity, attacker )
 {
 	return EntityPublicFunction( entity, "Pickup", ''n'', attacker );
 }
+
+stock CallEntityUse( entityId:entity, displayObject, direction )
+{
+	return EntityPublicFunction( entity, "Use", ''nn'', displayObject, direction );
+}
+
 /*
 	else if ( type == TYPE_TRANSPORT )
 	{
