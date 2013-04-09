@@ -1,2 +1,2 @@
-testscreen	1	0
+#	0	64	64
 empty	0	0

@@ -38,6 +38,8 @@ public Init(...)
 	mqMenuEntity = EntityCreate( "menu", MENU_ENTITY_ID, 0, 0, 6, GLOBAL_MAP, _, [ARG_NUMBER, ARG_END], mqEntityId );
 	
 
+	EntityCreate( "tester-transition", "", 0,0,6, GLOBAL_MAP, _, [ARG_NUMBER, ARG_END], mqEntityId );
+
 	//SetRestartPosition(0, mqDisplayArea.x, mqDisplayArea.y, MapCurrent(), "Start");
 
 
