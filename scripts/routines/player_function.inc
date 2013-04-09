@@ -28,15 +28,15 @@ forward public UpdatePosition();
 forward public Hurt(type, damage, angle);
 forward public GiveWeapon( weapon[] );
 forward public SetWeapon( weapon_id, slot );
-forward public SetPlayerSprites( normal{32}, push{32}, pull{32}, swim{32} );
+forward public SetPlayerSprites( normal{32}, push{32}, pull{32}, swim{32}, using{32} );
 forward public SetRestartPosition( point, ndescription[], nx, ny, nmapid );
-
+forward public UsingCustomAnimation()
 
  /* Animation Code */ 
 #define STATE_FLIP (mqDisplayDirection == 3 ? 16 : 0)
 #define STATE_GRAPHIC animation[mqState][mqDisplayDirection]
 
-
+stock animationUsingCustom = false;
 stock animation[STATE_COUNT][4]{32} = [
 	//SOUTH, WEST, NORTH, EAST, 
 	/* ALIVE */			["", "", "", ""],
@@ -63,6 +63,11 @@ stock animation[STATE_COUNT][4]{32} = [
 	/* GONE */			["", "", "", ""]
 ];
 
+public UsingCustomAnimation()
+{
+	animationUsingCustom = true;
+}
+
 SetStateGraphic( _STATE:s, parent[], south_graphic[], west_graphic[], north_graphic[], east_graphic[] )
 {
 	s = _STATE:NumberClamp( _:s, _:ALIVE, _:DEAD );
@@ -72,19 +77,22 @@ SetStateGraphic( _STATE:s, parent[], south_graphic[], west_graphic[], north_grap
 	strformat( animation[s][3], _, true, "%s:%s", parent, east_graphic);
 }
 
-public SetPlayerSprites( normal{32}, push{32}, pull{32}, swim{32} )
+public SetPlayerSprites( normal{32}, push{32}, pull{32}, swim{32}, using{32} )
 {
-	SheetReference("p01push.png");
-	SheetReference("p01pull.png");
-	SheetReference("p01n.png");
+	SheetReference(normal);
+	SheetReference(push);
+	SheetReference(pull);
+	SheetReference(swim);
+	SheetReference(using);
 
-	SetStateGraphic( STANDING, "p01n.png", "front_0", "side_0", "back_0", "side_0" );
-	SetStateGraphic( MOVING, "p01n.png", "front", "side", "back", "side" );
-	SetStateGraphic( KNOCKED, "p01n.png", "front_knock", "side_knock", "back_knock", "side_knock" );
-	SetStateGraphic( PUSHING, "p01push.png", "front", "side", "back", "side" );
-	SetStateGraphic( PULLING, "p01pull.png", "front", "side", "back", "side" );
-	SetStateGraphic( DYING, "p01n.png", "death", "death", "death", "death" );
-	SetStateGraphic( DEAD, "p01n.png", "death_1", "death_1", "death_1", "death_1" );
+	SetStateGraphic( STANDING, normal, "front_0", "side_0", "back_0", "side_0" );
+	SetStateGraphic( MOVING, normal, "front", "side", "back", "side" );
+	SetStateGraphic( USING, using, "front", "side", "back", "side" );
+	SetStateGraphic( KNOCKED, normal, "front_knock", "side_knock", "back_knock", "side_knock" );
+	SetStateGraphic( PUSHING, push, "front", "side", "back", "side" );
+	SetStateGraphic( PULLING, pull, "front", "side", "back", "side" );
+	SetStateGraphic( DYING, normal, "death", "death", "death", "death" );
+	SetStateGraphic( DEAD, normal, "death_1", "death_1", "death_1", "death_1" );
 
 }
 
@@ -129,7 +137,7 @@ HandleDeath()
 	{
 		DeathCount = 0;
 		ObjectReplace(mqDisplayObject, animation[DEAD][0], SPRITE);
-		EntityPublicFunction( ENTITY_MAIN, "CustomText", "snnnnnn", "Press Enter to continue", -1, -1, 6, 11, 2, 255 );
+		EntityPublicFunction( ENTITY_MAIN, "CustomText", ''snnnnnn'', "Press Enter to continue", -1, -1, 6, 11, 2, 255 );
 		if ( InputButton( 6 ) )
 		{
 			mqHealth = mqMaxHealth;
@@ -177,7 +185,7 @@ public GiveWeapon( weapon[] )
 	StringCopy(entityName, weapon);
 
 	hash = EntityCreate( entityName, "", 0, 0, mqEntityPosition.z, GLOBAL_MAP );
-//native EntityCreate(parententity{}, id_string{}, Fixed:x, Fixed:y, Fixed:z, map_id, args[]='''', {Fixed,_}:...);
+
 	EntityPublicFunction( hash, "SetOwner", ''n'', mqEntityId );
 	EntityPublicFunction( mqMenuEntity, "AddWeapon", ''snn'', entityName, hash, mqEntityId );
 

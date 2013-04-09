@@ -44,11 +44,8 @@ main() {
 
 weapon_begin(  object:playerObject, dir )
 {
-	DebugText("Player object %d", playerObject );
 	if ( timer || mqDisplayObject != OBJECT_NONE )
 		return;
-
-
 	
 	timer = AnimationGetLength(sheet, anim[dir]);
 	strformat( swordSprite, _, true, "%s:%s", sheet, anim[dir] );
@@ -70,7 +67,7 @@ weapon_begin(  object:playerObject, dir )
 
 	ObjectInfo( mqDisplayObject, mqDisplayArea.w, mqDisplayArea.h);
 
-	result = ObjectReplace( playerObject, playerSprite, 10 ); // Replace player sprite with swinging sprite
+	result = ObjectReplace( playerObject, playerSprite, SPRITE ); // Replace player sprite with swinging sprite
 }
 
 weapon_collision( )
@@ -123,11 +120,12 @@ public End( object:player, dir )
 
 public Use( object:player, dir )
 {
-	new playerObject = player;
+	new object:playerObject = player;
 	mqDisplayDirection = NumberClamp((dir/2), 0, 3);
 	
-	DebugText("Player object %d", playerObject );
-	
+
+	EntityPublicFunction(ownerid, "UsingCustomAnimation");
+
 	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 
 	weapon_begin( playerObject, mqDisplayDirection );

@@ -26,7 +26,7 @@ public Init(...)
 
 	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 	SetEntityDimension(30, 24, 2, 24);
-	SetPlayerSprites("p01n.png", "p01push.png", "p01pull.png", "p01swim.png");
+	SetPlayerSprites("p01n.png", "p01push.png", "p01pull.png", "p01swim.png", "p01swing.png");
 	SetState(STANDING);
 	SetType(TYPE_PLAYER);
 	SetDir(SOUTH);
@@ -122,7 +122,7 @@ CheckCollisions()
 			else if ( type == TYPE_TRANSPORT )
 			{
 				//MovePlayer(player, dir)
-				if ( EntityPublicFunction(current, "MovePlayer", "nn", mqEntityId, mqDirection) == 1 )
+				if ( EntityPublicFunction(current, "MovePlayer", ''nn'', mqEntityId, mqDirection) == 1 )
 				{
 					 mqState = STANDING;
 				}
@@ -182,7 +182,7 @@ MovePlayer()
 	else
 		mqMovementSpeed = 80.00;
 	if ( EntityMove(MASK_PLAYERSOLID2) )
-		EntityPublicFunction( EntityHash("__map__"), "SetPlayerPosition", "nnn", _:mqEntityPosition.x, _:mqEntityPosition.y, _:mqDisplayZIndex);
+		EntityPublicFunction( EntityHash("__map__"), "SetPlayerPosition", ''nnn'', _:mqEntityPosition.x, _:mqEntityPosition.y, _:mqDisplayZIndex);
 	MapSetOffset(mqEntityPosition.x,mqEntityPosition.y);
 	CollisionSet(SELF,0,TYPE_PLAYER,mqDisplayArea.x+mqDisplayOffset.x,mqDisplayArea.y+mqDisplayOffset.y,mqDisplayArea.w,mqDisplayArea.h);
 }
@@ -286,6 +286,7 @@ CheckForKeys()
 
 	if ( weapon_action[0] == 1 && mqSelectedWeapons[0])
 	{
+		animationUsingCustom = false;
 		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqSelectedWeapons[0]);
 		if ( CallEntityUse(mqSelectedWeapons[0], mqDisplayObject, mqDirection ) == 1 )
 		{
@@ -295,6 +296,7 @@ CheckForKeys()
 	}
 	else if ( weapon_action[1] == 1  && mqSelectedWeapons[1])
 	{
+		animationUsingCustom = false;
 		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqSelectedWeapons[1]);
 		if ( CallEntityUse(mqSelectedWeapons[1], mqDisplayObject, mqDirection) == 1 )
 		{
@@ -304,6 +306,7 @@ CheckForKeys()
 	}
 	else if ( weapon_action[2] == 1  && mqSelectedWeapons[2])
 	{
+		animationUsingCustom = false;
 		EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqSelectedWeapons[2]);
 		if ( CallEntityUse(mqSelectedWeapons[2], mqDisplayObject, mqDirection) == 1 )
 		{
@@ -322,7 +325,8 @@ DisplayPlayer()
 {
 	if ( HasStateChanged() )
 	{
-		ObjectReplace(mqDisplayObject, STATE_GRAPHIC, SPRITE );
+		if ( !(mqState == USING && animationUsingCustom) )
+			ObjectReplace(mqDisplayObject, STATE_GRAPHIC, SPRITE );
 		ObjectEffect(mqDisplayObject, WHITE, _, _, _, STATE_FLIP, _, _);
 	}
 	ObjectPosition(mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);

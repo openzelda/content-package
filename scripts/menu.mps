@@ -76,16 +76,26 @@ public Show( new_owner, weapons1, weapons2, weapons3 )
 
 public Refresh()
 {
-	ObjectPosition( mqDisplayObject, 0, 0-slide, 6, 512, 512, GLOBAL_MAP);
+	ObjectPosition( mqDisplayObject, 0, 0-slide, 6000, 512, 512, GLOBAL_MAP);
 
 	if ( selectedItems[0] >= 0 )
-		GraphicsDraw("", CIRCLE, ICON_MENU_X +((selectedItems[0]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[0]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFF000077);
+	{
+		//❶ ❷ ❸
+		GraphicsDraw("", CIRCLE, ICON_MENU_X +((selectedItems[0]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[0]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6000, 40, 40, 0xFF000077);
+		GraphicsDraw("❶", TEXT, ICON_MENU_X +((selectedItems[0]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[0]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6000, 0, 0, 0xFFFFFFFF);
+	}	
 	if ( selectedItems[1] >= 0 )
-		GraphicsDraw("", CIRCLE, ICON_MENU_X +((selectedItems[1]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[1]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFFFF0077);
+	{
+		GraphicsDraw("", CIRCLE, ICON_MENU_X +((selectedItems[1]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[1]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6000, 40, 40, 0xFFFF0077);
+		GraphicsDraw("❷", TEXT, ICON_MENU_X +((selectedItems[1]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[1]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6000, 0, 0, 0xFFFFFFFF);
+	}	
 	if ( selectedItems[2] >= 0 )
-		GraphicsDraw("", CIRCLE, ICON_MENU_X +((selectedItems[2]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[2]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFF00FF77);
+	{	
+		GraphicsDraw("", CIRCLE, ICON_MENU_X +((selectedItems[2]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[2]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6000, 40, 40, 0xFF00FF77);
+		GraphicsDraw("❸", TEXT, ICON_MENU_X +((selectedItems[2]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((selectedItems[2]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6000, 0, 0, 0xFFFFFFFF);
 
-	GraphicsDraw("", CIRCLE, ICON_MENU_X +((inputAction[0]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((inputAction[0]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6, 40, 40, 0xFFFFFF77);
+	}
+	GraphicsDraw("", CIRCLE, ICON_MENU_X +((inputAction[0]%ICON_MENU_LINECOUNT)*ICON_SPACING_X), ICON_MENU_Y + ((inputAction[0]/ICON_MENU_LINECOUNT)*ICON_SPACING_Y) - slide, 6000, 40, 40, 0xFFFFFF77);
 	
 
 	new n = 0, x, y;
@@ -96,11 +106,11 @@ public Refresh()
 
 		if ( weapon[n].active )
 		{
-			GraphicsDraw(weapon[n].icon, SPRITE, ICON_MENU_X + ICON_OFFSET_X + x, ICON_MENU_Y + ICON_OFFSET_Y + (y - slide), 6, 0, 0);
+			GraphicsDraw(weapon[n].icon, SPRITE, ICON_MENU_X + ICON_OFFSET_X + x, ICON_MENU_Y + ICON_OFFSET_Y + (y - slide), 6000, 0, 0);
 		}
 		else
 		{
-			GraphicsDraw("menuicon.png:1", SPRITE, ICON_MENU_X + ICON_OFFSET_X + x, ICON_MENU_Y + ICON_OFFSET_Y + (y - slide), 6, 0, 0, 0x111111FF);
+			GraphicsDraw("menuicon.png:1", SPRITE, ICON_MENU_X + ICON_OFFSET_X + x, ICON_MENU_Y + ICON_OFFSET_Y + (y - slide), 6000, 0, 0, 0x111111FF);
 		}
 		
 		
@@ -160,18 +170,27 @@ main()
 				{
 					if ( InputButton(0)  == 1 )
 					{
-						EntityPublicFunction(owner, "SetWeapon", ''nn'', weapon[inputAction[0]].id, 0);
-						selectedItems[0] = inputAction[0];
+						if ( inputAction[0]  != selectedItems[1]  && inputAction[0]  != selectedItems[2] )
+						{ 
+							EntityPublicFunction(owner, "SetWeapon", ''nn'', weapon[inputAction[0]].id, 0);
+							selectedItems[0] = inputAction[0];
+						}
 					}
 					if ( InputButton(1)  == 1 )
 					{
-						EntityPublicFunction(owner, "SetWeapon", ''nn'', weapon[inputAction[0]].id, 1);
-						selectedItems[1] = inputAction[0];
+						if ( inputAction[0]  != selectedItems[0]  && inputAction[0]  != selectedItems[2] )
+						{ 
+							EntityPublicFunction(owner, "SetWeapon", ''nn'', weapon[inputAction[0]].id, 1);
+							selectedItems[1] = inputAction[0];
+						}					
 					}
 					if ( InputButton(2)  == 1 )
 					{
-						EntityPublicFunction(owner, "SetWeapon", ''nn'', weapon[inputAction[0]].id, 2);
-						selectedItems[2] = inputAction[0];
+						if ( inputAction[0]  != selectedItems[1]  && inputAction[0]  != selectedItems[0] )
+						{ 
+							EntityPublicFunction(owner, "SetWeapon", ''nn'', weapon[inputAction[0]].id, 2);
+							selectedItems[2] = inputAction[0];
+						}
 					}
 				}
 			}
