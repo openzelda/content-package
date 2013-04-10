@@ -246,7 +246,7 @@ stock StockHit( attacker[], angle, dist, attack, damage, x, y, rect )
 	else if ( attack&AICE == AICE )
 	{
 		// Create a frozen effect around the enemy
-		EntityCreate( "effect_freeze", child, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, CURRENT_MAP, _, "nnnn", mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h );
+		EntityCreate( "effect_freeze", child, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, CURRENT_MAP, ''nnnn'', mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h );
 		ObjectEffect( obj, 0xFF0000FF );
 		StunCount = 3200;
 		mqState = STUNNED;

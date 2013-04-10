@@ -109,7 +109,7 @@ STATEFUNCTION Shoot()
 
 	if ( CountTimer(shot_timer, SHOTLENGTH) )
 	{
-		EntityCreate("attack_flamethrower1", "*", mqEntityPosition.x, mqEntityPosition.y + 32.0, mqEntityPosition.z, CURRENT_MAP, _, [ ARG_RETURN_NUMBER, ARG_END ], a );
+		EntityCreate("attack_flamethrower1", "*", mqEntityPosition.x, mqEntityPosition.y + 32.0, mqEntityPosition.z, CURRENT_MAP, [ ARG_RETURN_NUMBER, ARG_END ], a );
 		a += 10.0;
 		if ( a > 340.0 ) 
 			mqState = MOVING;

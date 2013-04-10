@@ -14,6 +14,6 @@ main()
 	}
 	if ( InputButton(3,0) )
 	{
-		EntityCreate("attack_flamethrower1", "*", 60, 60, 4.0, CURRENT_MAP, _, "d", 5 );
+		EntityCreate("attack_flamethrower1", "*", 60, 60, 4.0, CURRENT_MAP, ''d'', 5 );
 	}
 }

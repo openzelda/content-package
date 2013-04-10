@@ -11,8 +11,8 @@ main()
 
 public CreateItem()
 {
-	//EntityCreate("attack_flamethrower1", "*", 100.0, 5.0, 4000, CURRENT_MAP, _, "d", 45.0 );
-	EntityCreate("dropitem_arrow", "*", 100.0, 200.0, 4.0, CURRENT_MAP, _, "n", 5 );
+	//EntityCreate("attack_flamethrower1", "*", 100.0, 5.0, 4000, CURRENT_MAP, ''d'', 45.0 );
+	EntityCreate("dropitem_arrow", "*", 100.0, 200.0, 4.0, CURRENT_MAP, ''n'', 5 );
 	/*
 	ObjectCreate( "deathanim01.png:animasd23",SPRITE, 10, 10, 5, 120, 120, RED );
 	ObjectCreate( "deathanim01.png:anim", SPRITE, 20, 20, 5, 120, 120, RED );

@@ -40,32 +40,26 @@ public Show()
 {
 	active = true;
 	ObjectToggle(hud, 1);
-	for ( new c = 0; c < 20; c++ )
-	{
-		ObjectToggle(obj[c], 1);
-	}
 }
 
 public Refresh()
 {
-	count = EntityPublicVariable(owner, "mqMaxHealth");
-	used = EntityPublicVariable(owner, "mqHealth");
+	
+	new maxHealth = EntityPublicVariable(owner, "mqMaxHealth");
+	new health = EntityPublicVariable(owner, "mqHealth");
 
+	DebugText("%d  health %d  owner %d", maxHealth, health, owner);
 	if (count > 0)
 	{
 		new q = NumberClamp(count/100, 0, 19);
-		new u = used/50;
+		new u = used/100;
 		
 		for ( new c = 0; c < q; c++ )
 		{
-			if ( obj[c] == object:-1 )
-				obj[c] = ObjectCreate("hud.png:heart_f", SPRITE,  HEARTS_X + ((c%10)*16), HEARTS_Y+((c/10)*16), 6, 0, 0);
-			if (  u >= (c*2)+2  )
-				ObjectReplace(obj[c], "hud.png:heart_f", SPRITE);
-			else if (  u >= (c*2)+1 )
-				ObjectReplace(obj[c], "hud.png:heart_h", SPRITE);
+			if ( u > c )
+				GraphicsDraw("hud.png:heart_f", SPRITE,  HEARTS_X + ((c%10)*16), HEARTS_Y+((c/10)*16), 6000, 0, 0);
 			else
-				ObjectReplace(obj[c], "hud.png:heart_e", SPRITE);
+				GraphicsDraw("hud.png:heart_f", SPRITE,  HEARTS_X + ((c%10)*16), HEARTS_Y+((c/10)*16), 6000, 0, 0);
 		}
 	}
 
@@ -97,28 +91,15 @@ public Refresh()
 public Hide() 
 {
 	ObjectToggle(hud, 0);
-	for ( new c = 0; c < 20; c++ )
-	{
-		ObjectToggle(obj[c], 0);
-	}
-
 	active = false;
-
 }
 
 public Init(...)
 {
 	active = true;
 	hud = ObjectCreate("hud", CANVAS, 0, 0, 6000, 0, 0, .pos = GLOBAL_MAP); 
-	new c = 0;
-	if ( numargs() >=1 )
-	{
-		new i = 0;
-		do 
-		{
-			c = getarg(0, i++);
-		} while(c && i<64);
-	}
+	if ( numargs() >= 1 )
+		owner = getarg(0);
 
 	CreateCounters();
 	count = EntityPublicVariable(owner, "mqMaxHealth");
