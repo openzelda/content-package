@@ -64,7 +64,7 @@ public debug_game = debug;
 public Init( ... )
 {
 	GameState(1);
-	EntityCreate("transition", "transition", 0, 0, 0, GLOBAL_MAP);
+	
 	screen[0] = MiscGetWidth("__screen__")/2;
 	screen[1] = MiscGetHeight("__screen__")/2;
 	font[0] = 8;

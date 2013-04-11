@@ -34,11 +34,11 @@ public Init(...)
 	mqDisplayObject = ObjectCreate(animation[mqState][0], SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0, WHITE);
 
 
-	mqHudEntity = EntityCreate( "hud", HUD_ENTITY_ID, 0, 0, 6, GLOBAL_MAP, [ARG_NUMBER, ARG_END], mqEntityId, 0 );
-	mqMenuEntity = EntityCreate( "menu", MENU_ENTITY_ID, 0, 0, 6, GLOBAL_MAP, [ARG_NUMBER, ARG_END], mqEntityId, 0 );
+	mqHudEntity = EntityCreate( "hud", HUD_ENTITY_ID, 0, 0, 6, GLOBAL_MAP, [ARG_RETURN_NUMBER, ARG_END], mqEntityId  );
+	mqMenuEntity = EntityCreate( "menu", MENU_ENTITY_ID, 0, 0, 6, GLOBAL_MAP, [ARG_RETURN_NUMBER, ARG_END], mqEntityId );
 	
-
-	EntityCreate( "tester-transition", "", 0,0,6, GLOBAL_MAP, [ARG_NUMBER, ARG_END], mqEntityId, 0 );
+	EntityCreate( "transition", "transition", 0, 0, 0, GLOBAL_MAP, [ARG_RETURN_NUMBER, ARG_END], mqEntityId );
+	EntityCreate( "tester-transition", "", 0,0,6, GLOBAL_MAP);
 
 	//SetRestartPosition(0, mqDisplayArea.x, mqDisplayArea.y, MapCurrent(), "Start");
 

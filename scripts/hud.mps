@@ -23,9 +23,8 @@ forward public Hide();
 new active = 0;
 new count = 0;
 new used = 0;
-new object:obj[20] = [ object:-1, ...];
 new object:hud = object:-1;
-new owner;
+new owner = 0;
 
 DrawCharacter(number, px, py, pz, colour, alpha)
 {
@@ -98,9 +97,12 @@ public Init(...)
 {
 	active = true;
 	hud = ObjectCreate("hud", CANVAS, 0, 0, 6000, 0, 0, .pos = GLOBAL_MAP); 
-	if ( numargs() >= 1 )
-		owner = getarg(0);
 
+
+	if ( numargs() )
+	{
+		owner = getarg(0, 0);
+	}
 	CreateCounters();
 	count = EntityPublicVariable(owner, "mqMaxHealth");
 	used = EntityPublicVariable(owner, "mqHealth");

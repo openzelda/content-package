@@ -7,7 +7,7 @@ public Init(...)
 {
 	if ( numargs() >=1 )
 	{
-		//owner = entityId:getarg(0);
+		owner = entityId:getarg(0);
 	}
 }
 
