@@ -1,8 +1,11 @@
 <map xmlns="http://mokoi.info/projects/mokoi">
 <settings>
-	<dimensions width="2" height="1" />
-	<color red="68" blue="68" green="185" mode="0" />
+	<dimensions width="1" height="1" />
+	<color red="42" blue="42" green="134" mode="0" />
+	<option name="independent" value="false" type="" />
+	<option name="wrap" value="0" type="" />
 	<option name="music" value="" type="music" />
+	<option name="centerview" value="false" type="" />
 	<option name="name" value="" type="" />
 </settings>
 <object value="outside01.png:f1" type="sprite">
@@ -100,10 +103,10 @@
 	<entity value="block" language="mps" global="false"/>
 </object>
 <object value="outside01.png:mt2" type="sprite">
-	<position x="477" y="233" w="64" h="64" z="0" l="0" r="0" f="0"/>
+	<position x="221" y="18" w="64" h="64" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<path>
-		<point x="477" y="233" ms="10"/>
+		<point x="221" y="18" ms="10"/>
 		<point x="582" y="175" ms="10"/>
 		<point x="428" y="110" ms="10"/>
 		<point x="367" y="266" ms="10"/>
@@ -111,22 +114,8 @@
 		<point x="586" y="244" ms="10"/>
 	</path>
 </object>
-<object value="pzeldan.png:front" type="sprite" id="*">
-	<position x="312" y="163" w="32" h="48" z="3000" l="3" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="mirror" value="false" />
-	<entity value="npc_basic" language="mps" global="false"/>
-	<path>
-		<point x="312" y="163" ms="10"/>
-		<point x="450" y="246" ms="10"/>
-		<point x="446" y="96" ms="10"/>
-		<point x="101" y="85" ms="10"/>
-		<point x="153" y="330" ms="10"/>
-		<point x="307" y="335" ms="10"/>
-	</path>
-</object>
 <object value="switch01.png:1" type="sprite">
-	<position x="507" y="127" w="32" h="32" z="0" l="0" r="0" f="0"/>
+	<position x="53" y="204" w="32" h="32" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="off-entity" value="" />
 	<setting key="on-event" value="" />
@@ -160,5 +149,11 @@
 <object value="dungeon00.png:a1" type="sprite">
 	<position x="397" y="125" w="32" h="32" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="p01.png:player" type="sprite">
+	<position x="75" y="53" w="32" h="48" z="0" l="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="Weapon" value="weapon_test" />
+	<entity value="link" language="mps" global="true"/>
 </object>
 </map>
