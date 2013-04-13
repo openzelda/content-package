@@ -79,6 +79,8 @@ public Init( ... )
 	{
 		//EntityCreate("tester", "tester", 0, 0, 0, GLOBAL_MAP);
 	}
+
+	EntityCreate("gun", "", 0, 0, 0, GLOBAL_MAP);
 }
 
 public Close()

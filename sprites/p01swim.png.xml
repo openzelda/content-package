@@ -1,2 +1,16 @@
 <sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="side_0" mask="0" hidden="hidden">
+		<position x="128" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="side_1" mask="0" hidden="hidden">
+		<position x="160" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="side_2" mask="0" hidden="hidden">
+		<position x="192" y="32" w="32" h="32" />
+	</sprite>
+	<animation name="side" mask="0" hidden="hidden">
+		<frame sprite="side_0" x="0" y="0" ms="100"/>
+		<frame sprite="side_1" x="0" y="0" ms="100"/>
+		<frame sprite="side_2" x="0" y="0" ms="100"/>
+	</animation>
 </sheet>

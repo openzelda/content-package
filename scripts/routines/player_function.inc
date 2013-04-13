@@ -167,7 +167,7 @@ HandleDeath()
 			DeathCount = AnimationGetLength( "p01n.png", "death" );
 			ObjectReplace(mqDisplayObject, animation[DYING][0], SPRITE);
 		}
-		if ( Countdown(DeathCount) )
+		if ( TimerCountdown(DeathCount) )
 			mqState = DEAD;
 	}
 }

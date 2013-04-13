@@ -36,11 +36,7 @@ public Close()
 	ObjectDelete(mqDisplayObject);
 }
 
-main() { 
-	DebugText("Sword running %d  %d ", timer, mqDisplayDirection );
-	DebugText("mqDisplayZIndex: %d, result: %d", mqDisplayZIndex - 4, result );
-
-} //So Engine doesn't complain
+main() { } //So Engine doesn't complain
 
 weapon_begin(  object:playerObject, dir )
 {
@@ -82,6 +78,7 @@ weapon_collision( )
 
 	swordangle = D2A(mqDisplayDirection);
 
+	DebugText("CollisionCalculate %d", CollisionCalculate() );
 	if ( CollisionCalculate() )
 	{
 		new entityId:current;
@@ -102,7 +99,7 @@ weapon_collision( )
 
 weapon_ended( object:player )
 {
-	if ( CountTimer(timer, 0) )
+	if ( TimerCountdownWithReset(timer, 0) )
 	{
 		ObjectDelete(mqDisplayObject);
 		CollisionSet(SELF, -1, 0);
@@ -123,7 +120,6 @@ public Use( object:player, dir )
 	new object:playerObject = player;
 	mqDisplayDirection = NumberClamp((dir/2), 0, 3);
 	
-
 	EntityPublicFunction(ownerid, "UsingCustomAnimation");
 
 	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
@@ -131,7 +127,6 @@ public Use( object:player, dir )
 	weapon_begin( playerObject, mqDisplayDirection );
 
 	weapon_collision( );
-
 	
 	return weapon_ended( playerObject );
 }

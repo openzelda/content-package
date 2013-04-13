@@ -25,12 +25,13 @@ public mqMaxHealth;
 public mqHealth;
 
 new mqDamageDealt = 50;
-new mqInitialPosition[POSITIONF];
+new mqInitialPosition[POSITIONF] = [ -99.0 , -99.0  , -99.0 ];
 new bool:mqIsABoss = false;
 stock bool:mqEntityResetable = false;
 new mqAttacker;
-new mqItemDrop[64];
-new mqSprite[64];
+new mqItemDrop{64};
+new mqSprite{64};
+new mqSheet{64};
 new mqDeathTimer = 4200;
 new object:mqDeathObject = OBJECT_NONE;
 
@@ -43,8 +44,8 @@ stock error_message{128};
 
 
 /* States */
-#define STATE_FLIP ((mqDirection/2) == 3 ? true : false)
-#define STATE_GRAPHIC StateGraphics[mqState][((mqDirection % 8)/2)]
+#define STATE_FLIP (mqDisplayDirection == 3 ? true : false)
+#define STATE_GRAPHIC StateGraphics[mqState][mqDisplayDirection]
 stock StateGraphics[STATE_COUNT][4]{32};
 
 stock SetStateGraphic( _STATE:s, parent[], south_graphic[], west_graphic[], north_graphic[], east_graphic[] )
@@ -62,20 +63,29 @@ stock SetStateGraphic( _STATE:s, parent[], south_graphic[], west_graphic[], nort
 */
 EnemyInit()
 {
+	mqEntityId = entityId:EntityGetSettingHash("id");
+	mqDirection = SOUTH;
+	mqDisplayDirection = 0;
+
 	if ( mqInitialPosition.x == -99.0 )
 	{
 		GetEntityPosition( mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 
 		mqState = STANDING
 		mqType = TYPE_ENEMY;
-
+		
 		mqInitialPosition.x = mqEntityPosition.x;
 		mqInitialPosition.y = mqEntityPosition.y;
 		mqInitialPosition.z = mqEntityPosition.z;
-
 		
-		EntityGetSetting("object-sprite", mqSprite);
+		EntityGetSetting("object-image", mqSprite);
 		EntityGetSetting("item", mqItemDrop);
+
+		for ( new n = 0; mqSprite{n} && mqSprite{n} != ':' ; n++ )
+		{
+			mqSheet{n} = mqSprite{n};
+		}	
+
 	}
 	else
 	{
@@ -94,12 +104,13 @@ public Reset()
 
 stock HandleDying()
 {
-	if ( Countdown(mqDeathTimer) )
+	if ( TimerCountdown(mqDeathTimer) )
 	{
 		mqState = DEAD;
 		ObjectDelete(mqDeathObject);
 		mqDeathObject = OBJECT_NONE;
 		DeathEvent();
+		mqDeathTimer = 0;
 	}
 }
 
@@ -116,7 +127,7 @@ stock RandomizeMovement()
 		new_dir = random(8);
 	}while ( mqDirection != new_dir )
 
-	mqDirection = new_dir;
+	SetDir(new_dir);
 	mqMovementAngle = Dir2Angle(mqDirection);
 }
 
@@ -127,8 +138,8 @@ stock Kill( )
 	mqState = DYING;
 	AudioPlaySound( ( mqIsABoss ? "boss_killed.wav" : "enemy_killed.wav"), mqDisplayArea.x, mqDisplayArea.y);
 	
-	if (mqDeathObject == OBJECT_NONE )
-		mqDeathObject = ObjectCreate("deathanim01.png:anim", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex+100, 0, 0,WHITE);
+	if ( mqDeathObject == OBJECT_NONE )
+		mqDeathObject = ObjectCreate("deathanim01.png:anim", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex + 100, 0, 0,WHITE);
 	mqDeathTimer = AnimationGetLength("deathanim01.png","anim") ;
 	ObjectFlag(mqDeathObject, FLAG_ANIMLOOP, false);
 }
@@ -150,7 +161,7 @@ stock DeathEvent()
 	else
 	{
 		EntityPublicFunction(ENTITY_MAP, "KilledEnemy");
-		//EntityPublicFunction("itemlib", "CreateItem", "nns", mqDisplayArea.x + (mqDisplayArea.w / 2), mqDisplayArea.y + (mqDisplayArea.y / 2), mqItemDrop);
+		EntityPublicFunction(EntityHash("itemlib"), "CreateItem", ''nns'', mqDisplayArea.x + (mqDisplayArea.w / 2), mqDisplayArea.y + (mqDisplayArea.y / 2), mqItemDrop);
 	}
 }
 
@@ -232,7 +243,7 @@ stock StockHit( attacker[], angle, dist, attack, damage, x, y, rect )
 	mqState = HIT;
 
 	strcopy( mqAttacker, attacker );
-	new child[64] = "*";
+	new child = "*";
 
 	mqAngle = fixed(360 - angle);
 
@@ -240,13 +251,13 @@ stock StockHit( attacker[], angle, dist, attack, damage, x, y, rect )
 	{
 		mqState = BURNING;
 		// Create a Burning fire entity on this enemy
-		EntityCreate( "effect_fire", "*", mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, CURRENT_MAP );
+		EntityCreate( "effect_fire", "", mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, CURRENT_MAP );
 		StunCount = 3200;
 	}
 	else if ( attack&AICE == AICE )
 	{
 		// Create a frozen effect around the enemy
-		EntityCreate( "effect_freeze", child, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, CURRENT_MAP, ''nnnn'', mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h );
+		child EntityCreate( "effect_freeze", "", mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, CURRENT_MAP, ''dddd'', mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h );
 		ObjectEffect( obj, 0xFF0000FF );
 		StunCount = 3200;
 		mqState = STUNNED;
@@ -258,14 +269,25 @@ stock StockHit( attacker[], angle, dist, attack, damage, x, y, rect )
 	}
 	else if ( attack&APLAYER == APLAYER )
 	{
-		EntityPublicFunction( mqAttacker, "Hurt", "n", mqDamageDealt );
+		EntityPublicFunction( mqAttacker, "Hurt", ''n'', mqDamageDealt );
 	}
 	else
 	{
 		mqHealth -= damage;
-		HitCount = 1000;
+		HitCount = 1800;
 		AudioPlaySound( "enemy_hurt.wav", mqDisplayArea.x, mqDisplayArea.y );
 		BeenHit();
 	}
 	CheckHealth();
+}
+
+
+
+
+
+
+
+stock CreateEntityShadow( display_object[EntityGraphic] )
+{
+	display_object.obj = ObjectCreate( "", CIRCLE, mqDisplayArea.x + display_object.x, mqDisplayArea.y + display_object.y, mqDisplayZIndex + display_object.z, display_object.width, display_object.height, 0x000000AA);
 }

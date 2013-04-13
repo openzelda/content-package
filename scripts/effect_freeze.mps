@@ -33,7 +33,7 @@ public Close()
 main()
 {
 	// Check if the animation is finsihed
-	if ( Countdown(timeout) )
+	if ( TimerCountdown(timeout) )
 	{
 		timeout = animationLength;
 		GetRandomSpot();	

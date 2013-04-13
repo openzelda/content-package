@@ -107,7 +107,7 @@ STATEFUNCTION Shoot()
 		a = 220.0;
 	}
 
-	if ( CountTimer(shot_timer, SHOTLENGTH) )
+	if ( TimerCountdownWithReset(shot_timer, SHOTLENGTH) )
 	{
 		EntityCreate("attack_flamethrower1", "*", mqEntityPosition.x, mqEntityPosition.y + 32.0, mqEntityPosition.z, CURRENT_MAP, [ ARG_RETURN_NUMBER, ARG_END ], a );
 		a += 10.0;
@@ -125,7 +125,7 @@ STATEFUNCTION Move()
 	}
 
 	#if !defined NETWORKED
-	if ( CountTimer(walk_timer, DEATHLENGTH) )
+	if ( TimerCountdownWithReset(walk_timer, DEATHLENGTH) )
 	{
 		mqState = USING;
 	}
@@ -153,7 +153,7 @@ STATEFUNCTION Hurting()
 		HitCount -= 400;
 
 	#else
-	if ( Countdown(HitCount) )
+	if ( TimerCountdown(HitCount) )
 	{
 		mqState = USING;
 		HitCount = 0;
@@ -176,7 +176,7 @@ KnockedOut()
 	}
 
 	#if !defined NETWORKED
-	if ( Countdown(timer) )
+	if ( TimerCountdown(timer) )
 	{
 		mqState = STANDING;
 		EndKnockedOut();

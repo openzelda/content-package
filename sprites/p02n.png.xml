@@ -1,66 +1,66 @@
-<sheet xmlns="http://mokoi.info/format/sheet">
-	<sprite name="side_6" mask="0">
-		<position x="192" y="96" w="32" h="48" />
-	</sprite>
-	<sprite name="side_5" mask="0">
-		<position x="160" y="96" w="32" h="48" />
-	</sprite>
-	<sprite name="side_4" mask="0">
-		<position x="128" y="96" w="32" h="48" />
-	</sprite>
-	<sprite name="side_3" mask="0">
-		<position x="96" y="96" w="32" h="48" />
-	</sprite>
-	<sprite name="side_2" mask="0">
-		<position x="64" y="96" w="32" h="48" />
-	</sprite>
-	<sprite name="side_1" mask="0">
-		<position x="32" y="96" w="32" h="48" />
-	</sprite>
-	<sprite name="side_0" mask="0">
-		<position x="0" y="96" w="32" h="48" />
-	</sprite>
-	<sprite name="back_6" mask="0">
-		<position x="192" y="48" w="32" h="48" />
-	</sprite>
-	<sprite name="back_5" mask="0">
-		<position x="160" y="48" w="32" h="48" />
-	</sprite>
-	<sprite name="back_4" mask="0">
-		<position x="128" y="48" w="32" h="48" />
-	</sprite>
-	<sprite name="back_3" mask="0">
-		<position x="96" y="48" w="32" h="48" />
-	</sprite>
-	<sprite name="back_2" mask="0">
-		<position x="64" y="48" w="32" h="48" />
-	</sprite>
-	<sprite name="back_1" mask="0">
-		<position x="32" y="48" w="32" h="48" />
-	</sprite>
-	<sprite name="back_0" mask="0">
-		<position x="0" y="48" w="32" h="48" />
-	</sprite>
-	<sprite name="front_6" mask="0">
-		<position x="192" y="0" w="32" h="48" />
-	</sprite>
-	<sprite name="front_5" mask="0">
-		<position x="160" y="0" w="32" h="48" />
-	</sprite>
-	<sprite name="front_4" mask="0">
-		<position x="128" y="0" w="32" h="48" />
-	</sprite>
-	<sprite name="front_3" mask="0">
-		<position x="96" y="0" w="32" h="48" />
-	</sprite>
-	<sprite name="front_2" mask="0">
-		<position x="64" y="0" w="32" h="48" />
+<sheet xmlns="http://mokoi.info/format/sheet" hidden="hidden">
+	<sprite name="front_0" mask="0">
+		<position x="0" y="0" w="32" h="48" />
 	</sprite>
 	<sprite name="front_1" mask="0">
 		<position x="32" y="0" w="32" h="48" />
 	</sprite>
-	<sprite name="front_0" mask="0">
-		<position x="0" y="0" w="32" h="48" />
+	<sprite name="front_2" mask="0">
+		<position x="64" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="front_3" mask="0">
+		<position x="96" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="front_4" mask="0">
+		<position x="128" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="front_5" mask="0">
+		<position x="160" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="front_6" mask="0">
+		<position x="192" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="back_0" mask="0">
+		<position x="0" y="48" w="32" h="48" />
+	</sprite>
+	<sprite name="back_1" mask="0">
+		<position x="32" y="48" w="32" h="48" />
+	</sprite>
+	<sprite name="back_2" mask="0">
+		<position x="64" y="48" w="32" h="48" />
+	</sprite>
+	<sprite name="back_3" mask="0">
+		<position x="96" y="48" w="32" h="48" />
+	</sprite>
+	<sprite name="back_4" mask="0">
+		<position x="128" y="48" w="32" h="48" />
+	</sprite>
+	<sprite name="back_5" mask="0">
+		<position x="160" y="48" w="32" h="48" />
+	</sprite>
+	<sprite name="back_6" mask="0">
+		<position x="192" y="48" w="32" h="48" />
+	</sprite>
+	<sprite name="side_0" mask="0">
+		<position x="0" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="side_1" mask="0">
+		<position x="32" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="side_2" mask="0" hidden="hidden">
+		<position x="64" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="side_3" mask="0">
+		<position x="96" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="side_4" mask="0">
+		<position x="128" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="side_5" mask="0">
+		<position x="160" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="side_6" mask="0">
+		<position x="192" y="96" w="32" h="48" />
 	</sprite>
 	<animation name="front" mask="0">
 		<frame sprite="front_0" x="0" y="0" ms="120"/>

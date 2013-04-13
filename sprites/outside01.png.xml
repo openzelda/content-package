@@ -1,90 +1,90 @@
 <sheet xmlns="http://mokoi.info/format/sheet">
-	<sprite name="new_1" mask="0">
-		<position x="96" y="240" w="32" h="32" />
-	</sprite>
-	<sprite name="new_0" mask="0">
-		<position x="64" y="240" w="32" h="32" />
-	</sprite>
-	<sprite name="mt2" mask="230">
-		<position x="64" y="288" w="64" h="64" />
-	</sprite>
-	<sprite name="mt1" mask="230">
-		<position x="0" y="288" w="64" h="64" />
-	</sprite>
-	<sprite name="t0" mask="230">
-		<position x="64" y="192" w="96" h="48" />
-	</sprite>
-	<sprite name="f1_0" mask="0">
-		<position x="112" y="32" w="16" h="16" />
-	</sprite>
-	<sprite name="f1_1" mask="0">
-		<position x="128" y="32" w="16" h="16" />
-	</sprite>
-	<sprite name="f1_2" mask="0">
-		<position x="144" y="32" w="16" h="16" />
-	</sprite>
-	<sprite name="f2_0" mask="0">
-		<position x="112" y="48" w="16" h="16" />
-	</sprite>
-	<sprite name="f2_1" mask="0">
-		<position x="128" y="48" w="16" h="16" />
-	</sprite>
-	<sprite name="f2_2" mask="0">
-		<position x="144" y="48" w="16" h="16" />
-	</sprite>
-	<sprite name="f3_0" mask="0">
-		<position x="112" y="64" w="16" h="16" />
-	</sprite>
-	<sprite name="f3_1" mask="0">
-		<position x="128" y="64" w="16" h="16" />
-	</sprite>
-	<sprite name="f3_2" mask="0">
-		<position x="144" y="64" w="16" h="16" />
-	</sprite>
-	<sprite name="t1" mask="200">
-		<position x="0" y="0" w="64" h="48" />
-	</sprite>
-	<sprite name="t2" mask="200">
-		<position x="64" y="0" w="48" h="48" />
-	</sprite>
-	<sprite name="t3" mask="200">
-		<position x="0" y="48" w="64" h="48" />
-	</sprite>
-	<sprite name="t4" mask="0">
-		<position x="64" y="48" w="48" h="16" />
-	</sprite>
-	<sprite name="t5" mask="0">
-		<position x="16" y="48" w="48" h="48" />
-	</sprite>
-	<sprite name="g0" mask="0">
-		<position x="64" y="272" w="16" h="16" />
-	</sprite>
-	<sprite name="g1" mask="0">
-		<position x="80" y="272" w="16" h="16" />
-	</sprite>
-	<sprite name="g2" mask="0">
-		<position x="96" y="272" w="16" h="16" />
-	</sprite>
-	<sprite name="g3" mask="0">
-		<position x="112" y="272" w="16" h="16" />
-	</sprite>
-	<sprite name="g4" mask="0">
-		<position x="128" y="272" w="16" h="16" />
-	</sprite>
-	<sprite name="g5" mask="0">
-		<position x="144" y="272" w="16" h="16" />
-	</sprite>
-	<sprite name="g6" mask="0">
-		<position x="160" y="272" w="16" h="16" />
-	</sprite>
-	<sprite name="g7" mask="0">
-		<position x="176" y="272" w="16" h="16" />
+	<sprite name="g9" mask="0">
+		<position x="152" y="280" w="8" h="8" />
 	</sprite>
 	<sprite name="g8" mask="0">
 		<position x="192" y="272" w="16" h="16" />
 	</sprite>
-	<sprite name="g9" mask="0">
-		<position x="152" y="280" w="8" h="8" />
+	<sprite name="g7" mask="0">
+		<position x="176" y="272" w="16" h="16" />
+	</sprite>
+	<sprite name="g6" mask="0">
+		<position x="160" y="272" w="16" h="16" />
+	</sprite>
+	<sprite name="g5" mask="0">
+		<position x="144" y="272" w="16" h="16" />
+	</sprite>
+	<sprite name="g4" mask="0">
+		<position x="128" y="272" w="16" h="16" />
+	</sprite>
+	<sprite name="g3" mask="0">
+		<position x="112" y="272" w="16" h="16" />
+	</sprite>
+	<sprite name="g2" mask="0">
+		<position x="96" y="272" w="16" h="16" />
+	</sprite>
+	<sprite name="g1" mask="0">
+		<position x="80" y="272" w="16" h="16" />
+	</sprite>
+	<sprite name="g0" mask="0">
+		<position x="64" y="272" w="16" h="16" />
+	</sprite>
+	<sprite name="t5" mask="0">
+		<position x="16" y="48" w="48" h="48" />
+	</sprite>
+	<sprite name="t4" mask="0">
+		<position x="64" y="48" w="48" h="16" />
+	</sprite>
+	<sprite name="t3" mask="200">
+		<position x="0" y="48" w="64" h="48" />
+	</sprite>
+	<sprite name="t2" mask="200">
+		<position x="64" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="t1" mask="200">
+		<position x="0" y="0" w="64" h="48" />
+	</sprite>
+	<sprite name="f3_2" mask="0">
+		<position x="144" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="f3_1" mask="0">
+		<position x="128" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="f3_0" mask="0">
+		<position x="112" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="f2_2" mask="0">
+		<position x="144" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="f2_1" mask="0">
+		<position x="128" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="f2_0" mask="0">
+		<position x="112" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="f1_2" mask="0">
+		<position x="144" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="f1_1" mask="0">
+		<position x="128" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="f1_0" mask="0">
+		<position x="112" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="t0" mask="230">
+		<position x="64" y="192" w="96" h="48" />
+	</sprite>
+	<sprite name="mt1" mask="230">
+		<position x="0" y="288" w="64" h="64" />
+	</sprite>
+	<sprite name="mt2" mask="230">
+		<position x="64" y="288" w="64" h="64" />
+	</sprite>
+	<sprite name="post_0" mask="255">
+		<position x="64" y="240" w="32" h="32" />
+	</sprite>
+	<sprite name="post_1" mask="0">
+		<position x="96" y="240" w="32" h="32" />
 	</sprite>
 	<animation name="f1" mask="0">
 		<frame sprite="f1_0" x="0" y="0" ms="160"/>
@@ -101,8 +101,17 @@
 		<frame sprite="f3_1" x="0" y="0" ms="160"/>
 		<frame sprite="f3_2" x="0" y="0" ms="160"/>
 	</animation>
-	<animation name="new" mask="0">
-		<frame sprite="new_0" x="0" y="0" ms="1000"/>
-		<frame sprite="new_1" x="0" y="0" ms="1000"/>
+	<animation name="post1" mask="0">
+		<frame sprite="post_0" x="0" y="0" ms="1000"/>
+		<frame sprite="post_1" x="0" y="0" ms="1000"/>
 	</animation>
+	<sprite name="fence1" mask="255">
+		<position x="112" y="112" w="32" h="32" />
+	</sprite>
+	<sprite name="fence2" mask="255">
+		<position x="144" y="112" w="16" h="32" />
+	</sprite>
+	<sprite name="fence3" mask="255">
+		<position x="128" y="112" w="16" h="32" />
+	</sprite>
 </sheet>

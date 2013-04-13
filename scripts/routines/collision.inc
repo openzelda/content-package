@@ -12,6 +12,7 @@
  ***********************************************/
 #include <open_zelda>
 
+new mqCollisionBuffer = 2;
 stock DisplayCollisionPoints( points[8][POSITION] )
 {
 	new l,r,q = mqDirection;
@@ -32,25 +33,25 @@ stock UpdateCollisionPoints( points[8][POSITION], bx, by )
 	points[SOUTH].x = mqDisplayArea.x + (mqDisplayArea.w/2) + mqDisplayOffset.x + bx;
 	points[SOUTH].y = mqDisplayArea.y + (mqDisplayArea.h) + mqDisplayOffset.y + by;
 
-	points[SOUTHEAST].x = mqDisplayArea.x + (mqDisplayArea.w) + mqDisplayOffset.x + bx;
-	points[SOUTHEAST].y = mqDisplayArea.y + (mqDisplayArea.h) + mqDisplayOffset.y + by;
+	points[SOUTHEAST].x = mqDisplayArea.x + (mqDisplayArea.w) + mqDisplayOffset.x + bx - mqCollisionBuffer;
+	points[SOUTHEAST].y = mqDisplayArea.y + (mqDisplayArea.h) + mqDisplayOffset.y + by - mqCollisionBuffer;
 
 	points[EAST].x = mqDisplayArea.x + (mqDisplayArea.w) + mqDisplayOffset.x + bx;
 	points[EAST].y = mqDisplayArea.y + (mqDisplayArea.h/2) + mqDisplayOffset.y + by;
 
-	points[NORTHEAST].x = mqDisplayArea.x + (mqDisplayArea.w) + mqDisplayOffset.x + bx;
-	points[NORTHEAST].y = mqDisplayArea.y + mqDisplayOffset.y + by;
+	points[NORTHEAST].x = mqDisplayArea.x + (mqDisplayArea.w) + mqDisplayOffset.x + bx - mqCollisionBuffer;
+	points[NORTHEAST].y = mqDisplayArea.y + mqDisplayOffset.y + by + mqCollisionBuffer;
 
 	points[NORTH].x = mqDisplayArea.x + (mqDisplayArea.w/2) + mqDisplayOffset.x + bx;
 	points[NORTH].y = mqDisplayArea.y + mqDisplayOffset.y + by;
 
-	points[NORTHWEST].x = mqDisplayArea.x + mqDisplayOffset.x + bx +1;
-	points[NORTHWEST].y = mqDisplayArea.y + mqDisplayOffset.y + by +1;
+	points[NORTHWEST].x = mqDisplayArea.x + mqDisplayOffset.x + bx + mqCollisionBuffer;
+	points[NORTHWEST].y = mqDisplayArea.y + mqDisplayOffset.y + by + mqCollisionBuffer;
 
 	points[WEST].x = mqDisplayArea.x + mqDisplayOffset.x + bx;
 	points[WEST].y = mqDisplayArea.y + (mqDisplayArea.h/2) + mqDisplayOffset.y + by;
 
-	points[SOUTHWEST].x = mqDisplayArea.x + mqDisplayOffset.x + bx;
-	points[SOUTHWEST].y = mqDisplayArea.y + (mqDisplayArea.h) + mqDisplayOffset.y + by ;
+	points[SOUTHWEST].x = mqDisplayArea.x + mqDisplayOffset.x + bx + mqCollisionBuffer;
+	points[SOUTHWEST].y = mqDisplayArea.y + (mqDisplayArea.h) + mqDisplayOffset.y + by - mqCollisionBuffer;
 
 }

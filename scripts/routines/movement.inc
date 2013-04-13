@@ -15,7 +15,7 @@
 stock Fixed:mqMovementAngle = 0.0;
 stock Fixed:mqMovementSpeed = 0.0;
 stock mqLocations[6][4];
-stock mqHitMaskCheck[2];
+stock mqHitMaskCheck[3];
 stock bool:mqFlipYMovement = false;
 stock bool:mqFlipXMovement = false;
 stock bool:mqAllowOffscreenMovement = false
@@ -148,19 +148,19 @@ stock MoveCheck(&a, Fixed:angle, maximum_mask_value, Fixed:movex, Fixed:movey)
 	l = (mqDirection >= 7 ? 0 : mqDirection + 1);
 	r = (mqDirection == 0 ? 7 : mqDirection - 1);
 
-	new mask_value = MaskGetValue( checks[q].x, checks[q].y);
-	mqHitMaskCheck[0] = MaskGetValue( checks[l].x, checks[l].y);
-	mqHitMaskCheck[1] = MaskGetValue( checks[r].x, checks[r].y);
+	mqHitMaskCheck[0] = MaskGetValue( checks[q].x, checks[q].y);
+	mqHitMaskCheck[1] = MaskGetValue( checks[l].x, checks[l].y);
+	mqHitMaskCheck[2] = MaskGetValue( checks[r].x, checks[r].y);
 
-	if( mask_value > 255 )
+	if( mqHitMaskCheck[0] > 255 )
 	{
 		return !a;
 	}
-	else if ( !mqAllowOffscreenMovement && mask_value < 0 )
+	else if ( !mqAllowOffscreenMovement && mqHitMaskCheck[0] < 0 )
 	{
 		return false;
 	}
-	else if ( mask_value > maximum_mask_value )
+	else if ( mqHitMaskCheck[0] > maximum_mask_value )
 	{
 		if ( MaskGetValue( checks[q].x, checks[q].y) > maximum_mask_value )
 		{
@@ -171,16 +171,16 @@ stock MoveCheck(&a, Fixed:angle, maximum_mask_value, Fixed:movex, Fixed:movey)
 	}
 	else
 	{
-		if ( mqHitMaskCheck[0] > maximum_mask_value )
+		if ( mqHitMaskCheck[1] > maximum_mask_value )
 			a -= 30;
 		else
-			mqHitMaskCheck[0]  = 0;
+			mqHitMaskCheck[1]  = 0;
 
 
-		if ( mqHitMaskCheck[1] > maximum_mask_value )
+		if ( mqHitMaskCheck[2] > maximum_mask_value )
 			a += 30;
 		else
-			mqHitMaskCheck[1] = 0;
+			mqHitMaskCheck[2] = 0;
 	}
 
 	return !a;

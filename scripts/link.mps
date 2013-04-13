@@ -86,7 +86,7 @@ main()
 	DisplayPlayer();
 
 	CheckCollisions();
-	if ( Countdown(hit) )
+	if ( TimerCountdown(hit) )
 	{
 		mqState = (mqState == KNOCKED) ? STANDING : mqState;
 	}
@@ -155,7 +155,7 @@ public Hurt(type, damage, angle)
 {
 	if (mqState >= KNOCKED)
 		return;
-	if ( Countdown(hit) )
+	if ( TimerCountdown(hit) )
 	{
 		if ( mqState == USING )
 			EntityPublicFunction(mqSelectedWeapons[mqUsingWeapon], "End", ''nn'', mqDisplayObject, mqDirection);

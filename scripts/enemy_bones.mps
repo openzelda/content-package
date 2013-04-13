@@ -27,10 +27,13 @@ new LeapCount = 1000;
 new StandCount = 600;
 new HeadDirection = 0;
 
+/* Graphics */
+new graphicHead[4]{32} ;
+
 /* Display Object */
-new body[EntityGraphic] = [ OBJECT_NONE, 0, 24, 0 ];	// Display Object, Offset x, Offset y, Offset z
-new head[EntityGraphic] = [ OBJECT_NONE, 0, 0, 1 ];	// Display Object, Offset x, Offset y, Offset z
-new object:shadow = OBJECT_NONE;
+new body[EntityGraphic] = [ OBJECT_NONE, 0, 24, 0, 0, 0 ];	// Display Object, Offset x, Offset y, Offset z, width, height
+new head[EntityGraphic] = [ OBJECT_NONE, 0, 0, 1, 0, 0 ];		// Display Object, Offset x, Offset y, Offset z, width, height
+new shadow[EntityGraphic] = [ OBJECT_NONE, 4, 48, - 1, 24, 16 ];	// Display Object, Offset x, Offset y, Offset z, width, height
 
 /* Collisions Settings */
 new hitzone[3][RECT] = [ 
@@ -39,6 +42,7 @@ new hitzone[3][RECT] = [
 	[ 4, 28, 24, 16 ] // jumping body
 ];
 
+//new textColor = 0x000000FF;
 
 /* Function */
 public Init(...)
@@ -47,47 +51,65 @@ public Init(...)
 	mqDamageDealt = 50;
 	mqHealth = mqMaxHealth = 100;
 
-	mqDisplayArea.w = mqDisplayArea.h =  24;
-	mqDisplayOffset.x = 2;
-	mqDisplayOffset.y = 28;
+	HeadDirection = SOUTH;
 
-	SetStateGraphic( STANDING, "enemy_bones01.png", "front_0", "side_0", "back_0", "side_0" );
-	SetStateGraphic( MOVING, "enemy_bones01.png", "front", "side", "back", "side" );
-	SetStateGraphic( LEAPING, "enemy_bones01.png", "stomp", "stomp", "stomp", "stomp" );
-	SetStateGraphic( DYING, "enemy_bones01.png", "front_0", "side_0", "back_0", "side_0" );
+	/* These are used more for collision through EntityMove then for Display.*/
+	mqDisplayArea.w = mqDisplayArea.h =  24;
+	mqDisplayOffset.x = 4;
+	mqDisplayOffset.y = 28;
 
 	EnemyInit();
 
-	/* Retrive Display Objects */
-	body.obj = object:EntityGetNumber("object-id");
-	head.obj = ObjectCreate( "enemy_bones01.png:head_front", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex + 1000, 0, 0, WHITE );
-	shadow = ObjectCreate( "", CIRCLE, mqDisplayArea.x, mqDisplayArea.y+32, mqDisplayZIndex-1, 16, 8, 0x000000AA);
-	ShowObjects( head.obj, body.obj, shadow );
+	SetStateGraphic( STANDING, mqSheet, "front_0", "side_0", "back_0", "side_0" );
+	SetStateGraphic( MOVING, mqSheet, "front", "side", "back", "side" );
+	SetStateGraphic( LEAPING, mqSheet, "stomp", "stomp", "stomp", "stomp" );
+	SetStateGraphic( DYING, mqSheet, "front_0", "side_0", "back_0", "side_0" );
+
+	StringFormat( graphicHead[0], _, true, "%s:head_front", mqSheet);
+	StringFormat( graphicHead[1], _, true, "%s:head_side", mqSheet);
+	StringFormat( graphicHead[2], _, true, "%s:head_back", mqSheet);
+	StringFormat( graphicHead[3], _, true, "%s:head_side", mqSheet);
+
+	//textColor = (NumberRandom(0xffffff) << 8) + 0xff;
+
+	/* Retrieve Display Objects */
+	ObjectToggle( object:EntityGetObject(), false  ); // We don't the map placeholder object, we will use our own.
+
+	CreateEntityGraphics( body, STATE_GRAPHIC );
+	CreateEntityGraphics( head, graphicHead[0] );
+	CreateEntityShadow( shadow );
+
 }
 
 public Close()
 {
 	CollisionSet(SELF, -1, 0);
-	ObjectDelete(shadow);
-	ObjectDelete(head.obj);
+	DeleteEntityGraphics(shadow);
+	DeleteEntityGraphics( body );
+	DeleteEntityGraphics( head );
 }
 
 main()
 {
-
 	if ( mqState == GONE || GameState() != 1 )
 	{
 		return;
 	}
-
-	StringFormat(error_message,_, true,"x: %d y: %d z: %d l: %d", mqDisplayArea.x, mqDisplayArea.y,mqDisplayZIndex, mqDisplayLayer)
-	GraphicsDraw(error_message, TEXT, mqDisplayArea.x, mqDisplayArea.y, 5000, 0 ,0, 0xFF0000FF );
+/*
+	StringFormat(error_message, _, true, "Head: %d\nID: %d", body.obj, head.obj );
+	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-20, mqDisplayArea.y-20, 5000, 0, 0, 0x000000FF );
+	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-21, mqDisplayArea.y-21, 5001, 0, 0, textColor );
+*/
+	StringFormat(error_message, _, true, "Health: %d\nmqDeathTimer: %d\nHitCount: %d", mqHealth, mqDeathTimer, HitCount);
+	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-20, mqDisplayArea.y-20, 5000, 0, 0, 0x000000FF );
+	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-21, mqDisplayArea.y-21, 5001, 0, 0, 0xffffffff );
 
 	if ( HasStateChanged() )
 	{
 		ResetObjects( head.obj, body.obj );
 	}
 
+	/* Collisions Settings */
 	new q = (mqState == LEAPING ? 2 : 0); // Use which hit zone to use
 	CollisionSet(SELF, 0, TYPE_ENEMY, mqDisplayArea.x + hitzone[q].x, mqDisplayArea.y + hitzone[q].y, hitzone[q].w, hitzone[q].h );
 	CollisionSet(SELF, 1, TYPE_AWAKING, mqDisplayArea.x + hitzone[1].x, mqDisplayArea.y + hitzone[1].y, hitzone[1].w, hitzone[1].h );
@@ -103,81 +125,84 @@ main()
 		case HIT:
 			State_Hurt();
 		case DYING:
-		{
-			ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
-			ColourEntityGraphics( body, 0xDD0000FF);
-			ColourEntityGraphics( head, 0xDD0000FF);
-			HandleDying();
-		}
+			State_Dying();
 		case SPECIALSTATE:
-		{
 			State_Special();
-		}
 		case DEAD:
 		{
-			ObjectToggle( body.obj, false  );
-			ObjectDelete( head.obj );
-			ObjectDelete(shadow);
+			DeleteEntityGraphics(shadow);
+			DeleteEntityGraphics( body );
+			DeleteEntityGraphics( head );
 			CollisionSet(SELF, -1, 0);
-			SetState(GONE);
+			SetState(GONE); 
 			return;
 		}
 	}
+
+	SetHeadDir();
 	UpdateEntityGraphics( head );
 	UpdateEntityGraphics( body );
+	UpdateEntityGraphics( shadow );
+
+	// Leaping Graphics have a special position code
 	if ( mqState == LEAPING )
 	{
-		ObjectPosition( body.obj, mqDisplayArea.x+body.x, mqDisplayArea.y+body.y-4, mqDisplayZIndex+body.z, 0, 0);
+		ObjectPosition( body.obj, mqDisplayArea.x+body.x, mqDisplayArea.y+body.y-6, mqDisplayZIndex+body.z, 0, 0);
 	}
-	ObjectPosition( shadow, mqDisplayArea.x+4, mqDisplayArea.y+48, mqDisplayZIndex-1, 24, 8);
-
+	
 }
 
 /* Local Function */
 
-SetHeadDir(head_direction)
+SetHeadDir()
 {
-	head_direction %= 8;
-	switch ( head_direction/2 ) 
-	{
-		case 1:
-			ReplaceEntityGraphics( head, "enemy_bones01.png:head_side", false );
-		case 2:
-			ReplaceEntityGraphics( head, "enemy_bones01.png:head_front", false );
-		case 3:
-			ReplaceEntityGraphics( head, "enemy_bones01.png:head_side", true );
-		default:
-			ReplaceEntityGraphics( head, "enemy_bones01.png:head_front", false );
-	}
+	new n = (HeadDirection/2)%4;
+
+	ReplaceEntityGraphics( head, graphicHead[n], (n == 3 ? true : false) );
+
 }
 
 ChangeHeadDir()
 {
-		HeadDirection = mqDirection;
-		if ( random(2) )
-			HeadDirection+=2;
-		else
-			HeadDirection=2;
-		StandCount = 1000;
-		SetState(STANDING);
+	new new_dir;
+	new_dir = HeadDirection;
+	do {
+		new_dir = random(4)*2;
+	} while ( HeadDirection == new_dir );
+
+	HeadDirection = new_dir;
+	
 }
 
 
 /* States */
+State_Dying()
+{
+	ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
+	ColourEntityGraphics( body, 0xDD0000FF);
+	ColourEntityGraphics( head, 0xDD0000FF);
+	HandleDying();
+}
+
 State_Move()
 {
 	ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
-	SetHeadDir(mqDirection);
 	
-	if ( !random(500) ) // Change Direction
+	
+	if ( !random(50) ) // Change Direction
 	{
 		ChangeHeadDir();
+		StandCount = 1000;
+		SetState(STANDING);
 	}
 	else
 	{
-		if ( EntityMove( MASK_ENEMYSOLID2, true ) > 1 )
+		mqMovementAngle = Dir2Angle(mqDirection);
+		if ( !EntityMove( MASK_ENEMYSOLID2, false )  )
 		{
-			ChangeHeadDir();
+			StandCount = 1000;
+			SetState(STANDING);
+			
 		}
 	}
 }
@@ -186,10 +211,11 @@ State_Move()
 State_Leap()
 {
 	ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
-	ReplaceEntityGraphics( head, "enemy_bones01.png:head_front", false );
+	ReplaceEntityGraphics( head, graphicHead[0], false ); //Always look south
+
 	EntityMove( MASK_ENEMYSOLID2, true );
 
-	if ( Countdown(LeapCount) ) // Check the hit counter
+	if ( TimerCountdown(LeapCount) ) // Check the hit counter
 	{
 		SetState(STANDING);
 		RandomizeMovement();
@@ -201,11 +227,14 @@ State_Leap()
 State_Stand()
 {
 	ReplaceEntityGraphics( body, STATE_GRAPHIC, STATE_FLIP );
-	SetHeadDir(HeadDirection);
 
-	if ( Countdown(StandCount) ) // Start Moving Again
+	if ( !random(500) ) // Change Head Direction
 	{
-		mqMovementAngle = Dir2Angle(HeadDirection);
+		ChangeHeadDir();
+	}
+
+	if ( TimerCountdown(StandCount) ) // Start Moving Again
+	{
 		SetDir(HeadDirection);
 		SetState(MOVING);
 	}
@@ -224,7 +253,7 @@ State_Hurt()
 
 	EntityMove( MASK_ENEMYSOLID2 );
 
-	if ( Countdown(HitCount) ) // Check the hit counter
+	if ( TimerCountdown(HitCount) ) // Check the hit counter
 	{
 		SetState(MOVING);
 		RandomizeMovement();
@@ -240,11 +269,11 @@ State_Special()
 		case STUNNED:
 		{
 			StunnedEffect( mqEffectTimer );
-			ReplaceEntityGraphics( body, "enemy_bones01.png:front_0", false );
+			ReplaceEntityGraphics( body, STATE_GRAPHIC, false );
 		}
 		case FROZEN:
 		{
-			ReplaceEntityGraphics( body, "enemy_bones01.png:front_0", false );
+			ReplaceEntityGraphics( body, STATE_GRAPHIC, false );
 			ColourEntityGraphics( body, 0x0000FFFF);
 		}
 		case SHOCKED:
@@ -260,7 +289,7 @@ State_Special()
 		}
 	}
 
-	if ( Countdown(mqEffectTimer) ) //Reset State
+	if ( TimerCountdown(mqEffectTimer) ) //Reset State
 	{
 		SetState(STANDING);
 	}
@@ -270,6 +299,7 @@ State_Special()
 
 
 /* Public Functions */
+//public Hit( entityId:attacker, angle, dist, attack, damage, x, y, rect )
 PUBLIC_EVENT_HIT
 {
 	if ( mqState == HIT || mqState == DYING || mqState == GONE )
@@ -277,11 +307,11 @@ PUBLIC_EVENT_HIT
 
 	mqAttacker = attacker;
 
-	if ( attack&APLAYER == APLAYER )
+	if ( mqAttacker&APLAYER == APLAYER )
 	{
-		EntityPublicFunction( mqAttacker, "Hurt", "nnn", ASWORD, mqDamageDealt, angle );
+		CallEntityHurt( mqAttacker, ASWORD, mqDamageDealt, angle );
 	}
-	else if ( mqState != HIT)
+	else if ( mqState != HIT )
 	{
 		mqMovementAngle = fixed(angle);
 		if ( rect == 1 )

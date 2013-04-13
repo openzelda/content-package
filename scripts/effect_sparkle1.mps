@@ -22,7 +22,7 @@ public Init(...)
 
 main()
 {
-	if ( Countdown( animationLength ) )
+	if ( TimerCountdown( animationLength ) )
 	{
 		EntityDelete();
 	}

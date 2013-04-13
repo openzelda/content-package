@@ -33,7 +33,7 @@ main()
 
 {
 
-	if ( Countdown(timeout) )
+	if ( TimerCountdown(timeout) )
 		EntityDelete();
 
 }

@@ -97,13 +97,13 @@
 	<color red="255" blue="255" green="255" alpha="255" />
 </object>
 <object value="dungeon01.png:new" type="sprite" id="*">
-	<position x="398" y="315" w="32" h="32" z="1000" l="1" r="0" f="0"/>
+	<position x="224" y="168" w="32" h="32" z="1000" l="1" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="mirror" value="false" />
 	<entity value="block" language="mps" global="false"/>
 </object>
 <object value="outside01.png:mt2" type="sprite">
-	<position x="221" y="18" w="64" h="64" z="0" l="0" r="0" f="0"/>
+	<position x="221" y="18" w="64" h="64" z="-1000" l="-1" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<path>
 		<point x="221" y="18" ms="10"/>
@@ -123,16 +123,6 @@
 	<setting key="off-event" value="" />
 	<setting key="weighted" value="1" />
 	<entity value="switch" language="mps" global="false"/>
-</object>
-<object value="dungeon01.png:ent" type="sprite" id="*">
-	<position x="201" y="295" w="64" h="48" z="1000" l="1" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="target" value="" />
-	<setting key="dungeon-id" value="" />
-	<setting key="section" value="" />
-	<setting key="grid" value="-1" />
-	<setting key="mirror" value="false" />
-	<entity value="dungeon_entrance" language="mps" global="false"/>
 </object>
 <object value="dungeon00.png:gem1" type="sprite" id="*">
 	<position x="135" y="294" w="32" h="32" z="0" l="0" r="0" f="0"/>
@@ -155,5 +145,25 @@
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="Weapon" value="weapon_test" />
 	<entity value="link" language="mps" global="true"/>
+</object>
+<object value="outside01.png:post1" type="sprite">
+	<position x="328" y="68" w="32" h="32" z="0" l="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="outside01.png:fence1" type="sprite">
+	<position x="0" y="0" w="512" h="32" z="0" l="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="outside01.png:fence2" type="sprite">
+	<position x="496" y="0" w="16" h="352" z="0" l="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="outside01.png:fence1" type="sprite">
+	<position x="0" y="352" w="512" h="32" z="0" l="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="outside01.png:fence2" type="sprite">
+	<position x="0" y="32" w="16" h="320" z="0" l="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
 </object>
 </map>

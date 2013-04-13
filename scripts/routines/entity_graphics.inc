@@ -16,16 +16,28 @@
 
 stock ReplaceEntityGraphics( display_object[EntityGraphic], image{}, bool:flip, bool:force = false )
 {
-	//if ( mqUpdate || force )
-	//{
+	if ( mqUpdate || force )
+	{
 		ObjectReplace( display_object.obj, image, SPRITE );
 		ObjectEffect( display_object.obj, .mirror = (flip ? 16 : 0) );
-	//}
+	}
 }
 
 stock UpdateEntityGraphics( display_object[EntityGraphic] )
 {
-	ObjectPosition( display_object.obj, mqDisplayArea.x + display_object.x, mqDisplayArea.y + display_object.y, mqDisplayZIndex + display_object.z, 0, 0);
+	ObjectPosition( display_object.obj, mqDisplayArea.x + display_object.x, mqDisplayArea.y + display_object.y, mqDisplayZIndex + display_object.z, display_object.width, display_object.height);
+}
+
+
+stock CreateEntityGraphics( display_object[EntityGraphic], initial_sprite{} )
+{
+	display_object.obj = ObjectCreate( initial_sprite, SPRITE, mqDisplayArea.x + display_object.x, mqDisplayArea.y + display_object.y, mqDisplayZIndex + display_object.z, display_object.width, display_object.height, WHITE );
+}
+
+stock DeleteEntityGraphics( display_object[EntityGraphic] )
+{
+	ObjectDelete( display_object.obj );
+	display_object.obj = OBJECT_NONE;
 }
 
 

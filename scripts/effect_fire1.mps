@@ -35,12 +35,12 @@ main()
 {
 	if ( mqState == DYING )
 	{
-		if ( Countdown(timeout) )
+		if ( TimerCountdown(timeout) )
 			EntityDelete();
 	}
 	else
 	{
-		if ( Countdown(timeout) )
+		if ( TimerCountdown(timeout) )
 		{
 			ObjectReplace(obj, "fire1.png:2", SPRITE );
 			ObjectFlag(obj, FLAG_ANIMLOOP, 0);

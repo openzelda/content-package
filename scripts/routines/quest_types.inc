@@ -77,7 +77,7 @@ stock type_name[11]{} = [ "UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPORT
 #define SwitchEvent[.active, .entity, .function{24}]
 
 #define EntityInfo[.hash, .id{32}]
-#define EntityGraphic[object:.obj, .x, .y, .z]
+#define EntityGraphic[object:.obj, .x, .y, .z, .width, .height]
 
 
 stock entityId:private_map_id = 0;

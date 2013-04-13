@@ -10,26 +10,38 @@
  * Changes:
  *     2010/02/09 [luke]: new file.
  ***********************************************/
-
-#define DEATHLENGTH 2500
+#define DEATHLENGTH 480
 #include <enemy>
-#include <public_events>
+#include <entity_graphics>
+
+
+/* Public Function */
+
+forward PUBLIC_EVENT_HIT;
 
 new Fixed:TakeMagicCount = 0.00;
 new TakeMagic = true;
 new last = -1;
+new prev[.x, .y] = { 0, 0 };
+
 
 public Init( ... )
 {
 	mqMovementSpeed = 100;   
 	mqDamageDealt = 50;
 	mqHealth = 50;
+
 	mqState = MOVING;
+
+
+	/* These are used more for collision through EntityMove then for Display.*/
 	mqDisplayArea.h = mqDisplayArea.w = 38;
-	mqDisplayOffset.x = mqDisplayOffset.y = 1;
+	mqDisplayOffset.x = mqDisplayOffset.y = 0;
+
+
 	EnemyInit();
 
-	mqDirection = 1;
+	mqDirection = SOUTHWEST;
 	mqMovementAngle= Dir2Angle(mqDirection);
 	mqDisplayObject = EntityGetObject();
 }
@@ -46,15 +58,28 @@ main()
 	if ( mqState == DEAD || GameState() != 1 )
 		return;
 
-	if ( !EntityMove( MASK_ENEMYSOLID2, false ) )
+	StringFormat(error_message, _, true, "Health: %d x %d\n%d < %d > %d", mqDisplayArea.x, mqDisplayArea.y, mqHitMaskCheck[1], mqHitMaskCheck[0], mqHitMaskCheck[1] );
+	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-20, mqDisplayArea.y-20, 5000, 0, 0, 0x000000FF );
+	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-21, mqDisplayArea.y-21, 5001, 0, 0, 0xffffffff );
+
+	
+
+	if ( !EntityMove( MASK_ENEMYSOLID2, false ))
 	{
-		mqDirection += ( !mqHitMaskCheck[0] ? 2 : -2);
-		last = ( !mqHitMaskCheck[0] ? 2 : -2);
+		new next = ( !mqHitMaskCheck[1]  ? 2 : -2);
+
+		mqDirection += next;
+		last = next;
 		mqMovementAngle = Dir2Angle(mqDirection);
 	}
-	CollisionSet(SELF, 1, TYPE_ENEMY, mqDisplayArea.x+3, mqDisplayArea.y+3, 34, 34 );
-	ObjectPosition( mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, 3, 0, 0 );
+
+	CollisionSet(SELF, 1, TYPE_ENEMY, mqDisplayArea.x + 3, mqDisplayArea.y+3, 34, 34 );
+	ObjectPosition( mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0 );
 }
+
+
+
+/* Public Functions */
 
 PUBLIC_EVENT_HIT
 {
@@ -63,7 +88,7 @@ PUBLIC_EVENT_HIT
 
 	if ( attack&APLAYER == APLAYER )
 	{
-		EntityPublicFunction( attacker, "Hurt", "nnn", AMAGIC, 50, angle );
+		EntityPublicFunction( attacker, "Hurt", ''nnn'', AMAGIC, 50, angle );
 
 		if ( TakeMagic )
 		{
