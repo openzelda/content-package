@@ -17,7 +17,6 @@
 
 forward PUBLIC_EVENT_PRESSED
 
-new obj = -1;
 new audio = false;
 new state_changed = false;
 new pressed = false;
@@ -26,7 +25,7 @@ new events[2][SwitchEvent];
 
 public Init(...)
 {
-	SetupEntity( _STATE:RELEASED, TYPE_SWITCH, obj, 32, 32 );
+	SetupEntity( _STATE:RELEASED, TYPE_SWITCH, mqDisplayObject, 32, 32 );
 
 	EntityGetSetting("on-event", events[1].function );
 	events[1].entity = EntityGetSettingHash("on-entity");
@@ -73,7 +72,7 @@ main()
 		audio = false;
 		if ( events[mqState].active )
 			EntityPublicFunction(events[mqState].entity, events[mqState].function);
-		ObjectReplace( obj, ( mqState == _STATE:PRESSED ? "switch01.png:2" : "switch01.png:1"), SPRITE );
+		ObjectReplace( mqDisplayObject, ( mqState == _STATE:PRESSED ? "switch01.png:2" : "switch01.png:1"), SPRITE );
 		SoundPlayOnce( audio, ( mqState == _STATE:PRESSED ? "switch_pressed.wav" : "switch_release.wav") );
 	}
 	state_changed = false;

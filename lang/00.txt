@@ -1,3 +1,3 @@
 TITLE
 Enemies_Killed
-TeSt
+Press \342\235\266 to swing your sword

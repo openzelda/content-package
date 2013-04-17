@@ -23,7 +23,7 @@ native NetworkMessage(reliable, server, message[], length, reallength = sizeof(m
 forward public UpdatePosition();
 forward public Push(attacker, rect, angle);
 
-new playingAudio = false;
+new playingAudio = 0;
 
 /*
 public NetMessage(player, array[], size)
@@ -50,6 +50,8 @@ public Init(...)
 	ObjectInfo( mqDisplayObject, mqDisplayArea.w, mqDisplayArea.h );
 
 	StorePosition();
+
+	Update();
 }
 
 public UpdatePosition()
@@ -78,11 +80,12 @@ public Push(attacker, rect, angle)
 		angle = (angle/45)*45;
 		if ( !(angle % 90) ) // Angle Must be multiple of 90
 		{
+		//Reset Audio playback
+		//playingAudio = false;
 			mqMovementAngle = fixed(angle);
 			SoundPlayOnce(playingAudio, "object_push.wav");
 			mqState = MOVING;
-			if ( mqMovementAngle < 0 )
-				mqMovementAngle += 360.0;
+			mqMovementAngle %= 360.0;
 			mqMovementAngle = 360.0 - mqMovementAngle;
 		}
 	}
@@ -116,6 +119,10 @@ main()
 			Update();
 		}
 		MaskFill(mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h, MASK_BLOCK);
+	}
+	else
+	{
+
 	}
 
 }

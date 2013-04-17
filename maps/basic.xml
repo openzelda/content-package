@@ -110,7 +110,7 @@
 	<color red="255" blue="255" green="255" alpha="255" />
 </object>
 <object value="dungeon01.png:new" type="sprite">
-	<position x="165" y="292" w="32" h="32" z="3000" l="3" r="0" f="0"/>
+	<position x="232" y="112" w="32" h="32" z="3000" l="3" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="mirror" value="false" />
 	<entity value="block" language="mps" global="false"/>
@@ -127,22 +127,8 @@
 		<point x="586" y="244" ms="10"/>
 	</path>
 </object>
-<object value="pzeldan.png:front" type="sprite">
-	<position x="286" y="203" w="32" h="48" z="3000" l="3" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="mirror" value="false" />
-	<entity value="npc_basic" language="mps" global="false"/>
-	<path>
-		<point x="286" y="203" ms="10"/>
-		<point x="405" y="236" ms="10"/>
-		<point x="363" y="109" ms="10"/>
-		<point x="130" y="176" ms="10"/>
-		<point x="153" y="330" ms="10"/>
-		<point x="364" y="374" ms="10"/>
-	</path>
-</object>
 <object value="switch01.png:1" type="sprite">
-	<position x="161" y="109" w="32" h="32" z="0" l="0" r="0" f="0"/>
+	<position x="200" y="112" w="32" h="32" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="off-entity" value="" />
 	<setting key="on-event" value="" />
@@ -158,5 +144,15 @@
 <object value="outside01.png:mt1" type="sprite">
 	<position x="64" y="448" w="384" h="64" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="String 2" type="text">
+	<position x="140" y="100" w="40" h="9" z="0" l="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="number" value="2" type=""/>
+</object>
+<object value="Text" type="text">
+	<position x="321" y="97" w="40" h="7" z="0" l="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="number" value="-1" type=""/>
 </object>
 </map>
