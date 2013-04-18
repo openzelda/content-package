@@ -146,12 +146,12 @@
 	<color red="255" blue="255" green="255" alpha="255" />
 </object>
 <object value="String 2" type="text">
-	<position x="140" y="100" w="40" h="9" z="0" l="0" r="0" f="0"/>
+	<position x="140" y="100" w="30" h="8" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="number" value="2" type=""/>
 </object>
 <object value="Text" type="text">
-	<position x="321" y="97" w="40" h="7" z="0" l="0" r="0" f="0"/>
+	<position x="321" y="97" w="18" h="6" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="number" value="-1" type=""/>
 </object>
