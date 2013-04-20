@@ -1,90 +1,90 @@
-<sheet xmlns="http://mokoi.info/format/sheet">
-	<sprite name="swing_frame_8" mask="0">
-		<position x="256" y="0" w="32" h="32" />
-		<collision id="0" x="18" y="20" w="10" h="8" />
-		<collision id="1" x="5" y="13" w="12" h="10" />
-	</sprite>
-	<sprite name="swing_frame_7" mask="0">
-		<position x="224" y="0" w="32" h="32" />
-		<collision id="0" x="20" y="11" w="9" h="13" />
-		<collision id="1" x="9" y="18" w="10" h="8" />
-	</sprite>
-	<sprite name="swing_frame_6" mask="0">
-		<position x="192" y="0" w="32" h="32" />
-		<collision id="0" x="14" y="9" w="15" h="18" />
-	</sprite>
-	<sprite name="swing_frame_0" mask="0">
-		<position x="0" y="0" w="32" h="32" />
-		<collision id="0" x="4" y="4" w="22" h="4" />
-	</sprite>
-	<sprite name="swing_frame_1" mask="0">
-		<position x="32" y="0" w="32" h="32" />
-		<collision id="0" x="9" y="22" w="15" h="8" />
-		<collision id="1" x="18" y="10" w="9" h="11" />
-	</sprite>
-	<sprite name="swing_frame_2" mask="0">
-		<position x="64" y="0" w="32" h="32" />
-		<collision id="0" x="16" y="10" w="6" h="10" />
-		<collision id="1" x="11" y="19" w="7" h="10" />
-	</sprite>
-	<sprite name="swing_frame_3" mask="0">
-		<position x="96" y="0" w="32" h="32" />
-		<collision id="0" x="13" y="12" w="6" h="16" />
-	</sprite>
-	<sprite name="swing_frame_4" mask="0">
-		<position x="128" y="0" w="32" h="32" />
-		<collision id="0" x="16" y="7" w="15" h="18" />
-	</sprite>
-	<sprite name="swing_frame_5" mask="0">
-		<position x="160" y="0" w="32" h="32" />
-		<collision id="0" x="11" y="4" w="18" h="9" />
-	</sprite>
-	<sprite name="swing_frame_10" mask="0">
-		<position x="0" y="32" w="32" h="32" />
-		<collision id="0" x="10" y="14" w="20" h="6" />
-	</sprite>
-	<sprite name="swing_frame_11" mask="0">
-		<position x="32" y="32" w="32" h="32" />
-		<collision id="0" x="11" y="8" w="19" h="11" />
-	</sprite>
-	<sprite name="swing_frame_12" mask="0">
-		<position x="64" y="32" w="32" h="32" />
-		<collision id="0" x="17" y="2" w="8" h="9" />
-		<collision id="1" x="7" y="8" w="9" h="8" />
-	</sprite>
-	<sprite name="swing_frame_13" mask="0">
-		<position x="96" y="32" w="32" h="32" />
-		<collision id="0" x="8" y="2" w="7" h="19" />
-	</sprite>
-	<sprite name="swing_frame_14" mask="0">
-		<position x="128" y="32" w="32" h="32" />
-		<collision id="0" x="13" y="2" w="6" h="19" />
-	</sprite>
-	<sprite name="swing_frame_15" mask="0">
-		<position x="160" y="32" w="32" h="32" />
-		<collision id="0" x="12" y="2" w="5" h="19" />
-	</sprite>
-	<sprite name="swing_frame_16" mask="0">
-		<position x="192" y="32" w="32" h="32" />
-		<collision id="0" x="6" y="1" w="12" h="10" />
-		<collision id="1" x="12" y="11" w="10" h="11" />
-	</sprite>
-	<sprite name="swing_frame_17" mask="0">
-		<position x="224" y="32" w="32" h="32" />
-		<collision id="0" x="4" y="9" w="8" h="10" />
-		<collision id="1" x="12" y="17" w="7" h="9" />
-	</sprite>
-	<sprite name="swing_frame_18" mask="0">
-		<position x="256" y="32" w="32" h="32" />
-		<collision id="0" x="0" y="15" w="18" h="10" />
+<sheet xmlns="http://mokoi.info/format/sheet" hidden="hidden">
+	<sprite name="swing_frame_19" mask="0">
+		<position x="288" y="32" w="32" h="32" />
 	</sprite>
 	<sprite name="swing_frame_9" mask="0">
 		<position x="288" y="0" w="32" h="32" />
 		<collision id="0" x="14" y="20" w="9" h="9" />
 		<collision id="1" x="6" y="14" w="9" h="8" />
 	</sprite>
-	<sprite name="swing_frame_19" mask="0">
-		<position x="288" y="32" w="32" h="32" />
+	<sprite name="swing_frame_18" mask="0">
+		<position x="256" y="32" w="32" h="32" />
+		<collision id="0" x="0" y="15" w="18" h="10" />
+	</sprite>
+	<sprite name="swing_frame_17" mask="0">
+		<position x="224" y="32" w="32" h="32" />
+		<collision id="0" x="4" y="9" w="8" h="10" />
+		<collision id="1" x="12" y="17" w="7" h="9" />
+	</sprite>
+	<sprite name="swing_frame_16" mask="0">
+		<position x="192" y="32" w="32" h="32" />
+		<collision id="0" x="6" y="1" w="12" h="10" />
+		<collision id="1" x="12" y="11" w="10" h="11" />
+	</sprite>
+	<sprite name="swing_frame_15" mask="0">
+		<position x="160" y="32" w="32" h="32" />
+		<collision id="0" x="12" y="2" w="5" h="19" />
+	</sprite>
+	<sprite name="swing_frame_14" mask="0">
+		<position x="128" y="32" w="32" h="32" />
+		<collision id="0" x="13" y="2" w="6" h="19" />
+	</sprite>
+	<sprite name="swing_frame_13" mask="0">
+		<position x="96" y="32" w="32" h="32" />
+		<collision id="0" x="8" y="2" w="7" h="19" />
+	</sprite>
+	<sprite name="swing_frame_12" mask="0">
+		<position x="64" y="32" w="32" h="32" />
+		<collision id="0" x="17" y="2" w="8" h="9" />
+		<collision id="1" x="7" y="8" w="9" h="8" />
+	</sprite>
+	<sprite name="swing_frame_11" mask="0">
+		<position x="32" y="32" w="32" h="32" />
+		<collision id="0" x="11" y="8" w="19" h="11" />
+	</sprite>
+	<sprite name="swing_frame_10" mask="0">
+		<position x="0" y="32" w="32" h="32" />
+		<collision id="0" x="10" y="14" w="20" h="6" />
+	</sprite>
+	<sprite name="swing_frame_5" mask="0">
+		<position x="160" y="0" w="32" h="32" />
+		<collision id="0" x="11" y="4" w="18" h="9" />
+	</sprite>
+	<sprite name="swing_frame_4" mask="0">
+		<position x="128" y="0" w="32" h="32" />
+		<collision id="0" x="16" y="7" w="15" h="18" />
+	</sprite>
+	<sprite name="swing_frame_3" mask="0">
+		<position x="96" y="0" w="32" h="32" />
+		<collision id="0" x="13" y="12" w="6" h="16" />
+	</sprite>
+	<sprite name="swing_frame_2" mask="0">
+		<position x="64" y="0" w="32" h="32" />
+		<collision id="0" x="16" y="10" w="6" h="10" />
+		<collision id="1" x="11" y="19" w="7" h="10" />
+	</sprite>
+	<sprite name="swing_frame_1" mask="0">
+		<position x="32" y="0" w="32" h="32" />
+		<collision id="0" x="9" y="22" w="15" h="8" />
+		<collision id="1" x="18" y="10" w="9" h="11" />
+	</sprite>
+	<sprite name="swing_frame_0" mask="0" hidden="hidden">
+		<position x="0" y="0" w="32" h="32" />
+		<collision id="0" x="4" y="4" w="22" h="4" />
+	</sprite>
+	<sprite name="swing_frame_6" mask="0">
+		<position x="192" y="0" w="32" h="32" />
+		<collision id="0" x="14" y="9" w="15" h="18" />
+	</sprite>
+	<sprite name="swing_frame_7" mask="0">
+		<position x="224" y="0" w="32" h="32" />
+		<collision id="0" x="20" y="11" w="9" h="13" />
+		<collision id="1" x="9" y="18" w="10" h="8" />
+	</sprite>
+	<sprite name="swing_frame_8" mask="0">
+		<position x="256" y="0" w="32" h="32" />
+		<collision id="0" x="18" y="20" w="10" h="8" />
+		<collision id="1" x="5" y="13" w="12" h="10" />
 	</sprite>
 	<animation name="swing-front" mask="0">
 		<frame sprite="swing_frame_0" x="-23" y="-9" ms="150"/>

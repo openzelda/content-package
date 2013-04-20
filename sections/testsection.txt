@@ -1,2 +1,2 @@
-#	0	64	64
-empty	0	0
+#	0	0	0
+section_map1	0	0

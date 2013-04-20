@@ -1,4 +1,4 @@
-<sheet xmlns="http://mokoi.info/format/sheet">
+<sheet xmlns="http://mokoi.info/format/sheet" hidden="hidden">
 	<sprite name="background" mask="0">
 		<position x="0" y="0" w="512" h="512" />
 	</sprite>

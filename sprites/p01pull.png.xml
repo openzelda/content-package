@@ -1,23 +1,23 @@
-<sheet xmlns="http://mokoi.info/format/sheet">
-	<sprite name="sweat" mask="0">
-		<position x="200" y="0" w="16" h="16" />
-	</sprite>
-	<sprite name="front" mask="0">
-		<position x="0" y="0" w="32" h="48" />
-	</sprite>
-	<sprite name="front1" mask="0">
-		<position x="32" y="0" w="32" h="48" />
-	</sprite>
-	<sprite name="back" mask="0">
-		<position x="64" y="0" w="32" h="48" />
-	</sprite>
-	<sprite name="back1" mask="0">
-		<position x="96" y="0" w="32" h="48" />
+<sheet xmlns="http://mokoi.info/format/sheet" hidden="hidden">
+	<sprite name="side1" mask="0">
+		<position x="160" y="0" w="40" h="48" />
 	</sprite>
 	<sprite name="side" mask="0">
 		<position x="128" y="0" w="32" h="48" />
 	</sprite>
-	<sprite name="side1" mask="0">
-		<position x="160" y="0" w="40" h="48" />
+	<sprite name="back1" mask="0">
+		<position x="96" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="back" mask="0">
+		<position x="64" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="front1" mask="0">
+		<position x="32" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="front" mask="0" hidden="hidden">
+		<position x="0" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="sweat" mask="0">
+		<position x="200" y="0" w="16" h="16" />
 	</sprite>
 </sheet>

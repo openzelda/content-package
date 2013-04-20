@@ -1,24 +1,24 @@
 <sheet xmlns="http://mokoi.info/format/sheet">
-	<sprite name="flame_1" mask="0">
-		<position x="16" y="128" w="16" h="16" />
+	<sprite name="3" mask="0" hidden="hidden">
+		<position x="256" y="0" w="128" h="128" />
 	</sprite>
-	<sprite name="flame_0" mask="0">
-		<position x="0" y="128" w="16" h="16" />
-	</sprite>
-	<sprite name="1" mask="0">
-		<position x="0" y="0" w="128" h="128" />
-	</sprite>
-	<sprite name="2" mask="0">
+	<sprite name="2" mask="0" hidden="hidden">
 		<position x="128" y="0" w="128" h="128" />
 	</sprite>
-	<sprite name="3" mask="0">
-		<position x="256" y="0" w="128" h="128" />
+	<sprite name="1" mask="0" hidden="hidden">
+		<position x="0" y="0" w="128" h="128" />
+	</sprite>
+	<sprite name="flame_0" mask="0" hidden="hidden">
+		<position x="0" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="flame_1" mask="0" hidden="hidden">
+		<position x="16" y="128" w="16" h="16" />
 	</sprite>
 	<animation name="0" mask="0">
 		<frame sprite="1" x="0" y="0" ms="400"/>
 		<frame sprite="2" x="0" y="0" ms="400"/>
 	</animation>
-	<animation name="flame" mask="0">
+	<animation name="flame" mask="0" hidden="hidden">
 		<frame sprite="flame_0" x="0" y="0" ms="80"/>
 		<frame sprite="flame_1" x="0" y="0" ms="80"/>
 	</animation>
