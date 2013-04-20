@@ -78,7 +78,6 @@ weapon_collision( )
 
 	swordangle = D2A(mqDisplayDirection);
 
-	DebugText("CollisionCalculate %d", CollisionCalculate() );
 	if ( CollisionCalculate() )
 	{
 		new entityId:current;

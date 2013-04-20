@@ -18,6 +18,7 @@ stock _enemycount = -1;
 
 stock CheckEnemy( entity_name{}, function{} )
 {
+	DebugText("CheckEnemy %d", _enemycount);
 	if ( _enemycount >= 0 )
 	{
 		if ( _enemycount == 0 )
@@ -29,9 +30,8 @@ stock CheckEnemy( entity_name{}, function{} )
 			_enemycount = -2;
 		}
 	}
-	else
+	else if ( _enemycount == -1 )
 	{
-
 		_enemycount = 0;
 		if ( EntitiesList(map_id) )
 		{
@@ -54,7 +54,7 @@ public KilledEnemy()
 	_enemycount--;
 }
 
-RestetEnemyCount()
+ResetEnemyCount()
 {
 	_enemycount = -1;
 }

@@ -44,6 +44,8 @@ public Init(...)
 
 
 	GiveWeapon("weapon_sword");
+
+	GameState(1);
 }
 
 /* UpdatePosition is called when a global entity has changed maps */
@@ -57,10 +59,6 @@ public UpdatePosition()
 /* Called each frame */
 main()
 {
-	DebugText("mqDisplayZIndex: %d, mqDisplayLayer: %d", mqDisplayZIndex, mqDisplayLayer );
-	DebugText("mqSelectedWeapons: %d", mqSelectedWeapons[0] );
-	DebugText("mqDisplayObject: %d", mqDisplayObject );
-
 	new sx, sy;
 	ObjectInfo(mqDisplayObject, sx, sy);
 	if ( mqState == GONE || GameState() != 1 )

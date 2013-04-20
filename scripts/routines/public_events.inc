@@ -49,7 +49,6 @@ stock TransitionPlayer( entityId:player, entityId:target, nmapid = 0, nsection{}
 
 stock CallEntityHit( entityId:entity, entityId:attacker, angle, dist, attack, damage, x, y, rect )
 {
-	DebugText("CallEntityHit on %d", entity);
 	return EntityPublicFunction( entity, "Hit", [ 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 0 ], attacker, angle, dist, attack, damage, x, y, rect);
 }
 

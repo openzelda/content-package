@@ -44,10 +44,9 @@ public Show()
 public Refresh()
 {
 	
-	new maxHealth = EntityPublicVariable(owner, "mqMaxHealth");
-	new health = EntityPublicVariable(owner, "mqHealth");
+	count = EntityPublicVariable(owner, "mqMaxHealth");
+	used = EntityPublicVariable(owner, "mqHealth");
 
-	DebugText("%d  health %d  owner %d", maxHealth, health, owner);
 	if (count > 0)
 	{
 		new q = NumberClamp(count/100, 0, 19);
@@ -96,24 +95,25 @@ public Hide()
 public Init(...)
 {
 	active = true;
-	hud = ObjectCreate("hud", CANVAS, 0, 0, 6000, 0, 0, .pos = GLOBAL_MAP); 
+	SheetReference("hud.png", 1);
 
+	hud = ObjectCreate("hud", CANVAS, 0, 0, 6000, 0, 0, .pos = GLOBAL_MAP); 
+	
 
 	if ( numargs() )
 	{
 		owner = getarg(0, 0);
 	}
+
 	CreateCounters();
-	count = EntityPublicVariable(owner, "mqMaxHealth");
-	used = EntityPublicVariable(owner, "mqHealth");
-	if (count > 0)
-	{
-		Refresh();
-	}
+
+	Refresh();
+
 }
 
 public Close()
 {
+	SheetReference("hud.png", -1);
 	ObjectDelete(hud);
 }
 
