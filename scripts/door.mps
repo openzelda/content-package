@@ -11,10 +11,10 @@
  *     2010/01/11 [luke]: new file.
  ***********************************************/
 
-new doorOpen[64];
-new doorClose[64];
-new doorArch[64];
-new doorAnim[64];
+new doorOpen{64};
+new doorClose{64};
+new doorArch{64};
+new doorAnim{64};
 
 new width = 64;
 new height = 48;
@@ -22,15 +22,19 @@ new height = 48;
 new offset = 4;
 new xoffset = 12;
 new yoffset = 8;
-new bool:open = false;
 
-new locked = 0;
-new bool:opened = 0;
-new obj =-1, arch = -1;
+new object:archObject = OBJECT_NONE;
+new bool:animating = false;
+
+
+
+new keyType = 0;
+new closedDoor = false;
+new shutDoor = false;
 
 /* Door Target */
-new section[64];
-new target_entity;
+new section{64};
+new entityId:target_entity;
 new target_grid = -1;
 
 forward public OpenDoor();
@@ -39,19 +43,27 @@ forward public MovePlayer(player, d);
 forward public UpdatePlayer(player);
 forward public Hit( attacker, angle, dist, attack, damage, x, y, rect );
 
+
+new message{256};
+
+
 public Init(...)
 {
 	new flip;
+
 	mqType = TYPE_DOOR;
 
 	/* Get Settings */
 	EntityGetSetting("object-image", doorOpen);
 	EntityGetSetting("section", section);
-	target_entity = EntityGetSettingHash("target");
+	target_entity = entityId:EntityGetSettingHash("target");
 	target_grid = EntityGetNumber("target_map");
-	open = opened = bool:EntityGetNumber("opened");
-	locked = EntityGetNumber("locktype");
-	obj = EntityGetNumber("object-id");
+
+	closedDoor = EntityGetNumber("closed");
+	shutDoor = EntityGetNumber("shut");
+	keyType = EntityGetNumber("key");
+
+	mqDisplayObject = EntityGetObject();
 	flip = EntityGetNumber("object-flipmode");
 	
 	mqDirection = (flip > 15 ? flip - 16 : flip) * 2;
@@ -67,11 +79,10 @@ public Init(...)
 		yoffset = 12;
 	}
 
-	strformat(doorClose, _, _, "%s-%s", doorOpen, (locked ? "locked" : "closed"));
-	strformat(doorArch, _, _, "%s-arch", doorOpen);
+	StringFormat(doorClose, _, true, "%s-%s", doorOpen, ( keyType ? "locked" : "closed"));
+	StringFormat(doorArch, _, true, "%s-arch", doorOpen);
 
-	EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y,mqDisplayZIndex);
-	UpdateDisplayPosition();
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 	
 	MaskFill(mqDisplayArea.x , mqDisplayArea.y, width, height, MASK_WALK );
 	if ( mqDirection == EAST || mqDirection == WEST )
@@ -92,26 +103,28 @@ public Init(...)
 		else
 			MaskFill(mqDisplayArea.x , mqDisplayArea.y + (mqDirection == SOUTH ? height : -8), width, 8, MASK_PLAYERSOLID);
 	}
+
 	if ( mqDirection == EAST || mqDirection == WEST )
 		MaskFill(mqDisplayArea.x, mqDisplayArea.y + yoffset, width, height - (yoffset*2), MASK_WALK);
 	else
 		MaskFill(mqDisplayArea.x + xoffset, mqDisplayArea.y, width - (xoffset*2), height, MASK_WALK);
+
+
 	if ( MiscGetHeight(doorArch) )
 	{
-		arch = ObjectCreate(doorArch, SPRITE, mqDisplayArea.x + (mqDirection == EAST ? height-32 : 0) , mqDisplayArea.y+ (mqDirection == SOUTH ? width-32 : 0), 5000, 0, 0);
-		ObjectEffect(object:arch, 0xffffffff, _, _, _, flip, _, _);
+		archObject = ObjectCreate(doorArch, SPRITE, mqDisplayArea.x + (mqDirection == EAST ? height-32 : 0) , mqDisplayArea.y+ (mqDirection == SOUTH ? width-32 : 0), mqDisplayZIndex+1000, 0, 0);
+		ObjectEffect(archObject, 0xffffffff, _, _, _, flip, _, _);
 	}
 
 	CloseDoor();
-	if ( opened == true )
+	if ( closedDoor == 0 )
 		OpenDoor();
 }
 
 
 public OpenDoor()
 {
-	open = true;
-	opened = false;
+	closedDoor = false;
 	if ( mqDirection == EAST || mqDirection == WEST )
 		MaskFill(mqDisplayArea.x, mqDisplayArea.y + yoffset, width, height - (yoffset*2), MASK_WALK);
 	else
@@ -120,18 +133,23 @@ public OpenDoor()
 	CollisionSet(SELF, 0, 0);
 	CollisionSet(SELF, 1, TYPE_TRANSPORT, mqDisplayArea.x+xoffset, mqDisplayArea.y+yoffset, width-(xoffset*2), height-(yoffset*2));
 	
-	ObjectReplace(object:obj, doorOpen, SPRITE); 
-	ObjectFlag(object:obj, FLAG_ANIMLOOP, false);
-	ObjectFlag(object:obj, FLAG_ANIMRESET, false);
+	ObjectReplace(mqDisplayObject, doorOpen, SPRITE); 
+	ObjectFlag(mqDisplayObject, FLAG_ANIMLOOP, false);
+	ObjectFlag(mqDisplayObject, FLAG_ANIMRESET, false);
 }
 
 main()
 {
-	DebugText("'%s' '%s' '%d'", section, target_entity, target_grid);
-	DebugText("'%d'", opened);
-	/* Temporary code until engine handle screens better */
+	DebugText("Target: '%s' '%d' '%d'", section, target_entity, target_grid);
+	DebugText("Closed: '%d'", closedDoor);
 
-	if ( open )
+	StringFormat( message, _, true, "keyType: %d\nshutDoor: %d\nclosedDoor: %d", keyType,  EntityGetNumber("shut"), EntityGetNumber("key"));
+
+	GraphicsDraw(message, TEXT, mqDisplayArea.x+1, mqDisplayArea.y+1, mqDisplayZIndex + 1000, 0, 0, BLACK); 
+	GraphicsDraw(message, TEXT, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex + 1000, 0, 0, WHITE); 
+
+	/* Temporary code until engine handle screens better */
+	if ( !closedDoor )
 	{
 		if ( mqDirection == EAST || mqDirection == WEST )
 			MaskFill(mqDisplayArea.x, mqDisplayArea.y + yoffset, width, height - (yoffset*2), MASK_WALK);
@@ -148,15 +166,15 @@ main()
 
 public CloseDoor()
 {
-	open = false;
+	closedDoor = true;
 	MaskFill(mqDisplayArea.x, mqDisplayArea.y, width, height, MASK_SOLID);
 	CollisionSet(SELF, 0, mqType, mqDisplayArea.x, mqDisplayArea.y, width, height);
 	CollisionSet(SELF, 1, 0);
 
-	ObjectReplace(object:obj, doorClose, SPRITE); 
-	ObjectFlag(object:obj, FLAG_ANIMLOOP, false);
-	ObjectFlag(object:obj, FLAG_ANIMREVERSE, true);
-	ObjectFlag(object:obj, FLAG_ANIMRESET, true);
+	ObjectReplace(mqDisplayObject, doorClose, SPRITE); 
+	ObjectFlag(mqDisplayObject, FLAG_ANIMLOOP, false);
+	ObjectFlag(mqDisplayObject, FLAG_ANIMREVERSE, true);
+	ObjectFlag(mqDisplayObject, FLAG_ANIMRESET, true);
 }
 
 // Hit( attacker[], angle, dist, attack, damage, x, y )
@@ -164,15 +182,27 @@ public Hit( attacker, angle, dist, attack, damage, x, y, rect )
 {
 	if ( attack&APLAYER == APLAYER )
 	{
-		/* Take Key from player */
-		if ( !opened && locked )
-			OpenDoor();
+		if ( closedDoor )
+		{
+			if ( keyType )
+			{
+				if ( true )  //TODO  Take Key from player
+				{
+					OpenDoor();
+				}
+			}
+			else if ( !shutDoor )
+			{
+				OpenDoor();
+			}
+		}
 	}
 }
 
 public UpdatePlayer(player)
 {
 	EntitySetPosition(mqEntityPosition.x + fixed(xoffset), mqEntityPosition.y+fixed(yoffset), _, player);
+
 	EntityPublicFunction(player, "SetDir", ''n'', mqDirection + 4);
 	EntityPublicFunction(player, "UpdatePosition");
 }
@@ -181,6 +211,7 @@ public MovePlayer(player, d)
 {
 	if ( target_grid < 0 )
 		return false;
+
 	if ( mqDirection != d )
 		return false;
 
@@ -191,6 +222,6 @@ public MovePlayer(player, d)
 
 
 
-	return TransitionPlayer( player, target_entity, _, section, x, y );
+	return TransitionPlayer( player, target_entity, 0, section, x, y );
 }
 
