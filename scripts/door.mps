@@ -29,8 +29,8 @@ new bool:animating = false;
 
 
 new keyType = 0;
-new closedDoor = false;
-new shutDoor = false;
+new closedDoor = 0;
+new shutDoor = 0;
 
 /* Door Target */
 new section{64};
@@ -41,10 +41,8 @@ forward public OpenDoor();
 forward public CloseDoor();
 forward public MovePlayer(player, d);
 forward public UpdatePlayer(player);
-forward public Hit( attacker, angle, dist, attack, damage, x, y, rect );
+forward PUBLIC_EVENT_HIT;
 
-
-new message{256};
 
 
 public Init(...)
@@ -68,12 +66,12 @@ public Init(...)
 	
 	mqDirection = (flip > 15 ? flip - 16 : flip) * 2;
 
-	if ( mqDirection == NORTH )
+	if ( mqDirection == _:NORTH )
 		mqDirection = SOUTH;
-	else if ( mqDirection == SOUTH )
+	else if ( mqDirection == _:SOUTH )
 		mqDirection = NORTH;
 
-	if ( mqDirection == EAST || mqDirection == WEST )
+	if ( mqDirection == _:EAST || mqDirection == _:WEST )
 	{
 		xoffset = 8;
 		yoffset = 12;
@@ -85,26 +83,26 @@ public Init(...)
 	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 	
 	MaskFill(mqDisplayArea.x , mqDisplayArea.y, width, height, MASK_WALK );
-	if ( mqDirection == EAST || mqDirection == WEST )
+	if ( mqDirection == _:EAST || mqDirection == _:WEST )
 	{
 		width = MiscGetHeight(doorOpen);
 		height = MiscGetWidth(doorOpen);
 		if ( target_grid == -1 )
-			MaskFill(mqDisplayArea.x + (mqDirection == EAST ? width : -8) , mqDisplayArea.y, 8, height, MASK_AUTOWALK);
+			MaskFill(mqDisplayArea.x + (mqDirection == _:EAST ? width : -8) , mqDisplayArea.y, 8, height, MASK_AUTOWALK);
 		else
-			MaskFill(mqDisplayArea.x + (mqDirection == EAST ? width : -8) , mqDisplayArea.y, 8, height, MASK_PLAYERSOLID);
+			MaskFill(mqDisplayArea.x + (mqDirection == _:EAST ? width : -8) , mqDisplayArea.y, 8, height, MASK_PLAYERSOLID);
 	}
 	else
 	{
 		width = MiscGetWidth(doorOpen);
 		height = MiscGetHeight(doorOpen);
 		if ( target_grid == -1 )
-			MaskFill(mqDisplayArea.x , mqDisplayArea.y + (mqDirection == SOUTH ? height : -8), width, 8, MASK_AUTOWALK);
+			MaskFill(mqDisplayArea.x , mqDisplayArea.y + (mqDirection == _:SOUTH ? height : -8), width, 8, MASK_AUTOWALK);
 		else
-			MaskFill(mqDisplayArea.x , mqDisplayArea.y + (mqDirection == SOUTH ? height : -8), width, 8, MASK_PLAYERSOLID);
+			MaskFill(mqDisplayArea.x , mqDisplayArea.y + (mqDirection == _:SOUTH ? height : -8), width, 8, MASK_PLAYERSOLID);
 	}
 
-	if ( mqDirection == EAST || mqDirection == WEST )
+	if ( mqDirection == _:EAST || mqDirection == _:WEST )
 		MaskFill(mqDisplayArea.x, mqDisplayArea.y + yoffset, width, height - (yoffset*2), MASK_WALK);
 	else
 		MaskFill(mqDisplayArea.x + xoffset, mqDisplayArea.y, width - (xoffset*2), height, MASK_WALK);
@@ -112,46 +110,29 @@ public Init(...)
 
 	if ( MiscGetHeight(doorArch) )
 	{
-		archObject = ObjectCreate(doorArch, SPRITE, mqDisplayArea.x + (mqDirection == EAST ? height-32 : 0) , mqDisplayArea.y+ (mqDirection == SOUTH ? width-32 : 0), mqDisplayZIndex+1000, 0, 0);
+		archObject = ObjectCreate(doorArch, SPRITE, mqDisplayArea.x + (mqDirection == _:EAST ? height-32 : 0) , mqDisplayArea.y+ (mqDirection == _:SOUTH ? width-32 : 0), mqDisplayZIndex+1000, 0, 0);
 		ObjectEffect(archObject, 0xffffffff, _, _, _, flip, _, _);
 	}
 
-	CloseDoor();
+	
 	if ( closedDoor == 0 )
 		OpenDoor();
-}
-
-
-public OpenDoor()
-{
-	closedDoor = false;
-	if ( mqDirection == EAST || mqDirection == WEST )
-		MaskFill(mqDisplayArea.x, mqDisplayArea.y + yoffset, width, height - (yoffset*2), MASK_WALK);
 	else
-		MaskFill(mqDisplayArea.x + xoffset, mqDisplayArea.y, width - (xoffset*2), height, MASK_WALK);
-
-	CollisionSet(SELF, 0, 0);
-	CollisionSet(SELF, 1, TYPE_TRANSPORT, mqDisplayArea.x+xoffset, mqDisplayArea.y+yoffset, width-(xoffset*2), height-(yoffset*2));
-	
-	ObjectReplace(mqDisplayObject, doorOpen, SPRITE); 
-	ObjectFlag(mqDisplayObject, FLAG_ANIMLOOP, false);
-	ObjectFlag(mqDisplayObject, FLAG_ANIMRESET, false);
+		CloseDoor();
 }
+
+public Close()
+{
+	ObjectDelete(archObject);
+}
+
 
 main()
 {
-	DebugText("Target: '%s' '%d' '%d'", section, target_entity, target_grid);
-	DebugText("Closed: '%d'", closedDoor);
-
-	StringFormat( message, _, true, "keyType: %d\nshutDoor: %d\nclosedDoor: %d", keyType,  EntityGetNumber("shut"), EntityGetNumber("key"));
-
-	GraphicsDraw(message, TEXT, mqDisplayArea.x+1, mqDisplayArea.y+1, mqDisplayZIndex + 1000, 0, 0, BLACK); 
-	GraphicsDraw(message, TEXT, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex + 1000, 0, 0, WHITE); 
-
 	/* Temporary code until engine handle screens better */
 	if ( !closedDoor )
 	{
-		if ( mqDirection == EAST || mqDirection == WEST )
+		if ( mqDirection == _:EAST || mqDirection == _:WEST )
 			MaskFill(mqDisplayArea.x, mqDisplayArea.y + yoffset, width, height - (yoffset*2), MASK_WALK);
 		else
 			MaskFill(mqDisplayArea.x + xoffset, mqDisplayArea.y, width - (xoffset*2), height, MASK_WALK);
@@ -164,9 +145,29 @@ main()
 
 }
 
+
+
+public OpenDoor()
+{
+	closedDoor = 0;
+	if ( mqDirection == _:EAST || mqDirection == _:WEST )
+		MaskFill(mqDisplayArea.x, mqDisplayArea.y + yoffset, width, height - (yoffset*2), MASK_WALK);
+	else
+		MaskFill(mqDisplayArea.x + xoffset, mqDisplayArea.y, width - (xoffset*2), height, MASK_WALK);
+
+	CollisionSet(SELF, 0, 0);
+	CollisionSet(SELF, 1, TYPE_TRANSPORT, mqDisplayArea.x+xoffset, mqDisplayArea.y+yoffset, width-(xoffset*2), height-(yoffset*2));
+	
+	ObjectReplace(mqDisplayObject, doorOpen, SPRITE); 
+	ObjectFlag(mqDisplayObject, FLAG_ANIMLOOP, false);
+	ObjectFlag(mqDisplayObject, FLAG_ANIMRESET, false);
+
+	return closedDoor;
+}
+
 public CloseDoor()
 {
-	closedDoor = true;
+	closedDoor = 1;
 	MaskFill(mqDisplayArea.x, mqDisplayArea.y, width, height, MASK_SOLID);
 	CollisionSet(SELF, 0, mqType, mqDisplayArea.x, mqDisplayArea.y, width, height);
 	CollisionSet(SELF, 1, 0);
@@ -175,10 +176,12 @@ public CloseDoor()
 	ObjectFlag(mqDisplayObject, FLAG_ANIMLOOP, false);
 	ObjectFlag(mqDisplayObject, FLAG_ANIMREVERSE, true);
 	ObjectFlag(mqDisplayObject, FLAG_ANIMRESET, true);
+
+	return closedDoor;
 }
 
 // Hit( attacker[], angle, dist, attack, damage, x, y )
-public Hit( attacker, angle, dist, attack, damage, x, y, rect )
+PUBLIC_EVENT_HIT
 {
 	if ( attack&APLAYER == APLAYER )
 	{

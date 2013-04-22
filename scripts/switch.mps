@@ -23,6 +23,8 @@ new pressed = false;
 
 new events[2][SwitchEvent];
 
+new message{64};
+
 public Init(...)
 {
 	SetupEntity( _STATE:RELEASED, TYPE_SWITCH, mqDisplayObject, 32, 32 );
@@ -38,6 +40,7 @@ public Init(...)
 
 	CollisionSet(SELF, 0, TYPE_SWITCH, mqDisplayArea.x+8, mqDisplayArea.y+8, mqDisplayArea.w-16, mqDisplayArea.h-16);
 	EntityPublicFunction(ENTITY_MAP, "AddSwitch"); // Add to map switch count.
+
 }
 
 public Close()
@@ -53,25 +56,29 @@ PUBLIC_EVENT_PRESSED
 
 main()
 {
+
+
 	/* Check if block is on switch or a player is standing on it */
 	if ( MaskGetValue(mqDisplayArea.x+12, mqDisplayArea.y+12) == MASK_BLOCK || pressed )
 	{
 		state_changed = ( mqState == _STATE:RELEASED ? true : false );
-		mqState = _STATE:PRESSED;
+		mqState = 1;
 		pressed = 0;
 	}
 	else
 	{
 		state_changed = ( mqState == _STATE:PRESSED ? true : false );
-		mqState = _STATE:RELEASED;
+		mqState = 0;
 	}
 
-
+	EntityPublicFunction(EntityHash("switch_door"), "Test");
 	if ( state_changed )
 	{
 		audio = false;
 		if ( events[mqState].active )
+		{
 			EntityPublicFunction(events[mqState].entity, events[mqState].function);
+		}
 		ObjectReplace( mqDisplayObject, ( mqState == _STATE:PRESSED ? "switch01.png:2" : "switch01.png:1"), SPRITE );
 		SoundPlayOnce( audio, ( mqState == _STATE:PRESSED ? "switch_pressed.wav" : "switch_release.wav") );
 	}

@@ -182,7 +182,9 @@ MovePlayer()
 	else
 		mqMovementSpeed = 80.00;
 	if ( EntityMove(MASK_PLAYERSOLID2) )
+	{
 		EntityPublicFunction( EntityHash("__map__"), "SetPlayerPosition", ''nnn'', _:mqEntityPosition.x, _:mqEntityPosition.y, _:mqDisplayZIndex);
+	}
 	MapSetOffset(mqEntityPosition.x,mqEntityPosition.y);
 	CollisionSet(SELF,0,TYPE_PLAYER,mqDisplayArea.x+mqDisplayOffset.x,mqDisplayArea.y+mqDisplayOffset.y,mqDisplayArea.w,mqDisplayArea.h);
 }

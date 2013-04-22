@@ -163,7 +163,7 @@
 	<setting key="key" value="0" type=""/>
 	<entity value="door" language="mps" global="false"/>
 </object>
-<object value="dungeon01.png:d1" type="sprite" id="switch_door">
+<object value="dungeon01.png:d1" type="sprite">
 	<position x="79" y="107" w="64" h="48" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="shut" value="true" type="boolean"/>
@@ -171,7 +171,7 @@
 	<setting key="target_map" value="" type="map"/>
 	<setting key="section" value="" type="section"/>
 	<setting key="closed" value="true" type="boolean"/>
-	<setting key="key" value="0" type=""/>
+	<setting key="key" value="1" type=""/>
 	<entity value="door" language="mps" global="false"/>
 </object>
 <object value="dungeon01.png:d1" type="sprite" id="switch_door">
@@ -182,7 +182,7 @@
 	<setting key="target_map" value="" type="map"/>
 	<setting key="section" value="" type="section"/>
 	<setting key="closed" value="true" type="boolean"/>
-	<setting key="key" value="1" type=""/>
+	<setting key="key" value="0" type=""/>
 	<entity value="door" language="mps" global="false"/>
 </object>
 </map>
