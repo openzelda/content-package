@@ -15,11 +15,11 @@
 #define FADEOUT	2
 #define FADEEND	3
 
-forward public SetTarget( nplayer_id, ntargetentity_id, nmapid, nsection[], ngridx, ngridy );
+forward public SetTarget( nplayer_id, ntargetentity_id, nmapid, nsection{}, ngridx, ngridy );
 
 
 /* Target Varibles */
-new section_name[64];
+new section_name{64};
 new target_entity;
 new map_id = 0;
 new player_entity;
@@ -35,7 +35,7 @@ public Close() {}
 
 main()
 {
-	DebugText("Section: '%s' '%d'x'%d'", section_name, section_x, section_y);
+	DebugText("Section: '%s' '%d'x'%d' ", section_name, section_x, section_y);
 	DebugText("Map id: '%d' Target '%d'", map_id, target_entity);
 
 	if ( tstate )
@@ -55,7 +55,7 @@ main()
 		{
 			if ( target_entity )
 			{
-				EntityPublicFunction(target_entity, "UpdatePlayer", "s", player_entity);
+				EntityPublicFunction(target_entity, "UpdatePlayer", ''n'', player_entity);
 				target_entity = 0;
 				player_entity = 0;
 			}
@@ -68,28 +68,38 @@ main()
 	}
 }
 
-public SetTarget(nplayer_id, ntargetentity_id, nmapid, nsection[], ngridx, ngridy)
+public SetTarget(nplayer_id, ntargetentity_id, nmapid, nsection{}, ngridx, ngridy)
 {
 	target_entity = ntargetentity_id;
 	player_entity = nplayer_id;
-	StringCopy(section_name,nsection);
 	section_x = ngridx;
 	section_y = ngridy;
 	map_id = nmapid;
-
-	GameState(0);
-	tstate = FADEIN;
-
-	return true;
+	StringCopy(section_name, nsection);
+	DebugText("%s %s", section_name,nsection);
+	SectionLoad(section_name);
+	if ( SectionValid(section_name, section_x, section_y) )
+	{
+		GameState(0);
+		tstate = FADEIN;
+		return true;
+	}
+	else
+	{
+		DebugText("Not a valid Section");
+		return false;
+	}
 }
 
 MoveToTarget()
 {
-	if ( section_name[0] )
+	if ( section_name{0} )
 	{
-		SectionSet(section_name, section_x, section_y);
-		section_name[0] = 0;
-		return true;
+		if ( SectionSet(section_name, section_x, section_y) )
+		{
+			section_name{0} = 0;
+			return true;
+		}
 	}
 	else if ( map_id > 0 )
 	{

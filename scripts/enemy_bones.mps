@@ -95,14 +95,6 @@ main()
 	{
 		return;
 	}
-/*
-	StringFormat(error_message, _, true, "Head: %d\nID: %d", body.obj, head.obj );
-	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-20, mqDisplayArea.y-20, 5000, 0, 0, 0x000000FF );
-	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-21, mqDisplayArea.y-21, 5001, 0, 0, textColor );
-*/
-	StringFormat(error_message, _, true, "Health: %d\nmqDeathTimer: %d\nHitCount: %d", mqHealth, mqDeathTimer, HitCount);
-	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-20, mqDisplayArea.y-20, 5000, 0, 0, 0x000000FF );
-	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-21, mqDisplayArea.y-21, 5001, 0, 0, 0xffffffff );
 
 	if ( HasStateChanged() )
 	{
@@ -202,7 +194,6 @@ State_Move()
 		{
 			StandCount = 1000;
 			SetState(STANDING);
-			
 		}
 	}
 }
@@ -305,19 +296,23 @@ PUBLIC_EVENT_HIT
 	if ( mqState == HIT || mqState == DYING || mqState == GONE )
 		return;
 
+	new a = angle;
 	mqAttacker = attacker;
 
-	if ( mqAttacker&APLAYER == APLAYER )
+	if ( attack&APLAYER == APLAYER )
 	{
-		CallEntityHurt( mqAttacker, ASWORD, mqDamageDealt, angle );
+		CallEntityHurt( mqAttacker, ASWORD, mqDamageDealt, a );
 	}
 	else if ( mqState != HIT )
 	{
 		mqMovementAngle = fixed(angle);
 		if ( rect == 1 )
 		{
-			SetState(LEAPING);
-			LeapCount = 800;
+			if ( attack&ASWORD == ASWORD )
+			{
+				SetState(LEAPING);
+				LeapCount = 800;
+			}
 		}
 		else
 		{

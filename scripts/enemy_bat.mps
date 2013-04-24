@@ -63,11 +63,6 @@ public Close()
 
 main()
 {
-	StringFormat(error_message, _, true, "Health: %d\nmqDeathTimer: %d\nHitCount: %d", mqHealth, mqDeathTimer, HitCount);
-	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-20, mqDisplayArea.y-20, 5000, 0, 0, 0x000000FF );
-	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-21, mqDisplayArea.y-21, 5001, 0, 0, 0xffffffff );
-
-
 	if ( mqState == GONE || GameState() != 1 )
 		return;
 
@@ -213,7 +208,8 @@ PUBLIC_EVENT_HIT
 {
 	if ( mqState == HIT || mqState == DYING || mqState == GONE )
 		return;
-
+	if ( rect == 1)
+		return;
 	mqAttacker = attacker;
 	mqMovementAngle = fixed(angle);
 

@@ -7,14 +7,17 @@
 	<position x="296" y="177" w="64" h="64" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 </object>
-<object value="dungeon01.png:d1" type="sprite" id="test_door">
+<object value="dungeon01.png:d1" type="sprite" id="test_target_door">
 	<position x="241" y="434" w="64" h="48" z="0" l="0" r="180" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="opened" value="false" type="boolean"/>
 	<setting key="target" value="" type="mapentity"/>
-	<setting key="target_map" value="" type="map"/>
 	<setting key="section" value="" type="section"/>
 	<setting key="locktype" value="false" type="boolean"/>
+	<setting key="shut" value="false" type="boolean"/>
+	<setting key="closed" value="false" type="boolean"/>
+	<setting key="opened" value="false" type="boolean"/>
+	<setting key="key" value="0" type=""/>
+	<setting key="target_map" value="" type="map"/>
 	<entity value="door" language="mps" global="false"/>
 </object>
 </map>

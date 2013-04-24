@@ -19,24 +19,26 @@ forward public Entered();
 forward public Exited();
 forward public Finished();
 
-new start = 0;
+
+new name{32} = "Unknown Dungeon";
+
+new startTime = 0;
+new finishTime = 0;
 new Fixed:timer = 0.00;
 new active = 0;
-new name{32} = "Unknown Dungeon";
-new text[12];
-new obj = -1;
-new fade = 0;
-new finished = 0;
-new justent = 0;
+
+new Fixed:fade = 0.00;
+
+new justEntered = 0;
 
 public Init(...)
 {
-	if ( !start ) 
+	if ( !startTime ) 
 	{
 		EntityGetSetting( "name", name, ENTITY_MAP );
-		start = TimestampCurrent();
+		startTime = TimestampCurrent();
 	}
-	justent = 1;
+	justEntered = 1;
 }
 
 public UpdatePosition() { }
@@ -44,18 +46,17 @@ public Close() { }
 
 main()
 {
-	
-	if ( finished && active )
+	if ( finishTime && active )
 	{
-		new mes[32];
-		strformat(mes, _, true, "Finished dungeon in %.2q seconds", finished - start);
-		EntityPublicFunction(ENTITY_MAIN, "CustomText", ''snnnnnn'', mes, -1, -1, 6, 19, 2, 255 );
+		new mes{32};
+		StringFormat(mes, _, true, "Finished dungeon in %.2q seconds", finishTime - startTime);
+		EntityPublicFunction(ENTITY_MAIN, "CustomText", ''snnnnnn'', mes, -1, -1, 6000, 19, 2, 255 );
 	}
 
 	if ( !GameState() )
 		return;
 
-	if ( justent )
+	if ( justEntered )
 	{
 		timer += GameFrame2();
 	
@@ -63,13 +64,13 @@ main()
 		{
 			if ( timer > 2.50 )
 				fade = fdiv(timer, 0.02);
-			//DebugText("%d %d %q %d", timer, fade, fade, fround(Fixed:fade));
-			EntityPublicFunction( ENTITY_MAIN, "CustomText", ''"snnnnnn'', name, -1, -1, 6, 40, 1, 255 - fround(Fixed:fade) );
+			//forward public CustomText(message{}, x, y, z, width, height, alpha)
+			EntityPublicFunction( ENTITY_MAIN, "CustomText", ''snnnnnn'', name, -1, -1, 6000, 40, 1, 255 - fround(fade) );
 		}
 		else
 		{
 			timer = 0.00;
-			justent = 0;
+			justEntered = 0;
 		}
 	}
 }
@@ -86,12 +87,11 @@ public Exited()
 
 public Finished()
 {
-	finished = TimestampCurrent();
-	GameState(2);
-	new mes[128];
+	finishTime = TimestampCurrent();
+	//GameState(2);
+
 	new name[16];
 	PlayerGetName(0, name);
 
-	//strformat(mes, _, true, "hyruleanadventures.thegaminguniverse.com/heroes/submit/?t=%d&u=%s&d=1", finished - start, name);
-	//OnlineData(_, mes);
+
 }

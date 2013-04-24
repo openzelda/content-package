@@ -9,10 +9,11 @@
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
  *     2010/01/11 [luke]: new file.
+ *     2013/04/11 [luke]: updated to work with latest version
  ***********************************************/
 
-new doorArch[64];
-new doorOpen[64];
+new doorArch{64};
+new doorOpen{64};
 
 new width = 64;
 new height = 48;
@@ -20,43 +21,45 @@ new height = 48;
 new xoffset = 14;
 new yoffset = 8;
 
-new dungeon[32] = "dungeon-d";
+new dungeon{32} = "dungeon-d";
 new dungeonid = 0;
-new dir = -1;
-new arch = -1;
+new entityId:dungeonEntity;
 
-new section[64];
-new target;
+new dir = -1;
+new object:arch = OBJECT_NONE;
+
+new section{64};
+new entityId:target_entity;
 new target_grid = -1;
 
-forward public MovePlayer(player, d);
-forward public UpdatePlayer(player );
+forward public MovePlayer( p, d );
+forward public UpdatePlayer( p );
 
 public Init(...)
 {
 	mqType = TYPE_DOOR;
+
+	/* Get Settings */
 	EntityGetSetting("object-image", doorOpen);
-	target = EntityGetSettingHash("target");
 	EntityGetSetting("section", section);
-	if ( target )
-		target_grid = EntityGetNumber("grid");
+	target_entity = entityId:EntityGetSettingHash("target");
+	target_grid = EntityGetNumber("target_map");
 
 	dungeonid = EntityGetNumber("dungeon-id");
-	strformat(dungeon, _, _, "dungeon-%d", dungeonid);
+	StringFormat(dungeon, _, true, "dungeon-%d", dungeonid);
 
 
-	EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y,mqDisplayZIndex);
-	UpdateDisplayPosition();
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
+	
 
-	strformat(doorArch, _, _, "%s-arch", doorOpen);
+	StringFormat(doorArch, _, true, "%s-arch", doorOpen);
 	if ( MiscGetHeight(doorArch) )
 	{
-		arch = ObjectCreate(doorArch, SPRITE, mqDisplayArea.x, mqDisplayArea.y + height-16, 5, 0, 0,0xffffffff);
+		arch = ObjectCreate(doorArch, SPRITE, mqDisplayArea.x, mqDisplayArea.y + height-16, mqDisplayZIndex+1000, 0, 0,0xffffffff);
 	}
 
-	EntityCreate("dungeon", dungeon, 1, 1, 6, GLOBAL_MAP);
+	dungeonEntity = EntityCreate("dungeon", dungeon, 1.0, 1.0, 6.0, GLOBAL_MAP);
 
-	//MaskFill(mqDisplayArea.x, mqDisplayArea.y, width, height, MASK_SOLID);
 	MaskFill(mqDisplayArea.x + xoffset, mqDisplayArea.y, width - (xoffset*2), height - 4, MASK_PLAYERSOLID);
 	CollisionSet(SELF, 1, TYPE_TRANSPORT, mqDisplayArea.x+xoffset, mqDisplayArea.y+yoffset, width-(xoffset*2), height-(yoffset*2)-8);
 
@@ -65,8 +68,7 @@ public Init(...)
 public Close()
 {
 	CollisionSet(SELF, 1, 0);
-	if ( arch != -1) 
-		ObjectDelete(object:arch);
+	ObjectDelete(object:arch);
 }
 
 main()
@@ -74,22 +76,29 @@ main()
 
 }
 
-public UpdatePlayer(player)
+public UpdatePlayer( p )
 {
-	EntitySetPosition(mqEntityPosition.x + fixed(xoffset), mqEntityPosition.y+8.00, _, player);
-	EntityPublicFunction(player, "SetDir", ''n'', NORTH);
+	new player = p;
+
+
+	EntitySetPosition(mqEntityPosition.x + fixed(xoffset), mqEntityPosition.y+fixed(yoffset), _, player);
+
+	EntityPublicFunction(player, "SetDir", ''n'', mqDirection + 4);
 	EntityPublicFunction(player, "UpdatePosition");
 
-	EntityPublicFunction(dungeonid, "Entered", '''');
+	EntityPublicFunction(dungeonid, "Entered");
 	EntityPublicFunction(ENTITY_MAIN, "SetDay", ''n'', 0);
 
-	//SetRestartPosition(point, nx, ny, ngrid, nname[])
-	//EntityPublicFunction(player, "SetRestartPosition", "nnnns", 0, -1, -1, -1, "Dungeon");
+	// SetRestartPosition( point, ndescription{}, nx, ny, nmapid );
+	EntityPublicFunction(player, "SetRestartPosition", ''nsnnn'', 0, "Dungeon", mqDisplayArea.x + xoffset, mqDisplayArea.y  +yoffset , -1 );
+
 	
 }
 
-public MovePlayer(player, d)
+public MovePlayer(p, d)
 {
+	new player = p;
+
 	if ( target_grid < 0 )
 		return false;
 	if ( mqDirection != d )
@@ -102,7 +111,7 @@ public MovePlayer(player, d)
 	
 		if ( SectionValid(section,x, y) )
 		{
-			TransitionPlayer( player, target, 0, _, x, y );
+			TransitionPlayer( player, target_entity, 0, section, x, y );
 			EntityPublicFunction( dungeonid, "Exited");
 			EntityPublicFunction( ENTITY_MAIN, "SetDay", "n", 1);
 			return true;

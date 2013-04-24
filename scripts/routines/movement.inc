@@ -142,7 +142,7 @@ stock MoveCheck(&a, Fixed:angle, maximum_mask_value, Fixed:movex, Fixed:movey)
 	mqDisplayDirection = NumberClamp((mqDirection/2), 0, 3);
 
 	UpdateCollisionPoints( checks, fround(movex, mqMovementRounding[mqDisplayDirection][0]), fround(movey, mqMovementRounding[mqDisplayDirection][1]) );
-	DisplayCollisionPoints( checks );
+	//DisplayCollisionPoints( checks );
 
 	new l,r,q = mqDirection;
 	l = (mqDirection >= 7 ? 0 : mqDirection + 1);

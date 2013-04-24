@@ -39,7 +39,7 @@ new target_grid = -1;
 
 forward public OpenDoor();
 forward public CloseDoor();
-forward public MovePlayer(player, d);
+forward public MovePlayer(p, d);
 forward public UpdatePlayer(player);
 forward PUBLIC_EVENT_HIT;
 
@@ -62,7 +62,7 @@ public Init(...)
 	keyType = EntityGetNumber("key");
 
 	mqDisplayObject = EntityGetObject();
-	flip = EntityGetNumber("object-flipmode");
+	flip = EntityGetNumber("object-flip");
 	
 	mqDirection = (flip > 15 ? flip - 16 : flip) * 2;
 
@@ -142,7 +142,6 @@ main()
 		MaskFill(mqDisplayArea.x, mqDisplayArea.y, width, height, MASK_SOLID);
 	}
 
-
 }
 
 
@@ -210,8 +209,9 @@ public UpdatePlayer(player)
 	EntityPublicFunction(player, "UpdatePosition");
 }
 
-public MovePlayer(player, d)
+public MovePlayer(p, d)
 {
+	new player = p;
 	if ( target_grid < 0 )
 		return false;
 
@@ -222,6 +222,7 @@ public MovePlayer(player, d)
 	
 	x = (target_grid % 64);
 	y = (target_grid / 64);
+
 
 
 

@@ -49,15 +49,17 @@ public Refresh()
 
 	if (count > 0)
 	{
-		new q = NumberClamp(count/100, 0, 19);
-		new u = used/100;
-		
-		for ( new c = 0; c < q; c++ )
+		new q = NumberClamp(count/50, 0, 39);
+		new u = used/50;
+		DebugText("%d, %d", q, u);
+		for ( new c = 0; c < q; c += 2 )
 		{
-			if ( u > c )
-				GraphicsDraw("hud.png:heart_f", SPRITE,  HEARTS_X + ((c%10)*16), HEARTS_Y+((c/10)*16), 6000, 0, 0);
-			else
-				GraphicsDraw("hud.png:heart_f", SPRITE,  HEARTS_X + ((c%10)*16), HEARTS_Y+((c/10)*16), 6000, 0, 0);
+			if ( c+1 == u )
+				GraphicsDraw("hud.png:heart_h", SPRITE,  HEARTS_X + ((c%20)*8), HEARTS_Y+((c/20)*8), 6000, 0, 0);
+			else if ( c < u )
+				GraphicsDraw("hud.png:heart_f", SPRITE,  HEARTS_X + ((c%20)*8), HEARTS_Y+((c/20)*8), 6000, 0, 0);
+			else 
+				GraphicsDraw("hud.png:heart_e", SPRITE,  HEARTS_X + ((c%20)*8), HEARTS_Y+((c/20)*8), 6000, 0, 0);
 		}
 	}
 

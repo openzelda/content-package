@@ -38,9 +38,8 @@ public Init(...)
 	mqMenuEntity = EntityCreate( "menu", MENU_ENTITY_ID, 0, 0, 6, GLOBAL_MAP, [ARG_RETURN_NUMBER, ARG_END], mqEntityId );
 	
 	EntityCreate( "transition", "transition", 0, 0, 0, GLOBAL_MAP, [ARG_RETURN_NUMBER, ARG_END], mqEntityId );
-	EntityCreate( "tester-transition", "", 0,0,6, GLOBAL_MAP);
 
-	//SetRestartPosition(0, mqDisplayArea.x, mqDisplayArea.y, MapCurrent(), "Start");
+	SetRestartPosition(0, "Start", mqDisplayArea.x, mqDisplayArea.y, MapCurrent() );
 
 
 	GiveWeapon("weapon_sword");
@@ -89,6 +88,18 @@ main()
 		mqState = (mqState == KNOCKED) ? STANDING : mqState;
 	}
 	UpdateState();
+
+
+	if ( InputButton(4)  == 1)
+	{
+		mqHealth -= 50;
+	}
+	if ( InputButton(5)  == 1)
+	{
+		mqHealth += 50;
+	}
+	DebugText("Restart: '%s' %dx%d on %d", _restart[0].description, _restart[0].x, _restart[0].y, _restart[0].mapid );
+
 }
 
 public Close()

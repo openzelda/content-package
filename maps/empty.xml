@@ -106,7 +106,7 @@
 	<color red="255" blue="255" green="255" alpha="255" />
 </object>
 <object value="dungeon01.png:new" type="sprite">
-	<position x="192" y="152" w="32" h="32" z="1000" l="1" r="0" f="0"/>
+	<position x="192" y="152" w="32" h="32" z="3000" l="3" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="mirror" value="false" />
 	<entity value="block" language="mps" global="false"/>
@@ -130,7 +130,7 @@
 	<color red="255" blue="255" green="255" alpha="255" />
 </object>
 <object value="dungeon01.png:d1" type="sprite">
-	<position x="80" y="185" w="64" h="48" z="0" l="0" r="0" f="0"/>
+	<position x="27" y="186" w="64" h="48" z="0" l="0" r="270" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="shut" value="true" type="boolean"/>
 	<setting key="target" value="" type="mapentity"/>
@@ -146,25 +146,25 @@
 	<entity value="block" language="mps" global="false"/>
 </object>
 <object value="p01.png:player" type="sprite">
-	<position x="387" y="111" w="32" h="48" z="0" l="0" r="0" f="0"/>
+	<position x="387" y="111" w="32" h="48" z="3000" l="3" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="Weapon" value="weapon_test" />
 	<entity value="link" language="mps" global="true"/>
 </object>
 <object value="dungeon01.png:d1" type="sprite" id="test_door">
-	<position x="75" y="29" w="64" h="48" z="0" l="0" r="0" f="0"/>
+	<position x="75" y="29" w="64" h="48" z="3000" l="3" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="shut" value="true" type="boolean"/>
-	<setting key="target" value="test_door" type="mapentity"/>
+	<setting key="shut" value="false" type="boolean"/>
+	<setting key="target" value="test_target_door" type="mapentity"/>
 	<setting key="target_map" value="0: section_map1" type="map"/>
 	<setting key="section" value="testsection" type="section"/>
 	<setting key="master" value="false" type="boolean"/>
-	<setting key="closed" value="true" type="boolean"/>
+	<setting key="closed" value="false" type="boolean"/>
 	<setting key="key" value="0" type=""/>
 	<entity value="door" language="mps" global="false"/>
 </object>
 <object value="dungeon01.png:d1" type="sprite">
-	<position x="79" y="107" w="64" h="48" z="0" l="0" r="0" f="0"/>
+	<position x="440" y="184" w="64" h="48" z="0" l="0" r="90" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="shut" value="true" type="boolean"/>
 	<setting key="target" value="" type="mapentity"/>

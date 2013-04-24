@@ -58,12 +58,6 @@ main()
 	if ( mqState == DEAD || GameState() != 1 )
 		return;
 
-	StringFormat(error_message, _, true, "Health: %d x %d\n%d < %d > %d", mqDisplayArea.x, mqDisplayArea.y, mqHitMaskCheck[1], mqHitMaskCheck[0], mqHitMaskCheck[1] );
-	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-20, mqDisplayArea.y-20, 5000, 0, 0, 0x000000FF );
-	GraphicsDraw(error_message, TEXT, mqDisplayArea.x-21, mqDisplayArea.y-21, 5001, 0, 0, 0xffffffff );
-
-	
-
 	if ( !EntityMove( MASK_ENEMYSOLID2, false ))
 	{
 		new next = ( !mqHitMaskCheck[1]  ? 2 : -2);

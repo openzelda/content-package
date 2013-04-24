@@ -26,10 +26,10 @@ new Fixed:push_delay = 0.00;
 /* Public Functions */
 forward public UpdatePosition();
 forward public Hurt(type, damage, angle);
-forward public GiveWeapon( weapon[] );
+forward public GiveWeapon( weapon{} );
 forward public SetWeapon( weapon_id, slot );
 forward public SetPlayerSprites( normal{32}, push{32}, pull{32}, swim{32}, using{32} );
-forward public SetRestartPosition( point, ndescription[], nx, ny, nmapid );
+forward public SetRestartPosition( point, ndescription{}, nx, ny, nmapid );
 forward public UsingCustomAnimation()
 
  /* Animation Code */ 
@@ -100,10 +100,10 @@ public SetPlayerSprites( normal{32}, push{32}, pull{32}, swim{32}, using{32} )
 #define RestartPoint[.description{32}, .section{64}, .x, .y, .dir, .mapid, .active]
 new _restart[3][RestartPoint];
 
-public SetRestartPosition( point, ndescription[], nx, ny, nmapid )
+public SetRestartPosition( point, ndescription{}, nx, ny, nmapid )
 {
 	point %= 3;
-	strcopy(_restart[point].description, ndescription);
+	StringCopy(_restart[point].description, ndescription);
 
 	if ( nx == -1 )
 		_restart[point].x = _:mqEntityPosition.x;
@@ -118,7 +118,6 @@ public SetRestartPosition( point, ndescription[], nx, ny, nmapid )
 	
 	if ( nmapid == -1 )
 	{
-	
 		_restart[point].mapid = MapCurrent();
 	}
 	else
@@ -137,7 +136,7 @@ HandleDeath()
 	{
 		DeathCount = 0;
 		ObjectReplace(mqDisplayObject, animation[DEAD][0], SPRITE);
-		EntityPublicFunction( ENTITY_MAIN, "CustomText", ''snnnnnn'', "Press Enter to continue", -1, -1, 6, 11, 2, 255 );
+		EntityPublicFunction( ENTITY_MAIN, "CustomText", ''snnnnnn'', "Press Enter to continue", -1, -1, 6000, 11, 2, 255 );
 		if ( InputButton( 6 ) )
 		{
 			mqHealth = mqMaxHealth;
@@ -149,6 +148,7 @@ HandleDeath()
 			LayerColour(4, 0xFFFFFFFF);
 			LayerColour(5, 0xFFFFFFFF);
 		
+			ObjectReplace(mqDisplayObject, animation[STANDING][0], SPRITE);
 			TransitionPlayer( mqEntityId, 0, _restart[0].mapid, "");
 			EntitySetPosition( _restart[0].x, _restart[0].y, _ );
 		}
@@ -178,7 +178,7 @@ new weapon_action[3] = [0,0,0];
 new mqSelectedWeapons[4];
 new mqUsingWeapon = -1;
 
-public GiveWeapon( weapon[] )
+public GiveWeapon( weapon{} )
 {
 	new hash;
 	new entityName{64};
