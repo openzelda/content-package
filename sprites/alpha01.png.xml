@@ -1,0 +1,113 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="32" mask="0">
+		<position x="576" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="90" mask="0">
+		<position x="560" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="89" mask="0">
+		<position x="544" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="88" mask="0">
+		<position x="528" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="87" mask="0">
+		<position x="512" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="86" mask="0">
+		<position x="496" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="85" mask="0">
+		<position x="480" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="84" mask="0">
+		<position x="464" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="83" mask="0">
+		<position x="448" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="82" mask="0">
+		<position x="432" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="81" mask="0">
+		<position x="416" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="80" mask="0">
+		<position x="400" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="79" mask="0">
+		<position x="384" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="78" mask="0">
+		<position x="368" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="77" mask="0">
+		<position x="352" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="76" mask="0">
+		<position x="336" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="75" mask="0">
+		<position x="320" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="74" mask="0">
+		<position x="304" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="73" mask="0">
+		<position x="288" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="72" mask="0">
+		<position x="272" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="71" mask="0">
+		<position x="256" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="70" mask="0">
+		<position x="240" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="69" mask="0">
+		<position x="224" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="68" mask="0">
+		<position x="208" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="67" mask="0">
+		<position x="192" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="66" mask="0">
+		<position x="176" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="65" mask="0">
+		<position x="160" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="57" mask="0">
+		<position x="144" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="56" mask="0">
+		<position x="128" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="55" mask="0">
+		<position x="112" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="54" mask="0">
+		<position x="96" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="53" mask="0">
+		<position x="80" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="52" mask="0">
+		<position x="64" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="51" mask="0">
+		<position x="48" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="50" mask="0">
+		<position x="32" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="49" mask="0">
+		<position x="16" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="48" mask="0">
+		<position x="0" y="0" w="16" h="16" />
+	</sprite>
+</sheet>

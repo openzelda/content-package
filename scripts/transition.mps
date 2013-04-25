@@ -15,14 +15,14 @@
 #define FADEOUT	2
 #define FADEEND	3
 
-forward public SetTarget( nplayer[], ntargetentity[], nmapid, nsection[], ngridx, ngridy );
+forward public SetTarget( nplayer_id, ntargetentity_id, nmapid, nsection{}, ngridx, ngridy );
 
 
 /* Target Varibles */
-new section_name[64];
-new target_entity[32];
+new section_name{64};
+new target_entity;
 new map_id = 0;
-new player_entity[64];
+new player_entity;
 new section_x, section_y;
 
 new tstate, tmode;
@@ -35,8 +35,8 @@ public Close() {}
 
 main()
 {
-	DebugText("Section: '%s' '%d'x'%d'", section_name, section_x, section_y);
-	DebugText("Map id: '%d' Target '%s'", map_id, target_entity);
+	DebugText("Section: '%s' '%d'x'%d' ", section_name, section_x, section_y);
+	DebugText("Map id: '%d' Target '%d'", map_id, target_entity);
 
 	if ( tstate )
 	{
@@ -53,11 +53,11 @@ main()
 		}
 		else if ( tstate == FADEOUT )
 		{
-			if ( target_entity[0] )
+			if ( target_entity && player_entity)
 			{
-				EntityPublicFunction(target_entity, "UpdatePlayer", "s", player_entity);
-				target_entity[0] = 0;
-				player_entity = "";
+				EntityPublicFunction(target_entity, "UpdatePlayer", ''n'', player_entity);
+				target_entity = 0;
+				player_entity = 0;
 			}
 			Fade();
 		}
@@ -68,35 +68,56 @@ main()
 	}
 }
 
-public SetTarget(nplayer[], ntargetentity[], nmapid, nsection[], ngridx, ngridy)
+public SetTarget(nplayer_id, ntargetentity_id, nmapid, nsection{}, ngridx, ngridy)
 {
-	StringCopy(target_entity,ntargetentity);
-	StringCopy(player_entity,nplayer);
-	StringCopy(section_name,nsection);
-	section_x = ngridx;
-	section_y = ngridy;
-	map_id = nmapid;
+	target_entity = ntargetentity_id;
+	player_entity = nplayer_id;
 
-	GameState(0);
-	tstate = FADEIN;
+	if ( !nmapid )
+	{
+		section_x = ngridx;
+		section_y = ngridy;
+		map_id = nmapid;
+		StringCopy(section_name, nsection);
 
-	return true;
+		SectionLoad(section_name);
+		if ( SectionValid(section_name, section_x, section_y) )
+		{
+			GameState(0);
+			tstate = FADEIN;
+			return true;
+		}
+		else
+		{
+			DebugText("Not a valid Section");
+			return false;
+		}
+	}
+	else
+	{
+		return true;
+	}
+	return false;
 }
 
 MoveToTarget()
 {
-	if ( section_name[0] )
+	if ( section_name{0} )
 	{
-		SectionSet(section_name, section_x, section_y);
-		section_name[0] = 0;
-		return true;
+		if ( SectionSet(section_name, section_x, section_y) )
+		{
+			section_name = "";
+			return true;
+		}
 	}
 	else if ( map_id > 0 )
 	{
 		MapChange(map_id);
 		map_id = 0; 
+		section_name = "";
 		return true;
 	}
+
 	return false;
 }
 
@@ -115,8 +136,7 @@ Fade()
 	{
 		if ( tstate == FADEIN )
 		{
-			if ( MoveToTarget() )
-				return;
+			MoveToTarget();
 		}
 
 		tstate++;

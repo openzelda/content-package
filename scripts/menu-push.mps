@@ -11,33 +11,26 @@
  *     2010/01/11 [luke]: new file.
  ***********************************************/
 
-new Fixed:x,Fixed:y,Fixed:z;
-new dx,dy;
-new dir = 0;
-new obj = -1;
-
 public Init(...)
 {
-	dir = EntityGetNumber("dir");
-	obj = EntityGetNumber("object-id");
+	mqDirection = EntityGetNumber("dir");
+	mqDisplayObject = EntityGetNumber("object-id");
 
-	EntityGetPosition(x,y,z);
-	dx = fround(x);
-	dy = fround(y);
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 
 }
 
 main()
 {
-	ObjectEffect(obj, WHITE);
-	if ( dx < InputPointer(0,1) < (dx+16) )
+	ObjectEffect(mqDisplayObject, WHITE);
+	if ( mqDisplayArea.x < InputPointer(0,1) < (mqDisplayArea.x+16) )
 	{
-		if ( dy < InputPointer(1,1) < (dy+32) )
+		if ( mqDisplayArea.y < InputPointer(1,1) < (mqDisplayArea.y+32) )
 		{
-			ObjectEffect(obj, 0xFF0000FF);
+			ObjectEffect(mqDisplayObject, 0xFF0000FF);
 			if ( InputButton(11,1) == 1)
 			{
-				EntityPublicFunction("__map__", "MenuPush", "n", dir );
+				EntityPublicFunction(ENTITY_MAP, "MenuPush", "n", mqDirection );
 			}
 		}
 	}

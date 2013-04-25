@@ -1,18 +1,24 @@
 /***********************************************
+ * Copyright © Luke Salisbury
  *
+ * You are free to share, to copy, distribute and transmit this work
+ * You are free to adapt this work
+ * Under the following conditions:
+ *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You may not use this work for commercial purposes.
+ * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
+ * Changes:
+ *     2010/01/11 [luke]: new file.
  ***********************************************/
 #define DAMAGE 150
-#include <mokoi_quest>
 
 new BlastRadius = 0;
-new obj = -1;
 
 
 public Init(...)
 {
-	EntityGetPosition(_x_,_y_, _z_);
-	UpdateDisplayPosition();
-	obj = ObjectCreate("explosion.png:1", dx, dy, 4, 0, 0);
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
+	mqDisplayObject = ObjectCreate("explosion.png:1", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
 	AudioPlaySound("bigexplosion.wav");	
 
 }
@@ -141,7 +147,7 @@ GetCollisionRect()
 CheckForCollisions()
 {
 	// Go through every entity and see if this blast affects them
-	new current[64];
+	new current;
 	new angle;
 	new dist;
 	new rect;
@@ -150,6 +156,6 @@ CheckForCollisions()
 	while ( CollisionGetCurrent(_, current, angle, dist, rect )
 	{
 		//Hit( attacker[], angle, dist, attack, damage, x, y, rect )
-		EntityCallFunction( current, "Hit", "sddddd", owner, angle, AEXPLOSION, DAMAGE, _x_, _y_, rect);
+		EntityCallFunction( current, "Hit", "sddddd", owner, angle, AEXPLOSION, DAMAGE, mqEntityPosition.y, mqEntityPosition.y, rect);
 	}
 }

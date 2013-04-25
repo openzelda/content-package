@@ -11,6 +11,7 @@
  *     2010/01/11 [luke]: new file.
  ***********************************************/
 
+
 new screen[2];
 new font[2];
 new controller = 1;
@@ -21,13 +22,13 @@ forward public load();
 
 
 forward public KeyboardInput( unicode );
-forward public CustomText(message[], x, y, z, width, height, alpha)
+forward public CustomText(message{}, x, y, z, width, height, alpha)
 forward public DrawCharacter(achar, x, y, z, colour, alpha);
 forward public SetDay(able);
 forward public SetPlayer(n);
 forward public GetPlayer();
 
-new DayNight[24] = {
+new DayNight[24] = [
 	0x4E5CAFFF,\
 	0x5964A9FF,\
 	0x606BAEFF,\
@@ -52,7 +53,7 @@ new DayNight[24] = {
 	0x7D7CC8FF,\
 	0x766FD8FF,\
 	0x645CBEFF\
-};
+];
 public hour = 12;
 public minute = 0;
 public Fixed:seconds = 0.0;
@@ -63,19 +64,24 @@ public debug_game = debug;
 public Init( ... )
 {
 	GameState(1);
-	EntityCreate("transition", "transition", 0, 0, 0, GLOBAL_MAP);
+	
 	screen[0] = MiscGetWidth("__screen__")/2;
 	screen[1] = MiscGetHeight("__screen__")/2;
 	font[0] = 8;
 	font[1] = 16;
 	SetDay(0);
-	debug_game = debug;
 
+	SheetReference("alpha01.png", 1);
+	SheetReference("alpha02.png", 1);
+	SheetReference("alpha03.png", 1);
 
 	if (debug_game)
 	{
-		EntityCreate("tester", "tester", 0, 0, 0, GLOBAL_MAP);
+		//EntityCreate("tester", "tester", 0, 0, 0, GLOBAL_MAP);
+		//EntityCreate("gun", "", 0, 0, 0, GLOBAL_MAP);
 	}
+
+	
 }
 
 public Close()
@@ -86,7 +92,8 @@ public Close()
 main()
 {
 	HandleDayNight();
-	HandleDialogBox();
+	//HandleDialogBox();
+
 }
 
 
@@ -152,7 +159,7 @@ public DrawCharacter(achar, x, y, z, colour, alpha)
 	return MiscGetWidth(gfx);
 }
 
-public CustomText(message[], x, y, z, width, height, alpha)
+public CustomText(message{}, x, y, z, width, height, alpha)
 {
 	new chars = 0;
 	new lines = 0;
@@ -229,5 +236,3 @@ public CustomText(message[], x, y, z, width, height, alpha)
 	}
 }
 
-
-#include <dialog_box>

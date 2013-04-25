@@ -19,12 +19,10 @@
 */
 #include <drop_item>
 
-InitDropItem(cout)
+InitDropItem(count)
 {
 	type = 1;
-	sprite_type = SPRITE;
 	sprite = "dropitems.png:arrow";
-	//sprite_type = _:RECTANGLE;
-	numstring = cout;
+	numstring = count;
 
 }

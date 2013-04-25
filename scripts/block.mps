@@ -1,101 +1,128 @@
-#include <mokoi_quest>
-#include <string>
+/***********************************************
+ * Copyright © Luke Salisbury
+ *
+ * You are free to share, to copy, distribute and transmit this work
+ * You are free to adapt this work
+ * Under the following conditions:
+ *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You may not use this work for commercial purposes.
+ * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
+ * Changes:
+ *     2010/01/11 [luke]: new file.
+ ***********************************************/
+#include <movement>
 
+/*
+Disabled Networking Code
+forward public NetMessage( player, array[], size );
 native EntityNetworkSync();
 native NetworkMessage(reliable, server, message[], length, reallength = sizeof(message));
 
+*/
+
 forward public UpdatePosition();
-forward public NetMessage( player, array[], size );
-forward public Push(attacker[], rect, angle);
+forward public Push(attacker, rect, angle);
 
-new obj =-1;
-new audio = false;
+new playingAudio = 0;
 
+/*
 public NetMessage(player, array[], size)
 {
 	if ( size )
 	{
-		MaskFill(dx, dy, dw, dh, 0);
-		dx = GetBits( array[0], dx, 0, 16 );
-		dy = GetBits( array[0], dy, 16, 16 );
-		ObjectPosition(obj, dx, dy, dz, 0, 0);
-		MaskFill(dx, dy, dw, dh, 255);
-		CollisionSet(SELF, 0, TYPE_PUSHABLE, dx-1, dy-1, dw+2, dh+2);
-		EntitySetPosition(_x_,_y_, _z_);
+		MaskFill(mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h, 0);
+		mqDisplayArea.x = GetBits( array[0], mqDisplayArea.x, 0, 16 );
+		mqDisplayArea.y = GetBits( array[0], mqDisplayArea.y, 16, 16 );
+		ObjectPosition(obj, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
+		MaskFill(mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h, 255);
+		CollisionSet(SELF, 0, TYPE_PUSHABLE, mqDisplayArea.x-1, mqDisplayArea.y-1, mqDisplayArea.w+2, mqDisplayArea.h+2);
+		EntitySetPosition(mqEntityPosition.x,mqEntityPosition.y, mqEntityPosition.z);
 		UpdateDisplayPosition();
 	}
 }
+*/
 
 public Init(...)
 {
-	dw = dh = 32; 
-	dz = 2;
-	_speed_ = 40.0;
-	_type_ = TYPE_PUSHABLE;
+	mqMovementSpeed = 40.0;
 
-	obj = EntityGetNumber("object-id");
-	ObjectInfo(obj, dw, dh);
-	EntityGetPosition(_x_,_y_, _z_);
-	UpdateDisplayPosition();
+	SetupEntity( ALIVE, TYPE_PUSHABLE, mqDisplayObject, 32, 32, 0, 0 );
+	ObjectInfo( mqDisplayObject, mqDisplayArea.w, mqDisplayArea.h );
+
 	StorePosition();
-	UpdatePosition();
+
+	Update();
 }
 
 public UpdatePosition()
 {
-	MaskFill(dx, dy, dw, dh, MASK_CLEAR );
-	EntityGetPosition(_x_,_y_, _z_);
+	MaskFill( mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h, MASK_CLEAR );
+	EntityGetPosition( mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z);
+
 	UpdateDisplayPosition();
 	StorePosition();
-	ObjectPosition(obj, dx, dy, dz, 0, 0);
-	MaskFill(dx, dy, dw, dh, MASK_BLOCK );
-	CollisionSet(SELF, 0, TYPE_PUSHABLE, dx-1, dy-1, dw+2, dh+2);
+
+	ObjectPosition(mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
+	MaskFill(mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h, MASK_BLOCK );
+	CollisionSet(SELF, 0, TYPE_PUSHABLE, mqDisplayArea.x-1, mqDisplayArea.y-1, mqDisplayArea.w+2, mqDisplayArea.h+2);
 }
 
 public Close()
 {
-	MaskFill(dx, dy, dw, dh, MASK_CLEAR);
+	MaskFill(mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h, MASK_CLEAR);
 	CollisionSet(SELF, 0, 0);
 }
 
-public Push(attacker[], rect, angle)
+public Push(attacker, rect, angle)
 {
-	if ( _state_ != MOVING )
+	if ( mqState != MOVING )
 	{
 		angle = (angle/45)*45;
-		if ( !(angle % 90) )
+		if ( !(angle % 90) ) // Angle Must be multiple of 90
 		{
-			_angle_ = fixed(angle);
-			SoundPlayOnce(audio, "object_push.wav");
-			_state_ = MOVING;
-			if ( _angle_ < 0 )
-				_angle_ += 360;
-			_angle_ = 360 - _angle_;
+		//Reset Audio playback
+		//playingAudio = false;
+			mqMovementAngle = fixed(angle);
+			SoundPlayOnce(playingAudio, "object_push.wav");
+			mqState = MOVING;
+			mqMovementAngle %= 360.0;
+			mqMovementAngle = 360.0 - mqMovementAngle;
 		}
 	}
 }
 
-Update()
+/*
+NetworkUpdate()
 {
-	CollisionSet(SELF, 0, TYPE_PUSHABLE, dx-1, dy-1, dw+2, dh+2);
 	new message[1];
-	SetBits( message[0], dx, 0, 16 );
-	SetBits( message[0], dy, 16, 16 );
+	SetBits( message[0], mqDisplayArea.x, 0, 16 );
+	SetBits( message[0], mqDisplayArea.y, 16, 16 );
 	NetworkMessage(1, 0, message, 1);
 	EntityNetworkSync();
+}
+*/
+
+Update()
+{
+	CollisionSet(SELF, 0, TYPE_PUSHABLE, mqDisplayArea.x-1, mqDisplayArea.y-1, mqDisplayArea.w+2, mqDisplayArea.h+2);
 }
 
 main()
 {
-	if ( _state_ == MOVING )
+	if ( mqState == MOVING )
 	{
-		_state_ = STANDING;
-		MaskFill(dx, dy, dw, dh, MASK_CLEAR);
+		mqState = STANDING;
+		MaskFill(mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h, MASK_CLEAR);
 		if ( EntityMove( MASK_NORMALGROUND ) )
 		{
-			ObjectPosition(obj, dx, dy, dz, 0, 0);
+			ObjectPosition(mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
 			Update();
 		}
-		MaskFill(dx, dy, dw, dh, MASK_BLOCK);
+		MaskFill(mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h, MASK_BLOCK);
 	}
+	else
+	{
+
+	}
+
 }

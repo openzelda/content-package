@@ -1,7 +1,17 @@
 /***********************************************
+ * Copyright © Luke Salisbury
  *
+ * You are free to share, to copy, distribute and transmit this work
+ * You are free to adapt this work
+ * Under the following conditions:
+ *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You may not use this work for commercial purposes.
+ * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
+ * Changes:
+ *     2010/01/11 [luke]: new file.
  ***********************************************/
-#include <mokoi_quest>
+
+#include <movement>
 
 new count = 0;
 new active = 0;
@@ -15,11 +25,10 @@ public Init( ...)
 	PutSprite("_firerod11", x + xpos[1], y + ypos[1], y + 8);	
 	PutSprite("_firerod12", x + xpos[0], y + ypos[0], y + 8);	
 */
-	EntityGetPosition(_x_, _y_, _z_);
-	UpdateDisplayPosition()
-	obj1 = ObjectCreate("fire1.png:1", SPRITE, dx, dy, 4, 0, 0);
-	obj2 = ObjectCreate("fire1.png:1", SPRITE, dx, dy, 4, 0, 0);
-	obj3 = ObjectCreate("fire1.png:1", SPRITE, dx, dy, 4, 0, 0);
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
+	obj1 = ObjectCreate("fire1.png:1", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
+	obj2 = ObjectCreate("fire1.png:1", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
+	obj3 = ObjectCreate("fire1.png:1", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0);
 }
 
 public Close()
@@ -27,7 +36,8 @@ public Close()
 	ObjectDelete(obj1);
 	ObjectDelete(obj2);
 	ObjectDelete(obj3);
-	EntityCreate("effect_fire1", "*", dx, dy, 5, CURRENT_MAP);
+
+	EntityCreate("effect_fire1", "", mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, CURRENT_MAP);
 }
 
 main()
@@ -49,7 +59,7 @@ main()
 //----------------------------------------
 MoveFireball()
 {
-	_angle_ = fixed(_dir_ * 45);
+	mqMovementAngle = Dir2Angle(mqDirection);
 	
 	// Draw the fireball
 	new xpos[3];
@@ -58,28 +68,28 @@ MoveFireball()
 	// Set the positions of the 3 sprites according to the counter
 	if (count < 100)
 	{
-		xpos = { 0, 8, 0 };
-		ypos = { 0, 5, 10 };
+		xpos = [ 0, 8, 0 ];
+		ypos = [ 0, 5, 10 ];
 	}
 	else if (count < 200)
 	{
-		xpos = { 5, 0, 9 };
-		ypos = { 0, 5, 10 };
+		xpos = [ 5, 0, 9 ];
+		ypos = [ 0, 5, 10 ];
 	}
 	else if (count < 300)
 	{
-		xpos = { 5, 0, 9 };
-		ypos = { 6, 4, 0 };
+		xpos = [ 5, 0, 9 ];
+		ypos = [ 6, 4, 0 ];
 	}
 	else
 	{
-		xpos = { 0, 8, 0 };
-		ypos = { 6, 4, 0 };
+		xpos = [ 0, 8, 0 ];
+		ypos = [ 6, 4, 0 ];
 	}
 	
-	ObjectPosition(obj1, dx + xpos[0], dy + ypos[0], 4, 0, 0);
-	ObjectPosition(obj2, dx + xpos[1], dy + ypos[1], 4, 0, 0);
-	ObjectPosition(obj3, dx + xpos[2], dy + ypos[2], 4, 0, 0);
+	ObjectPosition(obj1, mqDisplayArea.x + xpos[0], mqDisplayArea.y + ypos[0], 4, 0, 0);
+	ObjectPosition(obj2, mqDisplayArea.x + xpos[1], mqDisplayArea.y + ypos[1], 4, 0, 0);
+	ObjectPosition(obj3, mqDisplayArea.x + xpos[2], mqDisplayArea.y + ypos[2], 4, 0, 0);
 	
 	CollisionTest();// Check if it hits a wall or somthing else
 }

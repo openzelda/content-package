@@ -1,19 +1,13 @@
-#include <default>
-#include <string>
-#include <graphics>
-#include <entities>
-#include <network>
-#include <player>
 
 forward public KeyboardInput( unicode )
 forward public ReceivedData( size, data[] )
 forward public MenuPush( dir );
 forward public submitted();
 
-new list[8][48];
+new list[8]{48};
 
-new error[42] = "";
-new message[11] = "User";
+new error{42} = "";
+new message{11} = "User";
 new active = 0;
 new pick = 0;
 	
@@ -22,8 +16,8 @@ public Init(...)
 	list[0] = "Downloading server list";
 	TextSprites(1,"");
 	KeyboardWatch(1);
-	OnlineData("ReceivedData", "mokoi.nfshost.com/servers/");
-	EntityPublicFunction("main", "SetDay", "n", 0);
+//	OnlineData("ReceivedData", "openzelda.netservers/");
+//	EntityPublicFunction("main", "SetDay", "n", 0);
 
 }
 
@@ -111,6 +105,7 @@ public submitted()
 {
 	if ( !active )
 		return;
+/*
 	PlayerSetName(0, message);
 	if ( 0 <= pick <= 7 ) 
 	{
@@ -128,4 +123,5 @@ public submitted()
 		}
 		
 	}
+*/
 }

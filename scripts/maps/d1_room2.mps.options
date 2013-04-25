@@ -1,8 +1,0 @@
-<entity>
-	<option name="off-entity" value="" type="" />
-	<option name="on-event" value="OpenDoor" type="" />
-	<option name="on-entity" value="dl_r2_d1" type="" />
-	<option name="music" value="" type="music" />
-	<option name="off-event" value="" type="" />
-	<option name="name" value="" type="" />
-</entity>

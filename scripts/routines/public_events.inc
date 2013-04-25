@@ -15,8 +15,13 @@
  */
 
 
-#define PUBLICFUNCTIONHIT public Hit( attacker[], angle, dist, attack, damage, x, y, rect )
-#define PUBLICFUNCTIONAWAKING public Awaking( attacker[], rect )
+#define PUBLIC_EVENT_HIT		public Hit( entityId:attacker, angle, dist, attack, damage, x, y, rect )
+#define PUBLIC_EVENT_AWAKING	public Awaking( entityId:attacker, rect )
+#define PUBLIC_EVENT_PRESSED	public Pressed( entityId:attacker )
+#define PUBLIC_EVENT_PUSH		public Push( entityId:attacker, rect, angle )
+#define PUBLIC_EVENT_HURT		public Hurt( type, damage, angle )
+#define PUBLIC_EVENT_PICKUP		public Pickup( entityId:attacker )
+
 
 
 /***
@@ -27,23 +32,59 @@
 	<param name="gridy" default="-1" type="n"></param>
 </function>
 ***/
-stock TransitionPlayer( nplayer[], ntargetentity[], nmapid = 0, nsection[] = SELF, ngridx = -1, ngridy = -1 )
+
+stock entityId:transitionEntity = 0;
+
+stock TransitionPlayer( entityId:player, entityId:target, nmapid = 0, nsection{} = "", ngridx = -1, ngridy = -1 )
 {
-	if ( ngridx < 0 && ngridy < 0 )
-		SectionGet(SELF, ngridx, ngridy);
-	return EntityPublicFunction("transition", "SetTarget", "ssnsnn", nplayer, ntargetentity, nmapid, nsection, ngridx, ngridy );
+	new section{64};
+	if ( !transitionEntity )
+	{
+		transitionEntity = entityId:EntityHash("transition");
+	}
+	StringCopy(section, nsection);
+	if ( ngridx < 0 && ngridy < 0 && !nmapid  )
+		SectionGet(section, ngridx, ngridy);
+	return EntityPublicFunction(transitionEntity, "SetTarget", ''nnnsnn'', player, target, nmapid, section, ngridx, ngridy );
 }
 
-stock CallEntityHit( entityid[], attacker[], angle, dist, attack, damage, x, y, rect )
+stock CallEntityHit( entityId:entity, entityId:attacker, angle, dist, attack, damage, x, y, rect )
 {
-	return EntityPublicFunction(entityid, "Hit", "snnnnnnn", attacker, angle, dist, attack, damage, x, y, rect);
+	return EntityPublicFunction( entity, "Hit", [ 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 0 ], attacker, angle, dist, attack, damage, x, y, rect);
 }
 
-stock CallEntityAwaking(entityid[], attacker[], rect)
+stock CallEntityAwaking( entityId:entity, entityId:attacker, rect)
 {
-	return EntityPublicFunction(entity, "entityid", "sn", attacker, rect);
+	return EntityPublicFunction( entity, "Awaking", ''nn'', attacker, rect);
 }
 
+
+stock CallEntityPressed( entityId:entity, attacker, rect, angle)
+{
+	return EntityPublicFunction( entity, "Pressed", ''nnn'', attacker, rect, angle);
+}
+
+
+stock CallEntityHurt( entityId:entity, weapon_type, damage, angle)
+{
+	return EntityPublicFunction( entity, "Hurt", ''nnn'', weapon_type, damage, angle);
+}
+
+
+stock CallEntityPush( entityId:entity, attacker, rect, angle)
+{
+	return EntityPublicFunction( entity, "Push", ''nnn'', attacker, rect, angle);
+}
+
+stock CallEntityPickup( entityId:entity, attacker )
+{
+	return EntityPublicFunction( entity, "Pickup", ''n'', attacker );
+}
+
+stock CallEntityUse( entityId:entity, displayObject, direction )
+{
+	return EntityPublicFunction( entity, "Use", ''nn'', displayObject, direction );
+}
 
 /*
 	else if ( type == TYPE_TRANSPORT )
@@ -54,18 +95,6 @@ stock CallEntityAwaking(entityid[], attacker[], rect)
 			 _state_ = STANDING;
 		}
 	}
-	else if ( type == TYPE_PUSHABLE && _state_ == PUSHING )
-	{
-		// public Push(attacker[], rect, angle)
-		EntityPublicFunction(current, "Push", "snn", selfid, rect, angle);
-	}
-	else if ( type == TYPE_SWITCH )
-	{
-		// public Pressed(attacker[])
-		EntityPublicFunction(current, "Pressed", "s", selfid);
-	}
-	else if ( type == TYPE_ITEM )
-	{
-		// public Pickup(attacker[])
-		if ( EntityPublicFunction(current, "Pickup", "s", selfid) )
+
+
 */

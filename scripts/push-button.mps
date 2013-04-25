@@ -10,31 +10,27 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
-new Fixed:x, Fixed:y, Fixed:z;
-new dx, dy;
+
+
 new obj = -1;
-new w = 112;
-new h = 32;
+
 
 public Init(...)
 {
-	obj = EntityGetNumber("object-id");
-	EntityGetPosition(x,y,z);
-	dx = fround(x);
-	dy = fround(y);
+	SetupEntity( ALIVE, 0, obj, 112, 32 );
 }
 
 main()
 {
 	ObjectEffect(obj, WHITE);
-	if ( dx < InputPointer(0) < (dx+w) )
+	if ( mqDisplayArea.x < InputPointer(0) < (mqDisplayArea.x+mqDisplayArea.w) )
 	{
-		if ( dy < InputPointer(1) < (dy+h) )
+		if ( mqDisplayArea.y < InputPointer(1) < (mqDisplayArea.y+mqDisplayArea.h) )
 		{
 			ObjectEffect(obj, 0xFF0000FF);
 			if ( InputButton(11) == 1 )
 			{
-				EntityPublicFunction("__map__", "submitted");
+				EntityPublicFunction(ENTITY_MAP, "submitted");
 			}
 		}
 	}

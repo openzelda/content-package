@@ -11,30 +11,29 @@
  *     2010/01/11 [luke]: new file.
  ***********************************************/
 
-#define NOTNETWORKED 1
+#define NETWORKED 0
 
 #define DEATHLENGTH 1000
 #define SHOTLENGTH 200
-native EntityHash(name[]);
 
 #include <enemy>
-#include <network>
+
+#if NETWORKED
+	#include <network>
+#endif
 
 
 /* Public Function */
-forward PUBLICFUNCTIONHIT;
-
-
-
-
+forward PUBLIC_EVENT_HIT;
 forward public Wake();
+
+
 
 new Fixed:a = 200.0;
 new timer;
-new shot_timer = SHOTLENGTH;
-new walk_timer = DEATHLENGTH;
+new shotTimer = SHOTLENGTH;
+new walkTimer = DEATHLENGTH;
 new HitCount;
-new object:obj = NULLOBJECT;
 
 /* Custom States
 1 - STANDING
@@ -49,36 +48,43 @@ new object:obj = NULLOBJECT;
 
 public Init(...)
 {
-	_speed_ = 30;
-	_damage_ = 200;
-	_health_ = 1000;
-	dw = dh = 128;
-	_boss_ = true;
+	mqMovementSpeed = 30;
+	mqDamageDealt = 200;
+	mqHealth = 500;
+	mqDisplayArea.w = mqDisplayArea.h = 128;
+	mqIsABoss = true;
+
 	EnemyInit();
 
-	obj = EntityGetNumber("object-id");
-	_state_ = MOVING
+	mqDisplayObject = EntityGetObject();
+	mqState = MOVING;
 
-	ObjectEffect(object:obj, 0x999999FF );
-	CollisionFromObject(obj, TYPE_ENEMY);
+	ObjectEffect( mqDisplayObject, 0x999999FF );
+	
+
 }
 
 main()
 {
-	if ( _state_ == GONE || GameState() != 1 )
+	if ( mqState == GONE || GameState() != 1 )
 		return;
 
-#if defined NOTNETWORKED
-#else
-	if ( last_state != SPECIALSTATE)
+
+#if NETWORKED
+	if ( mqStatePrev != SPECIALSTATE )
 		EndKnockedOut();
 #endif
-	switch( _state_ )
+
+	DebugText("%d", mqHealth);
+	CollisionFromObject( mqDisplayObject, TYPE_ENEMY );
+	switch( mqState )
 	{
 		case SPECIALSTATE:
 			KnockedOut();
 		case USING:
 			Shoot();
+		case STANDING:
+			Stand();
 		case HIT:
 			Hurting();
 		case DYING:
@@ -93,68 +99,73 @@ main()
 public Close()
 {
 	CollisionSet(SELF, -1, 0);
-	ObjectDelete(object:obj);
+	ObjectDelete(mqDisplayObject);
 }
 
 /* States */
-STATEFUNCTION Shoot()
+Shoot()
 {
+	
+
 	if ( HasStateChanged() )
 	{
-		ObjectReplace(object:obj, "aquamentus.png:3", SPRITE);
-		ObjectEffect(object:obj, 0x999999FF );
+		ObjectReplace(mqDisplayObject, "aquamentus.png:3", SPRITE);
+		ObjectEffect(mqDisplayObject, 0x999999FF );
 		a = 220.0;
 	}
-
-	if ( CountTimer(shot_timer, SHOTLENGTH) )
+	
+	
+	if ( TimerCountdownWithReset(shotTimer, SHOTLENGTH) )
 	{
-		EntityCreate("attack_flamethrower1", "*", _x_, _y_+32.0, 4, CURRENT_MAP, _, "d", a );
-		a += 10.0;
+		new Fixed:angle = a;
+		EntityCreate("attack_flamethrower1", "", mqEntityPosition.x, mqEntityPosition.y + 32.0, mqEntityPosition.z, CURRENT_MAP, ''d'', angle );
+		a += 20.0;
 		if ( a > 340.0 ) 
-			_state_ = MOVING;
+			mqState = MOVING;
 	}
 }
 
-STATEFUNCTION Move()
+Move()
 {
 	if ( HasStateChanged() )
 	{
-		ObjectReplace(obj, "aquamentus.png:0", SPRITE);
-		ObjectEffect(obj, 0x999999FF );
+		ObjectReplace( mqDisplayObject, "aquamentus.png:0", SPRITE);
+		ObjectEffect( mqDisplayObject, 0x999999FF );
 	}
-
-	#if defined NOTNETWORKED
-		if ( CountTimer(walk_timer, DEATHLENGTH) )
-		{
-			_state_ = USING;
-		}
+	#if !NETWORKED
+	if ( TimerCountdownWithReset(walkTimer, DEATHLENGTH) )
+	{
+		mqState = USING;
+	}
 	#endif
 }
 
-STATEFUNCTION Stand()
+Stand()
 {
 	if ( HasStateChanged() )
 	{
-		ObjectReplace(obj, "aquamentus.png:1", SPRITE);
+		ObjectReplace(mqDisplayObject, "aquamentus.png:1", SPRITE);
 	}
 }
 
-STATEFUNCTION Hurting()
+Hurting()
 {
 	CollisionSet(SELF, -1, 0);
 	new q = (HitCount % 100) / 20;
 
-	ObjectEffect(obj, hit_colours[q]);
-	#if defined NOTNETWORKED
-		if ( Countdown(HitCount) )
-		{
-			_state_ = USING;
-			HitCount = 0;
-		}
+	ObjectEffect(mqDisplayObject, mqHitColours[q]);
+
+	#if NETWORKED
+	HitCount += GameFrame();
+	if ( HitCount > 400 )
+		HitCount -= 400;
+
 	#else
-		HitCount += GameFrame();
-		if ( HitCount > 400 )
-			HitCount -= 400;
+	if ( TimerCountdown(HitCount) )
+	{
+		mqState = USING;
+		HitCount = 0;
+	}
 	#endif
 }
 
@@ -163,20 +174,21 @@ KnockedOut()
 {
 	if ( HasStateChanged() )
 	{
-		ObjectReplace(obj, "aquamentus.png:1", SPRITE);
-		AudioPlaySound( "enemy_laser.wav", dx, dy );
+		ObjectReplace( mqDisplayObject, "aquamentus.png:1", SPRITE );
+		AudioPlaySound( "enemy_laser.wav", mqDisplayArea.x, mqDisplayArea.y );
 	}
 
 	if ( knockedout_obj == -1 )
 	{
-		knockedout_obj = ObjectCreate("misc.png:knockedout", SPRITE, dx+16, dy+8, 5, 0, 0);
+		knockedout_obj = ObjectCreate("misc.png:knockedout", SPRITE, mqDisplayArea.x+16, mqDisplayArea.y+8, 5, 0, 0);
 	}
-	#if defined NOTNETWORKED
-		if ( Countdown(timer) )
-		{
-			_state_ = STANDING;
-			EndKnockedOut();
-		}
+
+	#if !NETWORKED
+	if ( TimerCountdown(timer) )
+	{
+		mqState = STANDING;
+		EndKnockedOut();
+	}
 	#endif
 }
 
@@ -184,12 +196,14 @@ EndKnockedOut()
 {
 	if ( knockedout_obj == -1 )
 		return;
+
 	timer = 0;
-	AudioPlaySound( "effect_roar1.wav", dx, dy );
-	ObjectDelete(knockedout_obj);
-	knockedout_obj = NULLOBJECT;
-	ObjectReplace(obj, "aquamentus.png:3", SPRITE);
-	ObjectEffect(obj, 0x999999FF );
+	AudioPlaySound( "effect_roar1.wav", mqDisplayArea.x, mqDisplayArea.y );
+	ObjectDelete(object:knockedout_obj);
+
+	knockedout_obj = OBJECT_NONE;
+	ObjectReplace( mqDisplayObject, "aquamentus.png:3", SPRITE);
+	ObjectEffect( mqDisplayObject, 0x999999FF );
 }
 
 /* /states */
@@ -197,73 +211,55 @@ EndKnockedOut()
 /* Events */
 public Wake()
 {
-	#if defined NOTNETWORKED
-		_state_ = SPECIALSTATE;
-		timer = 3000;
-		ObjectEffect(obj, 0xFFFFFFFF );
+	#if NETWORKED
+	new message[1];
+	SetBits( message[0], 3, 0, 4 );
+	NetworkMessage(1, 1, message, 1);
+	EntityCreate("attack_flamethrower1", "*",10.0, 10.0, 4.000, CURRENT_MAP, _,  [ ARG_RETURN_NUMBER, ARG_NUMBER, ARG_END ], a, 200 );
 	#else
-		new message[1];
-		SetBits( message[0], 3, 0, 4 );
-		NetworkMessage(1, 1, message, 1);
-		EntityCreate("attack_flamethrower1", "*",10.0, 10.0, 4, CURRENT_MAP, _, "dd", a, 200 );
+	mqState = USING;
+	timer = 3000;
+	ObjectEffect( mqDisplayObject, 0xFFFFFFFF );
 	#endif
 }
 
-PUBLICFUNCTIONHIT
+PUBLIC_EVENT_HIT
 {
-	if ( _state_ == HIT || _state_ == DYING || _state_ == GONE )
+	if ( mqState == HIT || mqState == DYING || mqState == GONE )
 		return;
 
-	strcopy( _attacker_, attacker );
+	mqAttacker = attacker;
 
 	if ( attack&ASWORD == ASWORD )
 	{
-		AudioPlaySound( "enemy_hurt.wav", dx, dy );
-		if ( _state_ != USING )
-		{
-			_state_ = HIT;
-			#if defined NOTNETWORKED
-			_health_ -= 50;
-			HitCount = 1000;
-			Hurting();
-			#else
+		
+		//if ( mqState != USING )
+		//{
+			AudioPlaySound( "enemy_hurt.wav", mqDisplayArea.x, mqDisplayArea.y );
+			mqState = HIT;
+			#if NETWORKED
 			new message[1];
 			SetBits( message[0], 4, 0, 4 );
 			NetworkMessage(1, 1, message, 1);
+			#else
+			mqHealth -= 50;
+			HitCount = 1000;
+			Hurting();
 			#endif
-		}
+		//}
 	}
 	else if ( attack&APLAYER == APLAYER )
 	{
-		EntityPublicFunction( _attacker_, "Hurt", "n", _damage_ );
+		CallEntityHurt( mqAttacker, ASWORD, mqDamageDealt, angle);
 	}
-	#if defined NOTNETWORKED
+
+	#if !NETWORKED
 	CheckHealth();
 	#endif
 }
 /* /Events */
 
-/*
-	if ( _initialx_ < _x_ + 200.0 )
-	{
-		_x_ -= (_speed_ * GameFrame2());
-		dx = fround(_x_, round_unbiased);
-	}
-	else
-	{
-		_state_ = STANDING;
-	}
-
-	ObjectPosition( obj, dx, dy, 4, 0, 0);
-
-//	if ( CountTimer(walk_timer, DEATHLENGTH) )
-//	{
-//		_state_ = WAITING;
-//	}
-*/
-#if defined NOTNETWORKED
-
-#else
+#if NETWORKED
 
 forward public NetMessage( player, array[], size );
 
@@ -274,20 +270,20 @@ public NetMessage( player, array[], size )
 		new a = GetBits( array[0], 0, 4 );
 		if ( a == 2 )
 		{
-			_state_ = USING;
+			mqState = USING;
 		}
 		else if ( a == 3 )
 		{
-			_state_ = SPECIALSTATE;
+			mqState = SPECIALSTATE;
 		}
 		else if ( a == 4 )
 		{
-			_state_ = HIT;
+			mqState = HIT;
 		}
 		else if ( a == 5 )
 		{
 			Kill();
-			ObjectEffect(object:death_obj, .scale_w = 2000,.scale_h = 2000);
+			ObjectEffect(object:mqDeathObject, .scale_w = 2000,.scale_h = 2000);
 		}
 	}
 }

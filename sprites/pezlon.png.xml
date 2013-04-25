@@ -1,0 +1,44 @@
+<sheet xmlns="http://mokoi.info/format/sheet" hidden="hidden">
+	<sprite name="back_0" mask="0">
+		<position x="0" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="back_1" mask="0">
+		<position x="48" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="back_2" mask="0">
+		<position x="96" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="side_0" mask="0">
+		<position x="0" y="48" w="48" h="48" />
+	</sprite>
+	<sprite name="side_1" mask="0">
+		<position x="48" y="48" w="48" h="48" />
+	</sprite>
+	<sprite name="side_2" mask="0">
+		<position x="96" y="48" w="48" h="48" />
+	</sprite>
+	<sprite name="front_0" mask="0" hidden="hidden">
+		<position x="0" y="96" w="48" h="48" />
+	</sprite>
+	<sprite name="front_1" mask="0">
+		<position x="48" y="96" w="48" h="48" />
+	</sprite>
+	<sprite name="front_2" mask="0">
+		<position x="96" y="96" w="48" h="48" />
+	</sprite>
+	<animation name="back" mask="0">
+		<frame sprite="back_0" x="0" y="0" ms="1000"/>
+		<frame sprite="back_1" x="0" y="0" ms="1000"/>
+		<frame sprite="back_2" x="0" y="0" ms="1000"/>
+	</animation>
+	<animation name="side" mask="0">
+		<frame sprite="side_0" x="0" y="0" ms="1000"/>
+		<frame sprite="side_1" x="0" y="0" ms="1000"/>
+		<frame sprite="side_2" x="0" y="0" ms="1000"/>
+	</animation>
+	<animation name="front" mask="0">
+		<frame sprite="front_0" x="0" y="0" ms="1000"/>
+		<frame sprite="front_1" x="0" y="0" ms="1000"/>
+		<frame sprite="front_2" x="0" y="0" ms="1000"/>
+	</animation>
+</sheet>

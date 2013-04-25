@@ -9,15 +9,9 @@
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
  *     2010/01/11 [luke]: new file.
+ *     2013/01/31 [luke]: switch to Pawn 4
  ***********************************************/
-
-#include <core>
-
-enum SwitchEvent {
-	active,
-	entity[32],
-	function[24]
-}
+#include <map_features/standard>
 
 forward public AddSwitch();
 forward public SwitchPressed();
@@ -26,23 +20,27 @@ forward public SwitchRelease();
 
 new switches = 0;
 new switch_pressed = 0;
-new events[2][SwitchEvent] = {{0, "dl_r2_d1", "CloseDoor"},{0, "dl_r2_d1", "OpenDoor"}};
 
+new on_events[SwitchEvent];
+new off_events[SwitchEvent];
 
 DungeonMapInit()
 {
+
 	switches = 0;
-	EntityGetSetting("on-event", events[1][function] );
-	EntityGetSetting("off-event", events[0][function] );
 
-	EntityGetSetting("on-entity", events[1][entity] );
-	EntityGetSetting("off-entity", events[0][entity] );
+	EntityGetSetting("on-event", on_events.function );
+	on_events.entity = EntityGetSettingHash("on-entity");
 
-	if ( events[0][function][0] && events[0][entity][0] )
-		events[0][active] = true;
-	if ( events[1][function][0] && events[1][entity][0] )
-		events[1][active] = true;
-	MapInit();
+	EntityGetSetting("off-event", off_events.function );
+	off_events.entity = EntityGetSettingHash("off-entity" );
+
+
+	if ( StringLength(off_events.function) && off_events.entity )
+		off_events.active = true;
+	if ( StringLength(on_events.function) && on_events.entity )
+		on_events.active = true;
+	InitMap();
 }
 
 /* Switches */
@@ -56,8 +54,8 @@ public SwitchPressed()
 	switch_pressed++;
 	if ( switch_pressed == switches)
 	{
-		if ( events[1][active] )
-			EntityPublicFunction(events[1][entity], events[1][function]);
+		if ( on_events.active )
+			EntityPublicFunction(on_events.entity, on_events.function);
 	}
 }
 
@@ -65,18 +63,17 @@ public SwitchRelease()
 {
 	if ( switch_pressed == switches )
 	{
-		if ( events[0][active] )
-			EntityPublicFunction(events[0][entity], events[0][function]);
+		if ( off_events.active )
+			EntityPublicFunction(off_events.entity, off_events.function);
 	}
 	switch_pressed--;
 
 }
 
-#if !defined INITFUNCTION
-#define INITFUNCTION 1
+#if !defined HASINITFUNCTION
+#define HASINITFUNCTION 1
 public Init( ... )
 {
 	DungeonMapInit()
 }
 #endif
-#include <map_default>

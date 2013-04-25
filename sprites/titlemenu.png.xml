@@ -1,0 +1,53 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="b8" mask="0">
+		<position x="0" y="44" w="16" h="8" />
+	</sprite>
+	<sprite name="b7" mask="0">
+		<position x="0" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="b6" mask="0">
+		<position x="12" y="48" w="8" h="16" />
+	</sprite>
+	<sprite name="b5" mask="0">
+		<position x="16" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="b4" mask="0">
+		<position x="16" y="44" w="16" h="8" />
+	</sprite>
+	<sprite name="q8" mask="0">
+		<position x="32" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="q7" mask="0">
+		<position x="32" y="32" w="32" h="16" />
+	</sprite>
+	<sprite name="q6" mask="0">
+		<position x="64" y="32" w="32" h="16" />
+	</sprite>
+	<sprite name="q5" mask="0">
+		<position x="96" y="32" w="32" h="16" />
+	</sprite>
+	<sprite name="q4" mask="0">
+		<position x="96" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="q3" mask="0">
+		<position x="96" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="q2" mask="0">
+		<position x="64" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="q1" mask="0">
+		<position x="32" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="b3" mask="0">
+		<position x="16" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="b2" mask="0">
+		<position x="12" y="32" w="8" h="16" />
+	</sprite>
+	<sprite name="b1" mask="0">
+		<position x="0" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="bg" mask="0">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+</sheet>

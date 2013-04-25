@@ -11,4 +11,4 @@
  *     2010/01/11 [luke]: new file.
  ***********************************************/
 
-forward public Pickup( player[] );
+forward public Pickup( player );

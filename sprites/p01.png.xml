@@ -1,0 +1,5 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="player" mask="0" entity="link.mps">
+		<position x="0" y="0" w="32" h="48" />
+	</sprite>
+</sheet>
