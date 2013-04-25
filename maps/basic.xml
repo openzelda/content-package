@@ -15,7 +15,7 @@
 	<color red="255" blue="255" green="255" alpha="255" />
 </object>
 <object value="p01.png:player" type="sprite">
-	<position x="222" y="158" w="32" h="48" z="3000" l="3" r="0" f="0"/>
+	<position x="108" y="193" w="32" h="48" z="3000" l="3" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="Weapon" value="weapon_test" />
 	<setting key="mirror" value="false" />
@@ -145,14 +145,21 @@
 	<position x="64" y="448" w="384" h="64" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 </object>
-<object value="String 2" type="text">
-	<position x="140" y="100" w="30" h="8" z="0" l="0" r="0" f="0"/>
+<object value="dungeon01.png:d1" type="sprite" id="aaa">
+	<position x="227" y="13" w="64" h="48" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="number" value="2" type=""/>
+	<setting key="shut" value="true" type="boolean"/>
+	<setting key="target" value="" type="mapentity"/>
+	<setting key="target_map" value="" type="map"/>
+	<setting key="section" value="" type="section"/>
+	<setting key="closed" value="true" type="boolean"/>
+	<setting key="key" value="0" type=""/>
+	<entity value="door" language="mps" global="false"/>
 </object>
-<object value="Text" type="text">
-	<position x="321" y="97" w="18" h="6" z="0" l="0" r="0" f="0"/>
+<object value="dungeon00.png:gem1" type="sprite">
+	<position x="185" y="175" w="32" h="32" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="number" value="-1" type=""/>
+	<setting key="dungeon-id" value="" />
+	<entity value="dungeon_item" language="mps" global="false"/>
 </object>
 </map>

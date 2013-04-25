@@ -37,14 +37,15 @@ stock entityId:transitionEntity = 0;
 
 stock TransitionPlayer( entityId:player, entityId:target, nmapid = 0, nsection{} = "", ngridx = -1, ngridy = -1 )
 {
+	new section{64};
 	if ( !transitionEntity )
 	{
 		transitionEntity = entityId:EntityHash("transition");
 	}
-
-	if ( ngridx < 0 && ngridy < 0 )
-		SectionGet("", ngridx, ngridy);
-	return EntityPublicFunction(transitionEntity, "SetTarget", ''nnnsnn'', player, target, nmapid, nsection, ngridx, ngridy );
+	StringCopy(section, nsection);
+	if ( ngridx < 0 && ngridy < 0 && !nmapid  )
+		SectionGet(section, ngridx, ngridy);
+	return EntityPublicFunction(transitionEntity, "SetTarget", ''nnnsnn'', player, target, nmapid, section, ngridx, ngridy );
 }
 
 stock CallEntityHit( entityId:entity, entityId:attacker, angle, dist, attack, damage, x, y, rect )

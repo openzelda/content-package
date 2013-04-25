@@ -97,7 +97,7 @@ public SetPlayerSprites( normal{32}, push{32}, pull{32}, swim{32}, using{32} )
 }
 
 /* Restart Point Code */
-#define RestartPoint[.description{32}, .section{64}, .x, .y, .dir, .mapid, .active]
+#define RestartPoint[.description{32}, .section{64}, .x, .y, .dir, .mapid, .gridx, .gridy, .active]
 new _restart[3][RestartPoint];
 
 public SetRestartPosition( point, ndescription{}, nx, ny, nmapid )
@@ -118,7 +118,8 @@ public SetRestartPosition( point, ndescription{}, nx, ny, nmapid )
 	
 	if ( nmapid == -1 )
 	{
-		_restart[point].mapid = MapCurrent();
+		SectionGet(_restart[point].section, _restart[point].gridx, _restart[point].gridy);
+		_restart[point].mapid = 0;
 	}
 	else
 		_restart[point].mapid = nmapid;
@@ -149,7 +150,15 @@ HandleDeath()
 			LayerColour(5, 0xFFFFFFFF);
 		
 			ObjectReplace(mqDisplayObject, animation[STANDING][0], SPRITE);
-			TransitionPlayer( mqEntityId, 0, _restart[0].mapid, "");
+
+			if ( _restart[0].mapid == 0 )
+			{
+				TransitionPlayer( mqEntityId, 0, 0, _restart[0].section, _restart[0].gridx, _restart[0].gridy);
+			}
+			else
+			{
+				TransitionPlayer( mqEntityId, 0, _restart[0].mapid, "");
+			}
 			EntitySetPosition( _restart[0].x, _restart[0].y, _ );
 		}
 	}

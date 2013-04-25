@@ -98,7 +98,7 @@ main()
 	{
 		mqHealth += 50;
 	}
-	DebugText("Restart: '%s' %dx%d on %d", _restart[0].description, _restart[0].x, _restart[0].y, _restart[0].mapid );
+	DebugText("Restart: '%s' %dx%d on %d", _restart[0].section, _restart[0].x, _restart[0].y, _restart[0].mapid );
 
 }
 

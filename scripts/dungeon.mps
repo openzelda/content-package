@@ -88,7 +88,7 @@ public Exited()
 public Finished()
 {
 	finishTime = TimestampCurrent();
-	//GameState(2);
+	GameState(2);
 
 	new name[16];
 	PlayerGetName(0, name);

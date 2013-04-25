@@ -152,10 +152,10 @@ stock DeathEvent()
 
 	if ( mqIsABoss )
 	{
-		new entityId, function[24];
-		entityId = EntityGetNumber("death-entity" );
-		EntityGetSetting("death-function", function );
-		if ( entityId && function[0] )
+		new entityId, function{24};
+		entityId = EntityGetSettingHash("on-death-entity" );
+		EntityGetSetting("on-death-function", function );
+		if ( entityId && function{0} )
 			EntityPublicFunction( entityId, function );
 	}
 	else

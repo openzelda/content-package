@@ -53,7 +53,7 @@ main()
 		}
 		else if ( tstate == FADEOUT )
 		{
-			if ( target_entity )
+			if ( target_entity && player_entity)
 			{
 				EntityPublicFunction(target_entity, "UpdatePlayer", ''n'', player_entity);
 				target_entity = 0;
@@ -72,23 +72,32 @@ public SetTarget(nplayer_id, ntargetentity_id, nmapid, nsection{}, ngridx, ngrid
 {
 	target_entity = ntargetentity_id;
 	player_entity = nplayer_id;
-	section_x = ngridx;
-	section_y = ngridy;
-	map_id = nmapid;
-	StringCopy(section_name, nsection);
-	DebugText("%s %s", section_name,nsection);
-	SectionLoad(section_name);
-	if ( SectionValid(section_name, section_x, section_y) )
+
+	if ( !nmapid )
 	{
-		GameState(0);
-		tstate = FADEIN;
-		return true;
+		section_x = ngridx;
+		section_y = ngridy;
+		map_id = nmapid;
+		StringCopy(section_name, nsection);
+
+		SectionLoad(section_name);
+		if ( SectionValid(section_name, section_x, section_y) )
+		{
+			GameState(0);
+			tstate = FADEIN;
+			return true;
+		}
+		else
+		{
+			DebugText("Not a valid Section");
+			return false;
+		}
 	}
 	else
 	{
-		DebugText("Not a valid Section");
-		return false;
+		return true;
 	}
+	return false;
 }
 
 MoveToTarget()
@@ -97,7 +106,7 @@ MoveToTarget()
 	{
 		if ( SectionSet(section_name, section_x, section_y) )
 		{
-			section_name{0} = 0;
+			section_name = "";
 			return true;
 		}
 	}
@@ -105,8 +114,10 @@ MoveToTarget()
 	{
 		MapChange(map_id);
 		map_id = 0; 
+		section_name = "";
 		return true;
 	}
+
 	return false;
 }
 
@@ -125,8 +136,7 @@ Fade()
 	{
 		if ( tstate == FADEIN )
 		{
-			if ( MoveToTarget() )
-				return;
+			MoveToTarget();
 		}
 
 		tstate++;

@@ -14,20 +14,23 @@
 #include <item>
 
 new Fixed:count = 0.0;
-new obj = -1;
-new p[64];
+new obj;
+
 new dungeon{32} = "dungeon-d";
 new dungeonid = 0;
+new entityId:dungeonEntity;
 
 public Init( ... )
 {
-	EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y, mqDisplayZIndex);
-	UpdateDisplayPosition();
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
 
-	obj = EntityGetNumber("object-id");
+
+	obj = EntityGetObject();
 
 	dungeonid = EntityGetNumber("dungeon-id");
 	strformat(dungeon, _, _, "dungeon-%d", dungeonid);
+	dungeonEntity = entityId:EntityHash(dungeon);
+
 
 	CollisionFromObject(obj, TYPE_ITEM);
 }
@@ -41,7 +44,7 @@ public Pickup( player )
 {
 	if ( mqState != LIFTING )
 	{
-		EntityPublicFunction(dungeonid, "Finished");
+		EntityPublicFunction(dungeonEntity, "Finished");
 		EntityGetPosition(mqEntityPosition.x, mqEntityPosition.y,  mqDisplayZIndex, player );
 		mqDisplayZIndex++;
 	}
@@ -62,9 +65,12 @@ HandleLift()
 		}
 		else
 		{
+			
+			EntityPublicFunction(dungeonEntity, "Exited");
+
+			new map = MapCreate("Exit", false);
+			MapChange(map, 0, 0);
 			EntityDelete();
-			//EntityPublicFunction(dungeonid, "Exited");
-			//MapChange(MapCurrent("Exit"));
 		}
 
 	}
