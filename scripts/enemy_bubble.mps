@@ -10,27 +10,40 @@
  * Changes:
  *     2010/02/09 [luke]: new file.
  ***********************************************/
-
-#define DEATHLENGTH 2500
+#define DEATHLENGTH 480
 #include <enemy>
+#include <entity_graphics>
 
-new obj = -1;
+
+/* Public Function */
+
+forward PUBLIC_EVENT_HIT;
+
 new Fixed:TakeMagicCount = 0.00;
 new TakeMagic = true;
+new last = -1;
+new prev[.x, .y] = { 0, 0 };
+
 
 public Init( ... )
 {
-	_speed_ = 100;   
-	_damage_ = 50;
-	_health_ = 50;
-	_state_ = MOVING;
-	dh = dw = 38;
-	ox = oy = 1;
+	mqMovementSpeed = 100;   
+	mqDamageDealt = 50;
+	mqHealth = 50;
+
+	mqState = MOVING;
+
+
+	/* These are used more for collision through EntityMove then for Display.*/
+	mqDisplayArea.h = mqDisplayArea.w = 38;
+	mqDisplayOffset.x = mqDisplayOffset.y = 0;
+
+
 	EnemyInit();
 
-	_dir_ = 1;
-	_angle_= Dir2Angle(_dir_);
-	obj = EntityGetNumber("object-id");
+	mqDirection = SOUTHWEST;
+	mqMovementAngle= Dir2Angle(mqDirection);
+	mqDisplayObject = EntityGetObject();
 }
 
 public Close()
@@ -39,30 +52,37 @@ public Close()
 }
 
 
-new last = -1;
+
 main()
 {
-	if ( _state_ == DEAD || GameState() != 1 )
+	if ( mqState == DEAD || GameState() != 1 )
 		return;
 
-	if ( !EntityMove( MASK_ENEMYSOLID2, false ) )
+	if ( !EntityMove( MASK_ENEMYSOLID2, false ))
 	{
-		_dir_ += ( !_hit[0] ? 2 : -2);
-		last = ( !_hit[0] ? 2 : -2);
-		_angle_ = Dir2Angle(_dir_);
+		new next = ( !mqHitMaskCheck[1]  ? 2 : -2);
+
+		mqDirection += next;
+		last = next;
+		mqMovementAngle = Dir2Angle(mqDirection);
 	}
-	CollisionSet(SELF, 1, TYPE_ENEMY, dx+3, dy+3, 34, 34 );
-	ObjectPosition( obj, dx, dy, 3, 0, 0 );
+
+	CollisionSet(SELF, 1, TYPE_ENEMY, mqDisplayArea.x + 3, mqDisplayArea.y+3, 34, 34 );
+	ObjectPosition( mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0 );
 }
 
-public Hit( attacker[], angle, dist, attack, damage, x, y, rect )
+
+
+/* Public Functions */
+
+PUBLIC_EVENT_HIT
 {
-	if ( _state_ == HIT || _state_ == DYING || _state_ == GONE )
+	if ( mqState == HIT || mqState == DYING || mqState == GONE )
 		return;
 
 	if ( attack&APLAYER == APLAYER )
 	{
-		EntityPublicFunction( attacker, "Hurt", "nnn", AMAGIC, 50, angle );
+		EntityPublicFunction( attacker, "Hurt", ''nnn'', AMAGIC, 50, angle );
 
 		if ( TakeMagic )
 		{

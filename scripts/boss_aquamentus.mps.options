@@ -1,1 +1,4 @@
-<entity/>
+<entity>
+	<option name="on-death-function" value="" type="" />
+	<option name="on-death-entity" value="" type="" />
+</entity>

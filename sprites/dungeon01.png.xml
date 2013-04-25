@@ -1,0 +1,133 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="f5b" mask="0">
+		<position x="128" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="new" mask="240" entity="block.mps">
+		<position x="64" y="80" w="32" h="32" />
+	</sprite>
+	<sprite name="ent" mask="0" entity="dungeon_entrance.mps">
+		<position x="256" y="128" w="64" h="48" />
+	</sprite>
+	<sprite name="b5" mask="0">
+		<position x="16" y="96" w="32" h="16" />
+	</sprite>
+	<sprite name="b6" mask="0">
+		<position x="48" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="b4" mask="0">
+		<position x="0" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="b3" mask="0">
+		<position x="48" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="b2" mask="0">
+		<position x="16" y="80" w="32" h="16" />
+	</sprite>
+	<sprite name="b1" mask="0">
+		<position x="0" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="crack" mask="0" entity="crack.mps">
+		<position x="130" y="180" w="64" h="48" />
+	</sprite>
+	<sprite name="d1-locked" mask="0" entity="door.mps" hidden="hidden">
+		<position x="192" y="224" w="64" h="48" />
+	</sprite>
+	<sprite name="d1-closed" mask="0" hidden="hidden">
+		<position x="128" y="224" w="64" h="48" />
+	</sprite>
+	<sprite name="d1" mask="0" entity="door.mps">
+		<position x="64" y="224" w="64" h="48" />
+	</sprite>
+	<sprite name="w1" mask="255">
+		<position x="0" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="w2" mask="255">
+		<position x="48" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="w3" mask="255">
+		<position x="80" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="w4" mask="255">
+		<position x="128" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="w5" mask="255">
+		<position x="160" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="w6" mask="255">
+		<position x="208" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="f1" mask="0">
+		<position x="0" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="f2" mask="0">
+		<position x="32" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="f3" mask="1">
+		<position x="64" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="f4" mask="0">
+		<position x="96" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="f5" mask="0">
+		<position x="128" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="w7" mask="0">
+		<position x="160" y="48" w="16" h="64" />
+	</sprite>
+	<sprite name="w8" mask="0">
+		<position x="176" y="48" w="16" h="48" />
+	</sprite>
+	<sprite name="w9" mask="0">
+		<position x="192" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="wa" mask="0">
+		<position x="224" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="wb" mask="0">
+		<position x="128" y="80" w="32" h="32" />
+	</sprite>
+	<sprite name="t1_0" mask="0">
+		<position x="0" y="176" w="64" h="32" />
+	</sprite>
+	<sprite name="t1_1" mask="0">
+		<position x="0" y="208" w="64" h="32" />
+	</sprite>
+	<sprite name="t1_2" mask="0">
+		<position x="0" y="240" w="64" h="32" />
+	</sprite>
+	<sprite name="d1-arch" mask="0">
+		<position x="64" y="224" w="64" h="16" />
+	</sprite>
+	<sprite name="switch" mask="0" entity="switch.mps">
+		<position x="96" y="80" w="32" h="32" />
+	</sprite>
+	<sprite name="ent-floor" mask="0">
+		<position x="64" y="112" w="160" h="64" />
+	</sprite>
+	<sprite name="ent-arch" mask="0">
+		<position x="256" y="160" w="64" h="16" />
+	</sprite>
+	<sprite name="ent-floor2" mask="0">
+		<position x="256" y="112" w="64" h="16" />
+	</sprite>
+	<sprite name="a2" mask="255">
+		<position x="256" y="0" w="64" h="48" />
+	</sprite>
+	<sprite name="a1" mask="255">
+		<position x="416" y="0" w="32" h="64" />
+	</sprite>
+	<sprite name="a3" mask="255">
+		<position x="384" y="0" w="32" h="64" />
+	</sprite>
+	<sprite name="a4" mask="255">
+		<position x="384" y="64" w="48" h="64" />
+	</sprite>
+	<animation name="t1" mask="0">
+		<frame sprite="t1_0" x="0" y="0" ms="600"/>
+		<frame sprite="t1_1" x="0" y="0" ms="600"/>
+		<frame sprite="t1_2" x="0" y="0" ms="600"/>
+	</animation>
+	<sprite name="d1-master" mask="0">
+		<position x="256" y="224" w="64" h="48" />
+	</sprite>
+</sheet>

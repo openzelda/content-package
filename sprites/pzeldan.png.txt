@@ -1,9 +1,0 @@
-side_1	2	0	0	32	96	32	48
-side_0	2	0	0	0	96	32	48
-back_1	2	0	0	32	48	32	48
-back_0	2	0	0	0	48	32	48
-front_1	2	0	0	32	0	32	48
-front_0	2	0	0	0	0	32	48
-front	0	0	0	ANIMATION	120	front_0	front_1
-back	0	0	0	ANIMATION	120	back_0	back_1
-side	0	0	0	ANIMATION	120	side_0	side_1

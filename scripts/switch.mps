@@ -10,52 +10,36 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
-#include <mokoi_quest>
+
 
 #define RELEASED 0
 #define PRESSED 1
 
-enum SwitchEvent {
-	active,
-	entity[32],
-	function[24]
-}
+forward PUBLIC_EVENT_PRESSED
 
-forward public Pressed(attacker[]);
-
-new obj =-1;
 new audio = false;
 new state_changed = false;
 new pressed = false;
 
-new events[2][SwitchEvent] = {{0, "", ""},{0, "", ""}};
+new events[2][SwitchEvent];
+
+new message{64};
 
 public Init(...)
 {
+	SetupEntity( _STATE:RELEASED, TYPE_SWITCH, mqDisplayObject, 32, 32 );
 
-	dw = dh = 32;
-	_state_ = 0
-	_type_ = TYPE_SWITCH;
+	EntityGetSetting("on-event", events[1].function );
+	events[1].entity = EntityGetSettingHash("on-entity");
+	events[1].active = ( StringLength(events[1].function) && events[1].entity );
 
-	obj = EntityGetNumber("object-id");
+	EntityGetSetting("off-event", events[0].function );
+	events[0].entity = EntityGetSettingHash("off-entity");
+	events[0].active = ( StringLength(events[0].function) && events[0].entity );
+	
 
-	EntityGetPosition(_x_,_y_, _z_);
-	UpdateDisplayPosition();
-
-	EntityGetSetting("on-event", events[1][function] );
-	EntityGetSetting("off-event", events[0][function] );
-
-	EntityGetSetting("on-entity", events[1][entity] );
-	EntityGetSetting("off-entity", events[0][entity] );
-
-	if ( events[0][function][0] && events[0][entity][0] )
-		events[0][active] = true;
-	if ( events[1][function][0] && events[1][entity][0] )
-		events[1][active] = true;
-
-	CollisionSet(SELF, 0, TYPE_SWITCH, dx+8, dy+8, dw-16, dh-16);
-
-	EntityPublicFunction("__map__", "AddSwitch");
+	CollisionSet(SELF, 0, TYPE_SWITCH, mqDisplayArea.x+8, mqDisplayArea.y+8, mqDisplayArea.w-16, mqDisplayArea.h-16);
+	EntityPublicFunction(ENTITY_MAP, "AddSwitch"); // Add to map switch count.
 
 }
 
@@ -64,7 +48,7 @@ public Close()
 	CollisionSet(SELF, 0, 0);
 }
 
-public Pressed(attacker[])
+PUBLIC_EVENT_PRESSED
 {
 	state_changed = true;
 	pressed = 1;
@@ -72,27 +56,31 @@ public Pressed(attacker[])
 
 main()
 {
-	//DebugText("%s %s", events[0][entity], events[0][function]);
-	//DebugText("%s %s", events[1][entity], events[1][function]);
 
-	if ( MaskGetValue(dx+12, dy+12) == MASK_BLOCK || pressed )
+
+	/* Check if block is on switch or a player is standing on it */
+	if ( MaskGetValue(mqDisplayArea.x+12, mqDisplayArea.y+12) == MASK_BLOCK || pressed )
 	{
-		state_changed = ( _state_ == RELEASED ? true : false );
-		_state_ = PRESSED;
+		state_changed = ( mqState == _STATE:RELEASED ? true : false );
+		mqState = 1;
 		pressed = 0;
 	}
 	else
 	{
-		state_changed = ( _state_ == PRESSED ? true : false );
-		_state_ = RELEASED;
+		state_changed = ( mqState == _STATE:PRESSED ? true : false );
+		mqState = 0;
 	}
+
+	EntityPublicFunction(EntityHash("switch_door"), "Test");
 	if ( state_changed )
 	{
 		audio = false;
-		if ( events[_state_][active] )
-			EntityPublicFunction(events[_state_][entity], events[_state_][function]);
-		ObjectReplace(obj, ( _state_ == PRESSED ? "switch01.png:2" : "switch01.png:1"), SPRITE);
-		SoundPlayOnce(audio, ( _state_ == PRESSED ? "switch_pressed.wav" : "switch_release.wav"));
+		if ( events[mqState].active )
+		{
+			EntityPublicFunction(events[mqState].entity, events[mqState].function);
+		}
+		ObjectReplace( mqDisplayObject, ( mqState == _STATE:PRESSED ? "switch01.png:2" : "switch01.png:1"), SPRITE );
+		SoundPlayOnce( audio, ( mqState == _STATE:PRESSED ? "switch_pressed.wav" : "switch_release.wav") );
 	}
 	state_changed = false;
 

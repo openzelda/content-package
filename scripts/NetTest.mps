@@ -12,25 +12,21 @@
  ***********************************************/
 #include <network>
 #include <time>
-enum message {
-	countdown,
-	text[128]
-}
 
 forward public KeyboardInput( unicode );
 forward public NetMessage( player, array[], array_size );
 
 new active = 0;
 new names[32][10];
-new messages[12][message];
-new string[128] = {0,...};
+new messages[12][.countdown, .text{128}];
+new string{128} = {0,...};
 
 Add( name[], msg[] )
 {
 	new m = 0;
 	while ( m < 12 )
 	{
-		if ( !messages[m][countdown] )
+		if ( !messages[m].countdown )
 			break;
 		m++;
 	}
@@ -51,10 +47,10 @@ Add( name[], msg[] )
 		m = 11;
 	}
 
-	messages[m][countdown] = 10000;
+	messages[m].countdown = 10000;
 	new hour = 0, minute = 0;
 	Time(hour, minute);
-	strformat(messages[m][text], _, true, "[%02d:%02d] %s: %s", hour, minute, name, msg );
+	strformat(messages[m].text, _, true, "[%02d:%02d] %s: %s", hour, minute, name, msg );
 }
 
 
@@ -111,14 +107,14 @@ main()
 	new p = 0;
 	while ( m >= 0 )
 	{
-		if ( messages[m][countdown] > 0 )
+		if ( messages[m].countdown > 0 )
 		{
-			GraphicsDraw(messages[m][text], TEXT, 10, 358 - (p*10), 6, 0,0);
-			messages[m][countdown] -= GameFrame();
-			if ( messages[m][countdown] <= 0 )
+			GraphicsDraw(messages[m].text, TEXT, 10, 358 - (p*10), 6, 0,0);
+			messages[m].countdown -= GameFrame();
+			if ( messages[m].countdown <= 0 )
 			{
-				strformat(messages[m][text], _, true, "");
-				messages[m][countdown] = 0;
+				strformat(messages[m].text, _, true, "");
+				messages[m].countdown = 0;
 			}
 			p++;
 		}

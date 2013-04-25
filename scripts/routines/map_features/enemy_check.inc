@@ -10,38 +10,36 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
-#include <entities>
-#include <quest_types>
-#tryinclude <map_default>
+#include <map_features/standard>
 
-forward public EnemyKilled();
+forward public KilledEnemy();
 
 stock _enemycount = -1;
 
-stock EnemyCheck( entity[], fun[] )
+stock CheckEnemy( entity_name{}, function{} )
 {
+	DebugText("CheckEnemy %d", _enemycount);
 	if ( _enemycount >= 0 )
 	{
 		if ( _enemycount == 0 )
 		{
-			if ( entity[0] && fun[0] )
-				EntityPublicFunction( entity, fun );
+			if ( entity_name{0} && function{0} )
+				EntityPublicFunction( EntityHash(entity_name), function, [ ARG_END ] );
 			else
 				DialogShow( 1 );
 			_enemycount = -2;
 		}
 	}
-	else
+	else if ( _enemycount == -1 )
 	{
-
 		_enemycount = 0;
-		if ( EntitiesList(mapid) )
+		if ( EntitiesList(map_id) )
 		{
-			new string[64];
+			new child_entity;
 
-			while ( EntitiesNext(string, mapid) )
+			while ( EntitiesNext(child_entity, map_id) )
 			{
-				if ( TYPE_ENEMY == _TYPE:EntityPublicFunction( string, "GetType")  )
+				if ( TYPE_ENEMY == EntityPublicFunction( child_entity, "GetType")  )
 					_enemycount++;
 			}
 
@@ -51,7 +49,13 @@ stock EnemyCheck( entity[], fun[] )
 
 }
 
-public EnemyKilled()
+public KilledEnemy()
 {
 	_enemycount--;
 }
+
+ResetEnemyCount()
+{
+	_enemycount = -1;
+}
+

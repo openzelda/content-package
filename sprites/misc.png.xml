@@ -1,0 +1,9 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="knockedout_0" mask="0">
+		<position x="0" y="0" w="40" h="12" />
+	</sprite>
+	<animation name="knockedout" mask="0">
+		<frame sprite="knockedout_0" x="0" y="0" ms="1000"/>
+		<frame sprite="knockedout_0" x="2" y="0" ms="1000"/>
+	</animation>
+</sheet>

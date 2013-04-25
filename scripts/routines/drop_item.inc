@@ -10,11 +10,11 @@
  * Changes: 
  *     2010/01/11 [luke]: new file. 
  ***********************************************/ 
-#include <mokoi_quest> 
-#include <core> 
+#include <public_events> 
+
 
  
-forward PUBLICFUNCTIONHIT 
+forward PUBLIC_EVENT_HIT 
  
 new bouncing = false; 
 new initialBounce; 
@@ -31,11 +31,9 @@ new worth = 0;
 new playSound = true; 
 new pickable = true; 
  
-new object:obj = NULLOBJECT; 
-new object:shadow = NULLOBJECT; 
+new object:shadowObject = OBJECT_NONE; 
  
 new type = 1; 
-new GraphicTypes:sprite_type = SPRITE; 
 new sprite[64]; 
 new numstring = 0; 
  
@@ -46,37 +44,36 @@ public Init(...)
 		worth = getarg(0); 
 	else 
 		worth = 1; 
+
+	mqDisplayArea.w = MiscGetWidth(sprite); 
+	mqDisplayArea.h = MiscGetHeight(sprite); 
  
-	dw = MiscGetWidth(sprite); 
-	dh = MiscGetHeight(sprite); 
- 
-	GetEntityPosition(_x_, _y_, _z_, dx, dy, dz);
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
+
 	InitDropItem( worth );  
 
-	obj = ObjectCreate(sprite, sprite_type, dx, dy, dz,0,0,WHITE); 
-	shadow = ObjectCreate( "", CIRCLE, dx, dy+24, 2, 16, 8, 0x000000DD );
-	
-	//LanguageString(line, returnstring[], maxlength=sizeof returnstring); 
+	mqDisplayObject = ObjectCreate(sprite, SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0,0,WHITE); 
+	shadowObject = ObjectCreate( "", CIRCLE, mqDisplayArea.x, mqDisplayArea.y+24, mqDisplayZIndex-1000, 16, 8, 0x000000DD );
+
 } 
  
  
 public Close() 
 { 
-	ObjectDelete(obj); 
-	ObjectDelete(shadow); 
+	ObjectDelete(mqDisplayObject); 
+	ObjectDelete(shadowObject); 
 } 
 
 
-new errormessage[64]
 main() 
 { 
 	if ( pickable ) 
 	{ 
-		GetEntityPosition(_x_, _y_, _z_, dx, dy, dz);
-		CollisionSet(SELF, 0, 0, dx, dy, dw, dh);
-		ObjectPosition(obj, dx, dy - fround(bounceY), dz, 0, 0); 
+		GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
+		CollisionSet(SELF, 0, 0, mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h);
+		ObjectPosition(mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y - fround(bounceY), mqDisplayZIndex, 0, 0); 
 	}
-	DrawCharacter(worth, dx, dy, dz, WHITE, 255);
+	DrawCharacter(worth, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, WHITE, 255);
 
 	// If the Item has been out for too long then make it disappear 
 	if ( willTimeOut ) 
@@ -89,7 +86,7 @@ main()
 DrawCharacter(number, px, py, pz, colour, alpha)
 {
 	new gfx[20];
-	strformat(gfx, _, _, "alpha02.png:%d", number+48);
+	StringFormat(gfx, _, _, "alpha02.png:%d", number+48);
 	GraphicsDraw(gfx, SPRITE, px, py, pz, 0, 0);
 	return MiscGetWidth(gfx);
 }
@@ -121,7 +118,7 @@ public StartBounce()
 	bounceY = 0.00; 
 	TempBounce = 120; 
 	 
-	initialBounce = _y_; 
+	initialBounce = mqEntityPosition.y; 
 	willTimeOut = true; 
 } 
  
@@ -146,7 +143,7 @@ Bounce()
 	} 
 } 
  
-PUBLICFUNCTIONHIT 
+PUBLIC_EVENT_HIT 
 { 
 	EntityPublicFunction(attacker, "IncreaseItemCount", "nn", type, worth); 
 	 

@@ -10,21 +10,19 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
-#include <mokoi_quest>
 
-new length = 0;
-new object:obj = NULLOBJECT;
+new animationLength = 0;
+
 public Init(...)
 {
-	EntityGetPosition(_x_, _y_, _z_);
-	UpdateDisplayPosition();
-	obj = ObjectCreate("icerod.png:sparkle", 'a', dx, dx, 4, 0, 0);
-	length = AnimationGetLength("icerod.png:sparkle");
+	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
+	mqDisplayObject = ObjectCreate("icerod.png:sparkle", SPRITE, mqDisplayArea.x, mqDisplayArea.x, mqDisplayZIndex, 0, 0, WHITE );
+	animationLength = AnimationGetLength("icerod.png", "sparkle");
 }
 
 main()
 {
-	if ( Countdown( length ) )
+	if ( TimerCountdown( animationLength ) )
 	{
 		EntityDelete();
 	}

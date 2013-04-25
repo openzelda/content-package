@@ -9,25 +9,18 @@
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
  *     2010/01/11 [luke]: new file.
+ *     2013/01/31 [luke]: switch to Pawn 4
  ***********************************************/
 
 #include <entities>
 #include <public_events>
 
-#define NULLOBJECT object:-1
 #define STATEFUNCTION  
 
-#define SOUTH 0		//0 deg
-#define SOUTHEAST 1	//45 deg
-#define EAST 2		//90 deg
-#define NORTHEAST 3	//135 deg
-#define NORTH 4		//180 deg
-#define NORTHWEST 5	//225 deg
-#define WEST 6		//270 deg
-#define SOUTHWEST 7	//315 deg
+#define MENU_ENTITY_ID "menuent"  
+#define HUD_ENTITY_ID "hudent"  
 
-
-enum _STATE {
+const _STATE: {
 	ALIVE = 0,
 	STANDING,
 	MOVING,
@@ -49,17 +42,19 @@ enum _STATE {
 	PULLING,
 	DYING,
 	DEAD,
-	GONE
+	GONE,
+	STATE_COUNT
 }
 
-enum _STATEEFFECTS {
-	NOEFFECT
+const _STATEEFFECTS: {
+	NOEFFECT = 0,
 	STUNNED,
 	FROZEN,
 	SHOCKED,
 	BURNING,
 }
 
+stock type_name[11]{} = [ "UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPORT","PUSHABLE","SWITCH","ITEM","PLAYER","OUTOFRANGE" ];
 
 #define TYPE_UNKNOWN 0
 #define TYPE_ENEMY 1
@@ -73,25 +68,43 @@ enum _STATEEFFECTS {
 #define TYPE_PLAYER 9
 
 
-stock type_name[11][64] =  {"UNKNOWN","ENEMY","DOOR","WEAPON","AWAKING","TRANSPORT","PUSHABLE","SWITCH","ITEM","PLAYER","OUTOFRANGE" };
 
 
+#define RECT[.x, .y, .w, .h]
+#define POSITION[.x, .y, .z]
+#define POSITIONF[Fixed:.x, Fixed:.y, Fixed:.z]
+
+#define SwitchEvent[.active, .entity, .function{24}]
+
+#define EntityInfo[.hash, .id{32}]
+#define EntityGraphic[object:.obj, .x, .y, .z, .width, .height]
 
 
-enum EntityGraphic {
-	object:egOBJ,
-	egOFFX,
-	egOFFY,
-	egOFFZ
+stock entityId:private_map_id = 0;
+stock entityId:private_main_id = 0;
+
+stock entityId:get_private_map_id()
+{
+	if ( !private_map_id )
+	{
+		private_map_id = entityId:EntityHash("__map__");
+	}
+	return private_map_id;
+}
+
+stock entityId:get_private_main_id()
+{
+	if ( !private_main_id )
+	{
+		private_main_id = entityId:EntityHash("main");
+	}
+	return private_main_id;
 }
 
 
-enum RECT {
-	rX,
-	rY,
-	rW,
-	rH
-}
+#define ENTITY_MAP get_private_map_id() 
+#define ENTITY_MAIN get_private_main_id()
+
 
 /* Item Types */
 #define ITEM_BOMBS 1
@@ -102,7 +115,6 @@ enum RECT {
 
 
 /* Mask Values */
-/* */
 #define MASK_CLEAR 0
 #define MASK_DIRT 4
 #define MASK_GRASS 8
@@ -142,7 +154,5 @@ enum RECT {
 #define ASTUN 32
 #define ASHIELD 64
 #define AMAGIC 128
-
-
 
 

@@ -1,7 +1,8 @@
 <entity>
-	<option name="opened" value="1" type="boolean" />
+	<option name="shut" value="false" type="boolean" />
 	<option name="target" value="" type="mapentity" />
 	<option name="target_map" value="" type="map" />
 	<option name="section" value="" type="section" />
-	<option name="locktype" value="0" type="boolean" />
+	<option name="closed" value="false" type="boolean" />
+	<option name="key" value="0" type="" />
 </entity>

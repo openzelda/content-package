@@ -1,0 +1,47 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="side_0" mask="0" hidden="hidden">
+		<position x="32" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="side_1" mask="0" hidden="hidden">
+		<position x="64" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="back_0" mask="0" hidden="hidden">
+		<position x="32" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="back_1" mask="0" hidden="hidden">
+		<position x="64" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="entity" mask="0" entity="enemy_bones.mps">
+		<position x="96" y="0" w="32" h="56" />
+	</sprite>
+	<sprite name="stomp" mask="0" hidden="hidden">
+		<position x="96" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="front_0" mask="0" hidden="hidden">
+		<position x="32" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="front_1" mask="0" hidden="hidden">
+		<position x="64" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="head_front" mask="0" hidden="hidden">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="head_side" mask="0" hidden="hidden">
+		<position x="0" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="head_back" mask="0" hidden="hidden">
+		<position x="0" y="64" w="32" h="32" />
+	</sprite>
+	<animation name="side" mask="0" hidden="hidden">
+		<frame sprite="side_0" x="0" y="0" ms="120"/>
+		<frame sprite="side_1" x="0" y="0" ms="120"/>
+	</animation>
+	<animation name="back" mask="0" hidden="hidden">
+		<frame sprite="back_0" x="0" y="0" ms="1000"/>
+		<frame sprite="back_1" x="0" y="0" ms="1000"/>
+	</animation>
+	<animation name="front" mask="0">
+		<frame sprite="front_0" x="0" y="0" ms="100"/>
+		<frame sprite="front_1" x="0" y="0" ms="100"/>
+	</animation>
+</sheet>
