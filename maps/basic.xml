@@ -2,7 +2,10 @@
 <settings>
 	<dimensions width="1" height="1" />
 	<color red="74" blue="74" green="156" mode="0" />
+	<option name="independent" value="false" type="" />
+	<option name="wrap" value="0" type="" />
 	<option name="music" value="" type="music" />
+	<option name="centerview" value="false" type="" />
 	<option name="name" value="" type="" />
 </settings>
 <object value="outside01.png:mt1" type="sprite">
@@ -131,8 +134,8 @@
 	<position x="200" y="112" w="32" h="32" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 	<setting key="off-entity" value="" />
-	<setting key="on-event" value="" />
-	<setting key="on-entity" value="" />
+	<setting key="on-event" value="SwitchOn" />
+	<setting key="on-entity" value="__map__" />
 	<setting key="off-event" value="" />
 	<setting key="weighted" value="1" />
 	<entity value="switch" language="mps" global="false"/>
@@ -144,22 +147,5 @@
 <object value="outside01.png:mt1" type="sprite">
 	<position x="64" y="448" w="384" h="64" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="dungeon01.png:d1" type="sprite" id="aaa">
-	<position x="227" y="13" w="64" h="48" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="shut" value="true" type="boolean"/>
-	<setting key="target" value="" type="mapentity"/>
-	<setting key="target_map" value="" type="map"/>
-	<setting key="section" value="" type="section"/>
-	<setting key="closed" value="true" type="boolean"/>
-	<setting key="key" value="0" type=""/>
-	<entity value="door" language="mps" global="false"/>
-</object>
-<object value="dungeon00.png:gem1" type="sprite">
-	<position x="185" y="175" w="32" h="32" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="dungeon-id" value="" />
-	<entity value="dungeon_item" language="mps" global="false"/>
 </object>
 </map>

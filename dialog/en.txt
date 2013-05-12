@@ -1,3 +1,3 @@
 test
-Enemy Defeated
-Thank you for playing Hyrulean Adventures.△△△¶New content is in development and will delivery automatically.¶Visit forums.thegaminguniverse.com to leave comments.☻
+New String
+Hello World\nNew Line\n|Yes|No

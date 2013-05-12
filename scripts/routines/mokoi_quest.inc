@@ -150,3 +150,17 @@ public SetType(q)
 	<summary></summary>
 </function>
 ***/
+
+
+stock __textEntity = 0;
+
+
+stock CustomText(message{}, x, y, z, width, height, alpha)
+{
+	if ( !__textEntity)
+		__textEntity = EntityHash("TextFunctions");
+	return EntityPublicFunction(__textEntity , "DrawCustomText", ''snnnnnn'', message, x, y, z, width, height, alpha );
+}
+
+
+

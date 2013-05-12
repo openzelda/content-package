@@ -11,106 +11,140 @@
  *     2010/01/11 [luke]: new file.
  *     2013/01/31 [luke]: switch to Pawn 4
  ***********************************************/
-forward public dialogbox(line);
 
-#define DialogChar[.x, .y, .obj]
-#define DIALOGWIDTH 35
-#define DIALOGHEIGHT 6
-#define FONTWIDTH 8
-#define FONTHEIGHT 16
+#define DialogChar[.x, .y, object:.obj]
+#define DIALOGWIDTH 30
 
-new dialog_obj = -1;
-new dialog_line = -1;
-new dialog_text[200][DialogChar];
+forward public dialogbox(line, x, y, z, image{64} );
 
-HandleDialogBox()
+new object:dialogBackground = OBJECT_NONE;
+new dialogLine = -1;
+new dialogText[200][DialogChar];
+new dialogWidth = 120;
+new dialogHeight = 48;
+
+new fontWidth = 8;
+new fontHeight = 16;
+
+new gz= 0;
+
+public Init( ... )
 {
-	if ( dialog_line >= 0 )
-	{
-	/*
-		new c = 0
-		while ( dialog_text[c][obj] )
-		{
-			ObjectDelete(dialog_text[c][obj]);
-			dialog_text[c][obj] = -1
-			c++;
-		}
-		*/
-		//SheetReference( "alpha02.png", -1);
-		return true;
-	}
-	return false;
+	SheetReference( "alpha02.png", 1 );
 }
 
-DialogCharacter(c, achar, qx, qy)
+public Close()
+{
+	SheetReference( "alpha02.png", -1 );
+}
+
+main()
+{
+	DebugText("dialogLine: %d", gz );
+}
+
+DialogCharacter(c, achar, qx, qy, qz )
 {
 	new sprite{20};
 	new w;
-	strformat(sprite, _, 1, "alpha02.png:%d", achar);
+
+	StringFormat(sprite, _, true, "alpha02.png:%d", achar);
 	w = MiscGetWidth(sprite);
 	if ( !w )
 	{
-		strformat(sprite, _, 1, "alpha02.png:%d", '?');
+		StringFormat(sprite, _, true, "alpha02.png:%d", '?');
 		w = MiscGetWidth(sprite);
 	}
-	dialog_text[c].x = qx;
-	dialog_text[c].y = qy;
-	dialog_text[c].obj = ObjectCreate(sprite, SPRITE, qx, qy, 6, 0, 0);
+	dialogText[c].x = qx;
+	dialogText[c].y = qy;
+	dialogText[c].obj = ObjectCreate(sprite, SPRITE, qx, qy, qz, 0, 0);
 	return w;
+
 }
 
+
 //¶ - paragraph
-public dialogbox(line)
+//❶
+//❷
+
+public dialogbox(line, x, y, z, image{64} )
 {
 	new dialog{256};
-	new tx = 104;
-	new ty = 104;
-	new nx = 104;
+	new tx = x;
+	new ty = y;
+	new nx = x;
+	new ny = y;	
 	new n = 0;
 	new on = 0;
 	new c = 0;
 	new space = -1;
 
-	SheetReference( "alpha02.png" );
-	DialogGetString(line, dialog);
+	
+	dialogLine = line;
+	fontWidth = MiscGetWidth("alpha02.png:32");
+	fontHeight = MiscGetHeight("alpha02.png:32") + 2;
 
-	dialog_line = line;
-	dialog_obj = ObjectCreate(" ", 'r', 100, 100, 6, 300, 4*32);
-	ObjectEffect(dialog_obj, 0x00000077,_,_,_,_, STYLE_VGRADIENT,0x00000022);
+	DialogGetString(dialogLine, dialog);
 
-	while ( dialog[n] && n < 256 ) // Never use strlen in a for or while loop
+	if ( ty < 0 )
+		ty += MiscGetHeight("__screen__");
+	if ( tx < 0 )
+		tx += MiscGetWidth("__screen__");
+
+	nx = tx;
+	ny = ty;
+
+	while ( dialog{n} && n < 256 ) // Never use strlen in a for or while loop
 	{
-		if ( dialog[n] == 32 )
+		if ( dialog{n} == 32 )
 		{
 			space = n;
-			nx += FONTWIDTH;
+			nx += fontWidth;
 		}
-		else if ( dialog[n] == '\n' )
+		else if ( dialog{n} == '\n' )
 		{
-			dialog[n] = '\n';
+			dialog{n} = '\n';
 			space = 0;
 			c = 0;
-			ty += FONTHEIGHT;
+			ny += fontHeight;
 			nx = tx;
 		}
+		else if ( dialog{n} == '|' )
+		{
+			//Add Answer
+		}
+
 
 		if ( c++ >= DIALOGWIDTH )
 		{
 			if ( n - space > 6 )
 			{
-				DialogCharacter(n+on, '-', nx, ty);
+				DialogCharacter(n+on, '-', nx, ny, _:z + 10);
 				on++;
 			}
 			else if ( space > 0 )
 			{
-				ty += FONTHEIGHT;
+				ny += fontHeight;
 				nx = tx;
 				space = 0;
 				c = 0
 			}
 		}
-		if ( dialog[n] > 32 )
-			nx += DialogCharacter(n+on, dialog[n], nx, ty);
+		if ( dialog{n} > 32 )
+			nx += DialogCharacter(n+on, dialog{n}, nx, ny, _:z + 10);
 		n++;
 	}
+
+	if ( strlen(image) )
+	{
+		dialogBackground = ObjectCreate(image, SPRITE, tx, ty, z-1, dialogWidth, dialogHeight, WHITE, _);
+	}
+	else
+	{
+		dialogBackground = ObjectCreate("", RECTANGLE, tx, ty, z-1, dialogWidth, dialogHeight);
+		ObjectEffect(dialogBackground, 0x00000077,_,_,_,_, STYLE_VGRADIENT,0x00000022);
+	}
+
+
+
 }

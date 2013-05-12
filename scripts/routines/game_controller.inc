@@ -1,0 +1,33 @@
+#define _controller_included
+
+
+#define BUTTON_ACTION0 0
+#define BUTTON_ACTION1 1
+#define BUTTON_ACTION2 2
+#define BUTTON_ACTION3 3
+
+#define BUTTON_A 0
+#define BUTTON_B 1
+#define BUTTON_X 2
+#define BUTTON_Y 3
+#define BUTTON_ACTION5 4
+#define BUTTON_ACTION6 5
+
+#define BUTTON_MENU 6
+
+#define BUTTON_ARROWUP 7
+#define BUTTON_ARROWDOWN 8
+#define BUTTON_ARROWRIGHT 9
+#define BUTTON_ARROWLEFT 10
+
+#define BUTTON_MOUSELEFT 11
+#define BUTTON_MOUSEMIDDLE 12
+#define BUTTON_MOUSERIGHT 13
+#define BUTTON_MOUSEUP 14
+#define BUTTON_MOUSEDOWN 15
+
+#define BUTTON_CONFIRM 16
+#define BUTTON_CANCEL 17
+#define BUTTON_POINTER_PRESS 18
+
+

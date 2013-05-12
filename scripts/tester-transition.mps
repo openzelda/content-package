@@ -19,6 +19,7 @@ public Close()
 
 main()
 {
+/*
 	if ( InputButton(BUTTON_ACTION4) )
 	{
 		TransitionPlayer( owner, 0, 0, "testsection", 0, 0 );
@@ -34,7 +35,7 @@ main()
 		
 		TransitionPlayer( owner, 0, mapid, "", -1, -1 );
 	}
-
+*/
 
 
 
