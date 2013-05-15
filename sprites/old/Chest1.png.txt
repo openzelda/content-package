@@ -1,2 +1,0 @@
-chest1	0	0	_chest1	0	0	32	32
-chest1a	0	0		32	0	32	32

@@ -1,0 +1,239 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="ent01" mask="_Desert_mask1">
+		<position x="0" y="0" w="64" h="32" />
+	</sprite>
+	<sprite name="ent02" mask="_Desert_mask2">
+		<position x="64" y="0" w="64" h="32" />
+	</sprite>
+	<sprite name="ent03" mask="32x16x0">
+		<position x="0" y="32" w="64" h="32" />
+	</sprite>
+	<sprite name="ent04" mask="32x16x0">
+		<position x="64" y="32" w="64" h="32" />
+	</sprite>
+	<sprite name="ent05" mask="16x16x0">
+		<position x="0" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="ent06" mask="16x16x0">
+		<position x="96" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="ent07" mask="_Desert_mask3">
+		<position x="0" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="ent08" mask="_Desert_mask4">
+		<position x="96" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="door1" mask="0"entity="_Desert_door1">
+		<position x="32" y="64" w="64" h="48" />
+	</sprite>
+	<sprite name="door1a" mask="0">
+		<position x="32" y="64" w="64" h="32" />
+	</sprite>
+	<sprite name="ent09a" mask="_Desert_mask13">
+		<position x="32" y="112" w="64" h="16" />
+	</sprite>
+	<sprite name="ent10" mask="_Desert_mask6">
+		<position x="32" y="128" w="64" h="16" />
+	</sprite>
+	<sprite name="steps1" mask="_town60mask">
+		<position x="224" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="steps2" mask="8x8x0">
+		<position x="320" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="steps3" mask="8x8x0">
+		<position x="336" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="steps4" mask="8x8x0">
+		<position x="320" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="steps5" mask="8x8x0">
+		<position x="336" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="ent10a" mask="_Desert_mask12">
+		<position x="32" y="144" w="64" h="16" />
+	</sprite>
+	<sprite name="ent11" mask="_Desert_mask7">
+		<position x="128" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="ent12" mask="_Desert_mask8">
+		<position x="192" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="ent14a" mask="16x16x0">
+		<position x="128" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="ent14c" mask="16x16x0">
+		<position x="192" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="ent13" mask="16x24x0">
+		<position x="160" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="ent15" mask="8x16x0">
+		<position x="128" y="64" w="16" h="32" />
+	</sprite>
+	<sprite name="ent15a" mask="8x16x0">
+		<position x="144" y="64" w="16" h="32" />
+	</sprite>
+	<sprite name="ent16" mask="8x16x0">
+		<position x="208" y="64" w="16" h="32" />
+	</sprite>
+	<sprite name="ent16a" mask="8x16x0">
+		<position x="192" y="64" w="16" h="32" />
+	</sprite>
+	<sprite name="door2" mask="0"entity="_Desert_door2">
+		<position x="160" y="48" w="32" h="64" />
+	</sprite>
+	<sprite name="door2a" mask="0">
+		<position x="160" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="ent09b1" mask="8x8x0">
+		<position x="144" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="ent09b2" mask="8x8x0">
+		<position x="192" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="ent17" mask="_Desert_mask9">
+		<position x="128" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="ent18" mask="_Desert_mask10">
+		<position x="208" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="ent19" mask="_Desert_mask12">
+		<position x="144" y="112" w="64" h="16" />
+	</sprite>
+	<sprite name="ent20" mask="16x8x32">
+		<position x="224" y="112" w="32" h="16" />
+	</sprite>
+	<sprite name="mask9" mask="0">
+		<position x="128" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="mask10" mask="0">
+		<position x="208" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="mask1" mask="0">
+		<position x="0" y="160" w="64" h="32" />
+	</sprite>
+	<sprite name="mask2" mask="0">
+		<position x="64" y="160" w="64" h="32" />
+	</sprite>
+	<sprite name="mask3" mask="0">
+		<position x="0" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="mask4" mask="0">
+		<position x="96" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="mask7" mask="0">
+		<position x="192" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="mask8" mask="0">
+		<position x="224" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="mask12" mask="0">
+		<position x="192" y="176" w="64" h="16" />
+	</sprite>
+	<sprite name="ent22" mask="16x16x0">
+		<position x="224" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="ent23" mask="16x16x0">
+		<position x="256" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="ent24" mask="16x16x0">
+		<position x="288" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="ent25" mask="16x16x0">
+		<position x="256" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="ent26" mask="16x16x0">
+		<position x="288" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="ent27" mask="16x24x0">
+		<position x="224" y="64" w="32" h="48" />
+	</sprite>
+	<sprite name="ent28" mask="16x24x0">
+		<position x="256" y="64" w="32" h="48" />
+	</sprite>
+	<sprite name="ent29" mask="16x24x0">
+		<position x="288" y="64" w="32" h="48" />
+	</sprite>
+	<sprite name="ent30" mask="16x24x0">
+		<position x="256" y="112" w="32" h="48" />
+	</sprite>
+	<sprite name="ent31" mask="16x24x0">
+		<position x="288" y="112" w="32" h="48" />
+	</sprite>
+	<sprite name="ent32" mask="_town60mask">
+		<position x="224" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="ent33" mask="0">
+		<position x="256" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="ent34" mask="0">
+		<position x="288" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="ent35" mask="16x16x0">
+		<position x="320" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="ent36" mask="16x16x0">
+		<position x="320" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="mask6" mask="0">
+		<position x="128" y="160" w="64" h="16" />
+	</sprite>
+	<sprite name="mask6a" mask="0">
+		<position x="128" y="176" w="64" h="16" />
+	</sprite>
+	<sprite name="mask13" mask="0">
+		<position x="192" y="160" w="64" h="16" />
+	</sprite>
+	<sprite name="blocker" mask="_outside93mask">
+		<position x="352" y="0" w="64" h="64" />
+	</sprite>
+	<sprite name="wdesign1" mask="0">
+		<position x="128" y="128" w="16" h="32" />
+	</sprite>
+	<sprite name="wdesign2" mask="0">
+		<position x="176" y="128" w="16" h="32" />
+	</sprite>
+	<sprite name="wdesign3" mask="0">
+		<position x="144" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="bones1" mask="_Desert_mask3">
+		<position x="352" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="bones2" mask="_Desert_mask4">
+		<position x="384" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="bones3" mask="16x16x0">
+		<position x="368" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="bones4" mask="8x8x0">
+		<position x="352" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="bones5" mask="8x8x0">
+		<position x="352" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="bones6" mask="8x8x0">
+		<position x="400" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="bones7" mask="8x8x0">
+		<position x="400" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="bones8" mask="cry_blockmask">
+		<position x="384" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="bones9" mask="0">
+		<position x="352" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="bones10" mask="0">
+		<position x="368" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="cactus" mask="0"entity="_cactus">
+		<position x="320" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="post1" mask="0"entity="_Desert_post1">
+		<position x="320" y="144" w="32" h="48" />
+	</sprite>
+	<sprite name="post2" mask="0"entity="_Desert_post2">
+		<position x="352" y="144" w="32" h="48" />
+	</sprite>
+</sheet>

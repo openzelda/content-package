@@ -1,0 +1,50 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="wormb" mask="0"entity="wormb">
+		<position x="0" y="0" w="64" h="64" />
+	</sprite>
+	<sprite name="wormb2" mask="0">
+		<position x="64" y="0" w="64" h="64" />
+	</sprite>
+	<sprite name="wormb3" mask="0">
+		<position x="0" y="64" w="56" h="56" />
+	</sprite>
+	<sprite name="wormb4" mask="0">
+		<position x="56" y="64" w="56" h="56" />
+	</sprite>
+	<sprite name="wormb5" mask="0">
+		<position x="128" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="wormb6" mask="0">
+		<position x="160" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="wormbtail1" mask="0">
+		<position x="128" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="wormbtail2" mask="0">
+		<position x="160" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="boss_worm_eye_nw" mask="0">
+		<position x="112" y="64" w="24" h="24" />
+	</sprite>
+	<sprite name="boss_worm_eye_sw" mask="0">
+		<position x="112" y="88" w="24" h="24" />
+	</sprite>
+	<sprite name="boss_worm_eye_ne" mask="0">
+		<position x="136" y="64" w="24" h="24" />
+	</sprite>
+	<sprite name="boss_worm_eye_se" mask="0">
+		<position x="136" y="88" w="24" h="24" />
+	</sprite>
+	<sprite name="boss_worm_eye_w" mask="0">
+		<position x="160" y="64" w="24" h="24" />
+	</sprite>
+	<sprite name="boss_worm_eye_e" mask="0">
+		<position x="184" y="64" w="24" h="24" />
+	</sprite>
+	<sprite name="boss_worm_eye_s" mask="0">
+		<position x="160" y="88" w="24" h="24" />
+	</sprite>
+	<sprite name="boss_worm_eye_n" mask="0">
+		<position x="184" y="88" w="24" h="24" />
+	</sprite>
+</sheet>

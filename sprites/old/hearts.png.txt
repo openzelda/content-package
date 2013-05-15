@@ -1,6 +1,0 @@
-ifullheart	0	0	i_fullheart	0	0	32	32
-iheartpiece	0	0	i_heartpiece	32	0	32	32
-heartempty	0	0		64	0	32	32
-heart14	0	0		0	32	32	32
-heart24	0	0		32	32	32	32
-heart34	0	0		64	32	32	32

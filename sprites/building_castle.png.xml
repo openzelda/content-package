@@ -1,0 +1,275 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="wall1a" mask="16x24x0">
+		<position x="0" y="32" w="32" h="48" />
+	</sprite>
+	<sprite name="wall1b" mask="16x24x0">
+		<position x="0" y="80" w="32" h="48" />
+	</sprite>
+	<sprite name="wall2a" mask="16x24x0">
+		<position x="80" y="32" w="32" h="48" />
+	</sprite>
+	<sprite name="wall2b" mask="16x24x0">
+		<position x="80" y="80" w="32" h="48" />
+	</sprite>
+	<sprite name="wall2" mask="8x16x0">
+		<position x="32" y="48" w="16" h="32" />
+	</sprite>
+	<sprite name="wall4" mask="8x16x0">
+		<position x="64" y="48" w="16" h="32" />
+	</sprite>
+	<sprite name="wall5" mask="8x24x0">
+		<position x="176" y="96" w="16" h="48" />
+	</sprite>
+	<sprite name="wall6" mask="8x16x0">
+		<position x="48" y="48" w="16" h="32" />
+	</sprite>
+	<sprite name="wall7" mask="0">
+		<position x="48" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="wall8" mask="16x40x0">
+		<position x="176" y="0" w="32" h="80" />
+	</sprite>
+	<sprite name="wall9" mask="16x40x0">
+		<position x="208" y="0" w="32" h="80" />
+	</sprite>
+	<sprite name="wall10" mask="16x8x0">
+		<position x="80" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="wall11" mask="0">
+		<position x="48" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="wall12" mask="16x8x0">
+		<position x="0" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="wall13" mask="0">
+		<position x="48" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="wall14" mask="16x8x0">
+		<position x="0" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="wall15" mask="16x8x0">
+		<position x="80" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="wall16" mask="8x8x0">
+		<position x="32" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="wall17" mask="0">
+		<position x="32" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="wall18" mask="16x8x0">
+		<position x="176" y="80" w="32" h="16" />
+	</sprite>
+	<sprite name="wall19" mask="16x8x0">
+		<position x="208" y="80" w="32" h="16" />
+	</sprite>
+	<sprite name="pillar1" mask="32x24x0">
+		<position x="112" y="0" w="64" h="48" />
+	</sprite>
+	<sprite name="pillar2" mask="32x32x0">
+		<position x="112" y="48" w="64" h="64" />
+	</sprite>
+	<sprite name="pillarb1" mask="0">
+		<position x="240" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="pillarb2" mask="0">
+		<position x="272" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="pillarr1" mask="0">
+		<position x="240" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="pillarr2" mask="0">
+		<position x="272" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="pillarp1" mask="0">
+		<position x="240" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="pillarp2" mask="0">
+		<position x="272" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="rail1" mask="8x8x0">
+		<position x="32" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="rail2" mask="8x8x0">
+		<position x="48" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="rail3" mask="8x8x0">
+		<position x="64" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="rail4" mask="8x8x0">
+		<position x="64" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="rail5" mask="8x8x0">
+		<position x="64" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="rail6" mask="8x8x0">
+		<position x="48" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="rail7" mask="8x8x0">
+		<position x="32" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="rail8" mask="8x8x0">
+		<position x="32" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="rail9" mask="0">
+		<position x="48" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="rail10" mask="8x8x0">
+		<position x="112" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="rail11" mask="8x8x0">
+		<position x="128" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="rail12" mask="8x8x0">
+		<position x="112" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="rail13" mask="8x8x0">
+		<position x="128" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="rail14" mask="8x16x0">
+		<position x="144" y="112" w="16" h="32" />
+	</sprite>
+	<sprite name="rail15" mask="8x16x0">
+		<position x="160" y="112" w="16" h="32" />
+	</sprite>
+	<sprite name="rail16" mask="16x8x32">
+		<position x="256" y="304" w="32" h="16" />
+	</sprite>
+	<sprite name="basicdoor1c" mask="_castlemask1"entity="_basicdoor1c">
+		<position x="0" y="160" w="96" h="48" />
+	</sprite>
+	<sprite name="basicdoor1b" mask="_castlemask1"entity="_basicdoor1b">
+		<position x="96" y="160" w="96" h="48" />
+	</sprite>
+	<sprite name="basicdoor1r" mask="_castlemask1"entity="_basicdoor1r">
+		<position x="0" y="224" w="96" h="48" />
+	</sprite>
+	<sprite name="basicdoor1p" mask="_castlemask1"entity="_basicdoor1p">
+		<position x="96" y="224" w="96" h="48" />
+	</sprite>
+	<sprite name="basicdoor1co" mask="0">
+		<position x="96" y="288" w="96" h="48" />
+	</sprite>
+	<sprite name="mask1" mask="0">
+		<position x="0" y="288" w="96" h="48" />
+	</sprite>
+	<sprite name="darch" mask="0">
+		<position x="0" y="144" w="96" h="16" />
+	</sprite>
+	<sprite name="doortop" mask="0">
+		<position x="0" y="128" w="96" h="16" />
+	</sprite>
+	<sprite name="door_l" mask="0">
+		<position x="288" y="304" w="16" h="32" />
+	</sprite>
+	<sprite name="door_r" mask="0">
+		<position x="304" y="304" w="16" h="32" />
+	</sprite>
+	<sprite name="fence_n" mask="16x8x0">
+		<position x="288" y="144" w="32" h="16" />
+	</sprite>
+	<sprite name="fence" mask="16x8x0">
+		<position x="288" y="160" w="32" h="16" />
+	</sprite>
+	<sprite name="fence_s" mask="16x8x0">
+		<position x="288" y="176" w="32" h="16" />
+	</sprite>
+	<sprite name="steps" mask="_town60mask">
+		<position x="288" y="208" w="32" h="16" />
+	</sprite>
+	<sprite name="barrier1" mask="0">
+		<position x="160" y="336" w="32" h="32" />
+	</sprite>
+	<sprite name="barrier2" mask="0">
+		<position x="192" y="336" w="32" h="32" />
+	</sprite>
+	<sprite name="eyedesign1" mask="0">
+		<position x="0" y="336" w="96" h="32" />
+	</sprite>
+	<sprite name="eyedesign2" mask="0">
+		<position x="96" y="336" w="32" h="32" />
+	</sprite>
+	<sprite name="eyedesign3" mask="0">
+		<position x="128" y="336" w="32" h="32" />
+	</sprite>
+	<sprite name="gate1" mask="16x16x0">
+		<position x="192" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="gate2" mask="16x16x0">
+		<position x="224" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="gate3" mask="16x24x0">
+		<position x="192" y="224" w="32" h="48" />
+	</sprite>
+	<sprite name="gate4" mask="16x24x0">
+		<position x="224" y="224" w="32" h="48" />
+	</sprite>
+	<sprite name="gate5" mask="8x8x0">
+		<position x="256" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="gate6" mask="0">
+		<position x="272" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="gate7" mask="8x8x0">
+		<position x="288" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="gate8" mask="8x8x0">
+		<position x="304" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="doorc" mask="0"entity="_castledoorc">
+		<position x="192" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="gateopen1" mask="0">
+		<position x="224" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="door2a" mask="0">
+		<position x="256" y="224" w="64" h="32" />
+	</sprite>
+	<sprite name="gateopen2" mask="0">
+		<position x="256" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="gateopen3" mask="0">
+		<position x="288" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="gateshade" mask="0">
+		<position x="256" y="320" w="32" h="48" />
+	</sprite>
+	<sprite name="gate9g" mask="0">
+		<position x="192" y="272" w="32" h="32" />
+	</sprite>
+	<sprite name="gate9b" mask="0">
+		<position x="224" y="272" w="32" h="32" />
+	</sprite>
+	<sprite name="gate9r" mask="0">
+		<position x="192" y="304" w="32" h="32" />
+	</sprite>
+	<sprite name="gate9p" mask="0">
+		<position x="224" y="304" w="32" h="32" />
+	</sprite>
+	<sprite name="doors" mask="_entrancemask"entity="_castledoors">
+		<position x="256" y="224" w="64" h="80" />
+	</sprite>
+	<sprite name="gblock" mask="8x8x0">
+		<position x="256" y="288" w="16" h="16" />
+	</sprite>
+	<sprite name="fill1" mask="0">
+		<position x="32" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="fill2" mask="0">
+		<position x="64" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="fill3" mask="0">
+		<position x="96" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="stepbrk1" mask="16x8x0">
+		<position x="288" y="224" w="32" h="16" />
+	</sprite>
+	<sprite name="stepbrk2" mask="16x8x0">
+		<position x="256" y="208" w="32" h="16" />
+	</sprite>
+	<sprite name="basicdoor1cc" mask="0">
+		<position x="192" y="144" w="96" h="48" />
+	</sprite>
+	<sprite name="" mask="0">
+		<position x="0" y="0" w="0" h="0" />
+	</sprite>
+</sheet>

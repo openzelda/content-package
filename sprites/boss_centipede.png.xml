@@ -1,0 +1,38 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="lanmolab" mask="0"entity="lanmolab">
+		<position x="34" y="84" w="34" h="34" />
+	</sprite>
+	<sprite name="lanmolabody" mask="0">
+		<position x="68" y="84" w="34" h="34" />
+	</sprite>
+	<sprite name="lanmolatail" mask="0">
+		<position x="0" y="84" w="34" h="34" />
+	</sprite>
+	<sprite name="smallmud1" mask="0">
+		<position x="0" y="0" w="24" h="24" />
+	</sprite>
+	<sprite name="smallmud2" mask="0">
+		<position x="24" y="0" w="26" h="30" />
+	</sprite>
+	<sprite name="largemud1" mask="0">
+		<position x="50" y="0" w="32" h="34" />
+	</sprite>
+	<sprite name="largemud2" mask="0">
+		<position x="82" y="0" w="32" h="34" />
+	</sprite>
+	<sprite name="mudsling1b" mask="0">
+		<position x="32" y="34" w="32" h="32" />
+	</sprite>
+	<sprite name="mudsling1a" mask="0">
+		<position x="0" y="34" w="32" h="32" />
+	</sprite>
+	<sprite name="mudsling2a" mask="0">
+		<position x="70" y="34" w="32" h="32" />
+	</sprite>
+	<sprite name="mudsling2b" mask="0">
+		<position x="102" y="34" w="32" h="32" />
+	</sprite>
+	<sprite name="boss_rock" mask="0">
+		<position x="0" y="66" w="14" h="12" />
+	</sprite>
+</sheet>

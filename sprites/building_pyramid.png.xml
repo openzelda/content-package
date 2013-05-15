@@ -1,0 +1,251 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="1" mask="16x8x0">
+		<position x="0" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="2" mask="16x8x0">
+		<position x="32" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="3" mask="16x16x0">
+		<position x="0" y="16" w="32" h="32" />
+	</sprite>
+	<sprite name="4" mask="16x16x0">
+		<position x="32" y="16" w="32" h="32" />
+	</sprite>
+	<sprite name="5" mask="16x8x0">
+		<position x="0" y="48" w="32" h="16" />
+	</sprite>
+	<sprite name="6" mask="16x8x0">
+		<position x="32" y="48" w="32" h="16" />
+	</sprite>
+	<sprite name="7" mask="16x16x0">
+		<position x="0" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="8" mask="16x16x0">
+		<position x="32" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="9" mask="16x16x0">
+		<position x="64" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="10" mask="16x16x0">
+		<position x="96" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="11" mask="32x16x0">
+		<position x="64" y="32" w="64" h="32" />
+	</sprite>
+	<sprite name="12" mask="32x16x0">
+		<position x="64" y="64" w="64" h="32" />
+	</sprite>
+	<sprite name="13" mask="16x16x0">
+		<position x="0" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="14" mask="8x16x0">
+		<position x="32" y="96" w="16" h="32" />
+	</sprite>
+	<sprite name="15" mask="16x16x0">
+		<position x="64" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="16" mask="16x8x0">
+		<position x="64" y="128" w="32" h="16" />
+	</sprite>
+	<sprite name="17" mask="16x16x0">
+		<position x="64" y="144" w="32" h="32" />
+	</sprite>
+	<sprite name="18" mask="16x8x0">
+		<position x="0" y="128" w="32" h="16" />
+	</sprite>
+	<sprite name="19" mask="16x16x0">
+		<position x="0" y="144" w="32" h="32" />
+	</sprite>
+	<sprite name="20" mask="8x16x0">
+		<position x="32" y="144" w="16" h="32" />
+	</sprite>
+	<sprite name="21" mask="8x16x0">
+		<position x="48" y="144" w="16" h="32" />
+	</sprite>
+	<sprite name="22" mask="16x16x0">
+		<position x="160" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="23" mask="16x8x0">
+		<position x="32" y="176" w="32" h="16" />
+	</sprite>
+	<sprite name="24" mask="16x8x0">
+		<position x="64" y="176" w="32" h="16" />
+	</sprite>
+	<sprite name="steps1" mask="8x8x0">
+		<position x="48" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="steps2" mask="8x8x0">
+		<position x="48" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="steps3" mask="8x8x0">
+		<position x="48" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="steps4" mask="_town60mask">
+		<position x="0" y="176" w="32" h="16" />
+	</sprite>
+	<sprite name="steps5" mask="0">
+		<position x="32" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="floor1" mask="0">
+		<position x="96" y="128" w="64" h="64" />
+	</sprite>
+	<sprite name="floor2" mask="0">
+		<position x="96" y="128" w="64" h="32" />
+	</sprite>
+	<sprite name="floor3" mask="0">
+		<position x="96" y="160" w="64" h="32" />
+	</sprite>
+	<sprite name="floor4" mask="0">
+		<position x="96" y="128" w="32" h="64" />
+	</sprite>
+	<sprite name="floor5" mask="0">
+		<position x="128" y="128" w="32" h="64" />
+	</sprite>
+	<sprite name="doortop" mask="0">
+		<position x="64" y="0" w="64" h="32" />
+	</sprite>
+	<sprite name="ledge1" mask="16x8x32">
+		<position x="96" y="112" w="32" h="16" />
+	</sprite>
+	<sprite name="ledge2" mask="16x8x32">
+		<position x="128" y="112" w="32" h="16" />
+	</sprite>
+	<sprite name="statue1" mask="32x32x0">
+		<position x="128" y="32" w="64" h="64" />
+	</sprite>
+	<sprite name="statue2" mask="32x16x0">
+		<position x="128" y="0" w="64" h="32" />
+	</sprite>
+	<sprite name="hole1" mask="0">
+		<position x="224" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="hole2" mask="0">
+		<position x="240" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="hole3" mask="0">
+		<position x="224" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="hole4" mask="0">
+		<position x="240" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="hole5" mask="0">
+		<position x="224" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="hole6" mask="0">
+		<position x="240" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="hole7" mask="0">
+		<position x="224" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="hole8" mask="0">
+		<position x="240" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="crack1" mask="16x8x0">
+		<position x="64" y="80" w="32" h="16" />
+	</sprite>
+	<sprite name="crack2" mask="16x8x0">
+		<position x="96" y="80" w="32" h="16" />
+	</sprite>
+	<sprite name="crack3" mask="8x8x0">
+		<position x="96" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="crack4" mask="8x8x0">
+		<position x="112" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="crack5" mask="8x8x0">
+		<position x="64" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="crack6" mask="16x8x0">
+		<position x="80" y="64" w="32" h="16" />
+	</sprite>
+	<sprite name="crack7" mask="8x8x0">
+		<position x="112" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="crack8" mask="8x8x0">
+		<position x="160" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="crack9" mask="8x8x0">
+		<position x="80" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="crack10" mask="8x8x0">
+		<position x="96" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="crackc" mask="0"entity="_pyramidcrackc">
+		<position x="160" y="128" w="32" h="64" />
+	</sprite>
+	<sprite name="crackca" mask="0">
+		<position x="160" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="cracko" mask="_EntranceMask1"entity="_pyramidcracko">
+		<position x="192" y="0" w="64" h="64" />
+	</sprite>
+	<sprite name="crackoa" mask="0">
+		<position x="192" y="0" w="64" h="32" />
+	</sprite>
+	<sprite name="crack11" mask="16x8x0">
+		<position x="64" y="48" w="32" h="16" />
+	</sprite>
+	<sprite name="crack12" mask="16x8x0">
+		<position x="96" y="48" w="32" h="16" />
+	</sprite>
+	<sprite name="crack13" mask="8x8x0">
+		<position x="128" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="crack14" mask="8x8x0">
+		<position x="144" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="crack15" mask="8x8x0">
+		<position x="64" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="crack16" mask="16x8x0">
+		<position x="80" y="32" w="32" h="16" />
+	</sprite>
+	<sprite name="crack17" mask="8x8x0">
+		<position x="112" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="crack18" mask="8x8x0">
+		<position x="192" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="crack19" mask="8x8x0">
+		<position x="80" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="crack20" mask="8x8x0">
+		<position x="96" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="crackd" mask="0"entity="_pyramidcrackd">
+		<position x="192" y="128" w="32" h="64" />
+	</sprite>
+	<sprite name="crackda" mask="0">
+		<position x="192" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="crackp" mask="_EntranceMask1"entity="_pyramidcrackp">
+		<position x="192" y="64" w="64" h="64" />
+	</sprite>
+	<sprite name="crackpa" mask="0">
+		<position x="192" y="64" w="64" h="32" />
+	</sprite>
+	<sprite name="crackco" mask="0">
+		<position x="192" y="32" w="64" h="32" />
+	</sprite>
+	<sprite name="crackdo" mask="0">
+		<position x="192" y="96" w="64" h="32" />
+	</sprite>
+	<sprite name="cracktop1" mask="0">
+		<position x="192" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="cracktop2" mask="0">
+		<position x="224" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="cracktop3" mask="0">
+		<position x="192" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="cracktop4" mask="0">
+		<position x="224" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="crakfill1" mask="0">
+		<position x="160" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="crakfill2" mask="0">
+		<position x="192" y="128" w="16" h="16" />
+	</sprite>
+</sheet>

@@ -1,0 +1,11 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="travelator1" mask="0"entity="o_travelator1">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="travelator1a" mask="0">
+		<position x="0" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="travelator1b" mask="0">
+		<position x="0" y="64" w="32" h="32" />
+	</sprite>
+</sheet>

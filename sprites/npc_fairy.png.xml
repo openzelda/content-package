@@ -1,0 +1,20 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="fairy" mask="0"entity="i_fairy">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="fairye1" mask="0">
+		<position x="32" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="fairyheal" mask="0">
+		<position x="0" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="fairyheal1" mask="0">
+		<position x="32" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="fairyw1" mask="0">
+		<position x="32" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="fairyw" mask="0">
+		<position x="0" y="64" w="32" h="32" />
+	</sprite>
+</sheet>

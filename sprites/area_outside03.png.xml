@@ -1,0 +1,1160 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="1" mask="16x16x0">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="2" mask="16x16x0">
+		<position x="32" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="3" mask="16x16x0">
+		<position x="64" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="4" mask="16x16x0">
+		<position x="96" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="5" mask="16x8x0">
+		<position x="128" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="6" mask="16x8x0">
+		<position x="128" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="7" mask="16x8x0">
+		<position x="160" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="8" mask="16x8x0">
+		<position x="192" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="9" mask="16x8x0">
+		<position x="160" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="10" mask="16x8x0">
+		<position x="224" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="11" mask="16x8x0">
+		<position x="224" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="12" mask="16x8x0">
+		<position x="256" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="13" mask="16x8x0">
+		<position x="256" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="14" mask="_rock14Mask">
+		<position x="0" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="15" mask="16x16x0">
+		<position x="0" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="16" mask="_rock16Mask">
+		<position x="0" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="17" mask="16x16x0">
+		<position x="32" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="18" mask="16x16x0">
+		<position x="32" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="19" mask="16x16x0">
+		<position x="32" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="20" mask="16x16x0">
+		<position x="64" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="21" mask="16x16x0">
+		<position x="64" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="22" mask="16x16x0">
+		<position x="64" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="23" mask="16x16x0">
+		<position x="96" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="24" mask="16x16x0">
+		<position x="96" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="25" mask="16x16x0">
+		<position x="96" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="127" mask="16x16x0">
+		<position x="384" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="26" mask="16x16x0">
+		<position x="128" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="27" mask="_rock27Mask">
+		<position x="256" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="28" mask="16x16x0">
+		<position x="256" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="29" mask="_rock29Mask">
+		<position x="256" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="30" mask="16x16x0">
+		<position x="224" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="31" mask="16x16x0">
+		<position x="224" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="32" mask="16x16x0">
+		<position x="224" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="33" mask="16x16x0">
+		<position x="192" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="34" mask="16x16x0">
+		<position x="192" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="35" mask="16x16x0">
+		<position x="192" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="36" mask="16x16x0">
+		<position x="160" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="37" mask="16x16x0">
+		<position x="160" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="38" mask="16x16x0">
+		<position x="160" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="126" mask="16x16x0">
+		<position x="384" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="39" mask="16x16x0">
+		<position x="128" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="40" mask="_rock40Mask">
+		<position x="0" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="41" mask="_rock41Mask">
+		<position x="32" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="42" mask="16x16x0">
+		<position x="64" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="43" mask="_rock43Mask">
+		<position x="160" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="44" mask="_rock44Mask">
+		<position x="128" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="45" mask="16x16x0">
+		<position x="96" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="46" mask="16x8x32">
+		<position x="192" y="128" w="32" h="16" />
+	</sprite>
+	<sprite name="47" mask="16x8x16">
+		<position x="192" y="144" w="32" h="16" />
+	</sprite>
+	<sprite name="48" mask="8x16x24">
+		<position x="224" y="128" w="16" h="32" />
+	</sprite>
+	<sprite name="49" mask="8x16x40">
+		<position x="240" y="128" w="16" h="32" />
+	</sprite>
+	<sprite name="50" mask="0">
+		<position x="0" y="176" w="32" h="16" />
+	</sprite>
+	<sprite name="51" mask="0">
+		<position x="0" y="160" w="32" h="16" />
+	</sprite>
+	<sprite name="52" mask="0">
+		<position x="32" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="53" mask="0">
+		<position x="48" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="54" mask="_rock54Mask">
+		<position x="64" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="55" mask="_rock55Mask">
+		<position x="80" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="56" mask="_rock56Mask">
+		<position x="96" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="57" mask="_rock57Mask">
+		<position x="112" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="58" mask="0">
+		<position x="128" y="176" w="32" h="16" />
+	</sprite>
+	<sprite name="59" mask="0">
+		<position x="128" y="160" w="32" h="16" />
+	</sprite>
+	<sprite name="60" mask="0">
+		<position x="160" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="61" mask="0">
+		<position x="176" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="62" mask="0">
+		<position x="192" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="63" mask="0">
+		<position x="208" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="64" mask="0">
+		<position x="224" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="65" mask="0">
+		<position x="240" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="66" mask="_rock66Mask">
+		<position x="288" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="67" mask="8x16x0">
+		<position x="288" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="68" mask="8x16x0">
+		<position x="304" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="69" mask="16x16x0">
+		<position x="288" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="70" mask="_rock70Mask">
+		<position x="288" y="96" w="32" h="16" />
+	</sprite>
+	<sprite name="71" mask="_rock71Mask">
+		<position x="288" y="112" w="32" h="16" />
+	</sprite>
+	<sprite name="72" mask="_rock72Mask">
+		<position x="256" y="128" w="16" h="48" />
+	</sprite>
+	<sprite name="73" mask="_rock73Mask">
+		<position x="272" y="128" w="16" h="48" />
+	</sprite>
+	<sprite name="74" mask="_rock74Mask">
+		<position x="288" y="128" w="16" h="32" />
+	</sprite>
+	<sprite name="75" mask="_rock75Mask">
+		<position x="304" y="128" w="16" h="32" />
+	</sprite>
+	<sprite name="76" mask="_rock76Mask">
+		<position x="288" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="77" mask="_rock77Mask">
+		<position x="304" y="160" w="16" h="32" />
+	</sprite>
+	<sprite name="78" mask="8x8x0">
+		<position x="192" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="79" mask="8x8x0">
+		<position x="256" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="80" mask="8x8x0">
+		<position x="208" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="81" mask="8x8x0">
+		<position x="272" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="82" mask="_rock66Mask">
+		<position x="320" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="83" mask="8x16x0">
+		<position x="320" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="84" mask="8x16x0">
+		<position x="336" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="85" mask="16x16x0">
+		<position x="320" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="86" mask="_rock70Mask">
+		<position x="320" y="96" w="32" h="16" />
+	</sprite>
+	<sprite name="87" mask="_rock71Mask">
+		<position x="320" y="112" w="32" h="16" />
+	</sprite>
+	<sprite name="88" mask="_rock72Mask">
+		<position x="320" y="128" w="16" h="48" />
+	</sprite>
+	<sprite name="89" mask="_rock73Mask">
+		<position x="336" y="128" w="16" h="48" />
+	</sprite>
+	<sprite name="90" mask="_rock74Mask">
+		<position x="352" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="91" mask="_rock75Mask">
+		<position x="368" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="92" mask="_rock76Mask">
+		<position x="352" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="93" mask="_rock77Mask">
+		<position x="368" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="94" mask="8x8x0">
+		<position x="352" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="95" mask="8x8x0">
+		<position x="352" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="96" mask="8x8x0">
+		<position x="368" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="97" mask="8x8x0">
+		<position x="368" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="98" mask="0">
+		<position x="0" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="99" mask="0">
+		<position x="0" y="192" w="32" h="16" />
+	</sprite>
+	<sprite name="100" mask="0">
+		<position x="32" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="101" mask="0">
+		<position x="64" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="102" mask="0">
+		<position x="96" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="103" mask="0">
+		<position x="128" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="104" mask="0">
+		<position x="160" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="105" mask="0">
+		<position x="192" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="106" mask="0">
+		<position x="224" y="192" w="16" h="32" />
+	</sprite>
+	<sprite name="107" mask="0">
+		<position x="240" y="192" w="16" h="32" />
+	</sprite>
+	<sprite name="108" mask="0">
+		<position x="256" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="109" mask="0">
+		<position x="256" y="208" w="16" h="16" />
+	</sprite>
+	<sprite name="110" mask="0">
+		<position x="272" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="111" mask="0">
+		<position x="272" y="208" w="16" h="16" />
+	</sprite>
+	<sprite name="112" mask="0">
+		<position x="0" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="113" mask="0">
+		<position x="0" y="224" w="32" h="16" />
+	</sprite>
+	<sprite name="114" mask="0">
+		<position x="32" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="115" mask="0">
+		<position x="64" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="116" mask="0">
+		<position x="96" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="117" mask="0">
+		<position x="128" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="118" mask="0">
+		<position x="160" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="119" mask="0">
+		<position x="192" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="120" mask="0">
+		<position x="224" y="224" w="16" h="32" />
+	</sprite>
+	<sprite name="121" mask="0">
+		<position x="240" y="224" w="16" h="32" />
+	</sprite>
+	<sprite name="122" mask="0">
+		<position x="256" y="224" w="16" h="16" />
+	</sprite>
+	<sprite name="123" mask="0">
+		<position x="256" y="240" w="16" h="16" />
+	</sprite>
+	<sprite name="124" mask="0">
+		<position x="272" y="224" w="16" h="16" />
+	</sprite>
+	<sprite name="125" mask="0">
+		<position x="272" y="240" w="16" h="16" />
+	</sprite>
+	<sprite name="entrance1g" mask="_EntranceMask1"entity="_rockentrance1g">
+		<position x="0" y="256" w="64" h="64" />
+	</sprite>
+	<sprite name="entrance1b" mask="_EntranceMask1"entity="_rockentrance1b">
+		<position x="64" y="256" w="64" h="64" />
+	</sprite>
+	<sprite name="EntranceMask1" mask="0">
+		<position x="128" y="256" w="64" h="64" />
+	</sprite>
+	<sprite name="crack1g" mask="_RCrackMask1"entity="_rockcrack1g">
+		<position x="192" y="256" w="64" h="48" />
+	</sprite>
+	<sprite name="crack1gb" mask="0">
+		<position x="256" y="256" w="48" h="48" />
+	</sprite>
+	<sprite name="entrance1ga" mask="0">
+		<position x="0" y="256" w="64" h="16" />
+	</sprite>
+	<sprite name="crack1ga" mask="0">
+		<position x="192" y="256" w="64" h="16" />
+	</sprite>
+	<sprite name="RCrackMask1" mask="0">
+		<position x="128" y="272" w="64" h="48" />
+	</sprite>
+	<sprite name="16x8x32" mask="0">
+		<position x="288" y="192" w="32" h="16" />
+	</sprite>
+	<sprite name="16x8x16" mask="0">
+		<position x="288" y="208" w="32" h="16" />
+	</sprite>
+	<sprite name="8x16x24" mask="0">
+		<position x="288" y="224" w="16" h="32" />
+	</sprite>
+	<sprite name="8x16x40" mask="0">
+		<position x="304" y="224" w="16" h="32" />
+	</sprite>
+	<sprite name="66Mask" mask="0">
+		<position x="352" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="72Mask" mask="0">
+		<position x="352" y="192" w="16" h="48" />
+	</sprite>
+	<sprite name="73Mask" mask="0">
+		<position x="368" y="192" w="16" h="48" />
+	</sprite>
+	<sprite name="16Mask" mask="0">
+		<position x="320" y="176" w="32" h="32" />
+	</sprite>
+	<sprite name="29Mask" mask="0">
+		<position x="320" y="208" w="32" h="32" />
+	</sprite>
+	<sprite name="40Mask" mask="0">
+		<position x="320" y="240" w="32" h="32" />
+	</sprite>
+	<sprite name="43Mask" mask="0">
+		<position x="320" y="272" w="32" h="32" />
+	</sprite>
+	<sprite name="70Mask" mask="0">
+		<position x="320" y="304" w="32" h="16" />
+	</sprite>
+	<sprite name="71Mask" mask="0">
+		<position x="352" y="304" w="32" h="16" />
+	</sprite>
+	<sprite name="74Mask" mask="0">
+		<position x="352" y="240" w="16" h="32" />
+	</sprite>
+	<sprite name="75Mask" mask="0">
+		<position x="368" y="240" w="16" h="32" />
+	</sprite>
+	<sprite name="76Mask" mask="0">
+		<position x="352" y="272" w="16" h="32" />
+	</sprite>
+	<sprite name="77Mask" mask="0">
+		<position x="368" y="272" w="16" h="32" />
+	</sprite>
+	<sprite name="fill1" mask="0">
+		<position x="352" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="fill2" mask="0">
+		<position x="352" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="14Mask" mask="0">
+		<position x="384" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="27Mask" mask="0">
+		<position x="384" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="54Mask" mask="0">
+		<position x="304" y="288" w="16" h="32" />
+	</sprite>
+	<sprite name="55Mask" mask="0">
+		<position x="304" y="256" w="16" h="32" />
+	</sprite>
+	<sprite name="41Mask" mask="0">
+		<position x="384" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="44Mask" mask="0">
+		<position x="384" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="56Mask" mask="0">
+		<position x="384" y="288" w="16" h="32" />
+	</sprite>
+	<sprite name="57Mask" mask="0">
+		<position x="400" y="288" w="16" h="32" />
+	</sprite>
+	<sprite name="fill3" mask="0">
+		<position x="384" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="fill4" mask="0">
+		<position x="288" y="304" w="16" h="16" />
+	</sprite>
+	<sprite name="128" mask="_rock128mask">
+		<position x="416" y="224" w="16" h="96" />
+	</sprite>
+	<sprite name="129" mask="_rock129mask">
+		<position x="432" y="240" w="16" h="80" />
+	</sprite>
+	<sprite name="130" mask="0">
+		<position x="400" y="0" w="16" h="64" />
+	</sprite>
+	<sprite name="131" mask="_rock128mask">
+		<position x="432" y="144" w="16" h="96" />
+	</sprite>
+	<sprite name="132" mask="_rock129mask">
+		<position x="416" y="144" w="16" h="80" />
+	</sprite>
+	<sprite name="133" mask="0">
+		<position x="384" y="0" w="16" h="64" />
+	</sprite>
+	<sprite name="128mask" mask="0">
+		<position x="400" y="176" w="16" h="96" />
+	</sprite>
+	<sprite name="129mask" mask="0">
+		<position x="400" y="192" w="16" h="80" />
+	</sprite>
+	<sprite name="rockstairsleft" mask="8x8x0">
+		<position x="192" y="304" w="16" h="16" />
+	</sprite>
+	<sprite name="rockstairsright" mask="8x8x0">
+		<position x="240" y="304" w="16" h="16" />
+	</sprite>
+	<sprite name="rockstairsmiddle" mask="_town60mask">
+		<position x="208" y="304" w="32" h="16" />
+	</sprite>
+	<sprite name="entrance1w" mask="rockwooddoormsk"entity="_rockentrance1w">
+		<position x="352" y="544" w="64" h="88" />
+	</sprite>
+	<sprite name="entrance1wa" mask="0">
+		<position x="352" y="544" w="64" h="48" />
+	</sprite>
+	<sprite name="rockwooddoormsk" mask="0">
+		<position x="608" y="512" w="64" h="88" />
+	</sprite>
+	<sprite name="rock1" mask="16x16x0">
+		<position x="0" y="320" w="32" h="32" />
+	</sprite>
+	<sprite name="rock2" mask="16x16x0">
+		<position x="32" y="320" w="32" h="32" />
+	</sprite>
+	<sprite name="rock3" mask="16x16x0">
+		<position x="64" y="320" w="32" h="32" />
+	</sprite>
+	<sprite name="rock4" mask="16x16x0">
+		<position x="96" y="320" w="32" h="32" />
+	</sprite>
+	<sprite name="rock6" mask="16x8x0">
+		<position x="128" y="320" w="32" h="16" />
+	</sprite>
+	<sprite name="rock7" mask="16x8x0">
+		<position x="128" y="336" w="32" h="16" />
+	</sprite>
+	<sprite name="rock8" mask="16x8x0">
+		<position x="160" y="320" w="32" h="16" />
+	</sprite>
+	<sprite name="rock9" mask="16x8x0">
+		<position x="160" y="336" w="32" h="16" />
+	</sprite>
+	<sprite name="rock10" mask="0">
+		<position x="192" y="320" w="32" h="16" />
+	</sprite>
+	<sprite name="rock11" mask="16x8x0">
+		<position x="224" y="320" w="32" h="16" />
+	</sprite>
+	<sprite name="rock12" mask="16x8x0">
+		<position x="224" y="336" w="32" h="16" />
+	</sprite>
+	<sprite name="rock13" mask="16x8x0">
+		<position x="256" y="320" w="32" h="16" />
+	</sprite>
+	<sprite name="rock14" mask="16x8x0">
+		<position x="256" y="336" w="32" h="16" />
+	</sprite>
+	<sprite name="rock15" mask="8x8x0">
+		<position x="192" y="336" w="16" h="16" />
+	</sprite>
+	<sprite name="rock16" mask="8x8x0">
+		<position x="208" y="336" w="16" h="16" />
+	</sprite>
+	<sprite name="rock17" mask="_rock66Mask">
+		<position x="288" y="320" w="32" h="32" />
+	</sprite>
+	<sprite name="rock18" mask="_rock66Mask">
+		<position x="320" y="320" w="32" h="32" />
+	</sprite>
+	<sprite name="rock19" mask="_rock74Mask">
+		<position x="352" y="320" w="16" h="32" />
+	</sprite>
+	<sprite name="rock20" mask="_rock75Mask">
+		<position x="368" y="320" w="16" h="32" />
+	</sprite>
+	<sprite name="rock21" mask="_rock14Mask">
+		<position x="0" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="rock22" mask="16x16x0">
+		<position x="32" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="rock23" mask="16x16x0">
+		<position x="64" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="rock24" mask="16x16x0">
+		<position x="96" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="rock25" mask="16x16x0">
+		<position x="160" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="rock26" mask="16x16x0">
+		<position x="192" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="rock27" mask="16x16x0">
+		<position x="224" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="rock28" mask="_rock27Mask">
+		<position x="256" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="rock29" mask="8x16x0">
+		<position x="288" y="352" w="16" h="32" />
+	</sprite>
+	<sprite name="rock30" mask="8x16x0">
+		<position x="304" y="352" w="16" h="32" />
+	</sprite>
+	<sprite name="rock31" mask="8x16x0">
+		<position x="320" y="352" w="16" h="32" />
+	</sprite>
+	<sprite name="rock32" mask="8x16x0">
+		<position x="336" y="352" w="16" h="32" />
+	</sprite>
+	<sprite name="rock33" mask="_rock76Mask">
+		<position x="352" y="352" w="16" h="32" />
+	</sprite>
+	<sprite name="rock34" mask="_rock77Mask">
+		<position x="368" y="352" w="16" h="32" />
+	</sprite>
+	<sprite name="rock35" mask="16x16x0">
+		<position x="0" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock36" mask="16x16x0">
+		<position x="32" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock37" mask="16x16x0">
+		<position x="64" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock38" mask="16x16x0">
+		<position x="96" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock39" mask="16x16x0">
+		<position x="128" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock40" mask="16x16x0">
+		<position x="160" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock41" mask="16x16x0">
+		<position x="192" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock42" mask="16x16x0">
+		<position x="224" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock43" mask="16x16x0">
+		<position x="256" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock44" mask="16x16x0">
+		<position x="288" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock45" mask="16x16x0">
+		<position x="320" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock47" mask="8x8x0">
+		<position x="352" y="384" w="16" h="16" />
+	</sprite>
+	<sprite name="rock48" mask="8x8x0">
+		<position x="368" y="384" w="16" h="16" />
+	</sprite>
+	<sprite name="rock49" mask="8x8x0">
+		<position x="352" y="400" w="16" h="16" />
+	</sprite>
+	<sprite name="rock50" mask="8x8x0">
+		<position x="368" y="400" w="16" h="16" />
+	</sprite>
+	<sprite name="rockfill1" mask="0">
+		<position x="352" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="rockfill2" mask="0">
+		<position x="352" y="448" w="32" h="32" />
+	</sprite>
+	<sprite name="rockfill3" mask="0">
+		<position x="384" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="rock51" mask="_rock16Mask">
+		<position x="0" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="rock52" mask="16x16x0">
+		<position x="32" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="rock53" mask="16x16x0">
+		<position x="64" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="rock54" mask="16x16x0">
+		<position x="96" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="rock55" mask="16x16x0">
+		<position x="128" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="rock56" mask="16x16x0">
+		<position x="160" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="rock57" mask="16x16x0">
+		<position x="192" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="rock58" mask="16x16x0">
+		<position x="224" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="rock59" mask="_rock29Mask">
+		<position x="256" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="rock60" mask="_rock70Mask">
+		<position x="288" y="416" w="32" h="16" />
+	</sprite>
+	<sprite name="rock70" mask="_rock70Mask">
+		<position x="320" y="416" w="32" h="16" />
+	</sprite>
+	<sprite name="rock71" mask="_rock71Mask">
+		<position x="288" y="432" w="32" h="16" />
+	</sprite>
+	<sprite name="rock72" mask="_rock71Mask">
+		<position x="320" y="432" w="32" h="16" />
+	</sprite>
+	<sprite name="rock73" mask="16x16x0">
+		<position x="384" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="rock74" mask="16x16x0">
+		<position x="384" y="448" w="32" h="32" />
+	</sprite>
+	<sprite name="rock75" mask="_rock40Mask">
+		<position x="0" y="448" w="32" h="32" />
+	</sprite>
+	<sprite name="rock76" mask="_rock41Mask">
+		<position x="32" y="448" w="32" h="32" />
+	</sprite>
+	<sprite name="rock77" mask="_rock44Mask">
+		<position x="128" y="448" w="32" h="32" />
+	</sprite>
+	<sprite name="rock78" mask="16x16x0">
+		<position x="64" y="448" w="32" h="32" />
+	</sprite>
+	<sprite name="rock79" mask="16x16x0">
+		<position x="96" y="448" w="32" h="32" />
+	</sprite>
+	<sprite name="rock80" mask="_rock43Mask">
+		<position x="160" y="448" w="32" h="32" />
+	</sprite>
+	<sprite name="rock81" mask="16x8x32">
+		<position x="192" y="448" w="32" h="16" />
+	</sprite>
+	<sprite name="rock82" mask="16x8x16">
+		<position x="192" y="464" w="32" h="16" />
+	</sprite>
+	<sprite name="rock83" mask="8x16x24">
+		<position x="224" y="448" w="16" h="32" />
+	</sprite>
+	<sprite name="rock84" mask="8x16x40">
+		<position x="240" y="448" w="16" h="32" />
+	</sprite>
+	<sprite name="rock85" mask="_rock72Mask">
+		<position x="256" y="448" w="16" h="48" />
+	</sprite>
+	<sprite name="rock86" mask="_rock73Mask">
+		<position x="272" y="448" w="16" h="48" />
+	</sprite>
+	<sprite name="rock87" mask="_rock74Mask">
+		<position x="288" y="448" w="16" h="32" />
+	</sprite>
+	<sprite name="rock88" mask="_rock75Mask">
+		<position x="304" y="448" w="16" h="32" />
+	</sprite>
+	<sprite name="rock89" mask="_rock76Mask">
+		<position x="288" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock90" mask="_rock77Mask">
+		<position x="304" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock91" mask="8x8x0">
+		<position x="256" y="496" w="16" h="16" />
+	</sprite>
+	<sprite name="rock92" mask="8x8x0">
+		<position x="272" y="496" w="16" h="16" />
+	</sprite>
+	<sprite name="skyfill" mask="0">
+		<position x="128" y="352" w="16" h="16" />
+	</sprite>
+	<sprite name="rockfill" mask="0">
+		<position x="128" y="368" w="16" h="16" />
+	</sprite>
+	<sprite name="cloudfill" mask="0">
+		<position x="144" y="352" w="16" h="16" />
+	</sprite>
+	<sprite name="pitfill" mask="0">
+		<position x="144" y="368" w="16" h="16" />
+	</sprite>
+	<sprite name="rock93" mask="_rock72Mask">
+		<position x="320" y="448" w="16" h="48" />
+	</sprite>
+	<sprite name="rock94" mask="_rock73Mask">
+		<position x="336" y="448" w="16" h="48" />
+	</sprite>
+	<sprite name="rock95" mask="0">
+		<position x="384" y="320" w="16" h="64" />
+	</sprite>
+	<sprite name="rock96" mask="0">
+		<position x="400" y="320" w="16" h="64" />
+	</sprite>
+	<sprite name="rock97" mask="_rock129mask">
+		<position x="416" y="464" w="16" h="80" />
+	</sprite>
+	<sprite name="rock98" mask="_rock128mask">
+		<position x="432" y="464" w="16" h="96" />
+	</sprite>
+	<sprite name="rock99" mask="_rock128mask">
+		<position x="416" y="544" w="16" h="96" />
+	</sprite>
+	<sprite name="rock100" mask="_rock129mask">
+		<position x="432" y="560" w="16" h="80" />
+	</sprite>
+	<sprite name="entrance1m" mask="_EntranceMask1"entity="_rockentrance1m">
+		<position x="0" y="544" w="64" h="64" />
+	</sprite>
+	<sprite name="entrance1ma" mask="0">
+		<position x="0" y="544" w="64" h="16" />
+	</sprite>
+	<sprite name="entrance1d" mask="_EntranceMask1"entity="_rockentrance1d">
+		<position x="64" y="544" w="64" h="64" />
+	</sprite>
+	<sprite name="crack1m" mask="_RCrackMask1"entity="_rockcrack1m">
+		<position x="0" y="608" w="64" h="48" />
+	</sprite>
+	<sprite name="crack1ma" mask="0">
+		<position x="0" y="608" w="64" h="16" />
+	</sprite>
+	<sprite name="crack1mb" mask="0">
+		<position x="64" y="608" w="48" h="48" />
+	</sprite>
+	<sprite name="crack1d" mask="_RCrackMask1"entity="_rockcrack1d">
+		<position x="112" y="608" w="64" h="48" />
+	</sprite>
+	<sprite name="crack1db" mask="0">
+		<position x="176" y="608" w="48" h="48" />
+	</sprite>
+	<sprite name="crack1b" mask="_RCrackMask1"entity="_rockcrack1b">
+		<position x="512" y="608" w="64" h="48" />
+	</sprite>
+	<sprite name="crack1bb" mask="0">
+		<position x="576" y="608" w="48" h="48" />
+	</sprite>
+	<sprite name="rockstairsleft2" mask="8x8x0">
+		<position x="288" y="608" w="16" h="16" />
+	</sprite>
+	<sprite name="rockstairsright2" mask="8x8x0">
+		<position x="336" y="608" w="16" h="16" />
+	</sprite>
+	<sprite name="rockstairsmiddle2" mask="_town60mask">
+		<position x="304" y="608" w="32" h="16" />
+	</sprite>
+	<sprite name="rock101" mask="0">
+		<position x="352" y="480" w="32" h="32" />
+	</sprite>
+	<sprite name="rock102" mask="0">
+		<position x="384" y="480" w="32" h="32" />
+	</sprite>
+	<sprite name="rock103" mask="0">
+		<position x="320" y="512" w="16" h="32" />
+	</sprite>
+	<sprite name="rock104" mask="0">
+		<position x="288" y="512" w="32" h="32" />
+	</sprite>
+	<sprite name="rock105" mask="0">
+		<position x="336" y="512" w="16" h="32" />
+	</sprite>
+	<sprite name="rock106" mask="0">
+		<position x="352" y="512" w="32" h="32" />
+	</sprite>
+	<sprite name="rock107" mask="0">
+		<position x="320" y="496" w="32" h="16" />
+	</sprite>
+	<sprite name="rock108" mask="0">
+		<position x="288" y="544" w="32" h="16" />
+	</sprite>
+	<sprite name="rock109" mask="0">
+		<position x="288" y="560" w="32" h="16" />
+	</sprite>
+	<sprite name="rock110" mask="0">
+		<position x="320" y="544" w="32" h="32" />
+	</sprite>
+	<sprite name="rock111" mask="0">
+		<position x="384" y="512" w="32" h="32" />
+	</sprite>
+	<sprite name="rockdepthstara" mask="0">
+		<position x="256" y="304" w="16" h="16" />
+	</sprite>
+	<sprite name="rockdepthstarb" mask="0">
+		<position x="272" y="304" w="16" h="16" />
+	</sprite>
+	<sprite name="rock112" mask="0">
+		<position x="0" y="480" w="32" h="16" />
+	</sprite>
+	<sprite name="rock113" mask="0">
+		<position x="0" y="496" w="32" h="16" />
+	</sprite>
+	<sprite name="rock114" mask="0">
+		<position x="32" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock115" mask="0">
+		<position x="48" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock116" mask="0">
+		<position x="64" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock117" mask="0">
+		<position x="80" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock118" mask="0">
+		<position x="96" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock119" mask="0">
+		<position x="112" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock120" mask="0">
+		<position x="128" y="480" w="32" h="16" />
+	</sprite>
+	<sprite name="rock121" mask="0">
+		<position x="128" y="496" w="32" h="16" />
+	</sprite>
+	<sprite name="rock122" mask="0">
+		<position x="160" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock123" mask="0">
+		<position x="176" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock124" mask="0">
+		<position x="192" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock125" mask="0">
+		<position x="208" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock126" mask="0">
+		<position x="224" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock127" mask="0">
+		<position x="240" y="480" w="16" h="32" />
+	</sprite>
+	<sprite name="rock128" mask="0">
+		<position x="0" y="512" w="32" h="32" />
+	</sprite>
+	<sprite name="rock129" mask="0">
+		<position x="32" y="512" w="32" h="32" />
+	</sprite>
+	<sprite name="rock130" mask="0">
+		<position x="64" y="512" w="32" h="32" />
+	</sprite>
+	<sprite name="rock131" mask="0">
+		<position x="96" y="512" w="32" h="32" />
+	</sprite>
+	<sprite name="rock132" mask="0">
+		<position x="128" y="512" w="32" h="32" />
+	</sprite>
+	<sprite name="rock133" mask="0">
+		<position x="160" y="512" w="32" h="32" />
+	</sprite>
+	<sprite name="rock134" mask="0">
+		<position x="192" y="512" w="32" h="32" />
+	</sprite>
+	<sprite name="rock135" mask="0">
+		<position x="224" y="512" w="16" h="32" />
+	</sprite>
+	<sprite name="rock136" mask="0">
+		<position x="240" y="512" w="16" h="32" />
+	</sprite>
+	<sprite name="rock137" mask="0">
+		<position x="256" y="512" w="16" h="16" />
+	</sprite>
+	<sprite name="rock138" mask="0">
+		<position x="272" y="512" w="16" h="16" />
+	</sprite>
+	<sprite name="rock139" mask="0">
+		<position x="256" y="528" w="16" h="16" />
+	</sprite>
+	<sprite name="rock140" mask="0">
+		<position x="272" y="528" w="16" h="16" />
+	</sprite>
+	<sprite name="rock141mask" mask="0">
+		<position x="224" y="592" w="64" h="64" />
+	</sprite>
+	<sprite name="rock141" mask="rock141mask">
+		<position x="448" y="576" w="64" h="64" />
+	</sprite>
+	<sprite name="rock142" mask="0">
+		<position x="512" y="512" w="96" h="96" />
+	</sprite>
+	<sprite name="rockbigrock" mask="0">
+		<position x="272" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="rocksmallrock" mask="0">
+		<position x="272" y="568" w="16" h="8" />
+	</sprite>
+	<sprite name="rockgrass" mask="0">
+		<position x="240" y="560" w="32" h="16" />
+	</sprite>
+	<sprite name="rockbigshiny" mask="0">
+		<position x="256" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="rockmediumshiny" mask="0">
+		<position x="272" y="560" w="8" h="8" />
+	</sprite>
+	<sprite name="rocksmallshiny" mask="0">
+		<position x="280" y="560" w="8" h="8" />
+	</sprite>
+	<sprite name="cloudfill2" mask="0">
+		<position x="224" y="560" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud1" mask="0">
+		<position x="224" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud2" mask="0">
+		<position x="240" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud3" mask="0">
+		<position x="160" y="576" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud4" mask="0">
+		<position x="176" y="576" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud5" mask="0">
+		<position x="160" y="560" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud6" mask="0">
+		<position x="176" y="560" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud7" mask="0">
+		<position x="192" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud8" mask="0">
+		<position x="208" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud11" mask="0">
+		<position x="128" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud12" mask="0">
+		<position x="176" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud13" mask="0">
+		<position x="144" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud14" mask="0">
+		<position x="160" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud19" mask="0">
+		<position x="192" y="560" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud20" mask="0">
+		<position x="208" y="560" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud21" mask="0">
+		<position x="192" y="576" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud22" mask="0">
+		<position x="192" y="592" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud23" mask="0">
+		<position x="208" y="576" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud24" mask="0">
+		<position x="208" y="592" w="16" h="16" />
+	</sprite>
+	<sprite name="rock145" mask="0">
+		<position x="288" y="576" w="32" h="16" />
+	</sprite>
+	<sprite name="rock146" mask="0">
+		<position x="320" y="576" w="16" h="16" />
+	</sprite>
+	<sprite name="rock147" mask="0">
+		<position x="336" y="576" w="16" h="16" />
+	</sprite>
+	<sprite name="cloud9" mask="0">
+		<position x="128" y="592" w="32" h="16" />
+	</sprite>
+	<sprite name="cloud10" mask="0">
+		<position x="160" y="592" w="32" h="16" />
+	</sprite>
+	<sprite name="cloud15" mask="0">
+		<position x="128" y="560" w="16" h="32" />
+	</sprite>
+	<sprite name="cloud16" mask="0">
+		<position x="144" y="560" w="16" h="32" />
+	</sprite>
+	<sprite name="rockstairwaterthg" mask="_doormaskn">
+		<position x="672" y="512" w="64" h="48" />
+	</sprite>
+	<sprite name="entrance1v" mask="_EntranceMask1"entity="_rockentrance1v">
+		<position x="288" y="624" w="64" h="64" />
+	</sprite>
+	<sprite name="entrance1x" mask="_EntranceMask1"entity="_rockentrance1x">
+		<position x="352" y="632" w="64" h="64" />
+	</sprite>
+	<sprite name="entrance1y" mask="_EntranceMask1"entity="_rockentrance1y">
+		<position x="416" y="640" w="64" h="64" />
+	</sprite>
+	<sprite name="entrance1z" mask="_EntranceMask1"entity="_rockentrance1z">
+		<position x="736" y="640" w="64" h="64" />
+	</sprite>
+	<sprite name="entrance1va" mask="0">
+		<position x="288" y="624" w="64" h="16" />
+	</sprite>
+	<sprite name="entrance1ya" mask="0">
+		<position x="416" y="640" w="64" h="16" />
+	</sprite>
+	<sprite name="entrance1q" mask="_EntranceMask1"entity="_rockentrance1q">
+		<position x="672" y="624" w="64" h="64" />
+	</sprite>
+	<sprite name="entrance1qa" mask="0">
+		<position x="672" y="624" w="64" h="16" />
+	</sprite>
+	<sprite name="entrance1r" mask="_EntranceMask1"entity="_rockentrance1r">
+		<position x="672" y="560" w="64" h="64" />
+	</sprite>
+	<sprite name="entrance1s" mask="_EntranceMask1"entity="_rockentrance1s">
+		<position x="736" y="576" w="64" h="64" />
+	</sprite>
+	<sprite name="entrance1sa" mask="0">
+		<position x="736" y="576" w="64" h="16" />
+	</sprite>
+	<sprite name="entrance1t" mask="_EntranceMask1"entity="_rockentrance1t">
+		<position x="736" y="512" w="64" h="64" />
+	</sprite>
+	<sprite name="rockwooddoortopbl" mask="0">
+		<position x="288" y="592" w="16" h="16" />
+	</sprite>
+	<sprite name="rockwooddoortopbr" mask="0">
+		<position x="336" y="592" w="16" h="16" />
+	</sprite>
+	<sprite name="rockwooddoortoptl" mask="0">
+		<position x="352" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="rockwooddoortoptr" mask="0">
+		<position x="400" y="544" w="16" h="16" />
+	</sprite>
+	<sprite name="rockwooddoortopl" mask="0">
+		<position x="352" y="560" w="16" h="16" />
+	</sprite>
+	<sprite name="rockwooddoortopr" mask="0">
+		<position x="400" y="560" w="16" h="16" />
+	</sprite>
+	<sprite name="rockwooddoortopt" mask="0">
+		<position x="368" y="544" w="32" h="16" />
+	</sprite>
+	<sprite name="rockwooddoortopb" mask="0">
+		<position x="304" y="592" w="32" h="16" />
+	</sprite>
+	<sprite name="rockwooddoortopm" mask="0">
+		<position x="368" y="560" w="32" h="16" />
+	</sprite>
+</sheet>

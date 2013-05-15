@@ -1,5 +1,0 @@
-chickeneast1	0	0		0	0	32	32
-chickeneast2	0	0		32	0	32	32
-chickenwest1	0	0		0	32	32	32
-chickenwest2	0	0		32	32	32	32
-chicken	0	0	_chicken	0	0	32	32

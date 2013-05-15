@@ -1,0 +1,56 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="bow1n" mask="0">
+		<position x="0" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="bow1s" mask="0">
+		<position x="0" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="bow1w" mask="0">
+		<position x="32" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="bow1e" mask="0">
+		<position x="48" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="ArrowAnimS0" mask="0">
+		<position x="0" y="32" w="16" h="24" />
+	</sprite>
+	<sprite name="ArrowAnimS2" mask="0">
+		<position x="16" y="32" w="16" h="24" />
+	</sprite>
+	<sprite name="ArrowAnimS1" mask="0">
+		<position x="32" y="32" w="16" h="24" />
+	</sprite>
+	<sprite name="bow1" mask="0">
+		<position x="0" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="bow2" mask="0">
+		<position x="32" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="arrow" mask="0">
+		<position x="48" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="bown" mask="0">
+		<position x="64" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="bowf" mask="0">
+		<position x="64" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="bowl" mask="0">
+		<position x="32" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="bows" mask="0">
+		<position x="64" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="bowb" mask="0">
+		<position x="64" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="bowi" mask="0">
+		<position x="64" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="quiver" mask="0">
+		<position x="32" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="itemarrow" mask="0">
+		<position x="48" y="32" w="16" h="32" />
+	</sprite>
+</sheet>

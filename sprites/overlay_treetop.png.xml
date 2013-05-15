@@ -1,0 +1,17 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="treetop" mask="0">
+		<position x="0" y="0" w="0" h="0" />
+	</sprite>
+	<sprite name="A1" mask="0">
+		<position x="0" y="0" w="240" h="240" />
+	</sprite>
+	<sprite name="A2" mask="0">
+		<position x="240" y="0" w="240" h="240" />
+	</sprite>
+	<sprite name="A3" mask="0">
+		<position x="0" y="240" w="240" h="240" />
+	</sprite>
+	<sprite name="A4" mask="0">
+		<position x="240" y="240" w="240" h="240" />
+	</sprite>
+</sheet>

@@ -1,0 +1,53 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="bush1" mask="0"entity="o_bush1">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="bush1u" mask="0">
+		<position x="32" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="bush1c" mask="0">
+		<position x="64" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="bush1d" mask="0">
+		<position x="64" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="throwobj1a" mask="0"entity="o_throwobj1a">
+		<position x="0" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="understone" mask="0">
+		<position x="64" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="throwobj1b" mask="0"entity="o_throwobj1b">
+		<position x="32" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="stone01" mask="0">
+		<position x="112" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="stone02" mask="0">
+		<position x="128" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="stone03" mask="0">
+		<position x="128" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="stone04" mask="0">
+		<position x="112" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="throwobj1c" mask="0"entity="o_throwobj1c">
+		<position x="0" y="64" w="64" h="64" />
+	</sprite>
+	<sprite name="understone2" mask="0">
+		<position x="64" y="64" w="64" h="64" />
+	</sprite>
+	<sprite name="pot1" mask="0"entity="o_pot1">
+		<position x="64" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="pot1a" mask="0">
+		<position x="0" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="pot1b" mask="0">
+		<position x="32" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="throwobj1d" mask="0"entity="o_throwobj1d">
+		<position x="96" y="32" w="32" h="32" />
+	</sprite>
+</sheet>

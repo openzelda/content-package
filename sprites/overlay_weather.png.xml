@@ -1,0 +1,44 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="rain1" mask="0">
+		<position x="48" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="rain2" mask="0">
+		<position x="0" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="rain3" mask="0">
+		<position x="16" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="rain4" mask="0">
+		<position x="32" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="fogsprite1" mask="0">
+		<position x="64" y="0" w="128" h="128" />
+	</sprite>
+	<sprite name="fogsprite2" mask="0">
+		<position x="192" y="0" w="128" h="128" />
+	</sprite>
+	<sprite name="fogsprite3" mask="0">
+		<position x="320" y="0" w="128" h="128" />
+	</sprite>
+	<sprite name="fogsprite4" mask="0">
+		<position x="448" y="0" w="128" h="128" />
+	</sprite>
+	<sprite name="fogsprite5" mask="0">
+		<position x="64" y="128" w="128" h="128" />
+	</sprite>
+	<sprite name="fogsprite6" mask="0">
+		<position x="192" y="128" w="128" h="128" />
+	</sprite>
+	<sprite name="fogsprite7" mask="0">
+		<position x="320" y="128" w="128" h="128" />
+	</sprite>
+	<sprite name="fogsprite8" mask="0">
+		<position x="448" y="128" w="128" h="128" />
+	</sprite>
+	<sprite name="snowflake1" mask="0">
+		<position x="0" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="snowflake2" mask="0">
+		<position x="16" y="32" w="16" h="16" />
+	</sprite>
+</sheet>

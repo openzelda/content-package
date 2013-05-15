@@ -1,0 +1,191 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="gb_top" mask="16x8x8">
+		<position x="0" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="gb_top2" mask="16x8x8">
+		<position x="0" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="gb_mid" mask="16x8x8">
+		<position x="0" y="32" w="32" h="16" />
+	</sprite>
+	<sprite name="gb_btm2" mask="16x8x8">
+		<position x="0" y="48" w="32" h="16" />
+	</sprite>
+	<sprite name="gb_btm" mask="16x16x0">
+		<position x="0" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="gb_lmt1" mask="0">
+		<position x="32" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="gb_lmt2" mask="0">
+		<position x="32" y="16" w="32" h="32" />
+	</sprite>
+	<sprite name="gb_lmt3" mask="0">
+		<position x="32" y="48" w="32" h="16" />
+	</sprite>
+	<sprite name="gb_right_gstone1" mask="0">
+		<position x="32" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="gb_right_gstone2" mask="0">
+		<position x="48" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="gb_left_gstone2" mask="0">
+		<position x="32" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="gb_left_gstone1" mask="0">
+		<position x="48" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="gb_left_stone" mask="0">
+		<position x="64" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="gb_mid_stone" mask="0">
+		<position x="64" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="gb_right_stone" mask="0">
+		<position x="64" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="gb_shade_stone" mask="0"entity="gb_shade_stone">
+		<position x="64" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="pb_top" mask="16x8x8">
+		<position x="0" y="96" w="32" h="16" />
+	</sprite>
+	<sprite name="pb_mid" mask="16x8x8">
+		<position x="0" y="112" w="32" h="16" />
+	</sprite>
+	<sprite name="pb_btm" mask="16x16x0">
+		<position x="32" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="pb_stone1" mask="0">
+		<position x="0" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="pb_stone2" mask="0">
+		<position x="16" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="pb_stone3" mask="0">
+		<position x="48" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="pb_stone_shade" mask="0">
+		<position x="32" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="pb_stone4" mask="0">
+		<position x="64" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="pb_stone5" mask="0">
+		<position x="64" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="pb_stone" mask="0">
+		<position x="64" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_top1" mask="8x8x0">
+		<position x="80" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_top2" mask="8x8x0">
+		<position x="80" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_top3" mask="8x8x0">
+		<position x="80" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_top4" mask="8x8x0">
+		<position x="80" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_btm1" mask="8x8x0">
+		<position x="96" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_btm2" mask="8x8x0">
+		<position x="96" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_btm3" mask="8x8x0">
+		<position x="96" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_btm4" mask="8x8x0">
+		<position x="96" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_walkway1" mask="0">
+		<position x="64" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_walkway2" mask="0">
+		<position x="64" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_walkway3" mask="8x8x0">
+		<position x="112" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="rb_stump_sand" mask="16x16x0">
+		<position x="80" y="64" w="32" h="40" />
+	</sprite>
+	<sprite name="rb_stump_grass" mask="16x16x0">
+		<position x="80" y="104" w="32" h="40" />
+	</sprite>
+	<sprite name="wb_top1" mask="8x16x0">
+		<position x="112" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="wb_top2" mask="8x16x0">
+		<position x="128" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="wb_top3" mask="8x16x0">
+		<position x="144" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="wb_top4" mask="8x16x0">
+		<position x="160" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="wb_walkway1" mask="0">
+		<position x="128" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="wb_walkway2" mask="0">
+		<position x="144" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="wb_walkway3" mask="0">
+		<position x="160" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="wb_btm1" mask="8x16x0">
+		<position x="112" y="48" w="16" h="32" />
+	</sprite>
+	<sprite name="wb_btm2" mask="8x16x0">
+		<position x="128" y="48" w="16" h="32" />
+	</sprite>
+	<sprite name="wb_btm3" mask="8x16x0">
+		<position x="144" y="48" w="16" h="32" />
+	</sprite>
+	<sprite name="wb_btm4" mask="8x16x0">
+		<position x="160" y="48" w="16" h="32" />
+	</sprite>
+	<sprite name="bb_top1" mask="8x8x0">
+		<position x="112" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="bb_top2" mask="8x8x0">
+		<position x="128" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="bb_top3" mask="16x8x0">
+		<position x="144" y="80" w="32" h="16" />
+	</sprite>
+	<sprite name="bb_walkway1" mask="0">
+		<position x="112" y="96" w="16" h="32" />
+	</sprite>
+	<sprite name="bb_walkway2" mask="0">
+		<position x="160" y="96" w="16" h="32" />
+	</sprite>
+	<sprite name="bb_walkway3" mask="0">
+		<position x="128" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="bb_walkway4" mask="0">
+		<position x="128" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="bb_walkway5" mask="0">
+		<position x="144" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="bb_walkway6" mask="0">
+		<position x="144" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="bb_btm1" mask="8x8x0">
+		<position x="112" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="bb_btm2" mask="8x8x0">
+		<position x="128" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="bb_btm3" mask="16x8x0">
+		<position x="144" y="128" w="32" h="16" />
+	</sprite>
+	<sprite name="" mask="0">
+		<position x="0" y="0" w="0" h="0" />
+	</sprite>
+</sheet>

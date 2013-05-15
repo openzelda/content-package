@@ -1,0 +1,26 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="1s" mask="0"entity="snake1s">
+		<position x="0" y="0" w="26" h="32" />
+	</sprite>
+	<sprite name="2s" mask="0">
+		<position x="26" y="0" w="26" h="32" />
+	</sprite>
+	<sprite name="1n" mask="0">
+		<position x="52" y="0" w="26" h="32" />
+	</sprite>
+	<sprite name="2n" mask="0">
+		<position x="78" y="0" w="26" h="32" />
+	</sprite>
+	<sprite name="1w" mask="0">
+		<position x="0" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="2w" mask="0">
+		<position x="32" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="1e" mask="0">
+		<position x="64" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="2e" mask="0">
+		<position x="96" y="32" w="32" h="32" />
+	</sprite>
+</sheet>

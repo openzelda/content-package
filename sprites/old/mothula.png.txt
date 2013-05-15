@@ -1,7 +1,0 @@
-emouthula	0	0	e_mouthula	0	0	128	64
-emouthulaa	0	0		128	0	128	64
-emouthulab	0	0		0	64	64	64
-emothshadow1	0	0		64	64	72	16
-emothshadow2	0	0		64	80	56	16
-emothshadow3	0	0		64	96	40	16
-efirering	0	0		136	64	24	24

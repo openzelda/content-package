@@ -1,0 +1,509 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="1" mask="_townmask1">
+		<position x="0" y="0" w="48" h="16" />
+	</sprite>
+	<sprite name="2" mask="_townmask2">
+		<position x="48" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="3" mask="_townmask1">
+		<position x="64" y="0" w="48" h="16" />
+	</sprite>
+	<sprite name="4" mask="m24x8x0">
+		<position x="0" y="16" w="48" h="16" />
+	</sprite>
+	<sprite name="5" mask="m24x8x0">
+		<position x="64" y="16" w="48" h="16" />
+	</sprite>
+	<sprite name="6" mask="m24x32x0">
+		<position x="0" y="32" w="48" h="64" />
+	</sprite>
+	<sprite name="7" mask="m8x32x0">
+		<position x="48" y="32" w="16" h="64" />
+	</sprite>
+	<sprite name="8" mask="m24x32x0">
+		<position x="64" y="32" w="48" h="64" />
+	</sprite>
+	<sprite name="fill2" mask="0">
+		<position x="128" y="176" w="32" h="32" />
+	</sprite>
+	<sprite name="fill2a" mask="0">
+		<position x="128" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="redroof_fill" mask="0">
+		<position x="48" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="9" mask="_townmask1">
+		<position x="112" y="0" w="48" h="16" />
+	</sprite>
+	<sprite name="10" mask="_townmask2">
+		<position x="160" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="11" mask="_townmask1">
+		<position x="176" y="0" w="48" h="16" />
+	</sprite>
+	<sprite name="12" mask="m24x8x0">
+		<position x="112" y="16" w="48" h="16" />
+	</sprite>
+	<sprite name="13" mask="m24x8x0">
+		<position x="176" y="16" w="48" h="16" />
+	</sprite>
+	<sprite name="14" mask="m24x32x0">
+		<position x="112" y="32" w="48" h="64" />
+	</sprite>
+	<sprite name="15" mask="m8x32x0">
+		<position x="160" y="32" w="16" h="64" />
+	</sprite>
+	<sprite name="16" mask="m24x32x0">
+		<position x="176" y="32" w="48" h="64" />
+	</sprite>
+	<sprite name="blueroof_fill" mask="0">
+		<position x="160" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="woodwall_w" mask="m8x24x0">
+		<position x="80" y="96" w="16" h="48" />
+	</sprite>
+	<sprite name="woodwall_e" mask="m8x24x0">
+		<position x="64" y="272" w="16" h="48" />
+	</sprite>
+	<sprite name="lw_woodwall" mask="m16x16x0">
+		<position x="208" y="240" w="32" h="32" />
+	</sprite>
+	<sprite name="lw_wall_window" mask="m24x16x0">
+		<position x="160" y="240" w="48" h="32" />
+	</sprite>
+	<sprite name="21" mask="0">
+		<position x="128" y="240" w="32" h="32" />
+	</sprite>
+	<sprite name="22" mask="0">
+		<position x="96" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="23" mask="m8x24x0">
+		<position x="128" y="96" w="16" h="48" />
+	</sprite>
+	<sprite name="24" mask="m8x24x0">
+		<position x="144" y="96" w="16" h="48" />
+	</sprite>
+	<sprite name="25" mask="m8x24x0">
+		<position x="160" y="96" w="16" h="48" />
+	</sprite>
+	<sprite name="wallsword" mask="0">
+		<position x="64" y="96" w="16" h="32" />
+	</sprite>
+	<sprite name="32" mask="m8x8x0">
+		<position x="176" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="33" mask="m8x8x0">
+		<position x="192" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="34" mask="m8x8x0">
+		<position x="208" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="29" mask="m8x8x0">
+		<position x="176" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="30" mask="0">
+		<position x="192" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="31" mask="m8x8x0">
+		<position x="208" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="26" mask="m8x8x0">
+		<position x="176" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="27" mask="m8x8x0">
+		<position x="192" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="28" mask="m8x8x0">
+		<position x="208" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="85" mask="m8x16x0">
+		<position x="400" y="208" w="16" h="32" />
+	</sprite>
+	<sprite name="86" mask="m8x8x0">
+		<position x="432" y="224" w="16" h="16" />
+	</sprite>
+	<sprite name="87" mask="m8x16x0">
+		<position x="464" y="208" w="16" h="32" />
+	</sprite>
+	<sprite name="88" mask="m8x16x0">
+		<position x="400" y="240" w="16" h="32" />
+	</sprite>
+	<sprite name="89" mask="m8x16x0">
+		<position x="464" y="240" w="16" h="32" />
+	</sprite>
+	<sprite name="90" mask="m8x16x0">
+		<position x="416" y="240" w="16" h="32" />
+	</sprite>
+	<sprite name="94" mask="m8x16x0">
+		<position x="416" y="208" w="16" h="32" />
+	</sprite>
+	<sprite name="91" mask="m8x8x0">
+		<position x="432" y="256" w="16" h="16" />
+	</sprite>
+	<sprite name="92" mask="m8x8x0">
+		<position x="432" y="240" w="16" h="16" />
+	</sprite>
+	<sprite name="95" mask="m8x16x0">
+		<position x="448" y="208" w="16" h="32" />
+	</sprite>
+	<sprite name="93" mask="m8x16x0">
+		<position x="448" y="240" w="16" h="32" />
+	</sprite>
+	<sprite name="pole_middle" mask="0">
+		<position x="96" y="272" w="64" h="32" />
+	</sprite>
+	<sprite name="pole_nw" mask="0">
+		<position x="160" y="272" w="80" h="32" />
+	</sprite>
+	<sprite name="pole_ne" mask="0">
+		<position x="240" y="272" w="80" h="32" />
+	</sprite>
+	<sprite name="pole_sw" mask="0">
+		<position x="320" y="272" w="80" h="48" />
+	</sprite>
+	<sprite name="pole_se" mask="0">
+		<position x="400" y="272" w="80" h="48" />
+	</sprite>
+	<sprite name="20" mask="0">
+		<position x="288" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="35" mask="0">
+		<position x="224" y="0" w="64" h="48" />
+	</sprite>
+	<sprite name="lw_grassroof_nw" mask="m8x8x0">
+		<position x="400" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="lw_grassroof_n" mask="m16x8x0">
+		<position x="240" y="256" w="32" h="16" />
+	</sprite>
+	<sprite name="lw_grassroof_ne" mask="m8x8x0">
+		<position x="400" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="lw_grassroof_w" mask="m8x8x0">
+		<position x="400" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="grassroof_fill" mask="0">
+		<position x="368" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="lw_grassroof_e" mask="m8x8x0">
+		<position x="400" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="lw_grassroof_sw" mask="m8x16x0">
+		<position x="336" y="160" w="32" h="16" />
+	</sprite>
+	<sprite name="lw_grassroof_s" mask="m8x16x0">
+		<position x="336" y="176" w="32" h="16" />
+	</sprite>
+	<sprite name="lw_grassroof_se" mask="m8x16x0">
+		<position x="368" y="144" w="32" h="16" />
+	</sprite>
+	<sprite name="lw_stone_window" mask="m32x16x0">
+		<position x="272" y="240" w="64" h="32" />
+	</sprite>
+	<sprite name="38" mask="0">
+		<position x="336" y="144" w="32" h="16" />
+	</sprite>
+	<sprite name="39" mask="m16x24x8">
+		<position x="320" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="40" mask="m32x24x8">
+		<position x="352" y="0" w="64" h="48" />
+	</sprite>
+	<sprite name="fill1" mask="0">
+		<position x="128" y="144" w="32" h="32" />
+	</sprite>
+	<sprite name="paletilefill_ns1" mask="0">
+		<position x="128" y="144" w="16" h="32" />
+	</sprite>
+	<sprite name="fill1a" mask="0">
+		<position x="144" y="144" w="16" h="32" />
+	</sprite>
+	<sprite name="fill1b" mask="0">
+		<position x="128" y="144" w="32" h="16" />
+	</sprite>
+	<sprite name="paletilefill_we2" mask="0">
+		<position x="128" y="160" w="32" h="16" />
+	</sprite>
+	<sprite name="fill1c" mask="0">
+		<position x="128" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="paletilefill_2" mask="0">
+		<position x="144" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="paletilefill_3" mask="0">
+		<position x="128" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="paletilefill_4" mask="0">
+		<position x="144" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="fill3" mask="0">
+		<position x="160" y="144" w="32" h="32" />
+	</sprite>
+	<sprite name="fill3a" mask="0">
+		<position x="160" y="144" w="16" h="32" />
+	</sprite>
+	<sprite name="fill3b" mask="0">
+		<position x="176" y="144" w="16" h="32" />
+	</sprite>
+	<sprite name="fill4" mask="0">
+		<position x="160" y="176" w="32" h="32" />
+	</sprite>
+	<sprite name="pinktilefill_ns1" mask="0">
+		<position x="160" y="176" w="16" h="32" />
+	</sprite>
+	<sprite name="fill4a" mask="0">
+		<position x="176" y="176" w="16" h="32" />
+	</sprite>
+	<sprite name="fill4b" mask="0">
+		<position x="160" y="176" w="32" h="16" />
+	</sprite>
+	<sprite name="pinktilefill_we2" mask="0">
+		<position x="160" y="192" w="32" h="16" />
+	</sprite>
+	<sprite name="fill4c" mask="0">
+		<position x="160" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="pinktilefill_2" mask="0">
+		<position x="176" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="pinktilefill_3" mask="0">
+		<position x="160" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="pinktilefill_4" mask="0">
+		<position x="176" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="41" mask="m16x24x8">
+		<position x="336" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="42" mask="0">
+		<position x="384" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="43" mask="0">
+		<position x="400" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="44" mask="0">
+		<position x="368" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="45" mask="0">
+		<position x="384" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="46" mask="0">
+		<position x="368" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="47" mask="0">
+		<position x="400" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="48" mask="0">
+		<position x="384" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="49" mask="0">
+		<position x="368" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="50" mask="m8x8x8">
+		<position x="256" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="51" mask="m8x8x8">
+		<position x="288" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="52" mask="m8x8x8">
+		<position x="320" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="53" mask="m8x8x8">
+		<position x="320" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="54" mask="m8x8x8">
+		<position x="272" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="55" mask="m8x8x8">
+		<position x="320" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="57" mask="m8x8x8">
+		<position x="304" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="37" mask="0">
+		<position x="400" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="fill5" mask="m8x8x208">
+		<position x="272" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="fill6" mask="0">
+		<position x="288" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="58" mask="8x8x8">
+		<position x="256" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="59" mask="8x8x8">
+		<position x="272" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="60" mask="_stairsmaskn5">
+		<position x="352" y="48" w="32" h="16" />
+	</sprite>
+	<sprite name="61" mask="_stairsmaskn4">
+		<position x="352" y="64" w="64" h="16" />
+	</sprite>
+	<sprite name="62" mask="m16x24x8">
+		<position x="224" y="112" w="32" h="48" />
+	</sprite>
+	<sprite name="63" mask="m16x24x8">
+		<position x="320" y="48" w="32" h="48" />
+	</sprite>
+	<sprite name="64" mask="m16x24x8">
+		<position x="288" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="65" mask="m16x24x8">
+		<position x="256" y="96" w="32" h="48" />
+	</sprite>
+	<sprite name="66" mask="m16x24x8">
+		<position x="288" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="67" mask="m16x16x8">
+		<position x="256" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="68" mask="16x24x8">
+		<position x="224" y="64" w="32" h="48" />
+	</sprite>
+	<sprite name="lw_hedge_end_s" mask="m16x24x8">
+		<position x="192" y="144" w="32" h="48" />
+	</sprite>
+	<sprite name="70" mask="m16x8x8">
+		<position x="224" y="48" w="32" h="16" />
+	</sprite>
+	<sprite name="71" mask="m16x24x8">
+		<position x="288" y="48" w="32" h="48" />
+	</sprite>
+	<sprite name="56" mask="m8x8x8">
+		<position x="320" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="72" mask="m16x24x8">
+		<position x="304" y="160" w="32" h="48" />
+	</sprite>
+	<sprite name="73" mask="0">
+		<position x="272" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="74" mask="0">
+		<position x="288" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="75" mask="8x24x0">
+		<position x="256" y="192" w="16" h="48" />
+	</sprite>
+	<sprite name="76" mask="0">
+		<position x="272" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="79" mask="0">
+		<position x="64" y="144" w="64" h="48" />
+	</sprite>
+	<sprite name="81" mask="0">
+		<position x="64" y="192" w="64" h="48" />
+	</sprite>
+	<sprite name="82" mask="0">
+		<position x="128" y="208" w="64" h="32" />
+	</sprite>
+	<sprite name="80" mask="0">
+		<position x="64" y="240" w="64" h="32" />
+	</sprite>
+	<sprite name="83" mask="0">
+		<position x="272" y="208" w="64" h="32" />
+	</sprite>
+	<sprite name="84" mask="16x24x0">
+		<position x="192" y="192" w="32" h="48" />
+	</sprite>
+	<sprite name="77" mask="0">
+		<position x="224" y="192" w="16" h="48" />
+	</sprite>
+	<sprite name="78" mask="0">
+		<position x="240" y="192" w="16" h="48" />
+	</sprite>
+	<sprite name="west" mask="0">
+		<position x="416" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="north" mask="0">
+		<position x="448" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="east" mask="0">
+		<position x="416" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="south" mask="0">
+		<position x="448" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="bird_pedestal" mask="m32x32x0">
+		<position x="416" y="64" w="64" h="64" />
+	</sprite>
+	<sprite name="36" mask="0">
+		<position x="64" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="tealrooffill" mask="0">
+		<position x="432" y="208" w="16" h="16" />
+	</sprite>
+	<sprite name="birdpole" mask="0">
+		<position x="416" y="176" w="64" h="32" />
+	</sprite>
+	<sprite name="townbank" mask="0">
+		<position x="480" y="192" w="64" h="40" />
+	</sprite>
+	<sprite name="pub" mask="0">
+		<position x="480" y="232" w="64" h="32" />
+	</sprite>
+	<sprite name="witchhut1" mask="_townmask3">
+		<position x="544" y="0" w="64" h="32" />
+	</sprite>
+	<sprite name="witchhut2" mask="_townmask3">
+		<position x="608" y="0" w="64" h="32" />
+	</sprite>
+	<sprite name="witchhut3" mask="m32x16x0">
+		<position x="544" y="32" w="64" h="32" />
+	</sprite>
+	<sprite name="witchhut4" mask="m32x16x0">
+		<position x="608" y="32" w="64" h="32" />
+	</sprite>
+	<sprite name="witchhut5" mask="m32x24x0">
+		<position x="544" y="64" w="64" h="48" />
+	</sprite>
+	<sprite name="witchhut6" mask="m32x24x0">
+		<position x="608" y="64" w="64" h="48" />
+	</sprite>
+	<sprite name="witchhut7" mask="_witchhutmask">
+		<position x="544" y="112" w="128" h="80" />
+	</sprite>
+	<sprite name="mask1" mask="0">
+		<position x="480" y="168" w="48" h="16" />
+	</sprite>
+	<sprite name="mask3" mask="0">
+		<position x="480" y="160" w="64" h="32" />
+	</sprite>
+	<sprite name="witchhutmask" mask="0">
+		<position x="544" y="240" w="128" h="80" />
+	</sprite>
+	<sprite name="mask2" mask="0">
+		<position x="480" y="168" w="16" h="16" />
+	</sprite>
+	<sprite name="kakdoor3" mask="_doormaskn2"entity="d_kakdoor3">
+		<position x="480" y="96" w="64" h="32" />
+	</sprite>
+	<sprite name="kakdoor3c" mask="0">
+		<position x="480" y="128" w="64" h="32" />
+	</sprite>
+	<sprite name="kakdoor2" mask="_doormaskn1"entity="d_kakdoor2">
+		<position x="336" y="192" w="64" h="48" />
+	</sprite>
+	<sprite name="kakdoor2a" mask="0">
+		<position x="336" y="192" w="64" h="16" />
+	</sprite>
+	<sprite name="kakdoor1" mask="0"entity="d_kakdoor1">
+		<position x="0" y="96" w="64" h="32" />
+	</sprite>
+	<sprite name="kakdoor1o" mask="0">
+		<position x="0" y="208" w="64" h="32" />
+	</sprite>
+	<sprite name="kakdoor1arch1" mask="0">
+		<position x="0" y="128" w="64" h="24" />
+	</sprite>
+	<sprite name="kakdoor1arch2" mask="0">
+		<position x="0" y="152" w="64" h="24" />
+	</sprite>
+	<sprite name="kakdoor1arch3" mask="0">
+		<position x="0" y="176" w="64" h="16" />
+	</sprite>
+	<sprite name="kakdoor1bot" mask="0">
+		<position x="0" y="192" w="64" h="16" />
+	</sprite>
+</sheet>

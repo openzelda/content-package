@@ -1,0 +1,23 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="mouthula" mask="0"entity="e_mouthula">
+		<position x="0" y="0" w="128" h="64" />
+	</sprite>
+	<sprite name="mouthulaa" mask="0">
+		<position x="128" y="0" w="128" h="64" />
+	</sprite>
+	<sprite name="mouthulab" mask="0">
+		<position x="0" y="64" w="64" h="64" />
+	</sprite>
+	<sprite name="mothshadow1" mask="0">
+		<position x="64" y="64" w="72" h="16" />
+	</sprite>
+	<sprite name="mothshadow2" mask="0">
+		<position x="64" y="80" w="56" h="16" />
+	</sprite>
+	<sprite name="mothshadow3" mask="0">
+		<position x="64" y="96" w="40" h="16" />
+	</sprite>
+	<sprite name="firering" mask="0">
+		<position x="136" y="64" w="24" h="24" />
+	</sprite>
+</sheet>

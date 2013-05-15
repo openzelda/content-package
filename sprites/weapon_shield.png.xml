@@ -1,0 +1,26 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="shield1" mask="0">
+		<position x="0" y="0" w="32" h="24" />
+	</sprite>
+	<sprite name="shield1b" mask="0">
+		<position x="32" y="0" w="8" h="24" />
+	</sprite>
+	<sprite name="shield1c" mask="0">
+		<position x="40" y="0" w="8" h="24" />
+	</sprite>
+	<sprite name="shield2" mask="0">
+		<position x="48" y="0" w="24" h="24" />
+	</sprite>
+	<sprite name="shield2a" mask="0">
+		<position x="72" y="0" w="24" h="24" />
+	</sprite>
+	<sprite name="shield2b" mask="0">
+		<position x="96" y="0" w="8" h="24" />
+	</sprite>
+	<sprite name="shield2c" mask="0">
+		<position x="104" y="0" w="8" h="24" />
+	</sprite>
+	<sprite name="shield1a" mask="0">
+		<position x="112" y="0" w="16" h="24" />
+	</sprite>
+</sheet>

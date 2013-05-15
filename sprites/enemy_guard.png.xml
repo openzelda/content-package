@@ -1,0 +1,323 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="gguardwalks1" mask="0">
+		<position x="48" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="gguardwalks2" mask="0">
+		<position x="0" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="gguardwalks3" mask="0">
+		<position x="96" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="gguardwalks4" mask="0">
+		<position x="144" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="gguardwalkn1" mask="0">
+		<position x="48" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="gguardwalkn2" mask="0">
+		<position x="0" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="gguardwalkn3" mask="0">
+		<position x="96" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="gguardwalkn4" mask="0">
+		<position x="144" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="gguardwalkw1" mask="0">
+		<position x="0" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardwalkw2" mask="0">
+		<position x="32" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardwalkw3" mask="0">
+		<position x="64" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardwalke1" mask="0">
+		<position x="96" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardwalke2" mask="0">
+		<position x="128" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardwalke3" mask="0">
+		<position x="160" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardheadn1" mask="0">
+		<position x="0" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardheade1" mask="0">
+		<position x="32" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardheads1" mask="0">
+		<position x="64" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardheadw1" mask="0">
+		<position x="96" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardfall1" mask="0">
+		<position x="0" y="160" w="48" h="48" />
+	</sprite>
+	<sprite name="gguardfall2" mask="0">
+		<position x="48" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardfall3" mask="0">
+		<position x="48" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="gguardfall4" mask="0">
+		<position x="64" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="gguardfall5" mask="0">
+		<position x="80" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="guardswordn" mask="0">
+		<position x="80" y="176" w="16" h="32" />
+	</sprite>
+	<sprite name="guardswords" mask="0">
+		<position x="96" y="176" w="16" h="32" />
+	</sprite>
+	<sprite name="gguardheadn2" mask="0">
+		<position x="128" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardheade2" mask="0">
+		<position x="160" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardheads2" mask="0">
+		<position x="0" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardheadw2" mask="0">
+		<position x="32" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardheadn3" mask="0">
+		<position x="64" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardheade3" mask="0">
+		<position x="96" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardheads3" mask="0">
+		<position x="128" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="gguardheadw3" mask="0">
+		<position x="160" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="guardsworde" mask="0">
+		<position x="96" y="160" w="32" h="16" />
+	</sprite>
+	<sprite name="guardswordw" mask="0">
+		<position x="128" y="160" w="32" h="16" />
+	</sprite>
+	<sprite name="bguardwalks1" mask="0">
+		<position x="240" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="bguardwalks2" mask="0">
+		<position x="192" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="bguardwalks3" mask="0">
+		<position x="288" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="bguardwalks4" mask="0">
+		<position x="336" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="bguardwalkn1" mask="0">
+		<position x="240" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="bguardwalkn2" mask="0">
+		<position x="192" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="bguardwalkn3" mask="0">
+		<position x="288" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="bguardwalkn4" mask="0">
+		<position x="336" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="bguardwalkw1" mask="0">
+		<position x="192" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardwalkw2" mask="0">
+		<position x="224" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardwalkw3" mask="0">
+		<position x="256" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardwalke1" mask="0">
+		<position x="288" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardwalke2" mask="0">
+		<position x="320" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardwalke3" mask="0">
+		<position x="352" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheadn1" mask="0">
+		<position x="192" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheade1" mask="0">
+		<position x="224" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheads1" mask="0">
+		<position x="256" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheadw1" mask="0">
+		<position x="288" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheadn2" mask="0">
+		<position x="320" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheade2" mask="0">
+		<position x="352" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheads2" mask="0">
+		<position x="192" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheadw2" mask="0">
+		<position x="224" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheadn3" mask="0">
+		<position x="256" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheade3" mask="0">
+		<position x="288" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheads3" mask="0">
+		<position x="320" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardheadw3" mask="0">
+		<position x="352" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardfall1" mask="0">
+		<position x="192" y="160" w="48" h="48" />
+	</sprite>
+	<sprite name="bguardfall2" mask="0">
+		<position x="240" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="bguardfall3" mask="0">
+		<position x="240" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="bguardfall4" mask="0">
+		<position x="256" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="bguardfall5" mask="0">
+		<position x="272" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="rguardwalks2" mask="0">
+		<position x="384" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="rguardwalks1" mask="0">
+		<position x="432" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="rguardwalks3" mask="0">
+		<position x="480" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="rguardwalks4" mask="0">
+		<position x="528" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="rguardwalkn1" mask="0">
+		<position x="432" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="rguardwalkn2" mask="0">
+		<position x="384" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="rguardwalkn3" mask="0">
+		<position x="480" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="rguardwalkn4" mask="0">
+		<position x="528" y="32" w="48" h="32" />
+	</sprite>
+	<sprite name="rguardwalkw1" mask="0">
+		<position x="384" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardwalkw2" mask="0">
+		<position x="416" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardwalkw3" mask="0">
+		<position x="448" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardwalke1" mask="0">
+		<position x="480" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardwalke2" mask="0">
+		<position x="512" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardwalke3" mask="0">
+		<position x="544" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheadn1" mask="0">
+		<position x="384" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheade1" mask="0">
+		<position x="416" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheads1" mask="0">
+		<position x="448" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheadw1" mask="0">
+		<position x="480" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheadn2" mask="0">
+		<position x="512" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheade2" mask="0">
+		<position x="544" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheads2" mask="0">
+		<position x="384" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheadw2" mask="0">
+		<position x="416" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheadn3" mask="0">
+		<position x="448" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheade3" mask="0">
+		<position x="480" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheads3" mask="0">
+		<position x="512" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardheadw3" mask="0">
+		<position x="544" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardfall1" mask="0">
+		<position x="384" y="160" w="48" h="48" />
+	</sprite>
+	<sprite name="rguardfall2" mask="0">
+		<position x="432" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="rguardfall3" mask="0">
+		<position x="432" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="rguardfall4" mask="0">
+		<position x="448" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="rguardfall5" mask="0">
+		<position x="464" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="guardtridentn" mask="0">
+		<position x="160" y="160" w="16" h="48" />
+	</sprite>
+	<sprite name="guardtridents" mask="0">
+		<position x="176" y="160" w="16" h="48" />
+	</sprite>
+	<sprite name="guardtridente" mask="0">
+		<position x="112" y="176" w="48" h="16" />
+	</sprite>
+	<sprite name="guardtridentw" mask="0">
+		<position x="112" y="192" w="48" h="16" />
+	</sprite>
+	<sprite name="guardsswordw" mask="0">
+		<position x="272" y="192" w="24" h="16" />
+	</sprite>
+	<sprite name="guardssworde" mask="0">
+		<position x="272" y="176" w="24" h="16" />
+	</sprite>
+	<sprite name="guardsswords" mask="0">
+		<position x="296" y="184" w="16" h="24" />
+	</sprite>
+	<sprite name="guardsswordn" mask="0">
+		<position x="312" y="184" w="16" h="24" />
+	</sprite>
+	<sprite name="g_mace" mask="0">
+		<position x="736" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="g_macechain" mask="0">
+		<position x="720" y="160" w="16" h="16" />
+	</sprite>
+</sheet>

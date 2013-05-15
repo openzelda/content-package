@@ -1,0 +1,17 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="chickeneast1" mask="0">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="chickeneast2" mask="0">
+		<position x="32" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="chickenwest1" mask="0">
+		<position x="0" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="chickenwest2" mask="0">
+		<position x="32" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="chicken" mask="0"entity="_chicken">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+</sheet>

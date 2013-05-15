@@ -1,0 +1,590 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="level8dun1" mask="24x24x0">
+		<position x="0" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun2" mask="24x24x0">
+		<position x="80" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun3" mask="24x24x0">
+		<position x="80" y="80" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun4" mask="24x24x0">
+		<position x="0" y="80" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun5" mask="16x24x0">
+		<position x="48" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="level8dun6" mask="16x24x0">
+		<position x="48" y="80" w="32" h="48" />
+	</sprite>
+	<sprite name="level8dun7" mask="24x16x0">
+		<position x="80" y="48" w="48" h="32" />
+	</sprite>
+	<sprite name="level8dun8" mask="24x16x0">
+		<position x="0" y="48" w="48" h="32" />
+	</sprite>
+	<sprite name="level8dun9" mask="0">
+		<position x="48" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun10" mask="0">
+		<position x="128" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun11" mask="0">
+		<position x="144" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun12" mask="0">
+		<position x="144" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun13" mask="0">
+		<position x="128" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun14" mask="0">
+		<position x="128" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="level8dun15" mask="0">
+		<position x="144" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="level8dun16" mask="0">
+		<position x="128" y="64" w="32" h="16" />
+	</sprite>
+	<sprite name="level8dun17" mask="0">
+		<position x="128" y="80" w="32" h="16" />
+	</sprite>
+	<sprite name="level8dun18" mask="0">
+		<position x="128" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun19" mask="0">
+		<position x="144" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun20" mask="0">
+		<position x="144" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun21" mask="0">
+		<position x="128" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun22" mask="24x24x0">
+		<position x="160" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun23" mask="24x24x0">
+		<position x="240" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun24" mask="24x24x0">
+		<position x="240" y="80" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun25" mask="24x24x0">
+		<position x="160" y="80" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun26" mask="16x24x32">
+		<position x="208" y="0" w="32" h="48" />
+	</sprite>
+	<sprite name="level8dun27" mask="16x24x16">
+		<position x="208" y="80" w="32" h="48" />
+	</sprite>
+	<sprite name="level8dun28" mask="24x16x24">
+		<position x="160" y="48" w="48" h="32" />
+	</sprite>
+	<sprite name="level8dun29" mask="24x16x40">
+		<position x="240" y="48" w="48" h="32" />
+	</sprite>
+	<sprite name="level8dun30" mask="0">
+		<position x="208" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun31" mask="0">
+		<position x="288" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun32" mask="0">
+		<position x="304" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun33" mask="0">
+		<position x="304" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun34" mask="0">
+		<position x="288" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun35" mask="0">
+		<position x="288" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="level8dun36" mask="0">
+		<position x="304" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="level8dun37" mask="0">
+		<position x="288" y="64" w="32" h="16" />
+	</sprite>
+	<sprite name="level8dun38" mask="0">
+		<position x="288" y="80" w="32" h="16" />
+	</sprite>
+	<sprite name="level8dun39" mask="0">
+		<position x="288" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun40" mask="0">
+		<position x="304" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun41" mask="0">
+		<position x="304" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun42" mask="0">
+		<position x="288" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun43" mask="0">
+		<position x="320" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun44" mask="0">
+		<position x="352" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun45" mask="0">
+		<position x="384" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun46" mask="0">
+		<position x="384" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun47" mask="0">
+		<position x="384" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun48" mask="0">
+		<position x="352" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun49" mask="0">
+		<position x="320" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun50" mask="0">
+		<position x="320" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun51" mask="24x24x0">
+		<position x="416" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun52" mask="24x24x0">
+		<position x="464" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun53" mask="24x24x0">
+		<position x="464" y="48" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun54" mask="24x24x0">
+		<position x="416" y="48" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun55" mask="24x24x0">
+		<position x="416" y="96" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun56" mask="24x24x0">
+		<position x="464" y="96" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun57" mask="24x24x0">
+		<position x="464" y="144" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun58" mask="24x24x0">
+		<position x="416" y="144" w="48" h="48" />
+	</sprite>
+	<sprite name="level8dun59" mask="0">
+		<position x="352" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun60" mask="0">
+		<position x="384" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun61" mask="0">
+		<position x="384" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun62" mask="0">
+		<position x="352" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun63" mask="8x8x8">
+		<position x="320" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun64" mask="8x8x8">
+		<position x="320" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun65" mask="8x8x8">
+		<position x="336" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun110" mask="0">
+		<position x="496" y="240" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun127" mask="8x8x8">
+		<position x="512" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun128" mask="8x8x8">
+		<position x="528" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun129" mask="8x8x8">
+		<position x="528" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun130" mask="8x8x8">
+		<position x="512" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun132" mask="8x8x8">
+		<position x="528" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun134" mask="16x8x232">
+		<position x="448" y="304" w="32" h="16" />
+	</sprite>
+	<sprite name="level8dun133" mask="8x8x8">
+		<position x="512" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun139" mask="0">
+		<position x="528" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun126" mask="0">
+		<position x="336" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun66" mask="16x16x8">
+		<position x="352" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun67" mask="16x24x8">
+		<position x="384" y="176" w="32" h="48" />
+	</sprite>
+	<sprite name="level8dun68" mask="16x8x8">
+		<position x="384" y="160" w="32" h="16" />
+	</sprite>
+	<sprite name="level8dun69" mask="8x24x8">
+		<position x="480" y="336" w="16" h="48" />
+	</sprite>
+	<sprite name="level8dun70" mask="32x24x0">
+		<position x="368" y="480" w="64" h="48" />
+	</sprite>
+	<sprite name="level8dun111" mask="32x24x0">
+		<position x="432" y="480" w="64" h="48" />
+	</sprite>
+	<sprite name="level8dun112" mask="24x32x0">
+		<position x="496" y="416" w="48" h="64" />
+	</sprite>
+	<sprite name="level8dun113" mask="24x32x0">
+		<position x="496" y="480" w="48" h="64" />
+	</sprite>
+	<sprite name="level8dun135" mask="32x24x0">
+		<position x="80" y="544" w="64" h="48" />
+	</sprite>
+	<sprite name="level8dun136" mask="32x24x0">
+		<position x="16" y="544" w="64" h="48" />
+	</sprite>
+	<sprite name="level8dun138" mask="24x32x0">
+		<position x="192" y="544" w="48" h="64" />
+	</sprite>
+	<sprite name="level8dun137" mask="24x32x0">
+		<position x="144" y="544" w="48" h="64" />
+	</sprite>
+	<sprite name="level8dun71" mask="16x32x0">
+		<position x="0" y="256" w="32" h="64" />
+	</sprite>
+	<sprite name="level8dun72" mask="16x32x0">
+		<position x="32" y="256" w="32" h="64" />
+	</sprite>
+	<sprite name="level8dun73" mask="32x16x0">
+		<position x="64" y="256" w="64" h="32" />
+	</sprite>
+	<sprite name="level8dun74" mask="32x16x0">
+		<position x="64" y="288" w="64" h="32" />
+	</sprite>
+	<sprite name="level8dun75" mask="16x32x0">
+		<position x="128" y="256" w="32" h="64" />
+	</sprite>
+	<sprite name="level8dun76" mask="16x32x0">
+		<position x="160" y="256" w="32" h="64" />
+	</sprite>
+	<sprite name="level8dun77" mask="16x32x0">
+		<position x="192" y="256" w="32" h="64" />
+	</sprite>
+	<sprite name="level8dun78" mask="16x32x0">
+		<position x="224" y="256" w="32" h="64" />
+	</sprite>
+	<sprite name="level8dun79" mask="32x16x0">
+		<position x="256" y="256" w="64" h="32" />
+	</sprite>
+	<sprite name="level8dun80" mask="32x16x0">
+		<position x="256" y="288" w="64" h="32" />
+	</sprite>
+	<sprite name="level8dun81" mask="32x16x0">
+		<position x="320" y="256" w="64" h="32" />
+	</sprite>
+	<sprite name="level8dun82" mask="32x16x0">
+		<position x="320" y="288" w="64" h="32" />
+	</sprite>
+	<sprite name="level8dun83" mask="8x32x0">
+		<position x="384" y="256" w="16" h="64" />
+	</sprite>
+	<sprite name="level8dun84" mask="8x32x0">
+		<position x="400" y="256" w="16" h="64" />
+	</sprite>
+	<sprite name="level8dun85" mask="8x32x0">
+		<position x="416" y="256" w="16" h="64" />
+	</sprite>
+	<sprite name="level8dun86" mask="8x32x0">
+		<position x="432" y="256" w="16" h="64" />
+	</sprite>
+	<sprite name="level8dun87" mask="8x24x0">
+		<position x="448" y="256" w="16" h="48" />
+	</sprite>
+	<sprite name="level8dun88" mask="8x24x0">
+		<position x="464" y="256" w="16" h="48" />
+	</sprite>
+	<sprite name="level8dun89" mask="8x24x0">
+		<position x="480" y="256" w="16" h="48" />
+	</sprite>
+	<sprite name="level8dun90" mask="8x24x0">
+		<position x="496" y="256" w="16" h="48" />
+	</sprite>
+	<sprite name="level8dun114" mask="0">
+		<position x="512" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun115" mask="0">
+		<position x="528" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun116" mask="0">
+		<position x="512" y="208" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun117" mask="0">
+		<position x="528" y="208" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun118" mask="0">
+		<position x="512" y="224" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun119" mask="0">
+		<position x="528" y="224" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun120" mask="0">
+		<position x="512" y="240" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun121" mask="0">
+		<position x="528" y="240" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun91" mask="0">
+		<position x="320" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun92" mask="0">
+		<position x="336" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun93" mask="0">
+		<position x="336" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun94" mask="0">
+		<position x="320" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun95" mask="0">
+		<position x="352" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun96" mask="0">
+		<position x="368" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun97" mask="0">
+		<position x="368" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun98" mask="0">
+		<position x="352" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun122" mask="0">
+		<position x="512" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun123" mask="0">
+		<position x="528" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun124" mask="0">
+		<position x="512" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun125" mask="0">
+		<position x="528" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="level8dun99" mask="16x16x0">
+		<position x="320" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun100" mask="0">
+		<position x="416" y="192" w="64" h="64" />
+	</sprite>
+	<sprite name="level8dun101" mask="0">
+		<position x="480" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun102" mask="0">
+		<position x="480" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun103" mask="0">
+		<position x="384" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="level8dun104" mask="_stairsmaskn">
+		<position x="368" y="416" w="64" h="64" />
+	</sprite>
+	<sprite name="level8dun105" mask="_stairsmaskn">
+		<position x="304" y="480" w="64" h="64" />
+	</sprite>
+	<sprite name="level8dun106" mask="24x32x0">
+		<position x="0" y="128" w="48" h="64" />
+	</sprite>
+	<sprite name="level8dun107" mask="24x32x0">
+		<position x="48" y="128" w="48" h="64" />
+	</sprite>
+	<sprite name="level8dun108" mask="0">
+		<position x="96" y="128" w="160" h="64" />
+	</sprite>
+	<sprite name="level8dun109" mask="0">
+		<position x="256" y="176" w="64" h="16" />
+	</sprite>
+	<sprite name="ent8" mask="_doormaskn"entity="d_dungent8">
+		<position x="256" y="128" w="64" h="48" />
+	</sprite>
+	<sprite name="ent8a" mask="0">
+		<position x="256" y="160" w="64" h="16" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaskn"entity="d_dungeon18">
+		<position x="0" y="320" w="64" h="48" />
+	</sprite>
+	<sprite name="eon18a" mask="0">
+		<position x="0" y="320" w="64" h="16" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaskn"entity="d_dungeon18">
+		<position x="0" y="368" w="64" h="48" />
+	</sprite>
+	<sprite name="eon18a" mask="0">
+		<position x="0" y="400" w="64" h="16" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaske"entity="d_dungeon18">
+		<position x="0" y="416" w="48" h="64" />
+	</sprite>
+	<sprite name="eon18a" mask="0">
+		<position x="0" y="416" w="16" h="64" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaske"entity="d_dungeon18">
+		<position x="0" y="480" w="48" h="64" />
+	</sprite>
+	<sprite name="eon18a" mask="0">
+		<position x="32" y="480" w="16" h="64" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaskn"entity="d_dungeon18">
+		<position x="240" y="544" w="64" h="48" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaske"entity="d_dungeon18">
+		<position x="368" y="528" w="48" h="64" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaskn"entity="d_dungeon18">
+		<position x="304" y="544" w="64" h="48" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaske"entity="d_dungeon18">
+		<position x="416" y="528" w="48" h="64" />
+	</sprite>
+	<sprite name="eon18a" mask="0">
+		<position x="240" y="544" w="64" h="16" />
+	</sprite>
+	<sprite name="eon18a" mask="0">
+		<position x="368" y="528" w="16" h="64" />
+	</sprite>
+	<sprite name="eon18a" mask="0">
+		<position x="448" y="528" w="16" h="64" />
+	</sprite>
+	<sprite name="eon18a" mask="0">
+		<position x="304" y="576" w="64" h="16" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaskn"entity="d_dungeon18">
+		<position x="64" y="320" w="64" h="48" />
+	</sprite>
+	<sprite name="eon18b" mask="0">
+		<position x="240" y="480" w="64" h="32" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaskn"entity="d_dungeon18">
+		<position x="64" y="368" w="64" h="48" />
+	</sprite>
+	<sprite name="eon18b" mask="0">
+		<position x="240" y="512" w="64" h="32" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaske"entity="d_dungeon18">
+		<position x="48" y="416" w="48" h="64" />
+	</sprite>
+	<sprite name="eon18b" mask="0">
+		<position x="240" y="416" w="32" h="64" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaske"entity="d_dungeon18">
+		<position x="48" y="480" w="48" h="64" />
+	</sprite>
+	<sprite name="eon18b" mask="0">
+		<position x="272" y="416" w="32" h="64" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaskn"entity="d_dungeon18">
+		<position x="128" y="320" w="64" h="48" />
+	</sprite>
+	<sprite name="eon18b" mask="0">
+		<position x="432" y="416" w="64" h="32" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaskn"entity="d_dungeon18">
+		<position x="128" y="368" w="64" h="48" />
+	</sprite>
+	<sprite name="eon18b" mask="0">
+		<position x="432" y="448" w="64" h="32" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaske"entity="d_dungeon18">
+		<position x="96" y="416" w="48" h="64" />
+	</sprite>
+	<sprite name="eon18b" mask="0">
+		<position x="304" y="416" w="32" h="64" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaske"entity="d_dungeon18">
+		<position x="96" y="480" w="48" h="64" />
+	</sprite>
+	<sprite name="eon18b" mask="0">
+		<position x="336" y="416" w="32" h="64" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaskn"entity="d_dungeon18">
+		<position x="192" y="320" w="64" h="48" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaskn"entity="d_dungeon18">
+		<position x="192" y="368" w="64" h="48" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaske"entity="d_dungeon18">
+		<position x="144" y="416" w="48" h="64" />
+	</sprite>
+	<sprite name="eon18" mask="_doormaske"entity="d_dungeon18">
+		<position x="144" y="480" w="48" h="64" />
+	</sprite>
+	<sprite name="crack18" mask="_doormaskn"entity="d_dungcrack18">
+		<position x="256" y="320" w="64" h="48" />
+	</sprite>
+	<sprite name="crack18a" mask="0">
+		<position x="256" y="320" w="64" h="16" />
+	</sprite>
+	<sprite name="crack18b" mask="0">
+		<position x="320" y="320" w="48" h="48" />
+	</sprite>
+	<sprite name="crack38" mask="_doormaskn"entity="d_dungcrack38">
+		<position x="256" y="368" w="64" h="48" />
+	</sprite>
+	<sprite name="crack38a" mask="0">
+		<position x="256" y="400" w="64" h="16" />
+	</sprite>
+	<sprite name="crack38b" mask="0">
+		<position x="320" y="368" w="48" h="48" />
+	</sprite>
+	<sprite name="crack28" mask="_doormaske"entity="d_dungcrack28">
+		<position x="192" y="416" w="48" h="64" />
+	</sprite>
+	<sprite name="crack28a" mask="0">
+		<position x="192" y="416" w="16" h="64" />
+	</sprite>
+	<sprite name="crack28b" mask="0">
+		<position x="368" y="368" w="48" h="48" />
+	</sprite>
+	<sprite name="crack48" mask="_doormaske"entity="d_dungcrack48">
+		<position x="192" y="480" w="48" h="64" />
+	</sprite>
+	<sprite name="crack48a" mask="0">
+		<position x="224" y="480" w="16" h="64" />
+	</sprite>
+	<sprite name="crack48b" mask="0">
+		<position x="368" y="320" w="48" h="48" />
+	</sprite>
+	<sprite name="stair28" mask="_doormaskn"entity="d_dungstair28">
+		<position x="416" y="320" w="64" h="48" />
+	</sprite>
+	<sprite name="stair28a" mask="0">
+		<position x="416" y="320" w="64" h="16" />
+	</sprite>
+	<sprite name="stair18" mask="_doormaskn"entity="d_dungstair18">
+		<position x="416" y="368" w="64" h="48" />
+	</sprite>
+	<sprite name="stair18a" mask="0">
+		<position x="416" y="368" w="64" h="16" />
+	</sprite>
+	<sprite name="level8fill4" mask="0">
+		<position x="512" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="level8fill5" mask="0">
+		<position x="512" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="level8floorcrack" mask="0"entity="_level8floorcrack">
+		<position x="512" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="switch18" mask="0"entity="_switch18">
+		<position x="480" y="304" w="32" h="32" />
+	</sprite>
+</sheet>

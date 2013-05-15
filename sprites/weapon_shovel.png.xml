@@ -1,0 +1,35 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="shovelde1" mask="0">
+		<position x="0" y="0" w="40" h="56" />
+	</sprite>
+	<sprite name="shovelde2" mask="0">
+		<position x="40" y="0" w="48" h="56" />
+	</sprite>
+	<sprite name="shovelde3" mask="0">
+		<position x="88" y="0" w="40" h="56" />
+	</sprite>
+	<sprite name="shoveldw1" mask="0">
+		<position x="0" y="56" w="40" h="56" />
+	</sprite>
+	<sprite name="shoveldw2" mask="0">
+		<position x="40" y="56" w="48" h="56" />
+	</sprite>
+	<sprite name="shoveldw3" mask="0">
+		<position x="88" y="56" w="40" h="56" />
+	</sprite>
+	<sprite name="shovel_dirt1" mask="0">
+		<position x="128" y="0" w="24" h="16" />
+	</sprite>
+	<sprite name="shovel_dirt3" mask="0">
+		<position x="128" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="groundb" mask="0">
+		<position x="128" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="ground" mask="0">
+		<position x="128" y="80" w="32" h="32" />
+	</sprite>
+	<sprite name="shovel_dirt2" mask="0">
+		<position x="152" y="0" w="24" h="16" />
+	</sprite>
+</sheet>

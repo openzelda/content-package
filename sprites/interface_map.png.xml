@@ -1,0 +1,206 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="map_border1" mask="0">
+		<position x="0" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border2" mask="0">
+		<position x="16" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border3" mask="0">
+		<position x="0" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border4" mask="0">
+		<position x="16" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border5" mask="0">
+		<position x="32" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border6" mask="0">
+		<position x="32" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="map_back" mask="0">
+		<position x="48" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border11" mask="0">
+		<position x="0" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border12" mask="0">
+		<position x="16" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border13" mask="0">
+		<position x="0" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border14" mask="0">
+		<position x="16" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border15" mask="0">
+		<position x="32" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border16" mask="0">
+		<position x="48" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border17" mask="0">
+		<position x="32" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="map_border18" mask="0">
+		<position x="48" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="map_grid1" mask="0">
+		<position x="0" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="map_grid2" mask="0">
+		<position x="32" y="64" w="8" h="32" />
+	</sprite>
+	<sprite name="map_grid3" mask="0">
+		<position x="192" y="120" w="32" h="8" />
+	</sprite>
+	<sprite name="map_l1" mask="0">
+		<position x="64" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="map_l2" mask="0">
+		<position x="80" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="map_l3" mask="0">
+		<position x="96" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="map_l4" mask="0">
+		<position x="112" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="map_l5" mask="0">
+		<position x="64" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="map_l6" mask="0">
+		<position x="80" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="map_l7" mask="0">
+		<position x="96" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="map_l8" mask="0">
+		<position x="112" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="map_level" mask="0">
+		<position x="192" y="96" w="64" h="24" />
+	</sprite>
+	<sprite name="map_mapsign" mask="0">
+		<position x="96" y="64" w="96" h="32" />
+	</sprite>
+	<sprite name="map_floorbar" mask="0">
+		<position x="128" y="96" w="64" h="32" />
+	</sprite>
+	<sprite name="char370" mask="0">
+		<position x="48" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="char366" mask="0">
+		<position x="112" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="char349" mask="0">
+		<position x="64" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="char350" mask="0">
+		<position x="80" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="char351" mask="0">
+		<position x="64" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="char352" mask="0">
+		<position x="80" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="char353" mask="0">
+		<position x="96" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="char354" mask="0">
+		<position x="112" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="char355" mask="0">
+		<position x="96" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="map_linkg" mask="0">
+		<position x="192" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="map_linkb" mask="0">
+		<position x="192" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="map_linkr" mask="0">
+		<position x="192" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="map_blueg1" mask="0">
+		<position x="128" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="map_blueg2" mask="0">
+		<position x="144" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="map_blueg3" mask="0">
+		<position x="128" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="map_browng1" mask="0">
+		<position x="160" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="map_browng2" mask="0">
+		<position x="176" y="32" w="16" h="32" />
+	</sprite>
+	<sprite name="map_browng3" mask="0">
+		<position x="160" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="map_bluefill" mask="0">
+		<position x="144" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="map_brownfill" mask="0">
+		<position x="144" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="map_sel1" mask="0">
+		<position x="64" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="map_sel2" mask="0">
+		<position x="80" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="map_sel3" mask="0">
+		<position x="64" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="map_sel4" mask="0">
+		<position x="80" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="map_room1" mask="0">
+		<position x="32" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="map_room2" mask="0">
+		<position x="0" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="map_room3" mask="0">
+		<position x="16" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="map_room4" mask="0">
+		<position x="0" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="map_room5" mask="0">
+		<position x="16" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="map_door" mask="0">
+		<position x="48" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="map_bigch" mask="0">
+		<position x="32" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="map_stair" mask="0">
+		<position x="48" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="map_entry" mask="0">
+		<position x="48" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="map_brownm1" mask="0">
+		<position x="176" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="map_brownm2" mask="0">
+		<position x="176" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="map_bosshead" mask="0">
+		<position x="48" y="16" w="16" h="16" />
+	</sprite>
+	<sprite name="compassitem" mask="0">
+		<position x="40" y="128" w="40" h="40" />
+	</sprite>
+	<sprite name="mapitem" mask="0">
+		<position x="0" y="128" w="40" h="40" />
+	</sprite>
+	<sprite name="char332" mask="0">
+		<position x="0" y="80" w="16" h="16" />
+	</sprite>
+</sheet>

@@ -1,0 +1,44 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="01" mask="0"entity="_sign01">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="01a" mask="0">
+		<position x="32" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="01b" mask="0">
+		<position x="0" y="32" w="32" h="8" />
+	</sprite>
+	<sprite name="01c" mask="0">
+		<position x="32" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="01d" mask="0">
+		<position x="48" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="01e" mask="0">
+		<position x="48" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="01f" mask="0">
+		<position x="32" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="02" mask="0"entity="_sign02">
+		<position x="64" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="02a" mask="0">
+		<position x="96" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="02b" mask="0">
+		<position x="64" y="32" w="32" h="8" />
+	</sprite>
+	<sprite name="02c" mask="0">
+		<position x="96" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="02d" mask="0">
+		<position x="112" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="02e" mask="0">
+		<position x="96" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="02f" mask="0">
+		<position x="112" y="48" w="16" h="16" />
+	</sprite>
+</sheet>

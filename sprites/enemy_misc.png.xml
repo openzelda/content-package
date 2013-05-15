@@ -1,0 +1,692 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="vulture1" mask="0">
+		<position x="560" y="256" w="64" h="32" />
+	</sprite>
+	<sprite name="vulture2" mask="0">
+		<position x="560" y="288" w="64" h="32" />
+	</sprite>
+	<sprite name="vulture3" mask="0">
+		<position x="560" y="320" w="64" h="32" />
+	</sprite>
+	<sprite name="vulture4" mask="0">
+		<position x="624" y="320" w="32" h="32" />
+	</sprite>
+	<sprite name="teeth1s" mask="0"entity="teeth1s">
+		<position x="848" y="328" w="48" h="40" />
+	</sprite>
+	<sprite name="teeth2s" mask="0">
+		<position x="896" y="328" w="48" h="40" />
+	</sprite>
+	<sprite name="teeth3s" mask="0">
+		<position x="848" y="280" w="48" h="40" />
+	</sprite>
+	<sprite name="teeth4s" mask="0">
+		<position x="896" y="280" w="48" h="40" />
+	</sprite>
+	<sprite name="teeth1n" mask="0">
+		<position x="848" y="232" w="48" h="40" />
+	</sprite>
+	<sprite name="teeth2n" mask="0">
+		<position x="896" y="232" w="48" h="40" />
+	</sprite>
+	<sprite name="teeth3n" mask="0">
+		<position x="848" y="184" w="48" h="40" />
+	</sprite>
+	<sprite name="teeth4n" mask="0">
+		<position x="896" y="184" w="48" h="40" />
+	</sprite>
+	<sprite name="bbirde7" mask="0">
+		<position x="432" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirde8" mask="0">
+		<position x="432" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirde9" mask="0">
+		<position x="432" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirdw7" mask="0">
+		<position x="464" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirdw8" mask="0">
+		<position x="464" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirdw9" mask="0">
+		<position x="464" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="shellbug1s" mask="0"entity="shellbug1s">
+		<position x="304" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="shellbug2s" mask="0">
+		<position x="336" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="shellbug1e" mask="0">
+		<position x="368" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="shellbug2e" mask="0">
+		<position x="400" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="shellbug1n" mask="0">
+		<position x="304" y="288" w="32" h="32" />
+	</sprite>
+	<sprite name="shellbug2n" mask="0">
+		<position x="336" y="288" w="32" h="32" />
+	</sprite>
+	<sprite name="shellbug1w" mask="0">
+		<position x="368" y="288" w="32" h="32" />
+	</sprite>
+	<sprite name="shellbug2w" mask="0">
+		<position x="400" y="288" w="32" h="32" />
+	</sprite>
+	<sprite name="longtent1" mask="0"entity="longtent1">
+		<position x="0" y="368" w="32" h="48" />
+	</sprite>
+	<sprite name="longtent2" mask="0">
+		<position x="32" y="368" w="32" h="48" />
+	</sprite>
+	<sprite name="longtent3" mask="0">
+		<position x="64" y="368" w="32" h="48" />
+	</sprite>
+	<sprite name="longtent4" mask="0">
+		<position x="96" y="368" w="32" h="48" />
+	</sprite>
+	<sprite name="killerskull1" mask="0"entity="killerskull1">
+		<position x="944" y="176" w="32" h="48" />
+	</sprite>
+	<sprite name="killerskull2" mask="0">
+		<position x="944" y="224" w="32" h="48" />
+	</sprite>
+	<sprite name="killerskull3" mask="0">
+		<position x="944" y="272" w="32" h="48" />
+	</sprite>
+	<sprite name="bbirde1" mask="0">
+		<position x="496" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirde2" mask="0">
+		<position x="496" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirde3" mask="0">
+		<position x="496" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirdw1" mask="0">
+		<position x="528" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirdw2" mask="0">
+		<position x="528" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirdw3" mask="0">
+		<position x="528" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirde4" mask="0">
+		<position x="496" y="288" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirde5" mask="0">
+		<position x="496" y="320" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirde6" mask="0">
+		<position x="496" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirdw4" mask="0">
+		<position x="528" y="288" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirdw5" mask="0">
+		<position x="528" y="320" w="32" h="32" />
+	</sprite>
+	<sprite name="bbirdw6" mask="0">
+		<position x="528" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="eyeguy1b" mask="0">
+		<position x="0" y="480" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy1a" mask="0">
+		<position x="0" y="528" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy1" mask="0"entity="eyeguy1">
+		<position x="48" y="480" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy1s2" mask="0">
+		<position x="96" y="480" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy1s3" mask="0">
+		<position x="144" y="480" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy1n1" mask="0">
+		<position x="48" y="528" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy1n2" mask="0">
+		<position x="96" y="528" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy1n3" mask="0">
+		<position x="144" y="528" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy1e1" mask="0">
+		<position x="192" y="480" w="32" h="48" />
+	</sprite>
+	<sprite name="eyeguy1e2" mask="0">
+		<position x="224" y="480" w="32" h="48" />
+	</sprite>
+	<sprite name="eyeguy1w1" mask="0">
+		<position x="192" y="528" w="32" h="48" />
+	</sprite>
+	<sprite name="eyeguy1w2" mask="0">
+		<position x="224" y="528" w="32" h="48" />
+	</sprite>
+	<sprite name="eyeguy2" mask="0"entity="eyeguy2">
+		<position x="48" y="576" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy2s2" mask="0">
+		<position x="96" y="576" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy2s3" mask="0">
+		<position x="144" y="576" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy2n1" mask="0">
+		<position x="48" y="624" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy2n2" mask="0">
+		<position x="96" y="624" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy2n3" mask="0">
+		<position x="144" y="624" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy2e1" mask="0">
+		<position x="192" y="576" w="32" h="48" />
+	</sprite>
+	<sprite name="eyeguy2e2" mask="0">
+		<position x="224" y="576" w="32" h="48" />
+	</sprite>
+	<sprite name="eyeguy2w1" mask="0">
+		<position x="192" y="624" w="32" h="48" />
+	</sprite>
+	<sprite name="eyeguy2w2" mask="0">
+		<position x="224" y="624" w="32" h="48" />
+	</sprite>
+	<sprite name="tektiteg3" mask="0">
+		<position x="448" y="480" w="48" h="32" />
+	</sprite>
+	<sprite name="tektiteg" mask="0"entity="tektiteg">
+		<position x="592" y="384" w="64" h="32" />
+	</sprite>
+	<sprite name="tektiteg2" mask="0">
+		<position x="592" y="416" w="64" h="32" />
+	</sprite>
+	<sprite name="tektiteb" mask="0"entity="tektiteb">
+		<position x="592" y="448" w="64" h="32" />
+	</sprite>
+	<sprite name="tektiteb2" mask="0">
+		<position x="592" y="480" w="64" h="32" />
+	</sprite>
+	<sprite name="tektiteb3" mask="0">
+		<position x="448" y="512" w="48" h="32" />
+	</sprite>
+	<sprite name="tektiter" mask="0"entity="tektiter">
+		<position x="592" y="512" w="64" h="32" />
+	</sprite>
+	<sprite name="tektiter2" mask="0">
+		<position x="592" y="544" w="64" h="32" />
+	</sprite>
+	<sprite name="tektiter3" mask="0">
+		<position x="448" y="544" w="48" h="32" />
+	</sprite>
+	<sprite name="rodent1s" mask="0"entity="rodent1s">
+		<position x="304" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="rodent2s" mask="0">
+		<position x="336" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="rodent1e" mask="0">
+		<position x="368" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="rodent2e" mask="0">
+		<position x="400" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="rodent1n" mask="0">
+		<position x="304" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="rodent2n" mask="0">
+		<position x="336" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="rodent1w" mask="0">
+		<position x="368" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="rodent2w" mask="0">
+		<position x="400" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="mudman" mask="0"entity="mudman">
+		<position x="624" y="256" w="80" h="32" />
+	</sprite>
+	<sprite name="mudman2" mask="0">
+		<position x="624" y="288" w="80" h="32" />
+	</sprite>
+	<sprite name="mudman3" mask="0">
+		<position x="656" y="320" w="64" h="32" />
+	</sprite>
+	<sprite name="peahatg" mask="0"entity="peahatg">
+		<position x="0" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="peahatp" mask="0"entity="peahatp">
+		<position x="64" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="peahatg2" mask="0">
+		<position x="32" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="peahatg3" mask="0">
+		<position x="0" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="peahatg4" mask="0">
+		<position x="32" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="peahatg5" mask="0">
+		<position x="0" y="288" w="32" h="32" />
+	</sprite>
+	<sprite name="peahatg6" mask="0">
+		<position x="32" y="288" w="32" h="32" />
+	</sprite>
+	<sprite name="peahatg7" mask="0">
+		<position x="144" y="264" w="32" h="24" />
+	</sprite>
+	<sprite name="peahatg8" mask="0">
+		<position x="144" y="232" w="32" h="24" />
+	</sprite>
+	<sprite name="peahatg9" mask="0">
+		<position x="144" y="208" w="32" h="16" />
+	</sprite>
+	<sprite name="peahatg10" mask="0">
+		<position x="144" y="192" w="32" h="16" />
+	</sprite>
+	<sprite name="peahatg11" mask="0">
+		<position x="144" y="176" w="32" h="16" />
+	</sprite>
+	<sprite name="peahatg12" mask="0">
+		<position x="144" y="160" w="32" h="16" />
+	</sprite>
+	<sprite name="peahatp2" mask="0">
+		<position x="96" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="peahatp3" mask="0">
+		<position x="64" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="peahatp4" mask="0">
+		<position x="96" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="peahatp5" mask="0">
+		<position x="64" y="288" w="32" h="32" />
+	</sprite>
+	<sprite name="peahatp6" mask="0">
+		<position x="96" y="288" w="32" h="32" />
+	</sprite>
+	<sprite name="crow" mask="0">
+		<position x="432" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="eyeguy2a" mask="0">
+		<position x="0" y="624" w="48" h="48" />
+	</sprite>
+	<sprite name="eyeguy2b" mask="0">
+		<position x="0" y="576" w="48" h="48" />
+	</sprite>
+	<sprite name="fire" mask="0">
+		<position x="128" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="firetongue" mask="0"entity="firetongue">
+		<position x="944" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="firesquare" mask="0"entity="firesquare">
+		<position x="912" y="384" w="32" h="32" />
+	</sprite>
+	<sprite name="fire2" mask="0">
+		<position x="128" y="144" w="16" h="32" />
+	</sprite>
+	<sprite name="darkocto1s" mask="0"entity="darkocto1s">
+		<position x="560" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto2s" mask="0">
+		<position x="592" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto3s" mask="0">
+		<position x="624" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto4s" mask="0">
+		<position x="656" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto5s" mask="0">
+		<position x="688" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto6s" mask="0">
+		<position x="688" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto1n" mask="0">
+		<position x="560" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto2n" mask="0">
+		<position x="592" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto3n" mask="0">
+		<position x="624" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto4n" mask="0">
+		<position x="656" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto1w" mask="0">
+		<position x="560" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto2w" mask="0">
+		<position x="560" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto3w" mask="0">
+		<position x="624" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto4w" mask="0">
+		<position x="624" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto1e" mask="0">
+		<position x="592" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto2e" mask="0">
+		<position x="592" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto3e" mask="0">
+		<position x="656" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="darkocto4e" mask="0">
+		<position x="656" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="shocktopus" mask="0"entity="shocktopus">
+		<position x="96" y="328" w="32" h="40" />
+	</sprite>
+	<sprite name="shocktopusw" mask="0">
+		<position x="128" y="304" w="24" h="32" />
+	</sprite>
+	<sprite name="shocktopuse" mask="0">
+		<position x="152" y="304" w="24" h="32" />
+	</sprite>
+	<sprite name="skeletonbs1" mask="0">
+		<position x="304" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonbs2" mask="0">
+		<position x="336" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonbw1" mask="0">
+		<position x="336" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonbw2" mask="0">
+		<position x="400" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonbe2" mask="0">
+		<position x="368" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonbe1" mask="0">
+		<position x="304" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonbjumpe" mask="0">
+		<position x="368" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonbjumpw" mask="0">
+		<position x="400" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonbjumps" mask="0">
+		<position x="368" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="skullheadbs" mask="0">
+		<position x="304" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="skullheadbw" mask="0">
+		<position x="304" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="skullheadbe" mask="0">
+		<position x="336" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="skullheadbn" mask="0">
+		<position x="336" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonb" mask="0"entity="skeletonb">
+		<position x="304" y="32" w="32" h="64" />
+	</sprite>
+	<sprite name="bone1" mask="0">
+		<position x="496" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="bone4" mask="0">
+		<position x="528" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="bone2" mask="0">
+		<position x="496" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="bone3" mask="0">
+		<position x="528" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonrs1" mask="0">
+		<position x="432" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonrs2" mask="0">
+		<position x="464" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonre1" mask="0">
+		<position x="432" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonre2" mask="0">
+		<position x="496" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonrw2" mask="0">
+		<position x="528" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonrw1" mask="0">
+		<position x="464" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonrjumpe" mask="0">
+		<position x="496" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonrjumpw" mask="0">
+		<position x="528" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonrjumps" mask="0">
+		<position x="400" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="skullheadrs" mask="0">
+		<position x="432" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="skullheadrn" mask="0">
+		<position x="464" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="skullheadrw" mask="0">
+		<position x="432" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="skullheadre" mask="0">
+		<position x="464" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="skeletonr" mask="0"entity="skeletonr">
+		<position x="432" y="32" w="32" h="64" />
+	</sprite>
+	<sprite name="rodentfrozen" mask="0">
+		<position x="400" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="shockhit" mask="0">
+		<position x="32" y="328" w="32" h="40" />
+	</sprite>
+	<sprite name="sandpit1" mask="0">
+		<position x="720" y="128" w="64" h="64" />
+	</sprite>
+	<sprite name="sandpit2" mask="0">
+		<position x="720" y="64" w="64" h="64" />
+	</sprite>
+	<sprite name="sandpit3" mask="0">
+		<position x="720" y="0" w="64" h="64" />
+	</sprite>
+	<sprite name="sandpit4" mask="0">
+		<position x="784" y="0" w="64" h="64" />
+	</sprite>
+	<sprite name="sandpit5" mask="0">
+		<position x="784" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="sandpit6" mask="0">
+		<position x="816" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="pitclaw1" mask="0"entity="pitclaw1">
+		<position x="784" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="pitclaw1a" mask="0">
+		<position x="784" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="pitclaw1b" mask="0">
+		<position x="784" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="pitclaw1c" mask="0">
+		<position x="128" y="288" w="24" h="16" />
+	</sprite>
+	<sprite name="firesnake1" mask="0">
+		<position x="0" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="firesnake2" mask="0">
+		<position x="0" y="448" w="32" h="32" />
+	</sprite>
+	<sprite name="firesnake3" mask="0">
+		<position x="32" y="416" w="32" h="32" />
+	</sprite>
+	<sprite name="firesnake4" mask="0">
+		<position x="32" y="448" w="32" h="32" />
+	</sprite>
+	<sprite name="pitclaw2a" mask="0">
+		<position x="816" y="128" w="32" h="32" />
+	</sprite>
+	<sprite name="pitclaw2" mask="0"entity="pitclaw2">
+		<position x="816" y="96" w="32" h="32" />
+	</sprite>
+	<sprite name="pitclaw2b" mask="0">
+		<position x="816" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="pitclaw2c" mask="0">
+		<position x="152" y="288" w="24" h="16" />
+	</sprite>
+	<sprite name="zola1" mask="0">
+		<position x="688" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="zola" mask="0"entity="zola">
+		<position x="688" y="224" w="32" h="32" />
+	</sprite>
+	<sprite name="wirl1" mask="0">
+		<position x="720" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="wirl2" mask="0">
+		<position x="752" y="256" w="32" h="32" />
+	</sprite>
+	<sprite name="splish1" mask="0">
+		<position x="720" y="288" w="32" h="32" />
+	</sprite>
+	<sprite name="splish2" mask="0">
+		<position x="720" y="320" w="32" h="32" />
+	</sprite>
+	<sprite name="jellyshock1" mask="0"entity="jellyshock1">
+		<position x="0" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="jellyshock1a" mask="0">
+		<position x="32" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="jellyshock1b" mask="0">
+		<position x="0" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="jellyshock2" mask="0"entity="jellyshock2">
+		<position x="64" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="jellyshock2a" mask="0">
+		<position x="96" y="160" w="32" h="32" />
+	</sprite>
+	<sprite name="jellyshock2b" mask="0">
+		<position x="32" y="192" w="32" h="32" />
+	</sprite>
+	<sprite name="jellyshock3" mask="0">
+		<position x="160" y="128" w="16" h="16" />
+	</sprite>
+	<sprite name="jellyshock3a" mask="0">
+		<position x="160" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="jellyshock3b" mask="0">
+		<position x="144" y="144" w="16" h="16" />
+	</sprite>
+	<sprite name="hidebuga" mask="0">
+		<position x="560" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="hidebugb" mask="0">
+		<position x="592" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="hidebugc" mask="0">
+		<position x="624" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="hidebug1" mask="0"entity="hidebug1">
+		<position x="656" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="hidebug2" mask="0"entity="hidebug2">
+		<position x="688" y="352" w="32" h="32" />
+	</sprite>
+	<sprite name="blobr" mask="0"entity="blobr">
+		<position x="128" y="336" w="24" h="32" />
+	</sprite>
+	<sprite name="bloby" mask="0"entity="bloby">
+		<position x="152" y="336" w="24" h="32" />
+	</sprite>
+	<sprite name="blobg" mask="0"entity="blobg">
+		<position x="128" y="368" w="24" h="32" />
+	</sprite>
+	<sprite name="blobb" mask="0"entity="blobb">
+		<position x="152" y="368" w="24" h="32" />
+	</sprite>
+	<sprite name="blobrw" mask="0">
+		<position x="128" y="400" w="24" h="32" />
+	</sprite>
+	<sprite name="blobr1w" mask="0">
+		<position x="240" y="336" w="32" h="24" />
+	</sprite>
+	<sprite name="blobr1e" mask="0">
+		<position x="176" y="336" w="32" h="24" />
+	</sprite>
+	<sprite name="blobr2" mask="0">
+		<position x="176" y="392" w="24" h="16" />
+	</sprite>
+	<sprite name="blobr3" mask="0">
+		<position x="128" y="464" w="24" h="16" />
+	</sprite>
+	<sprite name="blobyw" mask="0">
+		<position x="152" y="400" w="24" h="32" />
+	</sprite>
+	<sprite name="blobgw" mask="0">
+		<position x="128" y="432" w="24" h="32" />
+	</sprite>
+	<sprite name="blobbw" mask="0">
+		<position x="152" y="432" w="24" h="32" />
+	</sprite>
+	<sprite name="bloby1e" mask="0">
+		<position x="208" y="336" w="32" h="24" />
+	</sprite>
+	<sprite name="blobg1e" mask="0">
+		<position x="176" y="360" w="32" h="24" />
+	</sprite>
+	<sprite name="blobb1e" mask="0">
+		<position x="208" y="360" w="32" h="24" />
+	</sprite>
+	<sprite name="bloby1w" mask="0">
+		<position x="272" y="336" w="32" h="24" />
+	</sprite>
+	<sprite name="blobg1w" mask="0">
+		<position x="240" y="360" w="32" h="24" />
+	</sprite>
+	<sprite name="blobb1w" mask="0">
+		<position x="272" y="360" w="32" h="24" />
+	</sprite>
+	<sprite name="bloby2" mask="0">
+		<position x="200" y="392" w="24" h="16" />
+	</sprite>
+	<sprite name="blobg2" mask="0">
+		<position x="176" y="416" w="24" h="16" />
+	</sprite>
+	<sprite name="blobb2" mask="0">
+		<position x="200" y="416" w="24" h="16" />
+	</sprite>
+	<sprite name="bloby3" mask="0">
+		<position x="176" y="432" w="24" h="16" />
+	</sprite>
+	<sprite name="blobg3" mask="0">
+		<position x="176" y="448" w="24" h="16" />
+	</sprite>
+	<sprite name="blobb3" mask="0">
+		<position x="176" y="464" w="24" h="16" />
+	</sprite>
+	<sprite name="WhatIsThis" mask="0">
+		<position x="496" y="128" w="64" h="64" />
+	</sprite>
+</sheet>

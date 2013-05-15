@@ -1,0 +1,53 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="edging1" mask="0">
+		<position x="192" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="edging2" mask="0">
+		<position x="208" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="edging3" mask="0">
+		<position x="192" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="edging4" mask="0">
+		<position x="208" y="80" w="16" h="16" />
+	</sprite>
+	<sprite name="edging5" mask="0">
+		<position x="160" y="64" w="32" h="16" />
+	</sprite>
+	<sprite name="edging6" mask="0">
+		<position x="160" y="80" w="32" h="16" />
+	</sprite>
+	<sprite name="edging7" mask="0">
+		<position x="192" y="96" w="16" h="32" />
+	</sprite>
+	<sprite name="edging8" mask="0">
+		<position x="208" y="96" w="16" h="32" />
+	</sprite>
+	<sprite name="edging9" mask="0">
+		<position x="160" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="edging10" mask="0">
+		<position x="176" y="96" w="16" h="16" />
+	</sprite>
+	<sprite name="edging11" mask="0">
+		<position x="160" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="edging12" mask="0">
+		<position x="176" y="112" w="16" h="16" />
+	</sprite>
+	<sprite name="n" mask="0">
+		<position x="224" y="64" w="64" h="32" />
+	</sprite>
+	<sprite name="s" mask="0">
+		<position x="224" y="96" w="64" h="32" />
+	</sprite>
+	<sprite name="w" mask="0">
+		<position x="224" y="0" w="32" h="64" />
+	</sprite>
+	<sprite name="e" mask="0">
+		<position x="256" y="0" w="32" h="64" />
+	</sprite>
+	<sprite name="floor" mask="0">
+		<position x="128" y="64" w="32" h="32" />
+	</sprite>
+</sheet>

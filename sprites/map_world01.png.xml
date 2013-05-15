@@ -1,0 +1,23 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="wm_000" mask="0">
+		<position x="96" y="160" w="16" h="16" />
+	</sprite>
+	<sprite name="wm_001" mask="0">
+		<position x="192" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="wm_002" mask="0">
+		<position x="208" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="wm_003" mask="0">
+		<position x="0" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="wm_004" mask="0">
+		<position x="0" y="208" w="16" h="16" />
+	</sprite>
+	<sprite name="wm_005" mask="0">
+		<position x="48" y="192" w="16" h="16" />
+	</sprite>
+	<sprite name="wm_006" mask="0">
+		<position x="64" y="48" w="16" h="16" />
+	</sprite>
+</sheet>
