@@ -10,48 +10,48 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
-#include <open_zelda>
+#include <mokoi_quest>
 
-new mqCollisionBuffer = 2;
+new qCollisionBuffer = 2;
 stock DisplayCollisionPoints( points[8][POSITION] )
 {
-	new l,r,q = mqDirection;
-	l = (mqDirection >= 7 ? 0 : mqDirection + 1);
-	r = (mqDirection == 0 ? 7 : mqDirection - 1);
+	new l,r,q = _:qDirection;
+	l = (_:qDirection >= 7 ? 0 : _:qDirection + 1);
+	r = (_:qDirection == 0 ? 7 : _:qDirection - 1);
 
 	for ( new c = 0; c < 8; c++ )
 	{
-		GraphicsDraw("", RECTANGLE, points[c].x, points[c].y, 5, 2,2, 0xFF00FFAA);
+		GraphicsDraw("", RECTANGLE, points[Direction:c].x, points[Direction:c].y, 5.0, 4, 4, 0xFF00FFAA);
 	}
-	GraphicsDraw("", RECTANGLE, points[l].x, points[r].y, 5, 2,2, 0x0000FFAA);
-	GraphicsDraw("", RECTANGLE, points[r].x, points[l].y, 5, 2,2, 0x0000FFAA);
-	GraphicsDraw("", RECTANGLE, points[q].x, points[q].y, 5, 2,2, 0x0000FFAA);
+	GraphicsDraw("", RECTANGLE, points[Direction:l].x, points[Direction:r].y, 5.0, 2, 5, 0x0000FFAA);
+	GraphicsDraw("", RECTANGLE, points[Direction:r].x, points[Direction:l].y, 5.0, 2, 5, 0x0000FFAA);
+	GraphicsDraw("", RECTANGLE, points[Direction:q].x, points[Direction:q].y, 5.0, 2, 5, 0x0000FFAA);
 }
 
 stock UpdateCollisionPoints( points[8][POSITION], bx, by )
 {
-	points[SOUTH].x = mqDisplayArea.x + (mqDisplayArea.w/2) + mqDisplayOffset.x + bx;
-	points[SOUTH].y = mqDisplayArea.y + (mqDisplayArea.h) + mqDisplayOffset.y + by;
+	points[SOUTH].x = qDisplayArea.x + (qDisplayArea.w/2) + qDisplayOffset.x + bx;
+	points[SOUTH].y = qDisplayArea.y + (qDisplayArea.h) + qDisplayOffset.y + by;
 
-	points[SOUTHEAST].x = mqDisplayArea.x + (mqDisplayArea.w) + mqDisplayOffset.x + bx - mqCollisionBuffer;
-	points[SOUTHEAST].y = mqDisplayArea.y + (mqDisplayArea.h) + mqDisplayOffset.y + by - mqCollisionBuffer;
+	points[SOUTHEAST].x = qDisplayArea.x + (qDisplayArea.w) + qDisplayOffset.x + bx - qCollisionBuffer;
+	points[SOUTHEAST].y = qDisplayArea.y + (qDisplayArea.h) + qDisplayOffset.y + by - qCollisionBuffer;
 
-	points[EAST].x = mqDisplayArea.x + (mqDisplayArea.w) + mqDisplayOffset.x + bx;
-	points[EAST].y = mqDisplayArea.y + (mqDisplayArea.h/2) + mqDisplayOffset.y + by;
+	points[EAST].x = qDisplayArea.x + (qDisplayArea.w) + qDisplayOffset.x + bx;
+	points[EAST].y = qDisplayArea.y + (qDisplayArea.h/2) + qDisplayOffset.y + by;
 
-	points[NORTHEAST].x = mqDisplayArea.x + (mqDisplayArea.w) + mqDisplayOffset.x + bx - mqCollisionBuffer;
-	points[NORTHEAST].y = mqDisplayArea.y + mqDisplayOffset.y + by + mqCollisionBuffer;
+	points[NORTHEAST].x = qDisplayArea.x + (qDisplayArea.w) + qDisplayOffset.x + bx - qCollisionBuffer;
+	points[NORTHEAST].y = qDisplayArea.y + qDisplayOffset.y + by + qCollisionBuffer;
 
-	points[NORTH].x = mqDisplayArea.x + (mqDisplayArea.w/2) + mqDisplayOffset.x + bx;
-	points[NORTH].y = mqDisplayArea.y + mqDisplayOffset.y + by;
+	points[NORTH].x = qDisplayArea.x + (qDisplayArea.w/2) + qDisplayOffset.x + bx;
+	points[NORTH].y = qDisplayArea.y + qDisplayOffset.y + by;
 
-	points[NORTHWEST].x = mqDisplayArea.x + mqDisplayOffset.x + bx + mqCollisionBuffer;
-	points[NORTHWEST].y = mqDisplayArea.y + mqDisplayOffset.y + by + mqCollisionBuffer;
+	points[NORTHWEST].x = qDisplayArea.x + qDisplayOffset.x + bx + qCollisionBuffer;
+	points[NORTHWEST].y = qDisplayArea.y + qDisplayOffset.y + by + qCollisionBuffer;
 
-	points[WEST].x = mqDisplayArea.x + mqDisplayOffset.x + bx;
-	points[WEST].y = mqDisplayArea.y + (mqDisplayArea.h/2) + mqDisplayOffset.y + by;
+	points[WEST].x = qDisplayArea.x + qDisplayOffset.x + bx;
+	points[WEST].y = qDisplayArea.y + (qDisplayArea.h/2) + qDisplayOffset.y + by;
 
-	points[SOUTHWEST].x = mqDisplayArea.x + mqDisplayOffset.x + bx + mqCollisionBuffer;
-	points[SOUTHWEST].y = mqDisplayArea.y + (mqDisplayArea.h) + mqDisplayOffset.y + by - mqCollisionBuffer;
+	points[SOUTHWEST].x = qDisplayArea.x + qDisplayOffset.x + bx + qCollisionBuffer;
+	points[SOUTHWEST].y = qDisplayArea.y + (qDisplayArea.h) + qDisplayOffset.y + by - qCollisionBuffer;
 
 }

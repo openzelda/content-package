@@ -2,10 +2,7 @@
 <settings>
 	<dimensions width="1" height="1" />
 	<color red="74" blue="74" green="156" mode="0" />
-	<option name="independent" value="false" type="" />
-	<option name="wrap" value="0" type="" />
 	<option name="music" value="" type="music" />
-	<option name="centerview" value="false" type="" />
 	<option name="name" value="" type="" />
 </settings>
 <object value="outside01.png:mt1" type="sprite">
@@ -16,13 +13,6 @@
 <object value="outside01.png:mt1" type="sprite">
 	<position x="0" y="0" w="448" h="64" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="p01.png:player" type="sprite">
-	<position x="108" y="193" w="32" h="48" z="3000" l="3" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="Weapon" value="weapon_test" />
-	<setting key="mirror" value="false" />
-	<entity value="link" language="mps" global="true"/>
 </object>
 <object value="outside01.png:f1" type="sprite">
 	<position x="154" y="247" w="16" h="16" z="0" l="0" r="0" f="0"/>
@@ -112,12 +102,6 @@
 	<position x="88" y="280" w="16" h="32" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
 </object>
-<object value="dungeon01.png:new" type="sprite">
-	<position x="232" y="112" w="32" h="32" z="3000" l="3" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="mirror" value="false" />
-	<entity value="block" language="mps" global="false"/>
-</object>
 <object value="outside01.png:mt2" type="sprite">
 	<position x="249" y="270" w="64" h="64" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
@@ -147,5 +131,23 @@
 <object value="outside01.png:mt1" type="sprite">
 	<position x="64" y="448" w="384" h="64" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
+</object>
+<object value="STRING_TEST" type="text">
+	<position x="70" y="340" w="88" h="8" z="0" l="0" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="text-string" value="4" />
+</object>
+<object value="p01.png:player" type="sprite" id="player">
+	<position x="108" y="193" w="32" h="48" z="3000" l="3" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="Weapon" value="weapon_test" />
+	<setting key="mirror" value="false" />
+	<entity value="link" language="mps" global="true"/>
+</object>
+<object value="dungeon01.png:new" type="sprite">
+	<position x="232" y="112" w="32" h="32" z="3000" l="3" r="0" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="mirror" value="false" />
+	<entity value="block" language="mps" global="false"/>
 </object>
 </map>

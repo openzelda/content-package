@@ -15,12 +15,12 @@
  */
 
 
-#define PUBLIC_EVENT_HIT		public Hit( entityId:attacker, angle, dist, attack, damage, x, y, rect )
-#define PUBLIC_EVENT_AWAKING	public Awaking( entityId:attacker, rect )
-#define PUBLIC_EVENT_PRESSED	public Pressed( entityId:attacker )
-#define PUBLIC_EVENT_PUSH		public Push( entityId:attacker, rect, angle )
+#define PUBLIC_EVENT_HIT		public Hit( entity:attacker, angle, dist, attack, damage, x, y, rect )
+#define PUBLIC_EVENT_AWAKING	public Awaking( entity:attacker, rect )
+#define PUBLIC_EVENT_PRESSED	public Pressed( entity:attacker )
+#define PUBLIC_EVENT_PUSH		public Push( entity:attacker, rect, angle )
 #define PUBLIC_EVENT_HURT		public Hurt( type, damage, angle )
-#define PUBLIC_EVENT_PICKUP		public Pickup( entityId:attacker )
+#define PUBLIC_EVENT_PICKUP		public Pickup( entity:attacker )
 
 
 
@@ -33,68 +33,57 @@
 </function>
 ***/
 
-stock entityId:transitionEntity = 0;
+stock entity:transitionEntity = 0;
 
-stock TransitionPlayer( entityId:player, entityId:target, nmapid = 0, nsection{} = "", ngridx = -1, ngridy = -1 )
+stock TransitionPlayer( entity:player, entity:target, nmapid = 0 )
 {
-	new section{64};
+	ConsoleOutput("TransitionPlayer, %d %d", player, target); 
 	if ( !transitionEntity )
 	{
-		transitionEntity = entityId:EntityHash("transition");
+		transitionEntity = entity:EntityHash("transition");
 	}
-	StringCopy(section, nsection);
-	if ( ngridx < 0 && ngridy < 0 && !nmapid  )
-		SectionGet(section, ngridx, ngridy);
-	return EntityPublicFunction(transitionEntity, "SetTarget", ''nnnsnn'', player, target, nmapid, section, ngridx, ngridy );
+	return EntityPublicFunction(transitionEntity, "SetTarget", ''nnn'', _, player, target, nmapid );
 }
 
-stock CallEntityHit( entityId:entity, entityId:attacker, angle, dist, attack, damage, x, y, rect )
+stock CallEntityHit( entity:entity, entity:attacker, angle, dist, attack, damage, x, y, rect )
 {
-	return EntityPublicFunction( entity, "Hit", [ 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 0 ], attacker, angle, dist, attack, damage, x, y, rect);
+	return EntityPublicFunction( entity, "Hit", [ 'n', 'n', 'n', 'n', 'n', 'n', 'n', 'n', 0 ], _, attacker, angle, dist, attack, damage, x, y, rect);
 }
 
-stock CallEntityAwaking( entityId:entity, entityId:attacker, rect)
+stock CallEntityAwaking( entity:entity, entity:attacker, rect)
 {
-	return EntityPublicFunction( entity, "Awaking", ''nn'', attacker, rect);
+	return EntityPublicFunction( entity, "Awaking", ''nn'', _, attacker, rect);
 }
 
 
-stock CallEntityPressed( entityId:entity, attacker, rect, angle)
+stock CallEntityPressed( entity:entity, attacker, rect, angle)
 {
-	return EntityPublicFunction( entity, "Pressed", ''nnn'', attacker, rect, angle);
+	return EntityPublicFunction( entity, "Pressed", ''nnn'', _, attacker, rect, angle);
 }
 
 
-stock CallEntityHurt( entityId:entity, weapon_type, damage, angle)
+stock CallEntityHurt( entity:entity, weapon_type, damage, angle)
 {
-	return EntityPublicFunction( entity, "Hurt", ''nnn'', weapon_type, damage, angle);
+	return EntityPublicFunction( entity, "Hurt", ''nnn'', _, weapon_type, damage, angle);
 }
 
 
-stock CallEntityPush( entityId:entity, attacker, rect, angle)
+stock CallEntityPush( entity:entity, attacker, rect, angle)
 {
-	return EntityPublicFunction( entity, "Push", ''nnn'', attacker, rect, angle);
+	return EntityPublicFunction( entity, "Push", ''nnn'', _, attacker, rect, angle);
 }
 
-stock CallEntityPickup( entityId:entity, attacker )
+stock CallEntityPickup( entity:entity, attacker )
 {
-	return EntityPublicFunction( entity, "Pickup", ''n'', attacker );
+	return EntityPublicFunction( entity, "Pickup", [ ARG_NUMBER, ARG_END ], _, attacker );
 }
 
-stock CallEntityUse( entityId:entity, displayObject, direction )
+stock CallEntityUse( entity:entity, displayObject, direction )
 {
-	return EntityPublicFunction( entity, "Use", ''nn'', displayObject, direction );
+	return EntityPublicFunction( entity, "Use", [ ARG_NUMBER, ARG_NUMBER, ARG_END ], _, displayObject, direction );
 }
 
-/*
-	else if ( type == TYPE_TRANSPORT )
-	{
-		//MovePlayer(player, dir)
-		if ( EntityPublicFunction(current, "MovePlayer", "sn", selfid, _dir_) )
-		{
-			 _state_ = STANDING;
-		}
-	}
-
-
-*/
+stock CallEntityMovePlayer( entity:entity, entity:player, Directions:direction )
+{
+	return EntityPublicFunction( entity, "MovePlayer", [ ARG_NUMBER, ARG_NUMBER, ARG_END ], _, player, direction );
+}

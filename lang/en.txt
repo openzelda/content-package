@@ -1,12 +1,12 @@
 Open Zelda
 Enemies Killed
-Press ❶ to swing your sword
-IThis is a Question?|Yes |No
-New content is in development and will delivery automatically
-Visit openzelda.net to leave comments
-Server
-Password:
-Name:
-Connect
-Welcome
-Press Enter/Start to Play
+Press ❶ to swing your sword. ❼ to bring up menu. ➄ to quit
+This is a Question?|Yes |No
+§5Test §6For §Dstring §7colouring\n❶ ❷ ❸ ❹ ❺ ❻ ❼ ❽ ❾ ❿ ➀ ➁ ➂ ➃ ➄ ➅ ◐ ◑\n\n ▲\n◀▼▶
+Thank you for playing §DOpen Zelda
+Please note that a lot of the content is \nstill in development.\n\You can find out more at openzelda.net
+§5Test §6For §Dstring §7colouring
+
+LANG-7
+LANG-10
+LANG-11

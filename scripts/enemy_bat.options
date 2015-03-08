@@ -1,0 +1,4 @@
+<entity>
+	<option name="speed" value="" type="number"/>
+	<option name="item" value="" type="entity"/>
+</entity>

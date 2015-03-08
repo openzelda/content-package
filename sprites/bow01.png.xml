@@ -1,61 +1,31 @@
-<sheet xmlns="http://mokoi.info/format/sheet">
-	<sprite name="arrow_end_2" mask="0">
-		<position x="32" y="32" w="16" h="24" />
+<sheet xmlns="http://mokoi.info/format/sheet" hidden="hidden">
+	<sprite name="arrow" mask="0">
+		<position x="80" y="0" w="16" h="32" />
 	</sprite>
-	<sprite name="arrow_end_1" mask="0">
-		<position x="16" y="32" w="16" h="24" />
-	</sprite>
-	<sprite name="arrow_end_0" mask="0">
-		<position x="0" y="32" w="16" h="24" />
-	</sprite>
-	<sprite name="_itemarrow" mask="0">
-		<position x="48" y="32" w="16" h="32" />
-	</sprite>
-	<sprite name="i_quiver" mask="0">
-		<position x="32" y="96" w="32" h="32" />
-	</sprite>
-	<sprite name="w_bowi" mask="0">
-		<position x="64" y="128" w="32" h="32" />
-	</sprite>
-	<sprite name="w_bowb" mask="0">
-		<position x="64" y="96" w="32" h="32" />
-	</sprite>
-	<sprite name="w_bows" mask="0">
-		<position x="64" y="64" w="32" h="32" />
-	</sprite>
-	<sprite name="w_bowl" mask="0">
-		<position x="32" y="64" w="32" h="32" />
-	</sprite>
-	<sprite name="w_bowf" mask="0">
-		<position x="64" y="32" w="32" h="32" />
-	</sprite>
-	<sprite name="w_bown" mask="0">
-		<position x="64" y="0" w="32" h="32" />
-	</sprite>
-	<sprite name="w_arrow" mask="0">
-		<position x="48" y="32" w="16" h="32" />
-	</sprite>
-	<sprite name="w_bow2" mask="0">
-		<position x="32" y="128" w="32" h="32" />
-	</sprite>
-	<sprite name="w_bow1" mask="0">
-		<position x="0" y="128" w="32" h="32" />
-	</sprite>
-	<sprite name="_bow1e" mask="0">
+	<sprite name="bow1e" mask="0">
 		<position x="48" y="0" w="16" h="32" />
 	</sprite>
-	<sprite name="_bow1w" mask="0">
+	<sprite name="bow1w" mask="0">
 		<position x="32" y="0" w="16" h="32" />
 	</sprite>
-	<sprite name="_bow1s" mask="0">
+	<sprite name="bow1s" mask="0">
 		<position x="0" y="16" w="32" h="16" />
 	</sprite>
-	<sprite name="_bow1n" mask="0">
+	<sprite name="bow1n" mask="0">
 		<position x="0" y="0" w="32" h="16" />
 	</sprite>
-	<animation name="arrow_end" mask="0">
-		<frame sprite="arrow_end_0" x="0" y="0" ms="100"/>
-		<frame sprite="arrow_end_1" x="0" y="0" ms="100"/>
-		<frame sprite="arrow_end_2" x="0" y="0" ms="100"/>
+	<sprite name="hit_0" mask="0" hidden="hidden">
+		<position x="0" y="32" w="16" h="24" />
+	</sprite>
+	<sprite name="hit_1" mask="0" hidden="hidden">
+		<position x="16" y="32" w="16" h="24" />
+	</sprite>
+	<sprite name="hit_2" mask="0" hidden="hidden">
+		<position x="32" y="32" w="16" h="24" />
+	</sprite>
+	<animation name="hit" mask="0">
+		<frame sprite="hit_0" x="0" y="0" ms="100" fs="0"/>
+		<frame sprite="hit_2" x="0" y="0" ms="100" fs="0"/>
+		<frame sprite="hit_1" x="0" y="0" ms="100" fs="0"/>
 	</animation>
 </sheet>

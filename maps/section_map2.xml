@@ -2,6 +2,7 @@
 <settings>
 	<dimensions width="1" height="1" />
 	<color red="128" blue="128" green="128" mode="0" />
+	<option name="music" value="" type="music" />
 </settings>
 <object value="dungeon00.png:s1" type="sprite">
 	<position x="298" y="117" w="64" h="64" z="0" l="0" r="0" f="0"/>

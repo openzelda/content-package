@@ -1,4 +1,13 @@
 <sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="magicbottom" mask="0">
+		<position x="144" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="magicmeter" mask="0">
+		<position x="112" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="magictop" mask="0">
+		<position x="80" y="16" w="32" h="16" />
+	</sprite>
 	<sprite name="greenbox" mask="0">
 		<position x="0" y="48" w="16" h="16" />
 		<child name="boxcorner1" position="0" repeat="0"/>
@@ -98,5 +107,14 @@
 	</sprite>
 	<sprite name="life_bar" mask="0">
 		<position x="176" y="16" w="32" h="8" />
+	</sprite>
+	<sprite name="3count" mask="0">
+		<position x="208" y="0" w="48" h="16" />
+	</sprite>
+	<sprite name="2count" mask="0">
+		<position x="208" y="0" w="32" h="16" />
+	</sprite>
+	<sprite name="1count" mask="0">
+		<position x="208" y="0" w="16" h="16" />
 	</sprite>
 </sheet>

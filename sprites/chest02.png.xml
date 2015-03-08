@@ -1,0 +1,8 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="closed" mask="0"entity="o_chest2">
+		<position x="0" y="0" w="64" h="48" />
+	</sprite>
+	<sprite name="open" mask="0">
+		<position x="64" y="0" w="64" h="48" />
+	</sprite>
+</sheet>

@@ -1,7 +1,0 @@
-<entity>
-	<option name="dungeon-id" value="" type="" />
-	<option name="target" value="" type="mapentity" />
-	<option name="grid" value="-1" type="" />
-	<option name="section" value="" type="section" />
-	<option name="target-map" value="" type="map" />
-</entity>

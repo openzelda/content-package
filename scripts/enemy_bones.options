@@ -1,0 +1,4 @@
+<entity>
+	<option name="health" value="100" type="number" />
+	<option name="item" value="" type="entity"/>
+</entity>

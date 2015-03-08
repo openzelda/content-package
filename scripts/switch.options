@@ -1,0 +1,7 @@
+<entity>
+	<option name="on-entity" value="" type="mapentity" />
+	<option name="on-event" value="" type="string" />
+	<option name="off-event" value="" type="string" />
+	<option name="off-entity" value="" type="mapentity" />
+	<option name="weighted" value="1" type="boolean" />
+</entity>

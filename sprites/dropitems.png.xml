@@ -1,0 +1,109 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="rupeepurple_2" mask="0" hidden="hidden">
+		<position x="176" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="rupeepurple_1" mask="0" hidden="hidden">
+		<position x="160" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="rupeepurple_0" mask="0" hidden="hidden">
+		<position x="144" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="rupeered_2" mask="0" hidden="hidden">
+		<position x="128" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="rupeered_1" mask="0" hidden="hidden">
+		<position x="112" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="rupeered_0" mask="0" hidden="hidden">
+		<position x="96" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="rupeeblue_2" mask="0" hidden="hidden">
+		<position x="80" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="rupeeblue_1" mask="0" hidden="hidden">
+		<position x="64" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="rupeeblue_0" mask="0" hidden="hidden">
+		<position x="48" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="rupeegreen_2" mask="0" hidden="hidden">
+		<position x="32" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="rupeegreen_1" mask="0" hidden="hidden">
+		<position x="16" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="rupeegreen_0" mask="0" hidden="hidden">
+		<position x="0" y="16" w="16" h="32" />
+	</sprite>
+	<sprite name="magicpouch" mask="0">
+		<position x="176" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="heart" mask="0">
+		<position x="160" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="0" mask="0" entity="_itemheart">
+		<position x="0" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="magicbottle" mask="0" entity="_itemrupeer">
+		<position x="0" y="48" w="16" h="32" />
+	</sprite>
+	<sprite name="bosskey" mask="0">
+		<position x="64" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="arrow" mask="0">
+		<position x="96" y="48" w="16" h="32" />
+	</sprite>
+	<sprite name="1" mask="0" entity="_itemmagics">
+		<position x="16" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="2" mask="0">
+		<position x="32" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="5" mask="0">
+		<position x="80" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="3" mask="0">
+		<position x="48" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="4" mask="0">
+		<position x="64" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="6" mask="0">
+		<position x="96" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="7" mask="0">
+		<position x="112" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="8" mask="0">
+		<position x="128" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="9" mask="0">
+		<position x="144" y="0" w="16" h="16" />
+	</sprite>
+	<sprite name="bomb" mask="0">
+		<position x="16" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="key" mask="0" entity="_itemkeys">
+		<position x="48" y="48" w="16" h="32" />
+	</sprite>
+	<animation name="rupeegreen" mask="0">
+		<frame sprite="rupeegreen_0" x="0" y="0" ms="66"/>
+		<frame sprite="rupeegreen_1" x="0" y="0" ms="66"/>
+		<frame sprite="rupeegreen_2" x="0" y="0" ms="66"/>
+	</animation>
+	<animation name="rupeeblue" mask="0">
+		<frame sprite="rupeeblue_0" x="0" y="0" ms="1000"/>
+		<frame sprite="rupeeblue_1" x="0" y="0" ms="1000"/>
+		<frame sprite="rupeeblue_2" x="0" y="0" ms="1000"/>
+	</animation>
+	<animation name="rupeered" mask="0">
+		<frame sprite="rupeered_0" x="0" y="0" ms="1000"/>
+		<frame sprite="rupeered_1" x="0" y="0" ms="1000"/>
+		<frame sprite="rupeered_2" x="0" y="0" ms="1000"/>
+	</animation>
+	<animation name="rupeepurple" mask="0">
+		<frame sprite="rupeepurple_0" x="0" y="0" ms="66"/>
+		<frame sprite="rupeepurple_1" x="0" y="0" ms="66"/>
+		<frame sprite="rupeepurple_2" x="0" y="0" ms="66"/>
+	</animation>
+</sheet>

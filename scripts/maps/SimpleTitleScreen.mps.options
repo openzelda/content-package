@@ -1,8 +1,0 @@
-<entity>
-	<option name="name" value="" type="" />
-	<option name="music" value="Title.it" type="music" />
-	<option name="section" value="Dungeon_One" type="section" />
-	<option name="section_x" value="0" type="" />
-	<option name="section_y" value="0" type="" />
-	<option name="map" value="0: d1_outside" type="map" />
-</entity>

@@ -4,7 +4,8 @@
  * You are free to share, to copy, distribute and transmit this work
  * You are free to adapt this work
  * Under the following conditions:
- *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You must attribute the work in the manner specified by the author or licensor (but
+ *    not in any way that suggests that they endorse you or your use of the work). 
  *  You may not use this work for commercial purposes.
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
@@ -27,23 +28,23 @@ new prev[.x, .y] = { 0, 0 };
 
 public Init( ... )
 {
-	mqMovementSpeed = 100;   
-	mqDamageDealt = 50;
-	mqHealth = 50;
+	qMovementSpeed = 100;   
+	qDamageDealt = 50;
+	qHealth = 50;
 
-	mqState = MOVING;
+	qState = MOVING;
 
 
 	/* These are used more for collision through EntityMove then for Display.*/
-	mqDisplayArea.h = mqDisplayArea.w = 38;
-	mqDisplayOffset.x = mqDisplayOffset.y = 0;
+	qDisplayArea.h = qDisplayArea.w = 38;
+	qDisplayOffset.x = qDisplayOffset.y = 0;
 
 
 	EnemyInit();
 
-	mqDirection = SOUTHWEST;
-	mqMovementAngle= Dir2Angle(mqDirection);
-	mqDisplayObject = EntityGetObject();
+	qDirection = SOUTHWEST;
+	qMovementAngle= Dir2Angle(qDirection);
+	qObject = EntityGetObject();
 }
 
 public Close()
@@ -55,20 +56,20 @@ public Close()
 
 main()
 {
-	if ( mqState == DEAD || GameState() != 1 )
+	if ( qState == DEAD || GameState() != 1 )
 		return;
 
 	if ( !EntityMove( MASK_ENEMYSOLID2, false ))
 	{
-		new next = ( !mqHitMaskCheck[1]  ? 2 : -2);
+		new next = ( !qHitMaskCheck[1]  ? 2 : -2);
 
-		mqDirection += next;
+		qDirection += next;
 		last = next;
-		mqMovementAngle = Dir2Angle(mqDirection);
+		qMovementAngle = Dir2Angle(qDirection);
 	}
 
-	CollisionSet(SELF, 1, TYPE_ENEMY, mqDisplayArea.x + 3, mqDisplayArea.y+3, 34, 34 );
-	ObjectPosition( mqDisplayObject, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, 0, 0 );
+	CollisionSet(SELF, 1, TYPE_ENEMY, qDisplayArea.x + 3, qDisplayArea.y+3, 34, 34 );
+	ObjectPosition( qObject, qDisplayArea.x, qDisplayArea.y, qPosition.z, 0, 0 );
 }
 
 
@@ -77,7 +78,7 @@ main()
 
 PUBLIC_EVENT_HIT
 {
-	if ( mqState == HIT || mqState == DYING || mqState == GONE )
+	if ( qState == HIT || qState == DYING || qState == GONE )
 		return;
 
 	if ( attack&APLAYER == APLAYER )
@@ -98,7 +99,7 @@ PUBLIC_EVENT_HIT
 		}
 		else
 		{
-			TakeMagicCount += 10.0 * GameFrame2();
+			TakeMagicCount += 10.0 * GameFrameSeconds();
 			if (TakeMagicCount > 30.0)
 				TakeMagic = true;
 		}

@@ -12,15 +12,17 @@
  ***********************************************/
 #include <collision>
 
-stock Fixed:mqMovementAngle = 0.0;
-stock Fixed:mqMovementSpeed = 0.0;
-stock mqLocations[6][4];
-stock mqHitMaskCheck[3];
-stock bool:mqFlipYMovement = false;
-stock bool:mqFlipXMovement = false;
-stock bool:mqAllowOffscreenMovement = false
+#define STOREDPOSITION[.x, .y, Fixed:.z, .dir]
 
-stock round_method:mqMovementRounding[4][2] = [ [round_floor, round_ceil], [round_ceil, round_ceil], [round_ceil, round_floor], [round_floor, round_floor] ]; /* South, west, north, east */
+stock Fixed:qMovementAngle = 0.0;
+stock Fixed:qMovementSpeed = 0.0;
+stock qLocations[6][STOREDPOSITION];
+stock qHitMaskCheck[3];
+stock bool:qFlipYMovement = false;
+stock bool:qFlipXMovement = false;
+stock bool:qAllowOffscreenMovement = false
+
+stock round_method:qMovementRounding[4][2] = [ [round_floor, round_ceil], [round_ceil, round_ceil], [round_ceil, round_floor], [round_floor, round_floor] ]; /* South, west, north, east */
 
 
 stock Fixed:MovementAngle(Fixed:x_movement, Fixed:y_movement)
@@ -49,27 +51,23 @@ stock Angle2Dir(Fixed:a, Fixed:offset = 0.0)
 	return NumberClamp(fround(a) / 45, 0, 7);
 }
 
+
 stock StorePosition()
 {
 	for ( new i = 5; i > 0; i-- )
 	{
-		mqLocations[i][0] = mqLocations[i-1][0];
-		mqLocations[i][1] = mqLocations[i-1][1];
-		mqLocations[i][2] = mqLocations[i-1][2];
-		mqLocations[i][3] = mqLocations[i-1][3];
+		qLocations[i] = qLocations[i-1];
 	}
-	mqLocations[0][0] = mqDisplayArea.x;
-	mqLocations[0][1] = mqDisplayArea.y;
-	mqLocations[0][2] = mqDisplayLayer;
-	mqLocations[0][3] = mqDirection;
+	qLocations[0].x = qDisplayArea.x;
+	qLocations[0].y = qDisplayArea.y;
+	qLocations[0].z = qPosition.z;
+	qLocations[0].dir = qDirection;
 }
-
-
 
 
 stock EntityMove( maxmask, push_off = true )
 {
-	new Fixed:speed =  mqMovementSpeed * GameFrame2();
+	new Fixed:speed =  qMovementSpeed * GameFrameSeconds();
 	new results = 0;
 
 	if (speed > 1.0)
@@ -90,43 +88,43 @@ stock EntityMoveCode( maxmask, Fixed:speed, push_off = true )
 	if (!speed)
 		return false;
 
-	new Fixed:movex = ( mqFlipXMovement ? -fsin(mqMovementAngle, degrees) : fsin(mqMovementAngle, degrees) ) * speed;
-	new Fixed:movey = ( mqFlipYMovement ? -fcos(mqMovementAngle, degrees) : fcos(mqMovementAngle, degrees) ) * speed;
+	new Fixed:movex = ( qFlipXMovement ? -fsin(qMovementAngle, degrees) : fsin(qMovementAngle, degrees) ) * speed;
+	new Fixed:movey = ( qFlipYMovement ? -fcos(qMovementAngle, degrees) : fcos(qMovementAngle, degrees) ) * speed;
 	new na = 0; // new angle
 	new r = false;
 
-	if ( MoveCheck(na, mqMovementAngle, maxmask, movex, movey) )
+	if ( MoveCheck(na, qMovementAngle, maxmask, movex, movey) )
 	{
-		mqEntityPosition.x += movex;
-		mqEntityPosition.y += movey;
+		qPosition.x += movex;
+		qPosition.y += movey;
 		r = true;
 	}
 	else if ( push_off )
 	{
 		if ( na )
 		{
-			mqMovementAngle += fixed(na);
-			movex = fsin(mqMovementAngle, degrees);
-			movey = fcos(mqMovementAngle, degrees);
-			mqEntityPosition.x += movex/4.0;
-			mqEntityPosition.y += movey/4.0;
+			qMovementAngle += fixed(na);
+			movex = fsin(qMovementAngle, degrees);
+			movey = fcos(qMovementAngle, degrees);
+			qPosition.x += movex/4.0;
+			qPosition.y += movey/4.0;
 			r = true;
 		}
 		else
 		{
-			mqEntityPosition.x = fixed( fround(mqEntityPosition.x, mqMovementRounding[mqDisplayDirection][0]) );
-			mqEntityPosition.y = fixed( fround(mqEntityPosition.y, mqMovementRounding[mqDisplayDirection][1]) );
+			qPosition.x = fixed( fround(qPosition.x, qMovementRounding[qDisplayDirection][0]) );
+			qPosition.y = fixed( fround(qPosition.y, qMovementRounding[qDisplayDirection][1]) );
 		}
 	}
 	else
 	{
-		mqEntityPosition.x = fixed( fround(mqEntityPosition.x, mqMovementRounding[mqDisplayDirection][0]) );
-		mqEntityPosition.y = fixed( fround(mqEntityPosition.y, mqMovementRounding[mqDisplayDirection][1]) );
+		qPosition.x = fixed( fround(qPosition.x, qMovementRounding[qDisplayDirection][0]) );
+		qPosition.y = fixed( fround(qPosition.y, qMovementRounding[qDisplayDirection][1]) );
 	}
-	EntitySetPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z );
+	EntitySetPosition(qPosition.x, qPosition.y, qPosition.z );
 	UpdateDisplayPosition();
 
-	mqMovementAngle %= 360.0;
+	qMovementAngle %= 360.0;
 
 	return r;
 
@@ -135,32 +133,31 @@ stock EntityMoveCode( maxmask, Fixed:speed, push_off = true )
 
 stock MoveCheck(&a, Fixed:angle, maximum_mask_value, Fixed:movex, Fixed:movey)
 {
-
 	new checks[8][POSITION];
 
-	mqDirection = Angle2Dir(angle, 22.5);
-	mqDisplayDirection = NumberClamp((mqDirection/2), 0, 3);
+	qDirection = Angle2Dir(angle, 22.5);
+	qDisplayDirection = NumberClamp((qDirection/2), 0, 3);
 
-	UpdateCollisionPoints( checks, fround(movex, mqMovementRounding[mqDisplayDirection][0]), fround(movey, mqMovementRounding[mqDisplayDirection][1]) );
+	UpdateCollisionPoints( checks, fround(movex, qMovementRounding[qDisplayDirection][0]), fround(movey, qMovementRounding[qDisplayDirection][1]) );
 	//DisplayCollisionPoints( checks );
 
-	new l,r,q = mqDirection;
-	l = (mqDirection >= 7 ? 0 : mqDirection + 1);
-	r = (mqDirection == 0 ? 7 : mqDirection - 1);
+	new l,r,q = qDirection;
+	l = (qDirection >= 7 ? 0 : qDirection + 1);
+	r = (qDirection == 0 ? 7 : qDirection - 1);
 
-	mqHitMaskCheck[0] = MaskGetValue( checks[q].x, checks[q].y);
-	mqHitMaskCheck[1] = MaskGetValue( checks[l].x, checks[l].y);
-	mqHitMaskCheck[2] = MaskGetValue( checks[r].x, checks[r].y);
+	qHitMaskCheck[0] = MaskGetValue( checks[q].x, checks[q].y);
+	qHitMaskCheck[1] = MaskGetValue( checks[l].x, checks[l].y);
+	qHitMaskCheck[2] = MaskGetValue( checks[r].x, checks[r].y);
 
-	if( mqHitMaskCheck[0] > 255 )
+	if( qHitMaskCheck[0] > 255 )
 	{
 		return !a;
 	}
-	else if ( !mqAllowOffscreenMovement && mqHitMaskCheck[0] < 0 )
+	else if ( !qAllowOffscreenMovement && qHitMaskCheck[0] < 0 )
 	{
 		return false;
 	}
-	else if ( mqHitMaskCheck[0] > maximum_mask_value )
+	else if ( qHitMaskCheck[0] > maximum_mask_value )
 	{
 		if ( MaskGetValue( checks[q].x, checks[q].y) > maximum_mask_value )
 		{
@@ -171,16 +168,16 @@ stock MoveCheck(&a, Fixed:angle, maximum_mask_value, Fixed:movex, Fixed:movey)
 	}
 	else
 	{
-		if ( mqHitMaskCheck[1] > maximum_mask_value )
+		if ( qHitMaskCheck[1] > maximum_mask_value )
 			a -= 30;
 		else
-			mqHitMaskCheck[1]  = 0;
+			qHitMaskCheck[1]  = 0;
 
 
-		if ( mqHitMaskCheck[2] > maximum_mask_value )
+		if ( qHitMaskCheck[2] > maximum_mask_value )
 			a += 30;
 		else
-			mqHitMaskCheck[2] = 0;
+			qHitMaskCheck[2] = 0;
 	}
 
 	return !a;

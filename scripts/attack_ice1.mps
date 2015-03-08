@@ -4,7 +4,8 @@
  * You are free to share, to copy, distribute and transmit this work
  * You are free to adapt this work
  * Under the following conditions:
- *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You must attribute the work in the manner specified by the author or licensor (but
+ *    not in any way that suggests that they endorse you or your use of the work). 
  *  You may not use this work for commercial purposes.
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
@@ -23,8 +24,8 @@ public Init(...)
 	AddAnimframe(IceAnim[n], 0,0, "_icerod10");
 	AddAnimframe(IceAnim[n], 0,0, "_icerod11");
 */
-	GetEntityPosition(mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
-	obj = ObjectCreate("_icerod10", mqDisplayArea.x, mqDisplayArea.y, 4, 0, 0);
+	GetEntityPosition(qPosition.x, qPosition.y, qPosition.z, qDisplayArea.x, qDisplayArea.y);
+	obj = ObjectCreate("_icerod10", qDisplayArea.x, qDisplayArea.y, 4, 0, 0);
 }
 
 
@@ -36,7 +37,7 @@ public Close()
 main()
 {
 /*
-	timeActive += GameFrame2();
+	timeActive += GameFrameSeconds();
 	if ( timeActive > 5.0 )
 		EntityDelete();
 	if ( hitSomthing )
@@ -89,32 +90,32 @@ MoveIceBlast()
 	new dir = 0; //GetDirection("this");
 	if ( dir == north )
 	{
-		mqMovementAngle = 90.0;
+		qMovementAngle = 90.0;
 		yp[0] = -14;
 		yp[1] = -26;
 	}
 	else if ( dir == east )
 	{
-		mqMovementAngle = 180.0;
+		qMovementAngle = 180.0;
 		xp[0] = 14;
 		xp[1] = 26;
 	}
 	else if ( dir == south )
 	{
-		mqMovementAngle = 270.0;
+		qMovementAngle = 270.0;
 		yp[0] = 14;
 		yp[1] = 26;
 	}
 	else if ( dir == west )
 	{
-		mqMovementAngle = 0.0;
+		qMovementAngle = 0.0;
 		xp[0] = -14;
 		xp[1] = -26;
 	}
 	//EntityMove();
 	
 	if ( timeActive > 200 )
-		mqMovementSpeed = 220;
+		qMovementSpeed = 220;
 		
 	if ( timeActive > 250 )
 	{

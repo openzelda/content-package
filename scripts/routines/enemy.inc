@@ -4,7 +4,7 @@
  * You are free to share, to copy, distribute and transmit this work
  * You are free to adapt this work
  * Under the following conditions:
- *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).
  *  You may not use this work for commercial purposes.
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
@@ -17,35 +17,31 @@
 
 #include <movement>
 #include <public_events>
+#include <entity_health>
 
 forward public Reset();
 
+new qDamageDealt = 50;
+new qInitialPosition[VECTOR3] = [ -99.0 , -99.0  , -99.0 ];
+new bool:qIsABoss = false;
+stock bool:qEntityResetable = false;
+new entity:qAttacker;
+new qItemDrop{64};
+new qSprite{64};
+new qSheet{64};
+new qDeathTimer = 4200;
+new object:qDeathObject;
 
-public mqMaxHealth;
-public mqHealth;
+new EffectState:qCurrentEffect = NOEFFECT;
+new qEffectTimer = 0;
 
-new mqDamageDealt = 50;
-new mqInitialPosition[POSITIONF] = [ -99.0 , -99.0  , -99.0 ];
-new bool:mqIsABoss = false;
-stock bool:mqEntityResetable = false;
-new mqAttacker;
-new mqItemDrop{64};
-new mqSprite{64};
-new mqSheet{64};
-new mqDeathTimer = 4200;
-new object:mqDeathObject = OBJECT_NONE;
-
-new _STATEEFFECTS:mqCurrentEffect = NOEFFECT;
-new mqEffectTimer = 0;
-
-new mqHitColours[5] = [ 0x138813FF, 0xFDD341FF, 0xE15805FF, 0x20D3EEFF, 0xEE2020FF ];
+new qHitColours[5] = [ 0x138813FF, 0xFDD341FF, 0xE15805FF, 0x20D3EEFF, 0xEE2020FF ];
 
 stock error_message{128};
 
-
 /* States */
-#define STATE_FLIP (mqDisplayDirection == 3 ? true : false)
-#define STATE_GRAPHIC StateGraphics[mqState][mqDisplayDirection]
+#define STATE_FLIP (qDisplayDirection == 3 ? true : false)
+#define STATE_GRAPHIC StateGraphics[qState][qDisplayDirection]
 stock StateGraphics[STATE_COUNT][4]{32};
 
 stock SetStateGraphic( _STATE:s, parent[], south_graphic[], west_graphic[], north_graphic[], east_graphic[] )
@@ -63,27 +59,27 @@ stock SetStateGraphic( _STATE:s, parent[], south_graphic[], west_graphic[], nort
 */
 EnemyInit()
 {
-	mqEntityId = entityId:EntityGetSettingHash("id");
-	mqDirection = SOUTH;
-	mqDisplayDirection = 0;
+	qId = entity:EntityGetSettingHash("id");
+	qDirection = SOUTH;
+	qDisplayDirection = 0;
 
-	if ( mqInitialPosition.x == -99.0 )
+	if ( qInitialPosition.x == -99.0 )
 	{
-		GetEntityPosition( mqEntityPosition.x, mqEntityPosition.y, mqEntityPosition.z, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, mqDisplayLayer);
+		GetEntityPosition( qPosition.x, qPosition.y, qPosition.z, qDisplayArea.x, qDisplayArea.y );
 
-		mqState = STANDING
-		mqType = TYPE_ENEMY;
+		qState = STANDING
+		qType = TYPE_ENEMY;
 		
-		mqInitialPosition.x = mqEntityPosition.x;
-		mqInitialPosition.y = mqEntityPosition.y;
-		mqInitialPosition.z = mqEntityPosition.z;
+		qInitialPosition.x = qPosition.x;
+		qInitialPosition.y = qPosition.y;
+		qInitialPosition.z = qPosition.z;
 		
-		EntityGetSetting("object-image", mqSprite);
-		EntityGetSetting("item", mqItemDrop);
+		EntityGetSetting("object-image", qSprite);
+		EntityGetSetting("item", qItemDrop);
 
-		for ( new n = 0; mqSprite{n} && mqSprite{n} != ':' ; n++ )
+		for ( new n = 0; qSprite{n} && qSprite{n} != ':' ; n++ )
 		{
-			mqSheet{n} = mqSprite{n};
+			qSheet{n} = qSprite{n};
 		}	
 
 	}
@@ -95,28 +91,28 @@ EnemyInit()
 
 public Reset()
 {
-	mqEntityPosition.x = mqInitialPosition.x;
-	mqEntityPosition.y = mqInitialPosition.y;
-	mqState = STANDING;
-	mqHealth = mqMaxHealth;
+	qPosition.x = qInitialPosition.x;
+	qPosition.y = qInitialPosition.y;
+	qState = STANDING;
+	qHealth = qMaxHealth;
 	UpdateDisplayPosition();
 }
 
 stock HandleDying()
 {
-	if ( TimerCountdown(mqDeathTimer) )
+	if ( TimerCountdown(qDeathTimer) )
 	{
-		mqState = DEAD;
-		ObjectDelete(mqDeathObject);
-		mqDeathObject = OBJECT_NONE;
+		qState = DEAD;
+		ObjectDelete(qDeathObject);
+		qDeathObject = OBJECT_NONE;
 		DeathEvent();
-		mqDeathTimer = 0;
+		qDeathTimer = 0;
 	}
 }
 
 stock CheckHealth()
 {
-	if ( mqHealth <= 0 )
+	if ( qHealth <= 0 )
 		Kill();
 }
 
@@ -125,56 +121,56 @@ stock RandomizeMovement()
 	new new_dir;
 	do {
 		new_dir = random(8);
-	}while ( mqDirection != new_dir )
+	}while ( qDirection != new_dir )
 
 	SetDir(new_dir);
-	mqMovementAngle = Dir2Angle(mqDirection);
+	qMovementAngle = Dir2Angle(qDirection);
 }
 
 
 stock Kill( )
 {
-	mqHealth = 0;
-	mqState = DYING;
-	AudioPlaySound( ( mqIsABoss ? "boss_killed.wav" : "enemy_killed.wav"), mqDisplayArea.x, mqDisplayArea.y);
+	qHealth = 0;
+	qState = DYING;
+	AudioPlaySound( ( qIsABoss ? "boss_killed.wav" : "enemy_killed.wav"), qDisplayArea.x, qDisplayArea.y);
 	
-	if ( mqDeathObject == OBJECT_NONE )
-		mqDeathObject = ObjectCreate("deathanim01.png:anim", SPRITE, mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex + 100, 0, 0,WHITE);
-	mqDeathTimer = AnimationGetLength("deathanim01.png","anim") ;
-	ObjectFlag(mqDeathObject, FLAG_ANIMLOOP, false);
+	if ( !qDeathObject )
+		qDeathObject = ObjectCreate("deathanim01.png:anim", SPRITE, qDisplayArea.x, qDisplayArea.y, qPosition.z + 100, 0, 0,WHITE);
+	qDeathTimer = AnimationGetLength("deathanim01.png","anim") ;
+	ObjectFlag(qDeathObject, FLAG_ANIMLOOP, false);
 }
 
 stock DeathEvent()
 {
-	FunctionCall( FunctionID("EnemyClose") );
-	if ( mqAttacker )
-		EntityPublicFunction(mqAttacker, "AddKill", ['n', '0'], mqMaxHealth );
+	FunctionCall( FunctionIdent("EnemyClose") );
+	if ( qAttacker )
+		EntityPublicFunction(qAttacker, "AddKill", ['n', '0'], _,  qMaxHealth );
 
-	if ( mqIsABoss )
+	if ( qIsABoss )
 	{
 		new entityId, function{24};
-		entityId = EntityGetSettingHash("on-death-entity" );
-		EntityGetSetting("on-death-function", function );
+		entityId = EntityGetSettingHash( "on-death-entity" );
+		EntityGetSetting( "on-death-function", function );
 		if ( entityId && function{0} )
 			EntityPublicFunction( entityId, function );
 	}
 	else
 	{
-		EntityPublicFunction(ENTITY_MAP, "KilledEnemy");
-		EntityPublicFunction(EntityHash("itemlib"), "CreateItem", ''nns'', mqDisplayArea.x + (mqDisplayArea.w / 2), mqDisplayArea.y + (mqDisplayArea.y / 2), mqItemDrop);
+		EntityPublicFunction(MAP_ENTITY, "KilledEnemy");
+		EntityPublicFunction(EntityHash("itemlib"), "CreateItem", ''nns'', _, qDisplayArea.x + (qDisplayArea.w / 2), qDisplayArea.y + (qDisplayArea.y / 2), qItemDrop);
 	}
 }
 
 stock CheckForHoles( )
 {
-	if (mqState == HIT || mqState == FALLING || mqState == DYING )
+	if (qState == HIT || qState == FALLING || qState == DYING )
 		return false;
 
 	// Check if the enemy is over a hole
-	if ( MaskGetValue(mqDisplayArea.x, mqDisplayArea.y) == MASK_HOLE1 )
+	if ( MaskGetValue(qDisplayArea.x, qDisplayArea.y) == MASK_HOLE1 )
 	{
-		mqState = FALLING; // Set the enemies state to falling
-		AudioPlaySound("dropping.wav", mqDisplayArea.x, mqDisplayArea.y);
+		qState = FALLING; // Set the enemies state to falling
+		AudioPlaySound("dropping.wav", qDisplayArea.x, qDisplayArea.y);
 		return true;
 	}
 	return false;
@@ -182,7 +178,7 @@ stock CheckForHoles( )
 
 stock Fall( img, width, height )
 {
-	new HoleType = MaskGetValue(mqDisplayArea.x, mqDisplayArea.y); // Check what type of hole we are in
+	new HoleType = MaskGetValue(qDisplayArea.x, qDisplayArea.y); // Check what type of hole we are in
 	new length = AnimationGetLength(img);
 
 	if ( !length )
@@ -207,9 +203,9 @@ stock Fall( img, width, height )
 			}
 			*/
 
-			mqState = STANDING;
+			qState = STANDING;
 			ClearCollisionSet(SELF, 0, 0);
-		} 
+		}
 	}
 }
 
@@ -217,18 +213,18 @@ stock StunnedEffect( count )
 {
 	static ShakeCount = 0;
 
-	new ShakeOffset[5] = [ -2, -2, 0, 2, 2 ]; 
+	new ShakeOffset[5] = [ -2, -2, 0, 2, 2 ];
 
 	if ( count <= 100)
 	{
-		mqEntityPosition.x += ShakeOffset[ ShakeCount ];
+		qPosition.x += ShakeOffset[ ShakeCount ];
 		ShakeCount++;
 		if ( ShakeCount >= 5 )
 			ShakeCount = 0;
 	}
 
 	if ( count <= 0)
-		mqState = STANDING;
+		qState = STANDING;
 }
 
 
@@ -237,45 +233,45 @@ stock StockHit( attacker[], angle, dist, attack, damage, x, y, rect )
 	if ( damage == 0 && attack&APLAYER != APLAYER )
 		return;
 
-	if ( mqState == HIT || mqState == DYING || mqState == GONE )
+	if ( qState == HIT || qState == DYING || qState == GONE )
 		return;
 
-	mqState = HIT;
+	qState = HIT;
 
-	strcopy( mqAttacker, attacker );
+	strcopy( qAttacker, attacker );
 	new child = "*";
 
-	mqAngle = fixed(360 - angle);
+	qAngle = fixed(360 - angle);
 
 	if ( attack&AFIRE == AFIRE )
 	{
-		mqState = BURNING;
+		qState = BURNING;
 		// Create a Burning fire entity on this enemy
-		EntityCreate( "effect_fire", "", mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, CURRENT_MAP );
+		EntityCreate( "effect_fire", "", qDisplayArea.x, qDisplayArea.y, qPosition.z, CURRENT_MAP );
 		StunCount = 3200;
 	}
 	else if ( attack&AICE == AICE )
 	{
 		// Create a frozen effect around the enemy
-		child EntityCreate( "effect_freeze", "", mqDisplayArea.x, mqDisplayArea.y, mqDisplayZIndex, CURRENT_MAP, ''dddd'', mqDisplayArea.x, mqDisplayArea.y, mqDisplayArea.w, mqDisplayArea.h );
+		child EntityCreate( "effect_freeze", "", qDisplayArea.x, qDisplayArea.y, qPosition.z, CURRENT_MAP, ''dddd'', qDisplayArea.x, qDisplayArea.y, qDisplayArea.w, qDisplayArea.h );
 		ObjectEffect( obj, 0xFF0000FF );
 		StunCount = 3200;
-		mqState = STUNNED;
+		qState = STUNNED;
 	}
 	else if ( attack&ASTUN == ASTUN )
 	{
-		mqState = STUNNED;
+		qState = STUNNED;
 		StunCount = damage * 10;
 	}
 	else if ( attack&APLAYER == APLAYER )
 	{
-		EntityPublicFunction( mqAttacker, "Hurt", ''n'', mqDamageDealt );
+		EntityPublicFunction( qAttacker, "Hurt", ''n'', qDamageDealt );
 	}
 	else
 	{
-		mqHealth -= damage;
+		qHealth -= damage;
 		HitCount = 1800;
-		AudioPlaySound( "enemy_hurt.wav", mqDisplayArea.x, mqDisplayArea.y );
+		AudioPlaySound( "enemy_hurt.wav", qDisplayArea.x, qDisplayArea.y );
 		BeenHit();
 	}
 	CheckHealth();
@@ -289,5 +285,5 @@ stock StockHit( attacker[], angle, dist, attack, damage, x, y, rect )
 
 stock CreateEntityShadow( display_object[EntityGraphic] )
 {
-	display_object.obj = ObjectCreate( "", CIRCLE, mqDisplayArea.x + display_object.x, mqDisplayArea.y + display_object.y, mqDisplayZIndex + display_object.z, display_object.width, display_object.height, 0x000000AA);
+	display_object.obj = ObjectCreate( "", CIRCLE, qDisplayArea.x + display_object.x, qDisplayArea.y + display_object.y, qPosition.z + display_object.z, display_object.width, display_object.height, 0x000000AA);
 }

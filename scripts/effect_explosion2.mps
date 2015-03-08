@@ -4,7 +4,8 @@
  * You are free to share, to copy, distribute and transmit this work
  * You are free to adapt this work
  * Under the following conditions:
- *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You must attribute the work in the manner specified by the author or licensor (but
+ *    not in any way that suggests that they endorse you or your use of the work). 
  *  You may not use this work for commercial purposes.
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
@@ -16,9 +17,9 @@ new timeout = 0;
 
 public Init(...)
 {
-	EntityGetPosition(mqEntityPosition.x,mqEntityPosition.y, mqDisplayZIndex);
+	EntityGetPosition(qPosition.x,qPosition.y, qPosition.z);
 	UpdateDisplayPosition();
-	obj = ObjectCreate("explosion.png:2", mqDisplayArea.x, mqDisplayArea.y, 4, 0, 0);
+	obj = ObjectCreate("explosion.png:2", qDisplayArea.x, qDisplayArea.y, 4, 0, 0);
 	ObjectFlag(obj, FLAG_ANIMLOOP, 0);
 	timeout = AnimationGetLength("explosion.png:2");
 }

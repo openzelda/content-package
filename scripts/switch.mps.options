@@ -1,7 +1,0 @@
-<entity>
-	<option name="on-entity" value="" />
-	<option name="on-event" value="" />
-	<option name="off-event" value="" />
-	<option name="off-entity" value="" />
-	<option name="weighted" value="1" />
-</entity>

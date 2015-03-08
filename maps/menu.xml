@@ -1,9 +1,9 @@
 <map xmlns="http://mokoi.info/projects/mokoi">
 <settings>
 	<dimensions width="1" height="1" />
-	<color red="128" blue="128" green="128" mode="0" />
+	<color red="127" blue="127" green="127" mode="0" />
 	<option name="music" value="" type="music" />
-	<option name="name" value="" type="" />
+	<option name="name" value="" type="" removable="removable" />
 </settings>
 <object value="hud.png:greenbox" type="sprite">
 	<position x="24" y="24" w="336" h="256" z="0" l="0" r="0" f="0"/>
