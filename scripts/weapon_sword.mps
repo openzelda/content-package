@@ -29,7 +29,6 @@ public Init(...)
 { 
 	qDisplayOffset.y += 32; 
 	qDisplayOffset.x += 12; 
-	qId = entityId:EntityGetSettingHash("id"); 
 } 
  
 public Close() 

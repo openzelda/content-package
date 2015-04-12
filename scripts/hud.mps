@@ -177,6 +177,8 @@ public Close()
 
 main()
 {
+	ConsoleOutput("Parent ID %d", owner);
+
 	switch ( mode )
 	{
 		case hudonly:
@@ -322,9 +324,9 @@ RefreshHUD()
 	heartsCount = EntityPublicVariable(owner, "qMaxHealth");
 	heartsUsed = EntityPublicVariable(owner, "qHealth");
 
-	ConsoleOutput( "%d %d", heartsUsed, heartsCount );
+	ConsoleOutput( "heartsUsed %d %d", heartsUsed, heartsCount );
 
-	if (heartsCount > 0)
+	if ( heartsCount > 0)
 	{
 		new q = NumberClamp(heartsCount/50, 0, 39);
 		new u = heartsUsed/50;

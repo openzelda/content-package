@@ -17,7 +17,7 @@
 #include <entities>  
 #include <string>  
  
-public internal_ident;
+
  
 forward @SetValue(value)  
 forward @SetTarget(target)  

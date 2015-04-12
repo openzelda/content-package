@@ -26,7 +26,7 @@ public debug_game = debug;
 public Init( ... ) 
 { 
 	GameState(1); 
-	 
+	ConsoleLog("testing");
  
 	EntityCreate("text", "TextFunctions", 0, 0, 0, GLOBAL_MAP); 
 	//EntityCreate("dialog_box", "DialogFunctions", 0, 0, 0, GLOBAL_MAP); 

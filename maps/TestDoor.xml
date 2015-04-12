@@ -44,6 +44,11 @@
 <object value="switch01.png:1" type="sprite">
 	<position x="272" y="152" w="32" h="32" z="0" l="0" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="off-entity" value="switch_door" type="mapentity"/>
+	<setting key="on-event" value="OpenDoor" type="string"/>
+	<setting key="on-entity" value="switch_door" type="mapentity"/>
+	<setting key="off-event" value="CloseDoor" type="string"/>
+	<setting key="weighted" value="false" type="boolean"/>
 	<entity value="switch" language="mps" global="false"/>
 </object>
 <object value="outside01.png:g0" type="sprite">
@@ -125,45 +130,38 @@
 	<entity value="block" language="mps" global="false"/>
 </object>
 <object value="dungeon01.png:d1" type="sprite" id="test_door">
-	<position x="128" y="424" w="64" h="48" z="2000" l="2" r="180" f="0"/>
+	<position x="128" y="424" w="64" h="48" z="3000" l="3" r="0" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="shut" value="false" type="boolean"/>
-	<setting key="target" value="test_target_door" type="mapentity"/>
-	<setting key="target_map" value="0: section_map1" type="map"/>
-	<setting key="section" value="testsection" type="section"/>
-	<setting key="master" value="false" type="boolean"/>
-	<setting key="closed" value="false" type="boolean"/>
-	<setting key="key" value="0" type=""/>
-	<entity value="door" language="mps" global="false"/>
-</object>
-<object value="dungeon01.png:d1" type="sprite">
-	<position x="440" y="256" w="64" h="48" z="2000" l="2" r="90" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="shut" value="true" type="boolean"/>
-	<setting key="target" value="" type="mapentity"/>
-	<setting key="target_map" value="" type="map"/>
-	<setting key="section" value="" type="section"/>
+	<setting key="target" value="" type="target"/>
+	<setting key="touchopen" value="false" type="boolean"/>
 	<setting key="closed" value="true" type="boolean"/>
-	<setting key="key" value="1" type=""/>
-	<entity value="door" language="mps" global="false"/>
-</object>
-<object value="dungeon01.png:d1" type="sprite">
-	<position x="24" y="192" w="64" h="48" z="2000" l="2" r="270" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="shut" value="false" type="boolean"/>
-	<setting key="target" value="" type="mapentity"/>
-	<setting key="target_map" value="" type="map"/>
-	<setting key="section" value="TestOverworld" type="section"/>
-	<setting key="closed" value="false" type="boolean"/>
-	<setting key="key" value="0" type=""/>
+	<setting key="usekey" value="true" type="boolean"/>
 	<entity value="door" language="mps" global="false"/>
 </object>
 <object value="dungeon01.png:d1" type="sprite" id="switch_door">
-	<position x="128" y="24" w="64" h="48" z="3000" l="3" r="0" f="0"/>
+	<position x="440" y="256" w="64" h="48" z="3000" l="3" r="270" f="0"/>
 	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="target" value="TestOverworld:0:test_target_door" type="target"/>
+	<setting key="target" value="" type="target"/>
+	<setting key="touchopen" value="false" type="boolean"/>
+	<setting key="closed" value="true" type="boolean"/>
+	<setting key="usekey" value="false" type="boolean"/>
+	<entity value="door" language="mps" global="false"/>
+</object>
+<object value="dungeon01.png:d1" type="sprite">
+	<position x="24" y="192" w="64" h="48" z="3000" l="3" r="90" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="target" value="" type="target"/>
+	<setting key="touchopen" value="true" type="boolean"/>
+	<setting key="closed" value="true" type="boolean"/>
+	<setting key="usekey" value="false" type="boolean"/>
+	<entity value="door" language="mps" global="false"/>
+</object>
+<object value="dungeon01.png:d1" type="sprite" id="normal_door">
+	<position x="128" y="24" w="64" h="48" z="3000" l="3" r="180" f="0"/>
+	<color red="255" blue="255" green="255" alpha="255" />
+	<setting key="target" value="TestOverworld:64:test_target_door" type="target"/>
 	<setting key="target.world" value="TestOverworld" />
-	<setting key="target.grid" value="0" />
+	<setting key="target.grid" value="64" />
 	<setting key="target.entity" value="test_target_door" />
 	<setting key="touchopen" value="false" type="boolean"/>
 	<setting key="closed" value="false" type="boolean"/>

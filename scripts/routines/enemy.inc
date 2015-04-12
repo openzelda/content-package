@@ -59,7 +59,6 @@ stock SetStateGraphic( _STATE:s, parent[], south_graphic[], west_graphic[], nort
 */
 EnemyInit()
 {
-	qId = entity:EntityGetSettingHash("id");
 	qDirection = SOUTH;
 	qDisplayDirection = 0;
 

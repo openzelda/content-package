@@ -44,14 +44,14 @@ stock animation[STATE_COUNT][4]{32} = [
 	/* ALIVE */			["", "", "", ""],
 	/* STANDING */		["", "", "", ""],
 	/* MOVING */		["", "", "", ""],
-	/* HIT */				["", "", "", ""],
+	/* HIT */			["", "", "", ""],
 	/* KNOCKED */		["", "", "", ""],
 	/* JUMPING */		["", "", "", ""],
 	/* SWIMMING */		["", "", "", ""],
 	/* FLOATING */		["", "", "", ""],
 	/* CHASING */		["", "", "", ""],
 	/* USING */			["", "", "", ""],
-	/* LIFTING */			["", "", "", ""],
+	/* LIFTING */		["", "", "", ""],
 	/* STANDLIFT */		["", "", "", ""],
 	/* WALKLIFT */		["", "", "", ""],
 	/* SPECIALSTATE */	["", "", "", ""],
@@ -74,9 +74,9 @@ SetStateGraphic( EntityState:s, parent[], south_graphic[], west_graphic[], north
 {
 	s = EntityState:NumberClamp( _:s, _:ALIVE, _:DEAD );
 	StringFormat( animation[s][0], _, "%s:%s", parent, south_graphic);
-	StringFormat( animation[s][1], _, "%s:%s", parent, west_graphic);
+	StringFormat( animation[s][1], _, "%s:%s", parent, east_graphic);
 	StringFormat( animation[s][2], _, "%s:%s", parent, north_graphic);
-	StringFormat( animation[s][3], _, "%s:%s", parent, east_graphic);
+	StringFormat( animation[s][3], _, "%s:%s", parent, west_graphic);
 }
 
 public SetPlayerSprites( normal{32}, push{32}, pull{32}, swim{32}, using{32} )
@@ -147,7 +147,7 @@ HandleDeath()
 			LayerColour(5, 0xFFFFFFFF);
 		
 			ObjectReplace(qObject, animation[STANDING][0], SPRITE);
-			//TransitionPlayer( qId, 0, _restart[0].mapid, "");
+			//TransitionPlayer( internal_ident, 0, _restart[0].mapid, "");
 			EntitySetPosition( _restart[0].x, _restart[0].y, _ );
 		}
 	}
@@ -183,8 +183,8 @@ public GiveWeapon( weapon{} )
 
 	hash = EntityCreate( entityName, "", 0, 0, qPosition.z, GLOBAL_MAP );
 
-	EntityPublicFunction( hash, "SetOwner", ''n'', _, qId );
-	EntityPublicFunction( hudEntity, "AddWeapon", ''snn'', _, entityName, hash, qId );
+	EntityPublicFunction( hash, "SetOwner", ''n'', _, internal_ident );
+	EntityPublicFunction( hudEntity, "AddWeapon", ''snn'', _, entityName, hash, internal_ident );
 
 	SetWeapon( hash, BUTTON_ACTION1 );
 }

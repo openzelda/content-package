@@ -1,2 +1,3 @@
 test_door	128	424
-switch_door	128	24
+switch_door	440	256
+normal_door	128	24

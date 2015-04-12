@@ -24,10 +24,9 @@ stock bool:qAllowOffscreenMovement = false
 
 stock round_method:qMovementRounding[4][2] = [ [round_floor, round_ceil], [round_ceil, round_ceil], [round_ceil, round_floor], [round_floor, round_floor] ]; /* South, west, north, east */
 
-
 stock Fixed:MovementAngle(Fixed:x_movement, Fixed:y_movement)
 {
-	return fatan2( x_movement, -y_movement, degrees) + 90.0;
+	return fatan2( y_movement, x_movement, degrees);
 }
 
 stock Fixed:Dir2Angle(d)
@@ -35,6 +34,7 @@ stock Fixed:Dir2Angle(d)
 	d %= 8;
 	return fixed(d*45);
 }
+
 stock D2A(d)
 {
 	d %= 8;
@@ -139,7 +139,7 @@ stock MoveCheck(&a, Fixed:angle, maximum_mask_value, Fixed:movex, Fixed:movey)
 	qDisplayDirection = NumberClamp((qDirection/2), 0, 3);
 
 	UpdateCollisionPoints( checks, fround(movex, qMovementRounding[qDisplayDirection][0]), fround(movey, qMovementRounding[qDisplayDirection][1]) );
-	//DisplayCollisionPoints( checks );
+	DisplayCollisionPoints( checks );
 
 	new l,r,q = qDirection;
 	l = (qDirection >= 7 ? 0 : qDirection + 1);
@@ -149,13 +149,20 @@ stock MoveCheck(&a, Fixed:angle, maximum_mask_value, Fixed:movex, Fixed:movey)
 	qHitMaskCheck[1] = MaskGetValue( checks[l].x, checks[l].y);
 	qHitMaskCheck[2] = MaskGetValue( checks[r].x, checks[r].y);
 
+	ConsoleOutput("qHitMaskCheck[0] %d %d x%d ", qHitMaskCheck[0], checks[q].x, checks[q].y );
+	ConsoleOutput("qHitMaskCheck[1] %d", qHitMaskCheck[1] );
+	ConsoleOutput("qHitMaskCheck[2] %d", qHitMaskCheck[2] );
+
 	if( qHitMaskCheck[0] > 255 )
 	{
-		return !a;
-	}
-	else if ( !qAllowOffscreenMovement && qHitMaskCheck[0] < 0 )
-	{
-		return false;
+		if ( qAllowOffscreenMovement )
+		{
+			return true;
+		}
+		else
+		{
+			return false;
+		}
 	}
 	else if ( qHitMaskCheck[0] > maximum_mask_value )
 	{

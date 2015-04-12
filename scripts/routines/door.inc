@@ -21,6 +21,7 @@ forward public UpdatePlayer( entity:playerId, Fixed:playerWidth, Fixed:playerHei
 forward PUBLIC_EVENT_HIT;
 
 /* Door Target */
+public hasTarget = false;
 new targetWorld{64}
 new entity:targetEntity;
 new targetGrid = -1;
@@ -41,7 +42,7 @@ new arch[DIMENSION];
 new door[DIMENSION];
 
 
-DoorInit()
+DoorInit( direction )
 {
 	new object:obj;
 
@@ -49,14 +50,18 @@ DoorInit()
 
 	/* Get Settings */
 	EntityGetSetting("object-content", openSprite);
-	new flip = EntityGetNumber("object-flip") % 16;
-	qDirection = FlipDirections( flip );
+	new rotation = EntityGetNumber("object-flip");
+	if ( direction >= 0 )
+		qDirection = Direction:direction;
+	else
+		qDirection = FlipDirections( rotation % 16 );
 
 	/* Target */
 	targetEntity = entity:EntityGetSettingHash("target.entity");
 	targetGrid = EntityGetNumber("target.grid");
 	EntityGetSetting("target.world", targetWorld);
 
+	hasTarget = targetWorld{0} ? true : false;
 
 	/* Settings */
 
@@ -66,7 +71,11 @@ DoorInit()
 	if ( qDirection == EAST || qDirection == WEST )
 		ObjectDimensions( qObject, door.h, door.w );
 	else
+	{
+		// Flip North/South
+		qDirection = (qDirection + 4) % 8;
 		ObjectDimensions( qObject, door.w, door.h );
+	}
 	
 	StringFormat(closeSprite, _, "%s-closed", openSprite);
 	StringFormat(archSprite, _, "%s-arch", openSprite);
@@ -76,7 +85,6 @@ DoorInit()
 	UpdateDisplayPosition();
 
 	/* */
-
 	if ( qDirection == NORTH )
 	{
 		transport.x = qDisplayArea.x + XOFFSET;
@@ -101,7 +109,7 @@ DoorInit()
 		collision.w = door.w - XOFFSET - XOFFSET;
 		collision.h = door.h - YOFFSET;
 	}
-	else if ( qDirection == WEST )
+	else if ( qDirection == EAST )
 	{
 		transport.x = qDisplayArea.x + door.w - XOFFSET;
 		transport.y = qDisplayArea.y + YOFFSET;
@@ -134,7 +142,7 @@ DoorInit()
 		{
 			obj = ObjectCreate(archSprite, SPRITE, qDisplayArea.x, qDisplayArea.y + door.h - arch.h, qPosition.z + 1.0, 0, 0);
 		}
-		else if ( qDirection == WEST )
+		else if ( qDirection == EAST )
 		{
 			obj = ObjectCreate(archSprite, SPRITE, qDisplayArea.x + door.h - arch.h- arch.h, qDisplayArea.y, qPosition.z + 1.0, 0, 0);
 		}
@@ -142,7 +150,7 @@ DoorInit()
 		{
 			obj = ObjectCreate(archSprite, SPRITE, qDisplayArea.x, qDisplayArea.y, qPosition.z + 1.0, 0, 0);
 		}
-		ObjectEffect( obj, 0xFFFFFFFF, .mirror = flip );
+		ObjectEffect( obj, 0xFFFFFFFF, .mirror = rotation );
 	}
 
 	if ( EntityGetNumber("closed") )
@@ -166,22 +174,21 @@ FillMask()
 
 public UpdatePlayer( entity:playerId, Fixed:playerWidth, Fixed:playerHeight )
 {
+
+	ConsoleLog("Player Z: %q", qPosition.z + 0.1);
+	ConsoleLog("Door Z: %q", qPosition.z);
 	switch ( qDirection)
 	{
 		case NORTH:
-			EntitySetPosition( qPosition.x + playerWidth, qPosition.y + playerHeight, qPosition.z, playerId);
-			break;
+			EntitySetPosition( qPosition.x + XOFFSET, qPosition.y, qPosition.z +  0.005, playerId);
 		case SOUTH:
-			EntitySetPosition( qPosition.x + playerWidth, qPosition.y, qPosition.z, playerId);
-			break;
+			EntitySetPosition( qPosition.x + XOFFSET, qPosition.y, qPosition.z +  0.005, playerId);
 		case WEST:
-			EntitySetPosition( qPosition.x + playerWidth, qPosition.y + playerHeight, qPosition.z, playerId);
-			break;
+			EntitySetPosition( qPosition.x, qPosition.y + YOFFSET, qPosition.z +  0.005, playerId);
 		case EAST:
-			EntitySetPosition( qPosition.x + playerWidth, qPosition.y + playerHeight, qPosition.z, playerId);
-			break;
+			EntitySetPosition( qPosition.x, qPosition.y + YOFFSET, qPosition.z + 0.005, playerId);
 		default:
-			break;
+			EntitySetPosition( qPosition.x, qPosition.y, qPosition.z +  0.005, playerId);
 	}
 
 	EntityPublicFunction(playerId, "SetDir", [ARG_NUMBER, ARG_END], _, qDirection + 4);
@@ -194,6 +201,9 @@ public MovePlayer(entity:p, Directions:d)
 	new entity:player = p;
 	new targetMap,worldId;
 
+	if ( hasTarget != true )
+		return false;
+
 	if ( targetGrid < 0 )
 		return false;
 
@@ -203,8 +213,10 @@ public MovePlayer(entity:p, Directions:d)
 	x = (targetGrid % 64);
 	y = (targetGrid / 64);
 
+
 	worldId = WorldLoad(targetWorld);
 	targetMap = WorldGetIdent( worldId, x, y  );
+
 
 	return TransitionPlayer( player, targetEntity, targetMap );
 }

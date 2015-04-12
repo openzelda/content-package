@@ -15,17 +15,18 @@
 new qCollisionBuffer = 2;
 stock DisplayCollisionPoints( points[8][POSITION] )
 {
-	new l,r,q = _:qDirection;
-	l = (_:qDirection >= 7 ? 0 : _:qDirection + 1);
-	r = (_:qDirection == 0 ? 7 : _:qDirection - 1);
+	new Direction:l,Direction:r,Direction:q = qDirection;
+	l = (qDirection >= SOUTHWEST ? SOUTH : qDirection + 1);
+	r = (qDirection == SOUTH ? SOUTHWEST : qDirection - 1);
 
 	for ( new c = 0; c < 8; c++ )
 	{
-		GraphicsDraw("", RECTANGLE, points[Direction:c].x, points[Direction:c].y, 5.0, 4, 4, 0xFF00FFAA);
+		GraphicsDraw("", RECTANGLE, points[Direction:c].x, points[Direction:c].y, 5.1, 4, 4, 0xFF00FFAA);
 	}
-	GraphicsDraw("", RECTANGLE, points[Direction:l].x, points[Direction:r].y, 5.0, 2, 5, 0x0000FFAA);
-	GraphicsDraw("", RECTANGLE, points[Direction:r].x, points[Direction:l].y, 5.0, 2, 5, 0x0000FFAA);
-	GraphicsDraw("", RECTANGLE, points[Direction:q].x, points[Direction:q].y, 5.0, 2, 5, 0x0000FFAA);
+
+	GraphicsDraw("", RECTANGLE, points[Direction:r].x, points[Direction:r].y, 5.0, 5, 5, 0x0000FFAA);
+	GraphicsDraw("", RECTANGLE, points[Direction:l].x, points[Direction:l].y, 5.0, 5, 5, 0x00FFFFAA);
+	GraphicsDraw("", RECTANGLE, points[Direction:q].x, points[Direction:q].y, 5.0, 5, 5, 0x00FF00AA);
 }
 
 stock UpdateCollisionPoints( points[8][POSITION], bx, by )

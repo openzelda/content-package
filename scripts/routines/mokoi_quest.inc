@@ -44,7 +44,6 @@ public object:qObject;
 
 
 /* Local Variables */
-stock entity:qId;
 stock qPosition[VECTOR3];
 stock qDisplayArea[RECT] = [ 0, 0, 16, 16];
 stock qDisplayOffset[POINT];
@@ -55,11 +54,6 @@ new EntityState:qStatePrev = UNSETSTATE;
 
 
 /**/
-forward @AutoPreInit();
-@AutoPreInit()
-{
-	qId = entity:EntityGetNumber("id");
-}
 
 
 /* Functions */
@@ -72,9 +66,7 @@ stock SetupEntity( EntityState:init_state, type, &object:display_object, width, 
 	qDisplayOffset.x = offset_x
 	qDisplayOffset.y = offset_y;
 	qObject = EntityGetObject();
-	qId = entity:EntityGetNumber("id");
 	GetEntityPosition( qPosition.x, qPosition.y, qPosition.z, qDisplayArea.x, qDisplayArea.y );
-
 }
 
 stock SetEntityDimension( width, height, offset_x = 0, offset_y = 0 )

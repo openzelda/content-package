@@ -21,7 +21,6 @@
 public Init(...)
 {
 	qAllowOffscreenMovement = true;
-	qId = entity:EntityGetNumber("id");
 
 	GetEntityPosition(qPosition.x, qPosition.y, qPosition.z, qDisplayArea.x, qDisplayArea.y );
 	SetEntityDimension(30, 24, 2, 24);
@@ -35,9 +34,9 @@ public Init(...)
 	/* */
 	CreateItemCounters()
 
-	hudEntity = EntityCreate( "hud", "", 0, 0, 6.0, GLOBAL_MAP, [ARG_RETURN_NUMBER, ARG_END], _, qId  );
+	hudEntity = EntityCreate( "hud", "", 0, 0, 6.0, GLOBAL_MAP, [ARG_RETURN_NUMBER, ARG_END], _, internal_ident  );
 
-	EntityCreate( "transition", "transition", 0, 0, 0, GLOBAL_MAP, [ARG_RETURN_NUMBER, ARG_END], _, qId );
+	EntityCreate( "transition", "transition", 0, 0, 0, GLOBAL_MAP, [ARG_RETURN_NUMBER, ARG_END], _, internal_ident );
 
 	SetRestartPosition(0, "Start", qDisplayArea.x, qDisplayArea.y, MapCurrentIdent() );
 
@@ -59,8 +58,6 @@ public UpdatePosition()
 /* Called each frame */
 main()
 {
-
-
 	// Menu 
 	if ( InputButton(BUTTON_MENU) == 1 )
 	{
@@ -70,7 +67,7 @@ main()
 		}
 		else
 		{
-			EntityPublicFunction(hudEntity, "ShowMenu", ''nnnn'', _, qId, qSelectedWeapons[0], qSelectedWeapons[1], qSelectedWeapons[2] );			
+			EntityPublicFunction(hudEntity, "ShowMenu", ''nnnn'', _, internal_ident, qSelectedWeapons[0], qSelectedWeapons[1], qSelectedWeapons[2] );			
 		}
 	}
 
@@ -138,15 +135,15 @@ CheckCollisions()
 			ConsoleOutput("Player Collision: %d", type );
 			if ( type == TYPE_AWAKING )
 			{
-				CallEntityAwaking( current, qId, rect);
+				CallEntityAwaking( current, internal_ident, rect);
 			}
 			else if ( type == TYPE_ENEMY || type == TYPE_DOOR || type == TYPE_DROPITEM )
 			{
-				CallEntityHit( current, qId, D2A(qDirection), dist, APLAYER, 0, qDisplayArea.x, qDisplayArea.y, rect );
+				CallEntityHit( current, internal_ident, D2A(qDirection), dist, APLAYER, 0, qDisplayArea.x, qDisplayArea.y, rect );
 			}
 			else if ( type == TYPE_TRANSPORT )
 			{
-				if ( CallEntityMovePlayer(current, qId, qDirection) == 1 )
+				if ( CallEntityMovePlayer(current, internal_ident, qDirection) == 1 )
 				{
 					 qState = STANDING;
 				}
@@ -154,17 +151,17 @@ CheckCollisions()
 			else if ( type == TYPE_PUSHABLE && qState == PUSHING )
 			{
 				// public Push(attacker[], rect, angle)
-				CallEntityPush(current, qId, rect, angle);
+				CallEntityPush(current, internal_ident, rect, angle);
 			}
 			else if ( type == TYPE_SWITCH )
 			{
 				// public Pressed(attacker[])
-				CallEntityPressed(current, qId, rect, angle);
+				CallEntityPressed(current, internal_ident, rect, angle);
 			}
 			else if ( type == TYPE_ITEM )
 			{
 				// public Pickup(attacker[])
-				if ( CallEntityPickup(current,  qId) )
+				if ( CallEntityPickup(current,  internal_ident) )
 				{
 					qState = LIFTING;
 				}
@@ -191,7 +188,6 @@ public Hurt(type, damage, angle)
 
 MovePlayer()
 {
-	qFlipXMovement = false;
 	if ( qState == USING || qState == LIFTING )
 		return;
 	else if ( qState == STANDING )
@@ -200,7 +196,6 @@ MovePlayer()
 		qMovementSpeed = 20.00;
 	else if ( qState == KNOCKED )
 	{
-		qFlipXMovement = true;
 		qMovementSpeed = -40.00;
 	}
 	else
@@ -290,7 +285,7 @@ CheckForKeys()
 	}
 	
 	qMovementAngle = 0.0;
-	
+
 	if ( x_movement || y_movement )
 	{
 		qMovementAngle = MovementAngle( Fixed:x_movement, Fixed:y_movement);
@@ -355,6 +350,15 @@ DisplayPlayer()
 		ObjectEffect(qObject, WHITE, _, _, _, STATE_FLIP, _, _);
 	}
 	ObjectPosition(qObject, qDisplayArea.x, qDisplayArea.y, qPosition.z, 0, 0);
+
+
+	new x = qDisplayArea.x;
+	new y = qDisplayArea.y;
+	new s[8]{20} = [ "SOUTH", "SOUTHEAST","EAST","NORTHEAST","NORTH","NORTHWEST","WEST","SOUTHWEST"];
+
+	//GraphicsDraw( s[qDirection], TEXT, x, y, 6.0, 0, 0, RED);
+
+
 /*
 	if ( hit > 0 )
 		hidden = !hidden;
