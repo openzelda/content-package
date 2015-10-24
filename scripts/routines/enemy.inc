@@ -18,7 +18,7 @@
 #include <movement>
 #include <public_events>
 #include <entity_health>
-
+#include <entity> 
 forward public Reset();
 
 new qDamageDealt = 50;
@@ -36,22 +36,6 @@ new EffectState:qCurrentEffect = NOEFFECT;
 new qEffectTimer = 0;
 
 new qHitColours[5] = [ 0x138813FF, 0xFDD341FF, 0xE15805FF, 0x20D3EEFF, 0xEE2020FF ];
-
-stock error_message{128};
-
-/* States */
-#define STATE_FLIP (qDisplayDirection == 3 ? true : false)
-#define STATE_GRAPHIC StateGraphics[qState][qDisplayDirection]
-stock StateGraphics[STATE_COUNT][4]{32};
-
-stock SetStateGraphic( _STATE:s, parent[], south_graphic[], west_graphic[], north_graphic[], east_graphic[] )
-{
-	s =  _STATE:NumberClamp( _:s, _:ALIVE, _:DEAD );
-	strformat( StateGraphics[s][0], _, true, "%s:%s", parent, south_graphic);
-	strformat( StateGraphics[s][1], _, true, "%s:%s", parent, west_graphic);
-	strformat( StateGraphics[s][2], _, true, "%s:%s", parent, north_graphic);
-	strformat( StateGraphics[s][3], _, true, "%s:%s", parent, east_graphic);
-}
 
 /**
 * Enemy Init
@@ -79,8 +63,7 @@ EnemyInit()
 		for ( new n = 0; qSprite{n} && qSprite{n} != ':' ; n++ )
 		{
 			qSheet{n} = qSprite{n};
-		}	
-
+		}
 	}
 	else
 	{
@@ -134,8 +117,8 @@ stock Kill( )
 	AudioPlaySound( ( qIsABoss ? "boss_killed.wav" : "enemy_killed.wav"), qDisplayArea.x, qDisplayArea.y);
 	
 	if ( !qDeathObject )
-		qDeathObject = ObjectCreate("deathanim01.png:anim", SPRITE, qDisplayArea.x, qDisplayArea.y, qPosition.z + 100, 0, 0,WHITE);
-	qDeathTimer = AnimationGetLength("deathanim01.png","anim") ;
+		qDeathObject = ObjectCreate("effects_death01.png:anim", SPRITE, qDisplayArea.x, qDisplayArea.y, qPosition.z + 100, 0, 0,WHITE);
+	qDeathTimer = AnimationGetLength("effects_death01.png","anim") ;
 	ObjectFlag(qDeathObject, FLAG_ANIMLOOP, false);
 }
 
@@ -148,7 +131,7 @@ stock DeathEvent()
 	if ( qIsABoss )
 	{
 		new entityId, function{24};
-		entityId = EntityGetSettingHash( "on-death-entity" );
+		entityId = EntityGetHash( "on-death-entity" );
 		EntityGetSetting( "on-death-function", function );
 		if ( entityId && function{0} )
 			EntityPublicFunction( entityId, function );
@@ -252,7 +235,7 @@ stock StockHit( attacker[], angle, dist, attack, damage, x, y, rect )
 	else if ( attack&AICE == AICE )
 	{
 		// Create a frozen effect around the enemy
-		child EntityCreate( "effect_freeze", "", qDisplayArea.x, qDisplayArea.y, qPosition.z, CURRENT_MAP, ''dddd'', qDisplayArea.x, qDisplayArea.y, qDisplayArea.w, qDisplayArea.h );
+		child = EntityCreate( "effect_freeze", "", qDisplayArea.x, qDisplayArea.y, qPosition.z, CURRENT_MAP, ''dddd'', qDisplayArea.x, qDisplayArea.y, qDisplayArea.w, qDisplayArea.h );
 		ObjectEffect( obj, 0xFF0000FF );
 		StunCount = 3200;
 		qState = STUNNED;
@@ -264,7 +247,7 @@ stock StockHit( attacker[], angle, dist, attack, damage, x, y, rect )
 	}
 	else if ( attack&APLAYER == APLAYER )
 	{
-		EntityPublicFunction( qAttacker, "Hurt", ''n'', qDamageDealt );
+		CallEntityHurt( qAttacker, AENEMY, qDamageDealt, angle)
 	}
 	else
 	{

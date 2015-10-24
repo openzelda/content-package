@@ -15,19 +15,20 @@
 /* Main Entity has 3 more Public Functions */ 
 forward public save(); 
 forward public load(); 
- 
- 
+
 forward public SetPlayer(n); 
 forward public GetPlayer(); 
- 
+
 public controller = 1; 
 public debug_game = debug; 
- 
+
+
+
+
 public Init( ... ) 
 { 
-	GameState(1); 
-	ConsoleLog("testing");
- 
+	GameState(GS_ALL); 
+
 	EntityCreate("text", "TextFunctions", 0, 0, 0, GLOBAL_MAP); 
 	//EntityCreate("dialog_box", "DialogFunctions", 0, 0, 0, GLOBAL_MAP); 
  
@@ -41,13 +42,28 @@ public Init( ... )
 } 
  
 public Close() 
-{ 
- 
-} 
- 
+{
+
+}
+
 main() 
 { 
- 
+	new Fixed:q;
+	new Fixed:w;
+	new str{4};
+
+	for (new i = 0; i < 360; i +=15)
+	{
+		w = fsin(i,degrees)*100;
+		q =fcos(i,degrees)*100;
+		GraphicsDraw("", LINE, 320,240,6.0, 320+fround(w), 240+fround(q) , 0x00FF00FF)
+
+		StringFormat(str,_, "%d", i);
+		GraphicsDraw(str, TEXT, 320+fround(w), 240+fround(q), 6.1, 0, 0, 0xFF0000FF )
+
+	}
+
+
 } 
  
  

@@ -1,84 +1,18 @@
 <map xmlns="http://mokoi.info/projects/mokoi">
-<settings>
-	<dimensions width="1" height="1" />
-	<color red="127" blue="127" green="127" mode="0" />
-	<option name="music" value="" type="music" />
-	<option name="name" value="" type="" />
-</settings>
-<object value="outside01.png:fence1" type="sprite">
-	<position x="16" y="0" w="480" h="32" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="outside01.png:fence2" type="sprite">
-	<position x="0" y="0" w="16" h="352" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="outside01.png:fence1" type="sprite">
-	<position x="16" y="320" w="480" h="32" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="outside01.png:fence3" type="sprite">
-	<position x="496" y="0" w="16" h="352" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="outside01.png:fence3" type="sprite">
-	<position x="80" y="152" w="240" h="32" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="outside01.png:fence3" type="sprite">
-	<position x="392" y="96" w="16" h="160" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="outside01.png:fence3" type="sprite">
-	<position x="192" y="240" w="16" h="32" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-</object>
-<object value="enemy_bones01.png:entity" type="sprite">
-	<position x="40" y="72" w="32" h="56" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="health" value="100" type="number"/>
-	<entity value="enemy_bones" language="mps" global="false"/>
-</object>
-<object value="enemy_bones01.png:entity" type="sprite">
-	<position x="305" y="77" w="32" h="56" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="health" value="100" type="number"/>
-	<entity value="enemy_bones" language="mps" global="false"/>
-</object>
-<object value="enemy_bones02.png:entity" type="sprite">
-	<position x="208" y="79" w="32" h="56" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="health" value="200" type="number"/>
-	<entity value="enemy_bones" language="mps" global="false"/>
-</object>
-<object value="enemy_bubble.png:1" type="sprite">
-	<position x="296" y="230" w="40" h="40" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<entity value="enemy_bubble" language="mps" global="false"/>
-</object>
-<object value="enemy_bubble.png:1" type="sprite">
-	<position x="156" y="85" w="40" h="40" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<entity value="enemy_bubble" language="mps" global="false"/>
-</object>
-<object value="bat01.png:bat" type="sprite">
-	<position x="112" y="224" w="32" h="32" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="speed" value="" />
-	<setting key="item" value="" />
-	<entity value="enemy_bat" language="mps" global="false"/>
-</object>
-<object value="bat01.png:bat" type="sprite">
-	<position x="462" y="84" w="32" h="32" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="speed" value="" />
-	<setting key="item" value="" />
-	<entity value="enemy_bat" language="mps" global="false"/>
-</object>
-<object value="p01.png:player" type="sprite">
-	<position x="457" y="250" w="32" h="48" z="0" l="0" r="0" f="0"/>
-	<color red="255" blue="255" green="255" alpha="255" />
-	<setting key="Weapon" value="weapon_test" />
-	<entity value="link" language="mps" global="true"/>
-</object>
+	<settings>
+		<dimensions width="1" height="1" />
+		<color red="127" blue="127" green="127" mode="0" />
+		<option name="music" value="" type="music" />
+	</settings>
+	<object value="player01.png:player" type="sprite">
+		<position x="249" y="198" w="32" h="48" z="0" l="0" r="0" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+		<setting key="Weapon" value="weapon_test" type="entity"/>
+		<entity value="link" language="mps" global="false"/>
+	</object>
+	<object value="enemies.png:bubble01" type="sprite">
+		<position x="422" y="51" w="32" h="32" z="0" l="0" r="0" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+		<entity value="enemy_bubble" language="mps" global="false"/>
+	</object>
 </map>

@@ -11,6 +11,21 @@
  *     2013/04/01 [luke]: new file.
  ***********************************************/
 
+stock SetObject( sprite[], x, y, Fixed:z )
+{
+	qObject = EntityGetObject(); 
+	if ( qObject )
+	{
+		ObjectPosition( qObject, x, y, z, 0, 0 );
+		ObjectReplace( qObject, sprite, SPRITE );
+
+	}
+	else
+	{
+		qObject = ObjectCreate( sprite, SPRITE, x, y, z, 0, 0 );
+	}
+}
+
 
 stock ReplaceEntityGraphics( display_object[EntityGraphic], image{}, bool:flip, bool:force = false )
 {

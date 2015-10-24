@@ -13,3 +13,4 @@
  ***********************************************/
 #include <core>
 #include <open_zelda>
+#include <quest_types>

@@ -25,15 +25,15 @@ forward PUBLIC_EVENT_HIT;
 new HitCount; 
 new LeapCount = 1000; 
 new StandCount = 600; 
-new HeadDirection = 0; 
+new Directions:HeadDirection = SOUTH; 
  
 /* Graphics */ 
 new graphicHead[4]{32} ; 
  
 /* Display Object */ 
-new body[EntityGraphic] = [ OBJECT_NONE, 0, 24, 0, 0, 0 ];	// Display Object, Offset x, Offset y, Offset z, width, height 
-new head[EntityGraphic] = [ OBJECT_NONE, 0, 0, 1, 0, 0 ];		// Display Object, Offset x, Offset y, Offset z, width, height 
-new shadow[EntityGraphic] = [ OBJECT_NONE, 4, 48, - 1, 24, 16 ];	// Display Object, Offset x, Offset y, Offset z, width, height 
+new body[EntityGraphic] = [ OBJECT_NONE, 0, 24, 0.0, 0, 0 ];	// Display Object, Offset x, Offset y, Offset z, width, height 
+new head[EntityGraphic] = [ OBJECT_NONE, 0, 0, 1.0, 0, 0 ];		// Display Object, Offset x, Offset y, Offset z, width, height 
+new shadow[EntityGraphic] = [ OBJECT_NONE, 4, 48, - 1.0, 24, 16 ];	// Display Object, Offset x, Offset y, Offset z, width, height 
  
 /* Collisions Settings */ 
 new hitzone[3][RECT] = [  
@@ -91,7 +91,7 @@ public Close()
  
 main() 
 { 
-	if ( qState == GONE || GameState() != 1 ) 
+	if ( qState == GONE ||  GameState() != GS_ALL ) 
 	{ 
 		return; 
 	} 

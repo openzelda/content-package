@@ -87,7 +87,7 @@ public ShowMenu( entity:new_owner, entity:weapons1, entity:weapons2, entity:weap
 {
 	mode = entering;
 	
-	GameState(3);
+	GameState(GS_MENU);
 
 	for (new n = 0; n < 30; n++)
 	{
@@ -250,7 +250,7 @@ main()
 				mode = hudonly;
 				slide.y = 0;
 				ObjectFlag(menuObject, FLAG_HIDDEN, 0);
-				GameState(1);
+				GameState(GS_ALL);
 			}
 			RefreshMenu();
 			RefreshHUD();

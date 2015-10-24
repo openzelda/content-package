@@ -28,11 +28,11 @@ public Init(...)
 	SetupEntity( EntityState:RELEASED, TYPE_SWITCH, qObject, 32, 32 ); 
  
 	EntityGetSetting("on-event", events[1].function ); 
-	events[1].entity = entity:EntityGetSettingHash("on-entity"); 
+	events[1].entity = entity:EntityGetHash("on-entity"); 
 	events[1].active = ( StringLength(events[1].function) && events[1].entity ); 
  
 	EntityGetSetting("off-event", events[0].function ); 
-	events[0].entity = entity:EntityGetSettingHash("off-entity"); 
+	events[0].entity = entity:EntityGetHash("off-entity"); 
 	events[0].active = ( StringLength(events[0].function) && events[0].entity ); 
 	 
  

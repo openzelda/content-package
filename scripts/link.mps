@@ -13,23 +13,27 @@
  *     2011/07/01 [luke]: added knockback
  * Todo:
  ***********************************************/
+#define HITLENGTH 500
+#define INVLENGTH 1000
 
 #include <movement>
 #include <player_function>
 
+new sprite_colour = 0xFFFFFF00;
+
 /* Main Code */
 public Init(...)
 {
-	qAllowOffscreenMovement = true;
-
+	SetAllowOffscreenMovement();
 	GetEntityPosition(qPosition.x, qPosition.y, qPosition.z, qDisplayArea.x, qDisplayArea.y );
 	SetEntityDimension(30, 24, 2, 24);
-	SetPlayerSprites("p01n.png", "p01push.png", "p01pull.png", "p01swim.png", "p01swing.png");
+	SetPlayerSprites("p01.png", "p01push.png", "p01pull.png", "p01swim.png", "p01swing.png");
+
 	SetState(STANDING);
 	SetType(TYPE_PLAYER);
 	SetDir(SOUTH);
 
-	qObject = ObjectCreate(animation[qState][0], SPRITE, qDisplayArea.x, qDisplayArea.y, qPosition.z, 0, 0, WHITE, 1);
+	SetObject(StateGraphics[qState][0], qDisplayArea.x, qDisplayArea.y, qPosition.z)
 
 	/* */
 	CreateItemCounters()
@@ -40,11 +44,9 @@ public Init(...)
 
 	SetRestartPosition(0, "Start", qDisplayArea.x, qDisplayArea.y, MapCurrentIdent() );
 
-	
-
 	GiveWeapon("weapon_sword");
 
-	GameState(1);
+	GameState(GS_ALL);
 }
 
 /* UpdatePosition is called when a global entity has changed maps */
@@ -58,25 +60,40 @@ public UpdatePosition()
 /* Called each frame */
 main()
 {
-	// Menu 
-	if ( InputButton(BUTTON_MENU) == 1 )
+	new game_state = GameState();
+	switch (game_state)
 	{
-		if ( GameState() == 3 )
-		{
-			EntityPublicFunction(hudEntity, "HideMenu");
-		}
-		else
-		{
-			EntityPublicFunction(hudEntity, "ShowMenu", ''nnnn'', _, internal_ident, qSelectedWeapons[0], qSelectedWeapons[1], qSelectedWeapons[2] );			
-		}
+		case GS_PAUSE:
+			main_pause();
+		case GS_MENU:
+			main_menu();
+		default:
+			main_player();
 	}
+}
 
-	if ( qState == GONE ||  GameState() != 1 )
+public Close()
+{
+	CollisionSet(SELF, -1);
+	ObjectDelete(qObject);
+}
+
+/* */
+main_pause()
+{
+
+}
+
+main_player() {
+	// Menu 
+
+
+	if ( qState == GONE || GameState() == GS_PAUSE )
 		return;
 
 	if ( qHealth <= 0 && qState < DYING )
 	{
-		hit = 1000;
+		TimerSimpleStart(hitTimer, HITLENGTH);
 		qState = DYING;
 	}
 
@@ -84,6 +101,11 @@ main()
 	{
 		HandleDeath();
 		return;
+	}
+
+	if ( InputButton(BUTTON_MENU) == 1 )
+	{
+		EntityPublicFunction(hudEntity, "ShowMenu", ''nnnn'', _, internal_ident, qSelectedWeapons[0], qSelectedWeapons[1], qSelectedWeapons[2] );			
 	}
 
 	GetEntityPosition(qPosition.x, qPosition.y, qPosition.z, qDisplayArea.x, qDisplayArea.y );
@@ -94,12 +116,8 @@ main()
 	DisplayPlayer();
 
 	CheckCollisions();
-	if ( TimerCountdown(hit) )
-	{
-		qState = (qState == KNOCKED) ? STANDING : qState;
-	}
-	UpdateState();
 
+	UpdateState();
 
 	if ( InputButton(4)  == 1)
 	{
@@ -110,16 +128,15 @@ main()
 		qHealth += 50;
 	}
 	ConsoleOutput("Restart: %dx%d on %d", _restart[0].x, _restart[0].y, _restart[0].mapid );
-
 }
 
-public Close()
+main_menu()
 {
-	CollisionSet(SELF, -1);
-	ObjectDelete(qObject);
+	if ( InputButton(BUTTON_MENU) == 1 )
+	{
+		EntityPublicFunction(hudEntity, "HideMenu");
+	}
 }
-
-/* */
 
 CheckCollisions()
 {
@@ -137,9 +154,13 @@ CheckCollisions()
 			{
 				CallEntityAwaking( current, internal_ident, rect);
 			}
-			else if ( type == TYPE_ENEMY || type == TYPE_DOOR || type == TYPE_DROPITEM )
+			else if ( type == TYPE_ENEMY  )
 			{
-				CallEntityHit( current, internal_ident, D2A(qDirection), dist, APLAYER, 0, qDisplayArea.x, qDisplayArea.y, rect );
+				CallEntityHit( current, internal_ident, angle, dist, APLAYER, 0, qDisplayArea.x + qDisplayArea.w/2, qDisplayArea.y + qDisplayArea.h/2, rect );
+			}
+			else if ( type == TYPE_DOOR || type == TYPE_DROPITEM )
+			{
+				CallEntityHit( current, internal_ident, angle, dist, APLAYER, 0, qDisplayArea.x + qDisplayArea.w/2, qDisplayArea.y + qDisplayArea.h/2, rect );
 			}
 			else if ( type == TYPE_TRANSPORT )
 			{
@@ -170,19 +191,23 @@ CheckCollisions()
 	}
 }
 
-public Hurt(type, damage, angle)
+PUBLIC_EVENT_HURT
 {
+	//SystemCommand(4,1);
 	if (qState >= KNOCKED)
 		return;
-	if ( TimerCountdown(hit) )
+
+	if ( invTimer.active == 0 && hitTimer.active == 0)
 	{
-		//if ( qState == USING )
-		//	EntityPublicFunction(qSelectedWeapons[qUsingWeapon], "End", ''nn'', qObject, qDirection);
+		if ( qState == USING )
+			EntityPublicFunction(qSelectedWeapons[qUsingWeapon], "End", ''nn'', qObject, qDirection);
+		
 		SetState(KNOCKED);
 		qHealth -= damage;
-		qMovementAngle = angle%360;
-		//EntityPublicFunction(qHudEntity, "Refresh", '''');
-		hit = 1000;
+		qMovementAngle = angle
+
+		TimerSimpleStart(hitTimer, HITLENGTH);
+		TimerSimpleStart(invTimer, INVLENGTH);
 	}
 }
 
@@ -196,10 +221,12 @@ MovePlayer()
 		qMovementSpeed = 20.00;
 	else if ( qState == KNOCKED )
 	{
-		qMovementSpeed = -40.00;
+		qMovementSpeed = -80.00;
+		qFlipXMovement = true;
 	}
 	else
 		qMovementSpeed = 80.00;
+
 	if ( EntityMove(MASK_PLAYERSOLID) )
 	{
 		EntityPublicFunction( MAP_ENTITY, "SetPlayerPosition", ''nnn'', _, qPosition.x, qPosition.y, qPosition.z);
@@ -207,6 +234,8 @@ MovePlayer()
 	MapOffsetSet(qPosition.x,qPosition.y);
 
 	CollisionSet(SELF,0,TYPE_PLAYER,qDisplayArea.x+qDisplayOffset.x,qDisplayArea.y+qDisplayOffset.y,qDisplayArea.w,qDisplayArea.h);
+
+	qFlipYMovement = qFlipXMovement = false;
 }
 
 CheckEnvironment()
@@ -246,15 +275,12 @@ CheckForKeys()
 	new x_movement = 0;
 	new y_movement = 0;
 
-
-
-
-	if ( GameState() == 3 )
+	if ( GameState() == GS_MENU )
 	{
 		return;
 	}
 
-	if ( GameState() == 1 )
+	if (  GameState() == GS_ALL )
 	{
 		weapon_action[0] = InputButton(BUTTON_ACTION1, controller);
 		weapon_action[1] = InputButton(BUTTON_ACTION2, controller);
@@ -266,7 +292,7 @@ CheckForKeys()
 		if ( qUsingWeapon != -1 )
 		{
 			EntitySetPosition(qPosition.x, qPosition.y, qPosition.z, qSelectedWeapons[qUsingWeapon]);
-			if ( EntityPublicFunction( qSelectedWeapons[qUsingWeapon], "Use", ''nn'', _, qObject, qDirection) > 0 )
+			if ( EntityPublicFunction( qSelectedWeapons[qUsingWeapon], "Use", [ARG_NUMBER, ARG_NUMBER,ARG_END], _, qObject, qDirection) > 0 )
 				return;
 			else
 				SetState(STANDING);
@@ -278,7 +304,7 @@ CheckForKeys()
 	{
 		return;
 	}
-	else if ( qState != LIFTING && GameState() == 1 )
+	else if ( qState != LIFTING &&  GameState() == GS_ALL )
 	{
 		x_movement = InputAxis(0);
 		y_movement = InputAxis(1);
@@ -347,30 +373,44 @@ DisplayPlayer()
 	{
 		if ( !(qState == USING && animationUsingCustom) )
 			ObjectReplace(qObject, STATE_GRAPHIC, SPRITE );
-		ObjectEffect(qObject, WHITE, _, _, _, STATE_FLIP, _, _);
+		ObjectEffect(qObject, sprite_colour, _, _, _, STATE_FLIP, _, _);
 	}
 	ObjectPosition(qObject, qDisplayArea.x, qDisplayArea.y, qPosition.z, 0, 0);
-
-
+	ObjectEffect(qObject, sprite_colour, _, _, _, STATE_FLIP, _, _);
+/*
 	new x = qDisplayArea.x;
 	new y = qDisplayArea.y;
 	new s[8]{20} = [ "SOUTH", "SOUTHEAST","EAST","NORTHEAST","NORTH","NORTHWEST","WEST","SOUTHWEST"];
 
 	//GraphicsDraw( s[qDirection], TEXT, x, y, 6.0, 0, 0, RED);
-
-
-/*
-	if ( hit > 0 )
-		hidden = !hidden;
-	else
-		hidden = 1;
-	ObjectToggle(qObject, hidden);
 */
+
+
 }
 
 
+CycleAlpha(value, repeat)
+{
+	new r = value % repeat;
+	new d = value / repeat;
+	return (d % 2 ==1 ? 0 + r : 255 -r);
+
+}
+
 UpdateState()
 {
+	if ( TimerSimpleCountdown(hitTimer) )
+	{
+		qState = (qState == KNOCKED) ? STANDING : qState;
+		
+	}
+	
+	TimerSimpleCountdown(invTimer);
+	if ( invTimer.active )
+		sprite_colour = 0xFFFFFF00 + CycleAlpha(invTimer.timer, INVLENGTH/4)
+	else
+		sprite_colour = 0xFFFFFFFF;
+
 	/* Disabled Network Code */
 	/*
 	new message[1];
@@ -378,4 +418,3 @@ UpdateState()
 	NetworkMessage(false, 2, message, 1 );
 	*/
 }
-

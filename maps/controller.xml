@@ -1,0 +1,43 @@
+<map xmlns="http://mokoi.info/projects/mokoi">
+	<settings>
+		<dimensions width="1" height="1" />
+		<color red="128" blue="128" green="128" mode="0" />
+		<option name="music" value="" type="music" />
+	</settings>
+	<object value="titlemenu.png:b1" type="sprite">
+		<position x="16" y="16" w="16" h="16" z="0" l="0" r="0" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+	</object>
+	<object value="titlemenu.png:b2" type="sprite">
+		<position x="32" y="16" w="448" h="16" z="0" l="0" r="0" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+	</object>
+	<object value="titlemenu.png:b1" type="sprite">
+		<position x="480" y="16" w="16" h="16" z="0" l="0" r="90" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+	</object>
+	<object value="titlemenu.png:b1" type="sprite">
+		<position x="480" y="344" w="16" h="16" z="0" l="0" r="180" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+	</object>
+	<object value="titlemenu.png:b1" type="sprite">
+		<position x="16" y="344" w="16" h="16" z="0" l="0" r="270" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+	</object>
+	<object value="titlemenu.png:b2" type="sprite">
+		<position x="480" y="32" w="312" h="16" z="0" l="0" r="90" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+	</object>
+	<object value="titlemenu.png:b2" type="sprite">
+		<position x="32" y="344" w="448" h="16" z="0" l="0" r="180" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+	</object>
+	<object value="titlemenu.png:b2" type="sprite">
+		<position x="16" y="32" w="312" h="16" z="0" l="0" r="270" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+	</object>
+	<object value="Rectangle" type="rect">
+		<position x="32" y="32" w="447" h="311" z="0" l="0" r="0" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+	</object>
+</map>

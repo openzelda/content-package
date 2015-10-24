@@ -10,9 +10,29 @@
  * Changes:
  *     2013/04/01 [luke]: new file.
  ***********************************************/
+
+/***
+<api title="Functions">
+	<function name="SetAllowOffscreenMovement">
+		<summary>Allow Entities to move outside the map dimension</summary>
+	</function>
+	<function name="MovementAngle">
+		<summary>Calculate Angle</summary>
+		<return>Angle in degrees</return>
+	</function>
+	<function name="EntityMove">
+		<summary>Moves Entity</summary>
+		<return>True if moved</return>
+	</function>
+
+
+</api>
+***/
+
 #include <collision>
 
-#define STOREDPOSITION[.x, .y, Fixed:.z, .dir]
+#define STOREDPOSITION[.x, .y, Fixed:.z, Directions:.dir]
+#define ROUNDING[round_method:.x, round_method:.y] 
 
 stock Fixed:qMovementAngle = 0.0;
 stock Fixed:qMovementSpeed = 0.0;
@@ -22,38 +42,48 @@ stock bool:qFlipYMovement = false;
 stock bool:qFlipXMovement = false;
 stock bool:qAllowOffscreenMovement = false
 
-stock round_method:qMovementRounding[4][2] = [ [round_floor, round_ceil], [round_ceil, round_ceil], [round_ceil, round_floor], [round_floor, round_floor] ]; /* South, west, north, east */
+stock qMovementRounding[4][ROUNDING] = [ [round_floor, round_ceil], [round_ceil, round_ceil], [round_ceil, round_floor], [round_floor, round_floor] ]; /* South, west, north, east */
+
+
+stock SetAllowOffscreenMovement()
+{
+	qAllowOffscreenMovement = true;
+}
 
 stock Fixed:MovementAngle(Fixed:x_movement, Fixed:y_movement)
 {
 	return fatan2( y_movement, x_movement, degrees);
 }
 
-stock Fixed:Dir2Angle(d)
+stock Fixed:Dir2Angle(Directions:d)
 {
-	d %= 8;
-	return fixed(d*45);
+	return fixed(D2A(d));
 }
 
-stock D2A(d)
+stock D2A(Directions:d)
 {
-	d %= 8;
-	return d*45;
+	if ( d > UNSETDIR && d < DIRECTIONS_COUNT )
+	{
+		d %= DIRECTIONS_COUNT;
+		return d*45;
+	}
+	return 0;
 }
 
-stock Angle2Dir(Fixed:a, Fixed:offset = 0.0)
+stock Angle2Dir(Fixed:angle, Fixed:offset = 0.0)
 {
-	a += offset;
-	if ( a < 0.0 )
-		a += 360.0;
-	else if ( a >= 360.0 )
-		a -= 360.0;
-	return NumberClamp(fround(a) / 45, 0, 7);
+	angle += offset;
+	if ( angle < 0.0 )
+		angle += 360.0;
+	else if ( angle >= 360.0 )
+		angle -= 360.0;
+	return NumberClamp(fround(angle) / 45, 0, 7);
 }
 
 
 stock StorePosition()
 {
+	//Copy Old Positions
 	for ( new i = 5; i > 0; i-- )
 	{
 		qLocations[i] = qLocations[i-1];
@@ -78,6 +108,9 @@ stock EntityMove( maxmask, push_off = true )
 			speed -= 1.0;
 		}
 	}
+	ConsoleOutput("qHitMaskCheck[0] %d", qHitMaskCheck[0] );
+	ConsoleOutput("qHitMaskCheck[1] %d", qHitMaskCheck[1] );
+	ConsoleOutput("qHitMaskCheck[2] %d", qHitMaskCheck[2] );
 	results += EntityMoveCode(maxmask, speed, push_off);
 	StorePosition();
 	return results;
@@ -112,14 +145,14 @@ stock EntityMoveCode( maxmask, Fixed:speed, push_off = true )
 		}
 		else
 		{
-			qPosition.x = fixed( fround(qPosition.x, qMovementRounding[qDisplayDirection][0]) );
-			qPosition.y = fixed( fround(qPosition.y, qMovementRounding[qDisplayDirection][1]) );
+			qPosition.x = fixed( fround(qPosition.x, qMovementRounding[qDisplayDirection].x) );
+			qPosition.y = fixed( fround(qPosition.y, qMovementRounding[qDisplayDirection].y) );
 		}
 	}
 	else
 	{
-		qPosition.x = fixed( fround(qPosition.x, qMovementRounding[qDisplayDirection][0]) );
-		qPosition.y = fixed( fround(qPosition.y, qMovementRounding[qDisplayDirection][1]) );
+		qPosition.x = fixed( fround(qPosition.x, qMovementRounding[qDisplayDirection].x) );
+		qPosition.y = fixed( fround(qPosition.y, qMovementRounding[qDisplayDirection].y) );
 	}
 	EntitySetPosition(qPosition.x, qPosition.y, qPosition.z );
 	UpdateDisplayPosition();
@@ -135,23 +168,21 @@ stock MoveCheck(&a, Fixed:angle, maximum_mask_value, Fixed:movex, Fixed:movey)
 {
 	new checks[8][POSITION];
 
-	qDirection = Angle2Dir(angle, 22.5);
-	qDisplayDirection = NumberClamp((qDirection/2), 0, 3);
+	qDirection = Directions:Angle2Dir(angle, 22.5);
+	qDisplayDirection = (_:qDirection/2);
 
-	UpdateCollisionPoints( checks, fround(movex, qMovementRounding[qDisplayDirection][0]), fround(movey, qMovementRounding[qDisplayDirection][1]) );
+	UpdateCollisionPoints( checks, fround(movex, qMovementRounding[qDisplayDirection].x), fround(movey, qMovementRounding[qDisplayDirection].y) );
 	DisplayCollisionPoints( checks );
 
-	new l,r,q = qDirection;
-	l = (qDirection >= 7 ? 0 : qDirection + 1);
-	r = (qDirection == 0 ? 7 : qDirection - 1);
+	new l,r,q = _:qDirection;
+	l = (q >= 7 ? 0 : q + 1);
+	r = (q == 0 ? 7 : q - 1);
 
 	qHitMaskCheck[0] = MaskGetValue( checks[q].x, checks[q].y);
 	qHitMaskCheck[1] = MaskGetValue( checks[l].x, checks[l].y);
 	qHitMaskCheck[2] = MaskGetValue( checks[r].x, checks[r].y);
 
-	ConsoleOutput("qHitMaskCheck[0] %d %d x%d ", qHitMaskCheck[0], checks[q].x, checks[q].y );
-	ConsoleOutput("qHitMaskCheck[1] %d", qHitMaskCheck[1] );
-	ConsoleOutput("qHitMaskCheck[2] %d", qHitMaskCheck[2] );
+
 
 	if( qHitMaskCheck[0] > 255 )
 	{

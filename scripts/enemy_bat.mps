@@ -63,7 +63,7 @@ public Close()
  
 main() 
 { 
-	if ( qState == GONE || GameState() != 1 ) 
+	if ( qState == GONE ||  GameState() != GS_ALL ) 
 		return; 
  
 	if ( HasStateChanged() ) 

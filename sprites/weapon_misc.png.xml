@@ -1,24 +1,12 @@
-<sheet xmlns="http://mokoi.info/format/sheet">
+<sheet xmlns="http://mokoi.info/format/sheet" hidden="hidden">
 	<sprite name="bombweapon1" mask="0">
 		<position x="0" y="0" w="32" h="32" />
-	</sprite>
-	<sprite name="itembomb" mask="0">
-		<position x="32" y="0" w="32" h="32" />
 	</sprite>
 	<sprite name="firerod1" mask="0">
 		<position x="0" y="32" w="16" h="32" />
 	</sprite>
 	<sprite name="firerod2" mask="0">
 		<position x="16" y="32" w="32" h="32" />
-	</sprite>
-	<sprite name="firerod3" mask="0">
-		<position x="48" y="32" w="16" h="32" />
-	</sprite>
-	<sprite name="firerod4" mask="0">
-		<position x="0" y="64" w="32" h="16" />
-	</sprite>
-	<sprite name="firerod5" mask="0">
-		<position x="32" y="64" w="32" h="16" />
 	</sprite>
 	<sprite name="firerod6" mask="0">
 		<position x="0" y="80" w="32" h="32" />
@@ -128,7 +116,7 @@
 	<sprite name="hammerwest3" mask="0">
 		<position x="96" y="160" w="32" h="16" />
 	</sprite>
-	<sprite name="hammereast3" mask="0">
+	<sprite name="hammereast3" mask="0" hidden="hidden">
 		<position x="96" y="176" w="32" h="16" />
 	</sprite>
 	<sprite name="hammerwest2" mask="0">

@@ -53,7 +53,7 @@ main()
 		//EntityPublicFunction(MAIN_ENTITY, "CustomText", ''snnnnnn'', _,mes, -1, -1, 6000, 19, 2, 255 ); 
 	} 
  
-	if ( !GameState() ) 
+	if ( GameState() != GS_ALL ) 
 		return; 
  
 	if ( justEntered ) 
@@ -64,7 +64,6 @@ main()
 		{ 
 			if ( timer > 2.50 ) 
 				fade = fdiv(timer, 0.02); 
-			//forward public CustomText(message{}, x, y, z, width, height, alpha) 
 			EntityPublicFunction( MAIN_ENTITY, "CustomText", ''snnnnnn'',_, name, -1, -1, 6000, 40, 1, 255 - fround(fade) ); 
 		} 
 		else 

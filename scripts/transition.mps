@@ -23,9 +23,9 @@ new entity:target_entity;
 new map_id = 0;
 new entity:player_entity;
 
-new tstate, tmode;
+new transtition_state, transtition_mode;
 
-new acolor = 0xFFFFFFFF;
+new layer_colour = 0xFFFFFFFF;
 new Fixed:seconds;
 
 public Init(...) {}
@@ -33,22 +33,22 @@ public Close() {}
 
 main()
 {
-	if ( tstate )
+	if ( transtition_state )
 	{
-		if ( tstate == FADEEND )
+		if ( transtition_state == FADEEND )
 		{
-			tstate = 0;
+			transtition_state = 0;
 			LayerColour(0, 0xffffffff);
 			LayerColour(1, 0xffffffff);
 			LayerColour(2, 0xffffffff);
 			LayerColour(3, 0xffffffff);
 			LayerColour(4, 0xffffffff);
 			LayerColour(5, 0xffffffff);
-			GameState(1);
+			GameState(GS_ALL);
 		}
-		else if ( tstate == FADEOUT )
+		else if ( transtition_state == FADEOUT )
 		{
-			if ( target_entity && player_entity)
+			if ( target_entity && player_entity )
 			{
 				EntityPublicFunction(target_entity, "UpdatePlayer", ''nnn'', _, player_entity, 32.0, 48.0);
 				target_entity = entity:0;
@@ -56,7 +56,7 @@ main()
 			}
 			Fade();
 		}
-		else  if ( tstate == FADEIN )
+		else if ( transtition_state == FADEIN )
 		{
 			Fade();
 		}
@@ -71,8 +71,8 @@ public SetTarget(entity:nplayer_id, entity:ntarget_id, nmapid)
 	if ( nmapid )
 	{
 		map_id = nmapid;
-		GameState(0);
-		tstate = FADEIN;
+		GameState(GS_PAUSE);
+		transtition_state = FADEIN;
 		return true;
 	}
 	return false;
@@ -96,31 +96,31 @@ Fade()
 
 	seconds += GameFrameSeconds() * 400.0;
 	
-	if ( tstate == FADEOUT )
+	if ( transtition_state == FADEOUT )
 		alpha = 0 + fround(seconds);
-	else 
+	else
 		alpha = 255 - fround(seconds);
 
 	if ( seconds >= 255.0 )
 	{
-		if ( tstate == FADEIN )
+		if ( transtition_state == FADEIN )
 		{
 			MoveToTarget();
 		}
 
-		tstate++;
+		transtition_state++;
 		seconds = 0.0;
 	}
 	else
 	{
-		acolor = (alpha << 24 | alpha << 16 | alpha << 8 | 255);
+		layer_colour = (alpha << 24 | alpha << 16 | alpha << 8 | 255);
 
-		LayerColour(0, acolor);
-		LayerColour(1, acolor);
-		LayerColour(2, acolor);
-		LayerColour(3, acolor);
-		LayerColour(4, acolor);
-		LayerColour(5, acolor);
+		LayerColour(0, layer_colour);
+		LayerColour(1, layer_colour);
+		LayerColour(2, layer_colour);
+		LayerColour(3, layer_colour);
+		LayerColour(4, layer_colour);
+		LayerColour(5, layer_colour);
 	}
 
 }

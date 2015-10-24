@@ -12,7 +12,7 @@
  *     2013/04/01 [luke]:
  ***********************************************/
 
-new entityId:ownerid;
+new entity:ownerid;
 
 /* Public Function - Do not change */
 forward public Use( object:player, dir )

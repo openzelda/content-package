@@ -17,14 +17,12 @@
 
 
 /* Public Function */
-
 forward PUBLIC_EVENT_HIT;
 
+/* */
 new Fixed:TakeMagicCount = 0.00;
 new TakeMagic = true;
-new last = -1;
-new prev[.x, .y] = { 0, 0 };
-
+new  Directions:last =  Directions:-1;
 
 public Init( ... )
 {
@@ -42,9 +40,12 @@ public Init( ... )
 
 	EnemyInit();
 
-	qDirection = SOUTHWEST;
-	qMovementAngle= Dir2Angle(qDirection);
+	//Defaults
+	qDirection = SOUTHEAST;
+	qMovementAngle = Dir2Angle(SOUTHEAST);
 	qObject = EntityGetObject();
+	ObjectReplace(qObject, "enemy11.png:1", SPRITE);
+
 }
 
 public Close()
@@ -56,15 +57,14 @@ public Close()
 
 main()
 {
-	if ( qState == DEAD || GameState() != 1 )
+	if ( qState == DEAD ||  GameState() != GS_ALL )
 		return;
 
 	if ( !EntityMove( MASK_ENEMYSOLID2, false ))
 	{
-		new next = ( !qHitMaskCheck[1]  ? 2 : -2);
+		new Directions:next = qDirection+( !qHitMaskCheck[1]  ?  EAST: -EAST);
 
-		qDirection += next;
-		last = next;
+		qDirection = (next)%DIRECTIONS_COUNT;
 		qMovementAngle = Dir2Angle(qDirection);
 	}
 
@@ -83,19 +83,24 @@ PUBLIC_EVENT_HIT
 
 	if ( attack&APLAYER == APLAYER )
 	{
-		EntityPublicFunction( attacker, "Hurt", ''nnn'', AMAGIC, 50, angle );
+		new string{128};
+		StringFormat(string, _, "Angle %d, ", angle);
+		GraphicsDraw(string, TEXT, x,y,6.0,0,0)
 
+		new Fixed:w = -fsin(fixed(angle))*100;
+		new Fixed:q =fcos (fixed(angle))*100;
+
+		GraphicsDraw(string, LINE, 320,240,6.0, 320+fround(w), 240+fround(q))
+
+
+		CallEntityHurt( attacker, AMAGIC, 50, angle);
+		//SystemCommand(4,1);
 		if ( TakeMagic )
 		{
-		/*
-			if (GetCounterValue("magic") > 0)
-			{
-				IncCounterTarget("magic", -5);
-				PlaySound("_magicincrease.wav", 240);	
-				TakeMagic = false;
-				TakeMagicCount = 0.00;
-			}
-		*/
+			CallEntityChangeCounter(attacker, ITEM_MAGIC, -5);
+			AudioPlaySound("magic_increase", qDisplayArea.x, qDisplayArea.y);	
+			TakeMagic = true;
+			TakeMagicCount = 0.00;
 		}
 		else
 		{

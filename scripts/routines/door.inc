@@ -57,7 +57,7 @@ DoorInit( direction )
 		qDirection = FlipDirections( rotation % 16 );
 
 	/* Target */
-	targetEntity = entity:EntityGetSettingHash("target.entity");
+	targetEntity = entity:EntityGetHash("target.entity");
 	targetGrid = EntityGetNumber("target.grid");
 	EntityGetSetting("target.world", targetWorld);
 
@@ -174,7 +174,6 @@ FillMask()
 
 public UpdatePlayer( entity:playerId, Fixed:playerWidth, Fixed:playerHeight )
 {
-
 	ConsoleLog("Player Z: %q", qPosition.z + 0.1);
 	ConsoleLog("Door Z: %q", qPosition.z);
 	switch ( qDirection)
@@ -213,10 +212,8 @@ public MovePlayer(entity:p, Directions:d)
 	x = (targetGrid % 64);
 	y = (targetGrid / 64);
 
-
 	worldId = WorldLoad(targetWorld);
 	targetMap = WorldGetIdent( worldId, x, y  );
-
 
 	return TransitionPlayer( player, targetEntity, targetMap );
 }

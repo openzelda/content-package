@@ -1,0 +1,11 @@
+<map xmlns="http://mokoi.info/projects/mokoi">
+	<settings>
+		<dimensions width="1" height="1" />
+		<color red="128" blue="128" green="128" mode="0" />
+		<option name="music" value="" type="music" />
+	</settings>
+	<object value="titlemenu.png:bg" type="sprite">
+		<position x="0" y="0" w="512" h="512" z="0" l="0" r="0" f="0"/>
+		<color red="255" blue="255" green="255" alpha="255" />
+	</object>
+</map>

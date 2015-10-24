@@ -13,20 +13,22 @@
 #include <mokoi_quest>
 
 new qCollisionBuffer = 2;
+
+
 stock DisplayCollisionPoints( points[8][POSITION] )
 {
-	new Direction:l,Direction:r,Direction:q = qDirection;
-	l = (qDirection >= SOUTHWEST ? SOUTH : qDirection + 1);
-	r = (qDirection == SOUTH ? SOUTHWEST : qDirection - 1);
+	new Directions:l, Directions:r, Directions:q = qDirection;
+	l = (qDirection >= SOUTHWEST ? SOUTH : qDirection + Directions:1);
+	r = (qDirection == SOUTH ? SOUTHWEST : qDirection - Directions:1);
 
 	for ( new c = 0; c < 8; c++ )
 	{
-		GraphicsDraw("", RECTANGLE, points[Direction:c].x, points[Direction:c].y, 5.1, 4, 4, 0xFF00FFAA);
+		GraphicsDraw("", RECTANGLE, points[Directions:c].x, points[Directions:c].y, 5.1, 4, 4, 0xFF00FFAA);
 	}
 
-	GraphicsDraw("", RECTANGLE, points[Direction:r].x, points[Direction:r].y, 5.0, 5, 5, 0x0000FFAA);
-	GraphicsDraw("", RECTANGLE, points[Direction:l].x, points[Direction:l].y, 5.0, 5, 5, 0x00FFFFAA);
-	GraphicsDraw("", RECTANGLE, points[Direction:q].x, points[Direction:q].y, 5.0, 5, 5, 0x00FF00AA);
+	GraphicsDraw("", RECTANGLE, points[Directions:r].x, points[Directions:r].y, 5.0, 5, 5, 0x0000FFAA);
+	GraphicsDraw("", RECTANGLE, points[Directions:l].x, points[Directions:l].y, 5.0, 5, 5, 0x00FFFFAA);
+	GraphicsDraw("", RECTANGLE, points[Directions:q].x, points[Directions:q].y, 5.0, 5, 5, 0x00FF00AA);
 }
 
 stock UpdateCollisionPoints( points[8][POSITION], bx, by )

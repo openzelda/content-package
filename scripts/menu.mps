@@ -52,7 +52,7 @@ public Show( entity:new_owner, entity:weapons1, entity:weapons2, entity:weapons3
  
 	qObject = ObjectCreate("menu", CANVAS, 0, 0-slide, 6.0, 512, 512, 0xFFFFFFFF);  
  
-	GameState(3); 
+	GameState(GS_MENU); 
  
 	owner = new_owner; 
  

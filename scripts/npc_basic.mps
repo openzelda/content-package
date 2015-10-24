@@ -18,7 +18,7 @@ public Init( ... )
  
 main() 
 { 
-	if ( GameState() == 1 ) 
+	if (  GameState() == GS_ALL ) 
 	{ 
 		CollisionFromObject(qObject, 42); 
 		PathMoveObject(qObject, 600.0, qDisplayArea.x, qDisplayArea.y, true);

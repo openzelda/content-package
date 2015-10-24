@@ -17,7 +17,7 @@
  
  
 new timer = 0; 
-new sheet{} = "sword01.png"; 
+new sheet{} = "weapon_sword01.png"; 
 new player_sheet{} = "p01swing.png"; 
 new anim[4]{11} = [ "swing-front", "swing-side", "swing-back", "swing-side" ]; 
 new swordSprite{64}, playerSprite{64}; 
@@ -41,9 +41,11 @@ main() { } //So Engine doesn't complain
 weapon_begin(  object:playerObject, dir ) 
 { 
 	if ( timer || qObject != OBJECT_NONE ) 
-		return; 
+		return 0; 
 	 
 	timer = AnimationGetLength(sheet, anim[dir]); 
+	timer = timer ? timer : 200; // In case of missing sprite
+
 	StringFormat( swordSprite, _, "%s:%s", sheet, anim[dir] ); 
 	StringFormat( playerSprite, _, "%s:%s", player_sheet, anim[dir] ); 
  
@@ -61,9 +63,11 @@ weapon_begin(  object:playerObject, dir )
 	ObjectFlag( qObject, FLAG_ANIMLOOP, 0 ); 
 	ObjectEffect( qObject, WHITE, _, _, _, (dir == 3 ? 16 : 0), _, _ ); 
  
-	ObjectInfo( qObject, qDisplayArea.w, qDisplayArea.h); 
+	ObjectInfo( qObject, qDisplayArea.w, qDisplayArea.h, qDisplayArea.x, qDisplayArea.y); 
  
 	result = ObjectReplace( playerObject, playerSprite, SPRITE ); // Replace player sprite with swinging sprite 
+
+	return result;
 } 
  
 weapon_collision( ) 
@@ -80,7 +84,7 @@ weapon_collision( )
  
 	if ( CollisionCalculate() ) 
 	{ 
-		new entityId:current; 
+		new entity:current; 
 		new angle; 
 		new dist; 
 		new rect; 

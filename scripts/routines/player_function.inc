@@ -12,15 +12,15 @@
  *     2010/01/11 [luke]: new file.
  ***********************************************/
 #include <player>
+#include <entity>
+#include <entity_graphics>
 #include <entity_health>
+#include <text_function>
 
 /* Variable */
-new hudEntity = 0;
-new menuEntity = 0;
-new controller = 0;
-
-new Fixed:pushDelay = 0.00;
-
+new Fixed:pushDelay;
+new entity:hudEntity;
+new controller;
 
 /* Public Functions */
 forward public UpdatePosition();
@@ -30,53 +30,15 @@ forward public SetPlayerSprites( normal{32}, push{32}, pull{32}, swim{32}, using
 forward public SetRestartPosition( point, ndescription{}, nx, ny, nmapid );
 forward public UsingCustomAnimation()
 
-
 forward public GetItemCounter( type );
 forward public IncreaseItemCount( type, worth );
 
- /* Animation Code */ 
-#define STATE_FLIP (qDisplayDirection == 3 ? 16 : 0)
-#define STATE_GRAPHIC animation[qState][qDisplayDirection]
-
+/* Animation Code */ 
 stock animationUsingCustom = false;
-stock animation[STATE_COUNT][4]{32} = [
-	//SOUTH, WEST, NORTH, EAST, 
-	/* ALIVE */			["", "", "", ""],
-	/* STANDING */		["", "", "", ""],
-	/* MOVING */		["", "", "", ""],
-	/* HIT */			["", "", "", ""],
-	/* KNOCKED */		["", "", "", ""],
-	/* JUMPING */		["", "", "", ""],
-	/* SWIMMING */		["", "", "", ""],
-	/* FLOATING */		["", "", "", ""],
-	/* CHASING */		["", "", "", ""],
-	/* USING */			["", "", "", ""],
-	/* LIFTING */		["", "", "", ""],
-	/* STANDLIFT */		["", "", "", ""],
-	/* WALKLIFT */		["", "", "", ""],
-	/* SPECIALSTATE */	["", "", "", ""],
-	/* FALLING */		["", "", "", ""],
-	/* WAITING */		["", "", "", ""],
-	/* LEAPING */		["", "", "", ""],
-	/* PUSHING */		["", "", "", ""],
-	/* PULLING */		["", "", "", ""],
-	/* DYING */			["", "", "", ""],
-	/* DEAD */			["", "", "", ""],
-	/* GONE */			["", "", "", ""]
-];
 
 public UsingCustomAnimation()
 {
 	animationUsingCustom = true;
-}
-
-SetStateGraphic( EntityState:s, parent[], south_graphic[], west_graphic[], north_graphic[], east_graphic[] )
-{
-	s = EntityState:NumberClamp( _:s, _:ALIVE, _:DEAD );
-	StringFormat( animation[s][0], _, "%s:%s", parent, south_graphic);
-	StringFormat( animation[s][1], _, "%s:%s", parent, east_graphic);
-	StringFormat( animation[s][2], _, "%s:%s", parent, north_graphic);
-	StringFormat( animation[s][3], _, "%s:%s", parent, west_graphic);
 }
 
 public SetPlayerSprites( normal{32}, push{32}, pull{32}, swim{32}, using{32} )
@@ -124,31 +86,52 @@ public SetRestartPosition( point, ndescription{}, nx, ny, nmapid )
 }
 
 /* Hurting and Death */
-new hit = 0;
-new hidden = 1;
+new hitTimer[SIMPLETIMER] = [0, 0];
+new invTimer[SIMPLETIMER] = [0, 0];
 new DeathCount = 0;
-HandleDeath()
+
+HandleRestart()
 {
-	ObjectPosition(qObject, qDisplayArea.x, qDisplayArea.y, qPosition.z, 0, 0);
-	if ( qState == DEAD )
-	{
-		DeathCount = 0;
-		ObjectReplace(qObject, animation[DEAD][0], SPRITE);
-		EntityPublicFunction( EntityHash("TextFunctions"), "CustomText", ''snnnnnn'', _, "Press Enter to continue", -1, -1, 6.000, 11, 2, 255 );
-		if ( InputButton( 6 ) )
-		{
-			qHealth = qMaxHealth;
-			qState = STANDING;
+	new screen_center[2];
+
+	MapCurrentDimension(screen_center[0], screen_center[1]);
+	screen_center[0] /= 2;
+
 			LayerColour(0, 0xFFFFFFFF);
 			LayerColour(1, 0xFFFFFFFF);
 			LayerColour(2, 0xFFFFFFFF);
 			LayerColour(3, 0xFFFFFFFF);
 			LayerColour(4, 0xFFFFFFFF);
 			LayerColour(5, 0xFFFFFFFF);
-		
-			ObjectReplace(qObject, animation[STANDING][0], SPRITE);
-			//TransitionPlayer( internal_ident, 0, _restart[0].mapid, "");
+
+				qHealth = qMaxHealth;
+			qState = STANDING;
+
+			ObjectReplace(qObject, StateGraphics[STANDING][0], SPRITE);
+			
+			TransitionPlayer( internal_ident, 0, _restart[0].mapid );
 			EntitySetPosition( _restart[0].x, _restart[0].y, _ );
+
+}
+
+HandleDeath()
+{
+	GameState(GS_PLAYER);
+	ObjectPosition(qObject, qDisplayArea.x, qDisplayArea.y, qPosition.z, 0, 0);
+	if ( qState == DEAD )
+	{
+		DeathCount = 0;
+		ObjectReplace(qObject, StateGraphics[DEAD][0], SPRITE);
+		CustomText("Game Over")
+		
+		GraphicsDraw("menu_border01:1", SPRITE, 64, 64, 6, 160, 160);
+		CustomText("Save and Continue");
+		CustomText("Continue");
+		CustomText("Exit");
+
+		if ( InputButton( BUTTON_MENU ) )
+		{
+			Transition("respawn");
 		}
 	}
 	else if ( qState == DYING ) 
@@ -162,8 +145,8 @@ HandleDeath()
 		
 		if ( DeathCount == 0 )
 		{
-			DeathCount = AnimationGetLength( "p01n.png", "death" );
-			ObjectReplace(qObject, animation[DYING][0], SPRITE);
+			DeathCount = AnimationGetLength( "p01.png", "death" );
+			ObjectReplace(qObject, StateGraphics[DYING][0], SPRITE);
 		}
 		if ( TimerCountdown(DeathCount) )
 			qState = DEAD;
@@ -177,14 +160,14 @@ new qUsingWeapon = -1;
 
 public GiveWeapon( weapon{} )
 {
-	new hash;
+	new entity:hash;
 	new entityName{64};
 	StringCopy(entityName, weapon);
 
 	hash = EntityCreate( entityName, "", 0, 0, qPosition.z, GLOBAL_MAP );
 
-	EntityPublicFunction( hash, "SetOwner", ''n'', _, internal_ident );
-	EntityPublicFunction( hudEntity, "AddWeapon", ''snn'', _, entityName, hash, internal_ident );
+	EntityPublicFunction( hash, "SetOwner", [ ARG_NUMBER, ARG_END ], _, internal_ident );
+	EntityPublicFunction( hudEntity, "AddWeapon", [ ARG_STRING, ARG_NUMBER, ARG_NUMBER, ARG_END ], _, entityName, hash, internal_ident );
 
 	SetWeapon( hash, BUTTON_ACTION1 );
 }
@@ -198,9 +181,9 @@ public SetWeapon( weapon_id, slot )
 }
 
 /* Items */
-new qCounters[16];
+new entity:qCounters[16];
 new countersSize[6] = [ 300, 20, 20, 500, 9, 300]; 
-ipow(base, exp)
+static ipow(base, exp)
 {
 	new result = 1;
 	while (exp)
@@ -220,7 +203,7 @@ public GetItemCounter( type )
 	{
 		return qCounters[type];
 	}
-	return 
+	return 0;
 
 }
 
@@ -228,7 +211,7 @@ CreateItemCounters()
 {
 	for ( new q = 0; q < 6; q++ ) 
 	{
-		qCounters[q]= EntityCreate("counter", "", 0, 0, 1, GLOBAL_MAP, [ARG_RETURN_NUMBER, ARG_RETURN_NUMBER, ARG_END], _, 0, countersSize[q] ); 
+		qCounters[q] = EntityCreate("counter", "", 0, 0, 1, GLOBAL_MAP, [ARG_RETURN_NUMBER, ARG_RETURN_NUMBER, ARG_END], _, 0, countersSize[q] ); 
 	}
 }
 
@@ -242,7 +225,3 @@ public IncreaseItemCount( type, worth )
 		}
 	}
 }
-
-
-
-
