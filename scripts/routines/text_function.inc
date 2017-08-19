@@ -18,7 +18,7 @@ stock DrawSingleCharacter(achar, x, y, fixed:z, colour, alpha)
 	return w;
 }
 
-stock CustomText(message{}, message_length = -1, x = -1, y = -1, fixed:z = 6.00, box_width = 11, box_height = 2, alpha = 255)
+stock CustomText(message{}, message_length = -1, x = -1, y = -1, fixed:z = 6.00, box_width = 11, box_height = 2, alpha = 255, color = 0xFFFFFF00)
 {
 	if ( _text_screen[0] == -1 )
 	{
@@ -69,7 +69,7 @@ stock CustomText(message{}, message_length = -1, x = -1, y = -1, fixed:z = 6.00,
 		{
 			case 33 .. 126:
 			{
-				nx += DrawSingleCharacter(message{j}, nx, y, z, 0xFFFFFF00, alpha);
+				nx += DrawSingleCharacter(message{j}, nx, y, z, color, alpha);
 				chars++;
 			}
 			case 32:
@@ -94,7 +94,7 @@ stock CustomText(message{}, message_length = -1, x = -1, y = -1, fixed:z = 6.00,
 			}
 			default:
 			{
-				nx += DrawSingleCharacter('?', nx, y, z, 0xFFFFFF00, alpha);
+				nx += DrawSingleCharacter('?', nx, y, z, color, alpha);
 				//Unsupported UNICODE
 			}
 		}

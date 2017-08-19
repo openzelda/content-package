@@ -1,533 +1,147 @@
 <sheet xmlns="http://mokoi.info/format/sheet">
-	<sprite name="dun1" mask="m24x24x0">
-		<position x="0" y="0" w="48" h="48" />
+	<sprite name="d1-master" mask="0">
+		<position x="256" y="224" w="64" h="48" />
 	</sprite>
-	<sprite name="dun2" mask="m24x24x0">
-		<position x="80" y="0" w="48" h="48" />
+	<sprite name="a4" mask="255">
+		<position x="320" y="64" w="48" h="64" />
 	</sprite>
-	<sprite name="dun3" mask="m24x24x0">
-		<position x="80" y="80" w="48" h="48" />
+	<sprite name="a3" mask="255">
+		<position x="384" y="0" w="32" h="64" />
 	</sprite>
-	<sprite name="dun4" mask="m24x24x0">
-		<position x="0" y="80" w="48" h="48" />
+	<sprite name="a1" mask="255">
+		<position x="416" y="0" w="32" h="64" />
 	</sprite>
-	<sprite name="dun5" mask="m16x24x0">
-		<position x="48" y="0" w="32" h="48" />
+	<sprite name="a2" mask="255">
+		<position x="256" y="0" w="64" h="48" />
 	</sprite>
-	<sprite name="dun6" mask="m16x24x0">
-		<position x="48" y="80" w="32" h="48" />
+	<sprite name="ent-floor2" mask="0">
+		<position x="256" y="112" w="64" h="16" />
 	</sprite>
-	<sprite name="dun7" mask="m24x16x0">
-		<position x="80" y="48" w="48" h="32" />
+	<sprite name="ent-arch" mask="0">
+		<position x="256" y="160" w="64" h="16" />
 	</sprite>
-	<sprite name="dun8" mask="m24x16x0">
-		<position x="0" y="48" w="48" h="32" />
+	<sprite name="ent-floor" mask="0">
+		<position x="64" y="112" w="160" h="64" />
 	</sprite>
-	<sprite name="dun9" mask="0">
-		<position x="48" y="48" w="32" h="32" />
+	<sprite name="switch" mask="0" entity="switch.mps">
+		<position x="96" y="80" w="32" h="32" />
 	</sprite>
-	<sprite name="dun10" mask="0">
-		<position x="128" y="0" w="16" h="16" />
+	<sprite name="d1-arch" mask="0">
+		<position x="64" y="256" w="64" h="16" />
 	</sprite>
-	<sprite name="dun11" mask="0">
-		<position x="144" y="0" w="16" h="16" />
+	<sprite name="t1_2" mask="0" hidden="hidden">
+		<position x="0" y="240" w="64" h="32" />
 	</sprite>
-	<sprite name="dun12" mask="0">
-		<position x="144" y="16" w="16" h="16" />
+	<sprite name="t1_1" mask="0" hidden="hidden">
+		<position x="0" y="208" w="64" h="32" />
 	</sprite>
-	<sprite name="dun13" mask="0">
-		<position x="128" y="16" w="16" h="16" />
+	<sprite name="t1_0" mask="0" hidden="hidden">
+		<position x="0" y="176" w="64" h="32" />
 	</sprite>
-	<sprite name="dun14" mask="0">
-		<position x="128" y="32" w="16" h="32" />
+	<sprite name="wb" mask="0">
+		<position x="128" y="80" w="32" h="32" />
 	</sprite>
-	<sprite name="dun15" mask="0">
-		<position x="144" y="32" w="16" h="32" />
+	<sprite name="wa" mask="0">
+		<position x="224" y="48" w="32" h="32" />
 	</sprite>
-	<sprite name="dun16" mask="0">
-		<position x="128" y="64" w="32" h="16" />
+	<sprite name="w9" mask="0">
+		<position x="192" y="48" w="32" h="32" />
 	</sprite>
-	<sprite name="dun17" mask="0">
-		<position x="128" y="80" w="32" h="16" />
+	<sprite name="w8" mask="0">
+		<position x="176" y="48" w="16" h="48" />
 	</sprite>
-	<sprite name="dun18" mask="0">
-		<position x="128" y="96" w="16" h="16" />
+	<sprite name="w7" mask="0">
+		<position x="160" y="48" w="16" h="64" />
 	</sprite>
-	<sprite name="dun19" mask="0">
-		<position x="144" y="96" w="16" h="16" />
+	<sprite name="f5" mask="0">
+		<position x="128" y="48" w="32" h="32" />
 	</sprite>
-	<sprite name="dun20" mask="0">
-		<position x="144" y="112" w="16" h="16" />
+	<sprite name="f4" mask="0">
+		<position x="96" y="48" w="32" h="32" />
 	</sprite>
-	<sprite name="dun21" mask="0">
-		<position x="128" y="112" w="16" h="16" />
+	<sprite name="f3" mask="1">
+		<position x="64" y="48" w="32" h="32" />
 	</sprite>
-	<sprite name="dun22" mask="m24x24x0">
+	<sprite name="f2" mask="0">
+		<position x="32" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="f1" mask="0">
+		<position x="0" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="w6" mask="255">
+		<position x="208" y="0" w="48" h="48" />
+	</sprite>
+	<sprite name="w5" mask="255">
 		<position x="160" y="0" w="48" h="48" />
 	</sprite>
-	<sprite name="dun23" mask="m24x24x0">
-		<position x="240" y="0" w="48" h="48" />
+	<sprite name="w4" mask="255">
+		<position x="128" y="0" w="32" h="48" />
 	</sprite>
-	<sprite name="dun24" mask="m24x24x0">
-		<position x="240" y="80" w="48" h="48" />
+	<sprite name="w3" mask="255">
+		<position x="80" y="0" w="48" h="48" />
 	</sprite>
-	<sprite name="dun25" mask="m24x24x0">
-		<position x="160" y="80" w="48" h="48" />
+	<sprite name="w2" mask="255">
+		<position x="48" y="0" w="32" h="48" />
 	</sprite>
-	<sprite name="dun26" mask="m16x24x40">
-		<position x="208" y="0" w="32" h="48" />
+	<sprite name="w1" mask="255">
+		<position x="0" y="0" w="48" h="48" />
 	</sprite>
-	<sprite name="dun27" mask="m16x24x24">
-		<position x="208" y="80" w="32" h="48" />
+	<sprite name="d1" mask="0" entity="door.mps">
+		<position x="64" y="224" w="64" h="48" />
 	</sprite>
-	<sprite name="dun28" mask="m24x16x32">
-		<position x="160" y="48" w="48" h="32" />
+	<sprite name="d1-closed" mask="0" hidden="hidden">
+		<position x="128" y="224" w="64" h="48" />
 	</sprite>
-	<sprite name="dun29" mask="m24x16x48">
-		<position x="240" y="48" w="48" h="32" />
+	<sprite name="d1-locked" mask="0" entity="door.mps" hidden="hidden">
+		<position x="192" y="224" w="64" h="48" />
 	</sprite>
-	<sprite name="dun30" mask="0">
-		<position x="208" y="48" w="32" h="32" />
+	<sprite name="crack" mask="0" entity="crack.mps">
+		<position x="128" y="176" w="64" h="48" />
 	</sprite>
-	<sprite name="dun31" mask="0">
-		<position x="288" y="0" w="16" h="16" />
+	<sprite name="b1" mask="0">
+		<position x="0" y="80" w="16" h="16" />
 	</sprite>
-	<sprite name="dun32" mask="0">
-		<position x="304" y="0" w="16" h="16" />
+	<sprite name="b2" mask="0">
+		<position x="16" y="80" w="32" h="16" />
 	</sprite>
-	<sprite name="dun33" mask="0">
-		<position x="304" y="16" w="16" h="16" />
+	<sprite name="b3" mask="0">
+		<position x="48" y="80" w="16" h="16" />
 	</sprite>
-	<sprite name="dun34" mask="0">
-		<position x="288" y="16" w="16" h="16" />
+	<sprite name="b4" mask="0">
+		<position x="0" y="96" w="16" h="16" />
 	</sprite>
-	<sprite name="dun35" mask="0">
-		<position x="288" y="32" w="16" h="32" />
+	<sprite name="b6" mask="0">
+		<position x="48" y="96" w="16" h="16" />
 	</sprite>
-	<sprite name="dun36" mask="0">
-		<position x="304" y="32" w="16" h="32" />
+	<sprite name="b5" mask="0">
+		<position x="16" y="96" w="32" h="16" />
 	</sprite>
-	<sprite name="dun37" mask="0">
-		<position x="288" y="64" w="32" h="16" />
+	<sprite name="ent" mask="0" entity="dungeon_entrance.mps">
+		<position x="256" y="128" w="64" h="48" />
 	</sprite>
-	<sprite name="dun38" mask="0">
-		<position x="288" y="80" w="32" h="16" />
+	<sprite name="block" mask="240" entity="block.mps">
+		<position x="64" y="80" w="32" h="32" />
 	</sprite>
-	<sprite name="dun39" mask="0">
-		<position x="288" y="96" w="16" h="16" />
+	<sprite name="f5b" mask="0">
+		<position x="128" y="48" w="16" h="16" />
 	</sprite>
-	<sprite name="dun40" mask="0">
-		<position x="304" y="96" w="16" h="16" />
+	<animation name="t1" mask="0">
+		<frame sprite="t1_0" x="0" y="0" ms="600" fs="0"/>
+		<frame sprite="t1_1" x="0" y="0" ms="600" fs="0"/>
+		<frame sprite="t1_2" x="0" y="0" ms="600" fs="0"/>
+	</animation>
+	<sprite name="trav_0" mask="0" hidden="hidden">
+		<position x="0" y="272" w="32" h="32" />
 	</sprite>
-	<sprite name="dun41" mask="0">
-		<position x="304" y="112" w="16" h="16" />
+	<sprite name="trav_1" mask="0" hidden="hidden">
+		<position x="32" y="272" w="32" h="32" />
 	</sprite>
-	<sprite name="dun42" mask="0">
-		<position x="288" y="112" w="16" h="16" />
+	<sprite name="trav_2" mask="0" hidden="hidden">
+		<position x="64" y="272" w="32" h="32" />
 	</sprite>
-	<sprite name="dun43" mask="0">
-		<position x="320" y="0" w="32" h="32" />
-	</sprite>
-	<sprite name="dun44" mask="0">
-		<position x="352" y="0" w="32" h="32" />
-	</sprite>
-	<sprite name="dun45" mask="0">
-		<position x="384" y="0" w="32" h="32" />
-	</sprite>
-	<sprite name="dun46" mask="0">
-		<position x="384" y="32" w="32" h="32" />
-	</sprite>
-	<sprite name="dun47" mask="0">
-		<position x="384" y="64" w="32" h="32" />
-	</sprite>
-	<sprite name="dun48" mask="0">
-		<position x="352" y="64" w="32" h="32" />
-	</sprite>
-	<sprite name="dun49" mask="0">
-		<position x="320" y="64" w="32" h="32" />
-	</sprite>
-	<sprite name="dun50" mask="0">
-		<position x="320" y="32" w="32" h="32" />
-	</sprite>
-	<sprite name="dun51" mask="m24x24x0">
-		<position x="416" y="0" w="48" h="48" />
-	</sprite>
-	<sprite name="dun52" mask="m24x24x0">
-		<position x="464" y="0" w="48" h="48" />
-	</sprite>
-	<sprite name="dun53" mask="m24x24x0">
-		<position x="464" y="48" w="48" h="48" />
-	</sprite>
-	<sprite name="dun54" mask="m24x24x0">
-		<position x="416" y="48" w="48" h="48" />
-	</sprite>
-	<sprite name="dun55" mask="m24x24x0">
-		<position x="416" y="96" w="48" h="48" />
-	</sprite>
-	<sprite name="dun56" mask="m24x24x0">
-		<position x="464" y="96" w="48" h="48" />
-	</sprite>
-	<sprite name="dun57" mask="m24x24x0">
-		<position x="464" y="144" w="48" h="48" />
-	</sprite>
-	<sprite name="dun58" mask="m24x24x0">
-		<position x="416" y="144" w="48" h="48" />
-	</sprite>
-	<sprite name="dun59" mask="0">
-		<position x="352" y="96" w="32" h="32" />
-	</sprite>
-	<sprite name="dun60" mask="0">
-		<position x="384" y="96" w="32" h="32" />
-	</sprite>
-	<sprite name="dun61" mask="0">
-		<position x="384" y="128" w="32" h="32" />
-	</sprite>
-	<sprite name="dun62" mask="0">
-		<position x="352" y="128" w="32" h="32" />
-	</sprite>
-	<sprite name="dun63" mask="m8x8x8">
-		<position x="320" y="96" w="16" h="16" />
-	</sprite>
-	<sprite name="dun64" mask="m8x8x8">
-		<position x="320" y="112" w="16" h="16" />
-	</sprite>
-	<sprite name="dun65" mask="m8x8x8">
-		<position x="336" y="96" w="16" h="16" />
-	</sprite>
-	<sprite name="dun126" mask="0">
-		<position x="336" y="112" w="16" h="16" />
-	</sprite>
-	<sprite name="dun66" mask="m16x16x0">
-		<position x="352" y="160" w="32" h="32" />
-	</sprite>
-	<sprite name="dun67" mask="m16x24x0">
-		<position x="384" y="176" w="32" h="48" />
-	</sprite>
-	<sprite name="dun68" mask="m16x8x0">
-		<position x="384" y="160" w="32" h="16" />
-	</sprite>
-	<sprite name="dun75" mask="m16x32x0">
-		<position x="128" y="256" w="32" h="64" />
-	</sprite>
-	<sprite name="dun76" mask="m16x32x0">
-		<position x="160" y="256" w="32" h="64" />
-	</sprite>
-	<sprite name="dun77" mask="m16x32x0">
-		<position x="192" y="256" w="32" h="64" />
-	</sprite>
-	<sprite name="dun78" mask="m16x32x0">
-		<position x="224" y="256" w="32" h="64" />
-	</sprite>
-	<sprite name="dun79" mask="m32x16x0">
-		<position x="256" y="256" w="64" h="32" />
-	</sprite>
-	<sprite name="dun80" mask="m32x16x0">
-		<position x="256" y="288" w="64" h="32" />
-	</sprite>
-	<sprite name="dun81" mask="m32x16x0">
-		<position x="320" y="256" w="64" h="32" />
-	</sprite>
-	<sprite name="dun82" mask="m32x16x0">
-		<position x="320" y="288" w="64" h="32" />
-	</sprite>
-	<sprite name="dun83" mask="m8x32x0">
-		<position x="384" y="256" w="16" h="64" />
-	</sprite>
-	<sprite name="dun84" mask="m8x32x0">
-		<position x="400" y="256" w="16" h="64" />
-	</sprite>
-	<sprite name="dun85" mask="m8x32x0">
-		<position x="416" y="256" w="16" h="64" />
-	</sprite>
-	<sprite name="dun86" mask="m8x32x0">
-		<position x="432" y="256" w="16" h="64" />
-	</sprite>
-	<sprite name="dun87" mask="m8x24x0">
-		<position x="448" y="256" w="16" h="48" />
-	</sprite>
-	<sprite name="dun88" mask="m8x24x0">
-		<position x="464" y="256" w="16" h="48" />
-	</sprite>
-	<sprite name="dun89" mask="m8x24x0">
-		<position x="480" y="256" w="16" h="48" />
-	</sprite>
-	<sprite name="dun90" mask="m8x24x0">
-		<position x="496" y="256" w="16" h="48" />
-	</sprite>
-	<sprite name="dun114" mask="0">
-		<position x="512" y="192" w="16" h="16" />
-	</sprite>
-	<sprite name="dun115" mask="0">
-		<position x="528" y="192" w="16" h="16" />
-	</sprite>
-	<sprite name="dun116" mask="0">
-		<position x="512" y="208" w="16" h="16" />
-	</sprite>
-	<sprite name="dun117" mask="0">
-		<position x="528" y="208" w="16" h="16" />
-	</sprite>
-	<sprite name="dun118" mask="0">
-		<position x="512" y="224" w="16" h="16" />
-	</sprite>
-	<sprite name="dun119" mask="0">
-		<position x="528" y="224" w="16" h="16" />
-	</sprite>
-	<sprite name="dun120" mask="0">
-		<position x="512" y="240" w="16" h="16" />
-	</sprite>
-	<sprite name="dun121" mask="0">
-		<position x="528" y="240" w="16" h="16" />
-	</sprite>
-	<sprite name="dun91" mask="0">
-		<position x="320" y="128" w="16" h="16" />
-	</sprite>
-	<sprite name="dun92" mask="0">
-		<position x="336" y="128" w="16" h="16" />
-	</sprite>
-	<sprite name="dun93" mask="0">
-		<position x="336" y="144" w="16" h="16" />
-	</sprite>
-	<sprite name="dun94" mask="0">
-		<position x="320" y="144" w="16" h="16" />
-	</sprite>
-	<sprite name="dun95" mask="0">
-		<position x="352" y="32" w="16" h="16" />
-	</sprite>
-	<sprite name="dun96" mask="0">
-		<position x="368" y="32" w="16" h="16" />
-	</sprite>
-	<sprite name="dun97" mask="0">
-		<position x="368" y="48" w="16" h="16" />
-	</sprite>
-	<sprite name="dun98" mask="0">
-		<position x="352" y="48" w="16" h="16" />
-	</sprite>
-	<sprite name="dun122" mask="0">
-		<position x="512" y="160" w="16" h="16" />
-	</sprite>
-	<sprite name="dun123" mask="0">
-		<position x="528" y="160" w="16" h="16" />
-	</sprite>
-	<sprite name="dun124" mask="0">
-		<position x="512" y="176" w="16" h="16" />
-	</sprite>
-	<sprite name="dun125" mask="0">
-		<position x="528" y="176" w="16" h="16" />
-	</sprite>
-	<sprite name="dun132" mask="m16x16x0">
-		<position x="0" y="256" w="32" h="32" />
-	</sprite>
-	<sprite name="dun133" mask="m16x16x0">
-		<position x="32" y="256" w="32" h="32" />
-	</sprite>
-	<sprite name="dun134" mask="m16x16x0">
-		<position x="0" y="288" w="32" h="32" />
-	</sprite>
-	<sprite name="dun135" mask="m16x16x0">
-		<position x="32" y="288" w="32" h="32" />
-	</sprite>
-	<sprite name="dun136" mask="m16x16x0">
-		<position x="64" y="256" w="32" h="32" />
-	</sprite>
-	<sprite name="dun137" mask="m16x16x0">
-		<position x="96" y="256" w="32" h="32" />
-	</sprite>
-	<sprite name="dun138" mask="m16x16x0">
-		<position x="64" y="288" w="32" h="32" />
-	</sprite>
-	<sprite name="dun139" mask="m16x16x0">
-		<position x="96" y="288" w="32" h="32" />
-	</sprite>
-	<sprite name="dun100" mask="0">
-		<position x="416" y="192" w="64" h="64" />
-	</sprite>
-	<sprite name="dun101" mask="0">
-		<position x="480" y="192" w="32" h="32" />
-	</sprite>
-	<sprite name="dun102" mask="0">
-		<position x="480" y="224" w="32" h="32" />
-	</sprite>
-	<sprite name="dun103" mask="0">
-		<position x="384" y="224" w="32" h="32" />
-	</sprite>
-	<sprite name="dun106" mask="m24x32x0">
-		<position x="0" y="128" w="48" h="64" />
-	</sprite>
-	<sprite name="dun107" mask="m24x32x0">
-		<position x="48" y="128" w="48" h="64" />
-	</sprite>
-	<sprite name="dun140" mask="0">
-		<position x="512" y="0" w="32" h="32" />
-	</sprite>
-	<sprite name="dun108" mask="0">
-		<position x="96" y="128" w="160" h="64" />
-	</sprite>
-	<sprite name="dun109" mask="0">
-		<position x="256" y="176" w="64" h="16" />
-	</sprite>
-	<sprite name="dun110" mask="0">
-		<position x="496" y="240" w="16" h="16" />
-	</sprite>
-	<sprite name="" mask="0">
-		<position x="0" y="0" w="0" h="0" />
-	</sprite>
-	<sprite name="dun129" mask="0">
-		<position x="512" y="32" w="32" h="32" />
-	</sprite>
-	<sprite name="" mask="0">
-		<position x="0" y="0" w="0" h="0" />
-	</sprite>
-	<sprite name="dun69" mask="m8x24x0">
-		<position x="432" y="320" w="16" h="48" />
-	</sprite>
-	<sprite name="door072" mask="_doormaskn2"entity="d_dundoor072">
-		<position x="0" y="384" w="64" h="32" />
-	</sprite>
-	<sprite name="level7doorarch1" mask="_doorarchmaskn1">
-		<position x="256" y="464" w="64" h="16" />
-	</sprite>
-	<sprite name="level7doorarch2" mask="_doorarchmaskn1">
-		<position x="320" y="464" w="64" h="16" />
-	</sprite>
-	<sprite name="level7doorarch3" mask="_doorarchmaskn1">
-		<position x="384" y="464" w="64" h="16" />
-	</sprite>
-	<sprite name="level7doorarch9" mask="_doorarchmaske1">
-		<position x="256" y="320" w="16" h="64" />
-	</sprite>
-	<sprite name="level7doorarch11" mask="_doorarchmaske1">
-		<position x="272" y="320" w="16" h="64" />
-	</sprite>
-	<sprite name="level7doorarch12" mask="_doorarchmaskn1">
-		<position x="0" y="544" w="64" h="16" />
-	</sprite>
-	<sprite name="level7doorarch4" mask="_doorarchmaskn1">
-		<position x="64" y="544" w="64" h="16" />
-	</sprite>
-	<sprite name="level7doorarch5" mask="_doorarchmaskn1">
-		<position x="128" y="544" w="64" h="16" />
-	</sprite>
-	<sprite name="steps07a" mask="_stairsmaskn1"entity="d_dunsteps07a">
-		<position x="0" y="320" w="64" h="64" />
-	</sprite>
-	<sprite name="steps07b" mask="_stairsmaskn1"entity="d_dunsteps07b">
-		<position x="64" y="320" w="64" h="64" />
-	</sprite>
-	<sprite name="steps07c" mask="_stairsmaskn2"entity="d_dunsteps07c">
-		<position x="128" y="320" w="64" h="64" />
-	</sprite>
-	<sprite name="steps07d" mask="_stairsmaskn3"entity="d_dunsteps07d">
-		<position x="192" y="320" w="64" h="64" />
-	</sprite>
-	<sprite name="door074" mask="_doormaskn2"entity="d_dundoor074">
-		<position x="64" y="384" w="64" h="32" />
-	</sprite>
-	<sprite name="door075" mask="_doormaskn2"entity="d_dundoor075">
-		<position x="128" y="384" w="64" h="32" />
-	</sprite>
-	<sprite name="door076" mask="_doormaskn2"entity="d_dundoor076">
-		<position x="192" y="384" w="64" h="32" />
-	</sprite>
-	<sprite name="door077" mask="_doormaskn2"entity="d_dundoor077">
-		<position x="256" y="384" w="64" h="32" />
-	</sprite>
-	<sprite name="door078" mask="_doormaskn2"entity="d_dundoor078">
-		<position x="0" y="416" w="64" h="32" />
-	</sprite>
-	<sprite name="door079" mask="_doormaske2"entity="d_dundoor079">
-		<position x="32" y="480" w="32" h="64" />
-	</sprite>
-	<sprite name="door07a" mask="_doormaskn2"entity="d_dundoor07a">
-		<position x="0" y="448" w="64" h="32" />
-	</sprite>
-	<sprite name="door07b" mask="_doormaske2"entity="d_dundoor07b">
-		<position x="0" y="480" w="32" h="64" />
-	</sprite>
-	<sprite name="door07c" mask="_doormaskn2"entity="d_dundoor07c">
-		<position x="64" y="416" w="64" h="32" />
-	</sprite>
-	<sprite name="door07d" mask="_doormaske2"entity="d_dundoor07d">
-		<position x="96" y="480" w="32" h="64" />
-	</sprite>
-	<sprite name="door07e" mask="_doormaskn2"entity="d_dundoor07e">
-		<position x="64" y="448" w="64" h="32" />
-	</sprite>
-	<sprite name="door07f" mask="_doormaske2"entity="d_dundoor07f">
-		<position x="64" y="480" w="32" h="64" />
-	</sprite>
-	<sprite name="door07g" mask="_doormaskn2"entity="d_dundoor07g">
-		<position x="128" y="416" w="64" h="32" />
-	</sprite>
-	<sprite name="door07h" mask="_doormaske2"entity="d_dundoor07h">
-		<position x="160" y="480" w="32" h="64" />
-	</sprite>
-	<sprite name="door07i" mask="_doormaskn2"entity="d_dundoor07i">
-		<position x="128" y="448" w="64" h="32" />
-	</sprite>
-	<sprite name="door07j" mask="_doormaske2"entity="d_dundoor07j">
-		<position x="128" y="480" w="32" h="64" />
-	</sprite>
-	<sprite name="door07k" mask="_doormaskn2"entity="d_dundoor07k">
-		<position x="192" y="416" w="64" h="32" />
-	</sprite>
-	<sprite name="door07l" mask="_doormaske2"entity="d_dundoor07l">
-		<position x="224" y="480" w="32" h="64" />
-	</sprite>
-	<sprite name="door07m" mask="_doormaskn2"entity="d_dundoor07m">
-		<position x="192" y="448" w="64" h="32" />
-	</sprite>
-	<sprite name="door07n" mask="_doormaske2"entity="d_dundoor07n">
-		<position x="192" y="480" w="32" h="64" />
-	</sprite>
-	<sprite name="door07ch" mask="0">
-		<position x="448" y="480" w="64" h="32" />
-	</sprite>
-	<sprite name="door078h" mask="0">
-		<position x="448" y="512" w="64" h="32" />
-	</sprite>
-	<sprite name="door07oh" mask="0">
-		<position x="416" y="368" w="64" h="48" />
-	</sprite>
-	<sprite name="door07oa" mask="0">
-		<position x="416" y="368" w="64" h="16" />
-	</sprite>
-	<sprite name="crack07ao" mask="0">
-		<position x="416" y="368" w="64" h="48" />
-	</sprite>
-	<sprite name="crack07aa" mask="0">
-		<position x="416" y="368" w="64" h="16" />
-	</sprite>
-	<sprite name="door071" mask="_doormaskn2"entity="d_dundoor071">
-		<position x="320" y="368" w="64" h="32" />
-	</sprite>
-	<sprite name="dun104" mask="0">
-		<position x="320" y="400" w="64" h="16" />
-	</sprite>
-	<sprite name="crack07a" mask="_doormaskn1"entity="d_duncrack07a">
-		<position x="256" y="416" w="64" h="48" />
-	</sprite>
-	<sprite name="crack07b" mask="_doormaske1"entity="d_duncrack07b">
-		<position x="304" y="480" w="48" h="64" />
-	</sprite>
-	<sprite name="crack07c" mask="_doormaskn1"entity="d_duncrack07c">
-		<position x="320" y="416" w="64" h="48" />
-	</sprite>
-	<sprite name="crack07d" mask="_doormaske1"entity="d_duncrack07d">
-		<position x="256" y="480" w="48" h="64" />
-	</sprite>
-	<sprite name="crack07e" mask="_doormaskn1"entity="d_duncrack07e">
-		<position x="384" y="416" w="64" h="48" />
-	</sprite>
-	<sprite name="crack07f" mask="_doormaske1"entity="d_duncrack07f">
-		<position x="400" y="480" w="48" h="64" />
-	</sprite>
-	<sprite name="crack07g" mask="_doormaskn1"entity="d_duncrack07g">
-		<position x="448" y="416" w="64" h="48" />
-	</sprite>
-	<sprite name="crack07h" mask="_doormaske1"entity="d_duncrack07h">
-		<position x="352" y="480" w="48" h="64" />
-	</sprite>
-	<sprite name="block7" mask="0"entity="o_block7">
-		<position x="320" y="160" w="32" h="32" />
-	</sprite>
+	<animation name="trav" mask="0">
+		<frame sprite="trav_0" x="0" y="0" ms="1000" fs="0"/>
+		<frame sprite="trav_1" x="0" y="0" ms="1000" fs="0"/>
+		<frame sprite="trav_2" x="0" y="0" ms="1000" fs="0"/>
+	</animation>
 </sheet>

@@ -49,6 +49,8 @@ const EntityState: {
 #define GS_PLAYER	2
 #define GS_MENU		3
 
+#define GS_RESTART	32
+
 const EffectState: {
 	NOEFFECT = 0,
 	STUNNED,

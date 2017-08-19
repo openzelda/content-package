@@ -1,3 +1,4 @@
 #	0	64	64
-section_map1	0	0	1	1
-section_map2	1	0	1	1
+section_map1	0	1	1	1
+section_map2	1	1	1	1
+section_map2	0	0	1	1

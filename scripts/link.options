@@ -1,3 +1,4 @@
 <entity>
-	<option name="Weapon" value="weapon_test" type="entity" />
+		<option name="force-global" value="true" type="boolean" />
+		<option name="Weapon" value="weapon_test" type="entity" />
 </entity>

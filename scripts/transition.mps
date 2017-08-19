@@ -4,7 +4,9 @@
  * You are free to share, to copy, distribute and transmit this work
  * You are free to adapt this work
  * Under the following conditions:
- *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You must attribute the work in the manner specified by the author 
+ *  or licensor (but not in any way that suggests that they endorse you
+ *  or your use of the work). 
  *  You may not use this work for commercial purposes.
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
@@ -15,15 +17,16 @@
 #define FADEOUT	2
 #define FADEEND	3
 
-forward public SetTarget(entity:nplayer_id, entity:ntarget_id, nmapid);
+forward public SetTarget(entity:nplayer_id, entity:ntarget_id, nmapid, reset);
 
 
 /* Target Varibles */
 new entity:target_entity;
 new map_id = 0;
+new reset_map = 0;
 new entity:player_entity;
 
-new transtition_state, transtition_mode;
+new game_state, transtition_state, transtition_mode;
 
 new layer_colour = 0xFFFFFFFF;
 new Fixed:seconds;
@@ -35,6 +38,7 @@ main()
 {
 	if ( transtition_state )
 	{
+		ConsoleOutput("transtition");
 		if ( transtition_state == FADEEND )
 		{
 			transtition_state = 0;
@@ -44,15 +48,24 @@ main()
 			LayerColour(3, 0xffffffff);
 			LayerColour(4, 0xffffffff);
 			LayerColour(5, 0xffffffff);
-			GameState(GS_ALL);
+			//SystemCommand(4,1);
+			GameState(game_state);
 		}
 		else if ( transtition_state == FADEOUT )
 		{
+			if ( reset_map )
+			{
+				game_state = GS_ALL;
+				reset_map = 0;
+			}
+
 			if ( target_entity && player_entity )
 			{
 				EntityPublicFunction(target_entity, "UpdatePlayer", ''nnn'', _, player_entity, 32.0, 48.0);
+
 				target_entity = entity:0;
 				player_entity = entity:0;
+				reset_map = 0;
 			}
 			Fade();
 		}
@@ -63,16 +76,17 @@ main()
 	}
 }
 
-public SetTarget(entity:nplayer_id, entity:ntarget_id, nmapid)
+public SetTarget(entity:nplayer_id, entity:ntarget_id, nmapid, reset)
 {
 	target_entity = ntarget_id;
 	player_entity = nplayer_id;
-
 	if ( nmapid )
 	{
 		map_id = nmapid;
+		game_state = GameState();
 		GameState(GS_PAUSE);
 		transtition_state = FADEIN;
+		reset_map = reset;
 		return true;
 	}
 	return false;
@@ -84,6 +98,7 @@ MoveToTarget()
 	{
 		MapSet(map_id, 0, 0);
 		map_id = 0; 
+
 		return true;
 	}
 

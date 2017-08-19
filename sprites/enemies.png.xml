@@ -1,0 +1,29 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="crab" mask="0">
+		<position x="0" y="0" w="48" h="32" />
+	</sprite>
+	<sprite name="spike" mask="0">
+		<position x="48" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="rockshooter01" mask="0">
+		<position x="80" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="rockshooter02" mask="0">
+		<position x="112" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="rivershooter01" mask="0">
+		<position x="144" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="rivershooter02" mask="0">
+		<position x="176" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="graveghost01" mask="0">
+		<position x="208" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="bubble01" mask="0" entity="enemy_bubble.mps">
+		<position x="32" y="80" w="32" h="32" />
+	</sprite>
+	<sprite name="bubble02" mask="0" entity="enemy_bubble.mps">
+		<position x="64" y="80" w="32" h="32" />
+	</sprite>
+</sheet>

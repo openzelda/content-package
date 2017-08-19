@@ -11,7 +11,7 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
-#include <standard>
+#include <map_standard>
 
 
 #if !defined HASINITFUNCTION

@@ -1,0 +1,31 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="falling_5" mask="0" hidden="hidden">
+		<position x="88" y="48" w="8" h="16" />
+	</sprite>
+	<sprite name="falling_4" mask="0" hidden="hidden">
+		<position x="64" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="falling_3" mask="0" hidden="hidden">
+		<position x="96" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="falling_2" mask="0" hidden="hidden">
+		<position x="112" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="falling_1" mask="0" hidden="hidden">
+		<position x="112" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="falling_0" mask="0" hidden="hidden">
+		<position x="64" y="0" w="40" h="48" />
+	</sprite>
+	<sprite name="player" mask="0" entity="link.mps">
+		<position x="0" y="0" w="32" h="48" />
+	</sprite>
+	<animation name="falling" mask="0" hidden="hidden">
+		<frame sprite="falling_0" x="0" y="0" ms="66" fs="0"/>
+		<frame sprite="falling_1" x="8" y="8" ms="66" fs="0"/>
+		<frame sprite="falling_2" x="8" y="8" ms="66" fs="0"/>
+		<frame sprite="falling_3" x="16" y="16" ms="66" fs="0"/>
+		<frame sprite="falling_4" x="16" y="16" ms="66" fs="0"/>
+		<frame sprite="falling_5" x="24" y="16" ms="66" fs="0"/>
+	</animation>
+</sheet>

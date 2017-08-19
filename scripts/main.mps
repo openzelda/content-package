@@ -4,7 +4,9 @@
  * You are free to share, to copy, distribute and transmit this work 
  * You are free to adapt this work 
  * Under the following conditions: 
- *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work).  
+ *  You must attribute the work in the manner specified by the author 
+ *  or licensor (but not in any way that suggests that they endorse you
+ *  or your use of the work).  
  *  You may not use this work for commercial purposes. 
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/ 
  * Changes: 
@@ -21,8 +23,6 @@ forward public GetPlayer();
 
 public controller = 1; 
 public debug_game = debug; 
-
-
 
 
 public Init( ... ) 
@@ -48,6 +48,7 @@ public Close()
 
 main() 
 { 
+/*
 	new Fixed:q;
 	new Fixed:w;
 	new str{4};
@@ -62,13 +63,10 @@ main()
 		GraphicsDraw(str, TEXT, 320+fround(w), 240+fround(q), 6.1, 0, 0, 0xFF0000FF )
 
 	}
-
+*/
 
 } 
- 
- 
- 
- 
+
 public SetPlayer(n) 
 { 
 	controller = n; 

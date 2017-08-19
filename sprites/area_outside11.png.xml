@@ -1,0 +1,104 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="sw7" mask="0">
+		<position x="48" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="sw6" mask="0">
+		<position x="80" y="64" w="16" h="16" />
+	</sprite>
+	<sprite name="sw5" mask="0">
+		<position x="80" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="sw4" mask="0">
+		<position x="80" y="32" w="16" h="16" />
+	</sprite>
+	<sprite name="sw3" mask="0">
+		<position x="96" y="32" w="32" h="16" />
+	</sprite>
+	<sprite name="sw2" mask="0">
+		<position x="96" y="48" w="16" h="32" />
+	</sprite>
+	<sprite name="sw1" mask="0">
+		<position x="112" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="fw9" mask="0">
+		<position x="48" y="144" w="32" h="32" />
+	</sprite>
+	<sprite name="fw8" mask="0">
+		<position x="112" y="80" w="32" h="32" />
+	</sprite>
+	<sprite name="fw7" mask="0">
+		<position x="80" y="80" w="32" h="32" />
+	</sprite>
+	<sprite name="fw6" mask="0">
+		<position x="80" y="144" w="32" h="32" />
+	</sprite>
+	<sprite name="fw5" mask="0">
+		<position x="80" y="112" w="32" h="32" />
+	</sprite>
+	<sprite name="fw4" mask="0">
+		<position x="48" y="112" w="32" h="32" />
+	</sprite>
+	<sprite name="fw2" mask="0">
+		<position x="32" y="96" w="16" h="80" />
+	</sprite>
+	<sprite name="fw3" mask="0">
+		<position x="16" y="48" w="16" h="32" />
+	</sprite>
+	<sprite name="fw1" mask="0">
+		<position x="16" y="80" w="16" h="64" />
+	</sprite>
+	<sprite name="bw1" mask="0">
+		<position x="64" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="bw2" mask="0">
+		<position x="96" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="bw3" mask="0">
+		<position x="48" y="32" w="32" h="16" />
+	</sprite>
+	<sprite name="bw4" mask="0">
+		<position x="48" y="48" w="32" h="16" />
+	</sprite>
+	<sprite name="bw5" mask="0">
+		<position x="32" y="48" w="16" h="16" />
+	</sprite>
+	<sprite name="rw1" mask="0">
+		<position x="0" y="176" w="16" h="32" />
+	</sprite>
+	<sprite name="rw2" mask="0">
+		<position x="16" y="176" w="16" h="32" />
+	</sprite>
+	<sprite name="rw3" mask="0">
+		<position x="32" y="176" w="32" h="32" />
+	</sprite>
+	<sprite name="rw4" mask="0">
+		<position x="64" y="176" w="16" h="32" />
+	</sprite>
+	<sprite name="rw5" mask="0">
+		<position x="80" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="fw10" mask="0">
+		<position x="0" y="48" w="16" h="64" />
+	</sprite>
+	<sprite name="fw11" mask="0">
+		<position x="48" y="96" w="32" h="16" />
+	</sprite>
+	<sprite name="fw4a" mask="0">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="bw2alt" mask="0">
+		<position x="48" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="rw6" mask="0">
+		<position x="96" y="176" w="16" h="16" />
+	</sprite>
+	<sprite name="sw8" mask="0">
+		<position x="112" y="16" w="32" h="16" />
+	</sprite>
+	<sprite name="fw2alt" mask="0">
+		<position x="128" y="112" w="16" h="80" />
+	</sprite>
+	<sprite name="rw7" mask="0">
+		<position x="80" y="192" w="32" h="16" />
+	</sprite>
+</sheet>

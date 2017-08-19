@@ -1,0 +1,53 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="rat" mask="0" entity="e_rat">
+		<position x="80" y="80" w="32" h="32" />
+	</sprite>
+	<sprite name="ratstandn2" mask="0">
+		<position x="24" y="96" w="24" h="32" />
+	</sprite>
+	<sprite name="ratstandn1" mask="0">
+		<position x="0" y="96" w="24" h="32" />
+	</sprite>
+	<sprite name="ratstands2" mask="0">
+		<position x="24" y="64" w="24" h="32" />
+	</sprite>
+	<sprite name="ratstands1" mask="0">
+		<position x="0" y="64" w="24" h="32" />
+	</sprite>
+	<sprite name="ratstande2" mask="0">
+		<position x="80" y="80" w="32" h="32" />
+	</sprite>
+	<sprite name="ratstande1" mask="0">
+		<position x="80" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="ratstandw2" mask="0">
+		<position x="48" y="80" w="32" h="32" />
+	</sprite>
+	<sprite name="ratstandw1" mask="0">
+		<position x="48" y="48" w="32" h="32" />
+	</sprite>
+	<sprite name="rate2" mask="0">
+		<position x="80" y="24" w="32" h="24" />
+	</sprite>
+	<sprite name="rate1" mask="0">
+		<position x="80" y="0" w="32" h="24" />
+	</sprite>
+	<sprite name="ratw2" mask="0">
+		<position x="48" y="24" w="32" h="24" />
+	</sprite>
+	<sprite name="ratw1" mask="0">
+		<position x="48" y="0" w="32" h="24" />
+	</sprite>
+	<sprite name="ratn2" mask="0">
+		<position x="24" y="32" w="24" h="32" />
+	</sprite>
+	<sprite name="ratn1" mask="0">
+		<position x="0" y="32" w="24" h="32" />
+	</sprite>
+	<sprite name="rats2" mask="0">
+		<position x="24" y="0" w="24" h="32" />
+	</sprite>
+	<sprite name="rats1" mask="0">
+		<position x="0" y="0" w="24" h="32" />
+	</sprite>
+</sheet>

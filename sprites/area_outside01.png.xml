@@ -1,6 +1,6 @@
 <sheet xmlns="http://mokoi.info/format/sheet">
-	<sprite name="g9" mask="0">
-		<position x="152" y="280" w="8" h="8" />
+	<sprite name="steps1" mask="0">
+		<position x="160" y="288" w="64" h="64" />
 	</sprite>
 	<sprite name="g8" mask="0">
 		<position x="192" y="272" w="16" h="16" />
@@ -16,15 +16,6 @@
 	</sprite>
 	<sprite name="g4" mask="0">
 		<position x="128" y="272" w="16" h="16" />
-	</sprite>
-	<sprite name="g3" mask="0">
-		<position x="112" y="272" w="16" h="16" />
-	</sprite>
-	<sprite name="g2" mask="0">
-		<position x="96" y="272" w="16" h="16" />
-	</sprite>
-	<sprite name="g1" mask="0">
-		<position x="80" y="272" w="16" h="16" />
 	</sprite>
 	<sprite name="g0" mask="0">
 		<position x="64" y="272" w="16" h="16" />
@@ -86,25 +77,6 @@
 	<sprite name="post_1" mask="0">
 		<position x="96" y="240" w="32" h="32" />
 	</sprite>
-	<animation name="f1" mask="0">
-		<frame sprite="f1_0" x="0" y="0" ms="160"/>
-		<frame sprite="f1_1" x="0" y="0" ms="160"/>
-		<frame sprite="f1_2" x="0" y="0" ms="160"/>
-	</animation>
-	<animation name="f2" mask="0">
-		<frame sprite="f2_0" x="0" y="0" ms="160"/>
-		<frame sprite="f2_1" x="0" y="0" ms="160"/>
-		<frame sprite="f2_2" x="0" y="0" ms="160"/>
-	</animation>
-	<animation name="f3" mask="0">
-		<frame sprite="f3_0" x="0" y="0" ms="160"/>
-		<frame sprite="f3_1" x="0" y="0" ms="160"/>
-		<frame sprite="f3_2" x="0" y="0" ms="160"/>
-	</animation>
-	<animation name="post1" mask="0">
-		<frame sprite="post_0" x="0" y="0" ms="1000"/>
-		<frame sprite="post_1" x="0" y="0" ms="1000"/>
-	</animation>
 	<sprite name="fence1" mask="255">
 		<position x="112" y="112" w="32" h="32" />
 	</sprite>
@@ -113,5 +85,33 @@
 	</sprite>
 	<sprite name="fence3" mask="255">
 		<position x="128" y="112" w="16" h="32" />
+	</sprite>
+	<animation name="f1" mask="0">
+		<frame sprite="f1_0" x="0" y="0" ms="160" fs="0"/>
+		<frame sprite="f1_1" x="0" y="0" ms="160" fs="0"/>
+		<frame sprite="f1_2" x="0" y="0" ms="160" fs="0"/>
+	</animation>
+	<animation name="f2" mask="0">
+		<frame sprite="f2_0" x="0" y="0" ms="160" fs="0"/>
+		<frame sprite="f2_1" x="0" y="0" ms="160" fs="0"/>
+		<frame sprite="f2_2" x="0" y="0" ms="160" fs="0"/>
+	</animation>
+	<animation name="f3" mask="0">
+		<frame sprite="f3_0" x="0" y="0" ms="160" fs="0"/>
+		<frame sprite="f3_1" x="0" y="0" ms="160" fs="0"/>
+		<frame sprite="f3_2" x="0" y="0" ms="160" fs="0"/>
+	</animation>
+	<animation name="post1" mask="0">
+		<frame sprite="post_0" x="0" y="0" ms="1000" fs="0"/>
+		<frame sprite="post_1" x="0" y="0" ms="1000" fs="0"/>
+	</animation>
+	<sprite name="stump" mask="0">
+		<position x="160" y="176" w="64" h="64" />
+	</sprite>
+	<sprite name="t0a" mask="0">
+		<position x="112" y="0" w="16" h="32" />
+	</sprite>
+	<sprite name="t1a" mask="0">
+		<position x="16" y="0" w="48" h="48" />
 	</sprite>
 </sheet>

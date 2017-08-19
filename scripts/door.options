@@ -1,6 +1,7 @@
 <entity>
-	<option name="touchopen" value="false" type="boolean" />
-	<option name="target" value="" type="target" />
-	<option name="closed" value="false" type="boolean" />
-	<option name="usekey" value="false" type="boolean" />
+		<option name="arch" value="true" type="boolean" />
+		<option name="target" value="" type="target" />
+		<option name="touchopen" value="false" type="boolean" />
+		<option name="closed" value="false" type="boolean" />
+		<option name="usekey" value="false" type="boolean" />
 </entity>

@@ -1,0 +1,26 @@
+<sheet xmlns="http://mokoi.info/format/sheet" hidden="hidden">
+	<sprite name="net8" mask="0" hidden="hidden">
+		<position x="0" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="net7" mask="0" hidden="hidden">
+		<position x="0" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="net6" mask="0" hidden="hidden">
+		<position x="32" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="net5" mask="0" hidden="hidden">
+		<position x="64" y="64" w="32" h="32" />
+	</sprite>
+	<sprite name="net4" mask="0" hidden="hidden">
+		<position x="64" y="32" w="32" h="32" />
+	</sprite>
+	<sprite name="net3" mask="0" hidden="hidden">
+		<position x="64" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="net2" mask="0" hidden="hidden">
+		<position x="32" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="net1" mask="0" hidden="hidden">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+</sheet>

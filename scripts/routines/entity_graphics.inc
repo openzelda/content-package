@@ -22,7 +22,7 @@ stock SetObject( sprite[], x, y, Fixed:z )
 	}
 	else
 	{
-		qObject = ObjectCreate( sprite, SPRITE, x, y, z, 0, 0 );
+		qObject = ObjectCreate( sprite, SPRITE, x, y, z, .global = true);
 	}
 }
 

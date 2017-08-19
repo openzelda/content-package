@@ -4,7 +4,9 @@
  * You are free to share, to copy, distribute and transmit this work
  * You are free to adapt this work
  * Under the following conditions:
- *  You must attribute the work in the manner specified by the author or licensor (but not in any way that suggests that they endorse you or your use of the work). 
+ *  You must attribute the work in the manner specified by the author 
+ *  or licensor (but not in any way that suggests that they endorse you
+ *  or your use of the work). 
  *  You may not use this work for commercial purposes.
  * Full terms of use: http://creativecommons.org/licenses/by-nc/3.0/
  * Changes:
@@ -136,23 +138,27 @@ DoorInit( direction )
 
 	MaskFill(qDisplayArea.x, qDisplayArea.y, door.w, door.h, MASK_PLAYERSOLID);
 
-	if ( SheetSpriteDimension(archSprite, arch.w, arch.h) )
-	{
-		if ( qDirection == SOUTH )
-		{
-			obj = ObjectCreate(archSprite, SPRITE, qDisplayArea.x, qDisplayArea.y + door.h - arch.h, qPosition.z + 1.0, 0, 0);
-		}
-		else if ( qDirection == EAST )
-		{
-			obj = ObjectCreate(archSprite, SPRITE, qDisplayArea.x + door.h - arch.h- arch.h, qDisplayArea.y, qPosition.z + 1.0, 0, 0);
-		}
-		else
-		{
-			obj = ObjectCreate(archSprite, SPRITE, qDisplayArea.x, qDisplayArea.y, qPosition.z + 1.0, 0, 0);
-		}
-		ObjectEffect( obj, 0xFFFFFFFF, .mirror = rotation );
-	}
 
+	if ( EntityGetNumber("arch") )
+	{
+		if ( SheetSpriteDimension(archSprite, arch.w, arch.h) )
+		{
+			SystemCommand(COMMAND_HARDPAUSE, 1);
+			if ( qDirection == SOUTH )
+			{
+				obj = ObjectCreate(archSprite, SPRITE, qDisplayArea.x, qDisplayArea.y + door.h - arch.h, qPosition.z + 1.0, 0, 0);
+			}
+			else if ( qDirection == EAST )
+			{
+				obj = ObjectCreate(archSprite, SPRITE, qDisplayArea.x + door.h - arch.h- arch.h, qDisplayArea.y, qPosition.z + 1.0, 0, 0);
+			}
+			else
+			{
+				obj = ObjectCreate(archSprite, SPRITE, qDisplayArea.x, qDisplayArea.y, qPosition.z + 1.0, 0, 0);
+			}
+			ObjectEffect( obj, 0xFFFFFFFF, .mirror = rotation );
+		}
+	}
 	if ( EntityGetNumber("closed") )
 	{
 		CloseDoor();

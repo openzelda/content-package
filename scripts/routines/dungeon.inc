@@ -11,7 +11,7 @@
  *     2010/01/11 [luke]: new file.
  *     2013/01/31 [luke]: switch to Pawn 4
  ***********************************************/
-#include <map_features/standard>
+#include <map_standard>
 
 forward public AddSwitch();
 forward public SwitchPressed();

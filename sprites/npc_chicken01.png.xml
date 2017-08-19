@@ -1,0 +1,12 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="a_0" mask="0" hidden="hidden">
+		<position x="0" y="0" w="32" h="32" />
+	</sprite>
+	<sprite name="a_1" mask="0" hidden="hidden">
+		<position x="32" y="0" w="32" h="32" />
+	</sprite>
+	<animation name="a" mask="0">
+		<frame sprite="a_0" x="0" y="0" ms="1000" fs="0"/>
+		<frame sprite="a_1" x="0" y="0" ms="1000" fs="0"/>
+	</animation>
+</sheet>

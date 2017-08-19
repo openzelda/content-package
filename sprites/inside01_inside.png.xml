@@ -1,0 +1,23 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="bed_head" mask="0">
+		<position x="64" y="48" w="64" h="16" />
+	</sprite>
+	<sprite name="bed" mask="0">
+		<position x="64" y="64" w="64" h="16" />
+	</sprite>
+	<sprite name="bed_foot" mask="0">
+		<position x="64" y="80" w="64" h="16" />
+	</sprite>
+	<sprite name="picture1" mask="0">
+		<position x="64" y="96" w="64" h="40" />
+	</sprite>
+	<sprite name="table1" mask="0">
+		<position x="0" y="96" w="64" h="48" />
+	</sprite>
+	<sprite name="shelf1_end" mask="0">
+		<position x="216" y="64" w="16" h="64" />
+	</sprite>
+	<sprite name="shelf1" mask="0">
+		<position x="232" y="64" w="16" h="64" />
+	</sprite>
+</sheet>

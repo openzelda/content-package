@@ -78,6 +78,7 @@ public Reset()
 	qState = STANDING;
 	qHealth = qMaxHealth;
 	UpdateDisplayPosition();
+	UpdateObject();
 }
 
 stock HandleDying()

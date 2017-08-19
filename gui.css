@@ -1,0 +1,20 @@
+dialog {
+	border-image: dialog-border.png;
+	border-width:12;
+	color: #000000FF;
+	background-color: #dd0000FF;
+	min-height: 40px;
+	box-model: border;
+}
+
+button { 
+	background-color: #AD7B4AFF;
+	border-color: #AD7B4AFF;
+	color: #02405CFF;
+}
+button:hover { 
+	background-color: #74C5EFFF
+	border-color: #1D9DC1FF;
+	color: #02405CFF;
+}
+guibackground { background-color: #FF0000FF; }

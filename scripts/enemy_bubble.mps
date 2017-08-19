@@ -22,16 +22,15 @@ forward PUBLIC_EVENT_HIT;
 /* */
 new Fixed:TakeMagicCount = 0.00;
 new TakeMagic = true;
-new  Directions:last =  Directions:-1;
+new Directions:last = Directions:-1;
 
 public Init( ... )
 {
-	qMovementSpeed = 100;   
+	qMovementSpeed = 100;
 	qDamageDealt = 50;
 	qHealth = 50;
 
 	qState = MOVING;
-
 
 	/* These are used more for collision through EntityMove then for Display.*/
 	qDisplayArea.h = qDisplayArea.w = 38;
@@ -68,11 +67,14 @@ main()
 		qMovementAngle = Dir2Angle(qDirection);
 	}
 
+	UpdateObject();
+}
+
+UpdateObject()
+{
 	CollisionSet(SELF, 1, TYPE_ENEMY, qDisplayArea.x + 3, qDisplayArea.y+3, 34, 34 );
 	ObjectPosition( qObject, qDisplayArea.x, qDisplayArea.y, qPosition.z, 0, 0 );
 }
-
-
 
 /* Public Functions */
 

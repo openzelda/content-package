@@ -1,0 +1,24 @@
+<sheet xmlns="http://mokoi.info/format/sheet">
+	<sprite name="1_0" mask="0" hidden="hidden">
+		<position x="0" y="0" w="40" h="40" />
+	</sprite>
+	<sprite name="1_1" mask="0" hidden="hidden">
+		<position x="40" y="0" w="40" h="40" />
+	</sprite>
+	<sprite name="1_2" mask="0" hidden="hidden">
+		<position x="80" y="0" w="40" h="40" />
+	</sprite>
+	<sprite name="1_3" mask="0" hidden="hidden">
+		<position x="120" y="0" w="40" h="40" />
+	</sprite>
+	<sprite name="1_4" mask="0">
+		<position x="160" y="0" w="40" h="40" />
+	</sprite>
+	<animation name="1" mask="0" entity="enemy_bubble.mps">
+		<frame sprite="1_0" x="0" y="0" ms="60" fs="0"/>
+		<frame sprite="1_1" x="0" y="0" ms="60" fs="0"/>
+		<frame sprite="1_2" x="0" y="0" ms="60" fs="0"/>
+		<frame sprite="1_3" x="0" y="0" ms="60" fs="0"/>
+		<frame sprite="1_4" x="0" y="0" ms="60" fs="0"/>
+	</animation>
+</sheet>

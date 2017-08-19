@@ -11,7 +11,7 @@
  * Changes:
  *     2010/01/11 [luke]: new file.
  ***********************************************/
-#include <map_features/standard>
+#include <map_standard>
 
 forward public KilledEnemy();
 
